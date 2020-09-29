@@ -1,7 +1,7 @@
 import { Box, Container, Grid } from "@material-ui/core";
 import React, { Component } from "react";
-import Price from "../../components/price/Price";
-import Seat from "../../components/seat/seat";
+import Price from "../../components/Price/Price";
+import Seat from "../../components/Seat/Seat";
 import style from './styleBooking'
 import {withStyles} from '@material-ui/core'
 

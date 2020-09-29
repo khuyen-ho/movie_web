@@ -1,10 +1,9 @@
 import { Box, Container, Grid, Typography } from "@material-ui/core";
 import React, { Component } from "react";
-import Cinema from "../../components/cinema/Cinema";
-import CinemaDetail from "../../components/cinema/CinemaDetail";
+import Cinema from "../../components/Cinema/Cinema";
 import style from "./styleDetail";
 import { withStyles } from "@material-ui/core";
-import CinemaMovie from "../../components/cinema/CinemaMovie";
+import CinemaMovie from "../../components/Cinema/CinemaMovie";
 class Detail extends Component {
   render() {
     const { classes } = this.props;
