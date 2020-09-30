@@ -12,6 +12,8 @@ import {
 import MovieItem from "../../components/MovieItem/MovieItem";
 import Cinema from "../../components/Cinema/Cinema";
 import CinemaDetail from "../../components/Cinema/CinemaDetail";
+import { getCourseList } from "../../redux/actions/courseAction";
+import { connect } from "react-redux";
 
 class Home extends Component {
   render() {
@@ -56,9 +58,9 @@ class Home extends Component {
               <MovieItem />
             </Grid>
           </Grid>
- 
+
           <Box my={5} mx={2}>
-           <Typography className={classes.title2} component="h4" variant="h4">
+            <Typography className={classes.title2} component="h4" variant="h4">
               Cinema
             </Typography>
             <Grid className={classes.cinema} container>
@@ -91,5 +93,9 @@ class Home extends Component {
       </Box>
     );
   }
+
+  componentDidMount() {
+    this.props.dispatch(getCourseList());
+  }
 }
-export default withStyles(style)(Home);
+export default connect()(withStyles(style)(Home));
