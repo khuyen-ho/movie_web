@@ -11,12 +11,11 @@ class Pagination_ extends Component {
   }
 
   handlePageChange(pageNumber) {
-    //console.log(`active page is ${pageNumber}`);
+    console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
   }
   render() {
-      console.log(this.props.pagination);
-      const{totalCount,count}=this.props.pagination;
+      const{totalCount,count, currentPage, totalPages}=this.props.pagination;
     return (
       <div>
         <Pagination

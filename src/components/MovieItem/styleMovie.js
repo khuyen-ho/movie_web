@@ -5,7 +5,7 @@ const style = (theme) => ({
       color:'#fff'
     },
     media: {
-      height: 250,
+      height: 400,
       
     },
     btn:{
@@ -20,7 +20,8 @@ const style = (theme) => ({
     },
     name:{
         color:'#44e2ff',
-        margin: 0
+        margin: 0,
+        padding:'10px 0'
     }
    
   });

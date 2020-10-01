@@ -10,29 +10,32 @@ import {
   CardContent,
 } from "@material-ui/core";
 import style from "./styleMovie";
-
-
+import{ connect} from 'react-redux'
 class MovieItem extends Component {
   goToDetail = (id) => () => {
     this.props.history.push("/detail/" + id);
     //console.log(this.props.history);
   };
 
+  
   render() {
     const { classes } = this.props;
+   const{hinhAnh,tenPhim}=this.props.courseItem;
+    console.log(this.props.courseItem);
     // const { tenPhim, moTa, hinhAnh, maPhim } = this.props.item;
     return (
       <div>
+       
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              image="http://movie0706.cybersoft.edu.vn/hinhanh/dao-kinh-hoang_gp01.jpg"
+              image={hinhAnh}
               title="Contemplative Reptile"
             />
             <CardContent style={{padding:0}}>
               <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-                name
+                {tenPhim}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -48,5 +51,11 @@ class MovieItem extends Component {
 }
 
 
+const mapStateToProps = (state)=>{
+  return {
+   // course:state.course,
+   // pagination:state.pagination
+  }
+}
 
-export default (withStyles(style)(MovieItem));
+export default connect(mapStateToProps)( (withStyles(style)(MovieItem)));

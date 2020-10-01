@@ -20,7 +20,7 @@ class App extends Component {
       {/* <Booking/> */}
       {/* <Footer /> */}
       <div>
-      <Pagination_/>
+      {/* <Pagination_/> */}
       </div>
     </>
   )}

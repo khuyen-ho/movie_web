@@ -16,8 +16,20 @@ import { getCourseList } from "../../redux/actions/courseAction";
 import { connect } from "react-redux";
 
 class Home extends Component {
+  renderMovie = () => {
+    const { classes } = this.props;
+    return this.props.course.map((courseItem, index) => {
+      return (
+        <Grid className={classes.item} item xs={4}>
+          <MovieItem key={index} courseItem={courseItem} />
+        </Grid>
+      );
+    });
+  };
+
   render() {
     const { classes } = this.props;
+
     return (
       <Box className={classes.home} textAlign="center">
         <Container className={classes.container}>
@@ -33,30 +45,8 @@ class Home extends Component {
             New movies
           </Typography>
           <Grid container>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
-            <Grid className={classes.item} item xs={3}>
-              <MovieItem />
-            </Grid>
+            {this.renderMovie()}
+         
           </Grid>
 
           <Box my={5} mx={2}>
@@ -98,4 +88,11 @@ class Home extends Component {
     this.props.dispatch(getCourseList());
   }
 }
-export default connect()(withStyles(style)(Home));
+
+const mapStateToProps = (state) => {
+  return {
+    course: state.course,
+    pagination: state.pagination,
+  };
+};
+export default connect(mapStateToProps)(withStyles(style)(Home));

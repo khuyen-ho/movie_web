@@ -13,12 +13,12 @@ export const getCourseList = () => {
          
         })
           .then(function thanhCong(res) {
-            console.log(res.data);
+            //console.log(res.data);
             dispatch({
               type: GET_COURSE_LIST,
               payload: res.data,
             });
-            console.log(res.data);
+           
           })
           .catch(function thatBai(err) {
             console.log(err);

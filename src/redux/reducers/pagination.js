@@ -5,7 +5,8 @@ let initialState = {};
 const pagination = (state = initialState, action) => {
   switch (action.type) {
     case GET_COURSE_LIST: {
-        state = action.payload
+        state = action.payload;
+        return {...state}
     }
     default:
       return state;
