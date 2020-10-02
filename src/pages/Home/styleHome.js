@@ -20,12 +20,7 @@ const style = (theme)=>({
         paddingLeft:theme.spacing(10),
         paddingRight:theme.spacing(10)
     },
-    detail:{
-        color:'white'
-    },
-    cinema:{
-        backgroundColor:'#181818'
-    }
+    
 })
 
 export default style

@@ -10,11 +10,11 @@ import {
   withStyles,
 } from "@material-ui/core";
 import MovieItem from "../../components/MovieItem/MovieItem";
-import Cinema from "../../components/Cinema/Cinema";
-import CinemaDetail from "../../components/Cinema/CinemaDetail";
+
 import Pagination_ from "../../components/Pagination/Pagination";
 import { getCourseList } from "../../redux/actions/courseAction";
 import { connect } from "react-redux";
+import CinemaComponent from "../../components/Cinema/CinemaComponent";
 
 class Home extends Component {
   renderMovie = () => {
@@ -53,7 +53,7 @@ class Home extends Component {
              <Pagination_/>
           </Box>
          
-          <Box my={5} mx={2}>
+          {/* <Box my={5} mx={2}>
             <Typography className={classes.title2} component="h4" variant="h4">
               Cinema
             </Typography>
@@ -68,7 +68,8 @@ class Home extends Component {
                <Typography>Info</Typography>
               </Grid>
             </Grid>
-          </Box>
+          </Box> */}
+          <CinemaComponent/>
 
          
         </Container>

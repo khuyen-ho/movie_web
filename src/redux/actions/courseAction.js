@@ -41,8 +41,8 @@ export const getCourseList = (pageNumber=1,itemsPerPage=12) => {
          
         })
           .then(function thanhCong(res) {
-            console.log(res.data);
-            console.log(dispatch);
+            //console.log(res.data);
+            //console.log(dispatch);
             dispatch({
               type: GET_CINEMA_LIST,
               payload: res.data,

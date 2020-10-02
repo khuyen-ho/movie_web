@@ -2,7 +2,7 @@ import Axios from "axios";
 import { GET_CINEMA_DETAIL } from "./actionType";
 
   
-  export const getCinemaDetail = (cinemaID = 'BHDStar') => {
+  export const getCinemaDetail = (cinemaID = 'BHDStar', logo='') => {
     return (dispatch) => {
       {
         //call api
@@ -15,11 +15,12 @@ import { GET_CINEMA_DETAIL } from "./actionType";
          
         })
           .then(function thanhCong(res) {
-            console.log(res.data);
-            console.log(dispatch);
+           // console.log(logo);
+           // console.log(dispatch);
             dispatch({
               type: GET_CINEMA_DETAIL,
               payload: res.data,
+              logo
             });
            
           })

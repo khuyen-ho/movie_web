@@ -6,13 +6,13 @@ import { connect } from "react-redux";
 import { getCinemaDetail } from "../../redux/actions/userActions";
 
 class CinemaDetail extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      img:'http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'
-    }
+  // constructor(props){
+  //   super(props);
+  //   this.state={
+  //     img:this.props.chosenCinema.img
+  //   }
   
-  }
+  // }
   renderCinema = () => {
     const { classes } = this.props;
     return this.props.cinemaDetailList.map((item, index) => (
@@ -20,7 +20,7 @@ class CinemaDetail extends Component {
         <Grid container>
           <Grid item xs={4}>
             <img
-              src={this.state.img}
+              src={this.props.chosenCinema.img}
             />
           </Grid>
           <Grid item xs={8}>
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => {
   return {
     cinemaList:state.cinema,
     cinemaDetailList: state.cinemaDetail,
+    chosenCinema:state.chosenCinema
   };
 };
 export default connect(mapStateToProps)(withStyles(style)(CinemaDetail));
