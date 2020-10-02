@@ -5,16 +5,18 @@ const style = (theme)=>({
     cinemaItem:{
         height:100,
         color:'#46e1ff',
-        
         '& img':{
-            width:'100%'
+            width:'4rem'
         },
         '& .title':{
-            color:'#46e1ff'
+            fontSize:13,
+            color:'#3dc9e4',
+            
         },
         '& .detail':{
-            fontSize:13,
-            color:'#46e1ff'
+            fontSize:11,
+            color:'#979e9f',
+            paddingTop:theme.spacing(.5)
         }
     }
 })

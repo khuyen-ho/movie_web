@@ -3,9 +3,14 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import course from './reducers/course'
 import pagination from './reducers/pagination'
+import cinema from './reducers/cinema'
+import cinemaDetail from './reducers/cinemaDetail'
+
 const RootReducer = combineReducers({
   course,
-  pagination
+  pagination,
+  cinema,
+  cinemaDetail
 
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

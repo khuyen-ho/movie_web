@@ -61,28 +61,15 @@ class Home extends Component {
               <Grid item xs={1}>
                 <Cinema />
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <CinemaDetail />
               </Grid>
-              <Grid item xs={8} className={classes.detail}>
-                Information
+              <Grid item xs={7} className={classes.detail}>
+               <Typography>Info</Typography>
               </Grid>
             </Grid>
           </Box>
 
-          {/* Pagination  */}
-          {/* <Box>
-            <ButtonGroup
-              variant="contained"
-              color="secondary"
-              aria-label="contained primary button group"
-              style={{ margin: 50 }}
-            >
-              <Button>1</Button>
-              <Button>2</Button>
-              <Button>3</Button>
-            </ButtonGroup>
-          </Box> */}
          
         </Container>
       </Box>
