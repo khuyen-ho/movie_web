@@ -5,7 +5,7 @@ const style = (theme) => ({
       color:'#fff'
     },
     media: {
-      height: 400,
+      height: 250,
       
     },
     btn:{

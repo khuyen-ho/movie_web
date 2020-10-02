@@ -21,7 +21,7 @@ class MovieItem extends Component {
   render() {
     const { classes } = this.props;
    const{hinhAnh,tenPhim}=this.props.courseItem;
-    console.log(this.props.courseItem);
+    //console.log(this.props.courseItem);
     // const { tenPhim, moTa, hinhAnh, maPhim } = this.props.item;
     return (
       <div>

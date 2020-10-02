@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import Pagination from "react-js-pagination";
 import { connect } from "react-redux";
+import {
+  GET_COURSE_LIST,
+  GET_CURRENT_PAGE,
+} from "../../redux/actions/actionType";
+import { getCourseList } from "../../redux/actions/courseAction";
+import style from './stylePagination'
+import {withStyles} from '@material-ui/core'
+
 
 class Pagination_ extends Component {
   constructor(props) {
@@ -12,20 +20,35 @@ class Pagination_ extends Component {
 
   handlePageChange(pageNumber) {
     console.log(`active page is ${pageNumber}`);
-    this.setState({ activePage: pageNumber });
+      this.setState({ activePage: pageNumber });
+    this.props.dispatch(getCourseList(pageNumber));
   }
   render() {
-      const{totalCount,count, currentPage, totalPages}=this.props.pagination;
+    const {
+      totalCount,
+      count,
+      currentPage,
+      totalPages,
+    } = this.props.pagination;
+   // console.log(totalCount/totalPages);
+    const {classes}=this.props
     return (
-      <div>
+      <>
         <Pagination
+        innerClass={classes.pagi}
+      //  activeClass={classes.active}
+      activeLinkClass={classes.active}
+      linkClass={classes.tagA}
+         // itemClass="page-item"
+         itemClass={classes.tagUl}
+          //linkClass="page-link"
           activePage={this.state.activePage}
-          itemsCountPerPage={count}
+          itemsCountPerPage={9}
           totalItemsCount={totalCount}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={10}
           onChange={this.handlePageChange.bind(this)}
         />
-      </div>
+      </>
     );
   }
 }
@@ -35,4 +58,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Pagination_);
+export default connect(mapStateToProps)(withStyles(style)(Pagination_) );
