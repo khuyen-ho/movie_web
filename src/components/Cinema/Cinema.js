@@ -9,9 +9,9 @@ class Cinema extends Component {
 renderCinema=()=>{
   const { classes } = this.props;
   return this.props.cinemaList.map((item,index)=>(
-    //
     <Button onClick={()=>this.props.dispatch(getCinemaDetail(item.maHeThongRap,item.logo))}  key={index} className={classes.cinemaItem} >
           <img src={item.logo} />
+          {/* {item.tenHeThongRap} */}
         </Button>
   ))
 }

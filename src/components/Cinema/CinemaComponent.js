@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core";
 import Cinema from "./Cinema";
 import CinemaDetail from "./CinemaDetail";
 import { connect } from "react-redux";
+import CinemaSchedule from "./CinemaSchedule";
 
 class CinemaComponent extends Component {
   render() {
@@ -22,7 +23,7 @@ class CinemaComponent extends Component {
             <CinemaDetail />
           </Grid>
           <Grid item xs={7} className={classes.detail}>
-            <Typography>Info</Typography>
+            <CinemaSchedule/>
           </Grid>
         </Grid>
       </Box>

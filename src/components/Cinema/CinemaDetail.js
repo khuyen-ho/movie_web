@@ -3,20 +3,15 @@ import React, { Component } from "react";
 import style from "./styleCinema";
 import { withStyles } from "@material-ui/core";
 import { connect } from "react-redux";
-import { getCinemaDetail } from "../../redux/actions/userActions";
+import { getCinemaDetail, getCinemaSchedule } from "../../redux/actions/userActions";
 
 class CinemaDetail extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state={
-  //     img:this.props.chosenCinema.img
-  //   }
   
-  // }
   renderCinema = () => {
     const { classes } = this.props;
+    //console.log(this.props.cinemaDetailList);
     return this.props.cinemaDetailList.map((item, index) => (
-      <Button key={index} className={classes.cinemaItem}>
+      <Button onClick={()=>this.props.dispatch(getCinemaSchedule(this.props.chosenCinema.name,item.maCumRap))} key={index} className={classes.cinemaItem}>
         <Grid container>
           <Grid item xs={4}>
             <img
