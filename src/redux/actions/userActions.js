@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { GET_CINEMA_DETAIL, GET_CINEMA_SCHEDULE } from "./actionType";
+import { GET_CINEMA_DETAIL, GET_CINEMA_SCHEDULE, SET_TOKEN } from "./actionType";
 
   
   export const getCinemaDetail = (cinemaName = 'BHDStar', logo='') => {
@@ -60,3 +60,34 @@ import { GET_CINEMA_DETAIL, GET_CINEMA_SCHEDULE } from "./actionType";
       }
     };
   };
+
+  
+export const signIn = (user)=>{
+  return (dispatch)=>{
+      Axios({
+          url:'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap',
+          method:'POST',
+          data:user,
+      }).then(
+        function success(res){
+            console.log(res.data);
+            localStorage.setItem('accessToken', res.data.accessToken);
+            dispatch({
+                type:SET_TOKEN,
+                payload: res.data.accessToken
+            })
+        }
+          
+      ).catch((err)=>console.log(err))
+  }
+}
+
+export const signUp = (user)=>{
+  return (dispatch)=>{
+      Axios({
+          url:'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy',
+          method:'POST',
+          data:user,
+      }).then((res)=>console.log(res.data)).catch((err)=>console.log(err))
+  }
+}
