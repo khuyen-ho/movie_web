@@ -7,7 +7,7 @@ import {
   Typography,
   Button,
   withStyles,
-  CardContent,
+  CardContent,Box
 } from "@material-ui/core";
 import style from "./styleMovie";
 import{ connect} from 'react-redux'
@@ -34,9 +34,9 @@ class MovieItem extends Component {
               title="Contemplative Reptile"
             />
             <CardContent style={{padding:0}}>
-              <Typography className={classes.name} gutterBottom variant="h5" component="h2">
+              <Box fontSize={{xs:18, md: 20}} className={classes.name} gutterBottom variant="h5" component="h2">
                 {tenPhim}
-              </Typography>
+              </Box>
             </CardContent>
           </CardActionArea>
           <CardActions >

@@ -18,7 +18,7 @@ class CinemaSchedule extends Component {
     // console.log(movieList);
     if (movieList.length !== 0) {
       return movieList[0].danhSachPhim.map((item, index) => (
-        <Button key={index} className={classes.cinemaItem} fullWidth>
+        <Button key={index} className={classes.cinemaItem} fullWidth disabled>
           <Grid container>
             <Grid item xs={6}>
               <img src={item.hinhAnh} />

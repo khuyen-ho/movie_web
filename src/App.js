@@ -17,11 +17,11 @@ class App extends Component {
   return (
     <>
       {/* <Header /> */}
-      {/* <Home /> */}
+      <Home />
       {/* <Detail/> */}
       {/* <Booking/> */}
       {/* <SignIn/> */}
-      <SignUp/>
+      {/* <SignUp/> */}
       {/* <Footer /> */}
       <div>
       {/* <Pagination_/> */}
