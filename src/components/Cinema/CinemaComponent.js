@@ -16,13 +16,13 @@ class CinemaComponent extends Component {
           Cinema
         </Typography>
         <Grid className={classes.cinema} container>
-          <Grid item xs={1}>
+          <Grid item xs={2} sm={2} lg={1}>
             <Cinema />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6} sm={4} lg={4}>
             <CinemaDetail />
           </Grid>
-          <Grid item xs={7} className={classes.detail}>
+          <Grid item xs={4} sm={6} lg={7} className={classes.detail}>
             <CinemaSchedule/>
           </Grid>
         </Grid>
