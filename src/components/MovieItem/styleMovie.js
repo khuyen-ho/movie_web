@@ -2,11 +2,16 @@ const style = (theme) => ({
     root: {
       maxWidth: 345,
       backgroundColor:'#1a1a1a',
-      color:'#fff'
+      color:'#fff',
+      
     },
     media: {
       height: 250,
-      
+      // '@media screen and (max-width: 578px)': {
+      //   '&': {
+      //     height: 200, /* The width is 100%, when the viewport is 800px or smaller */
+      //   }
+      // }
     },
     btn:{
         border:'2px solid #121212',
@@ -20,8 +25,13 @@ const style = (theme) => ({
     },
     name:{
         color:'#44e2ff',
-        margin: 0,
-        padding:'10px 0'
+        margin:0,
+      //   padding:'10px 0',
+      //   '@media screen and (max-width: 576px)': {
+      //   '&': {
+      //     padding: 0, /* The width is 100%, when the viewport is 800px or smaller */
+      //   }
+      // }
     }
    
   });

@@ -34,7 +34,7 @@ class MovieItem extends Component {
               title="Contemplative Reptile"
             />
             <CardContent style={{padding:0}}>
-              <Box fontSize={{xs:18, md: 20}} className={classes.name} gutterBottom variant="h5" component="h2">
+              <Box fontSize={{xs:18, md: 20}} py={{xs:0,md:1}} className={classes.name} gutterBottom variant="h5" component="h2">
                 {tenPhim}
               </Box>
             </CardContent>

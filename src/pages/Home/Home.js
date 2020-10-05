@@ -21,8 +21,9 @@ class Home extends Component {
     const { classes } = this.props;
     return this.props.course.map((courseItem, index) => {
       return (
-        <Grid className={classes.item} item xs={12} sm={6} md={4} lg={3} >
-          <MovieItem key={index} courseItem={courseItem} />
+        <Grid className={classes.item} item xs={6} sm={4} md={3} lg={3} >
+          <Box p={{lg:5,md:3,xs:1}}>
+          <MovieItem key={index} courseItem={courseItem} /></Box>
         </Grid>
       );
     });
