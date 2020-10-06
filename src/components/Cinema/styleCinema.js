@@ -31,7 +31,7 @@ const style = (theme) => ({
   title2: {
     color: "#dacb46",
     textAlign: "left",
-    paddingLeft: theme.spacing(2),
+    //paddingLeft: theme.spacing(2),
   },
   detail: {
     color: "white",
