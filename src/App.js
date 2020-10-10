@@ -9,25 +9,14 @@ import Pagination_ from "./components/Pagination/Pagination";
 import SignIn from "./pages/Sign In/SignIn";
 import SignUp from "./pages/Sign Up/SignUp";
 
-
 class App extends Component {
-  
-  
-  render(){
-  return (
-    <>
-      {/* <Header /> */}
-      <Home />
-      {/* <Detail/> */}
-      {/* <Booking/> */}
-      {/* <SignIn/> */}
-      {/* <SignUp/> */}
-      {/* <Footer /> */}
-      <div>
-      {/* <Pagination_/> */}
-      </div>
-    </>
-  )}
+  render() {
+    return (
+      <>
+        <Home />
+      </>
+    );
+  }
 }
 
 export default App;
