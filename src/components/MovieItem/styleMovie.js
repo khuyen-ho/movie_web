@@ -21,10 +21,10 @@ const style = (theme) => ({
   item: {
     textAlign: "center",
     position: "relative",
-    '& .titleMovie':{
+    "& .titleMovie": {
       "@media screen and (max-width: 768px)": {
         "&": {
-          fontSize:15,
+          fontSize: 15,
         },
       },
     },
@@ -47,11 +47,26 @@ const style = (theme) => ({
       position: "relative",
       marginTop: 50,
       borderRadius: 5,
-      height: '100%',
+      height: 250,
       width: "100%",
       overflow: "hidden",
-      "& img": {
-        width: "100%",
+      "@media screen and (max-width: 992px)": {
+        "&": {
+          height: 220,
+        },
+      },
+      "@media screen and (max-width: 768px)": {
+        "&": {
+          height: 170,
+        },
+      },
+      "@media screen and (max-width: 576px)": {
+        "&": {
+          height: 140,
+        },
+        "& img": {
+          width: "100%",
+        },
       },
       "&__overlay": {
         position: "absolute",
@@ -67,7 +82,7 @@ const style = (theme) => ({
           top: "50%",
           transform: "translateY(-50%)",
           color: theme.palette.white,
-          
+
           "&:hover": {
             color: theme.palette.secondary.main,
             transition: "all 0.2s",
@@ -76,7 +91,7 @@ const style = (theme) => ({
             fontSize: 60,
             "@media screen and (max-width: 768px)": {
               "&": {
-                fontSize:40,
+                fontSize: 40,
               },
             },
           },
@@ -86,8 +101,6 @@ const style = (theme) => ({
     "& .title": {
       position: "relative",
       marginTop: 10,
-
-      
 
       "& p": {
         texAlign: "left",
@@ -113,21 +126,46 @@ const style = (theme) => ({
           backgroundColor: theme.palette.secondary.dark,
         },
       },
-
     },
     "& .score": {
       position: "absolute",
       top: 10,
       right: 10,
-      padding: "0 5px",
+      //padding: "0 5px",
       backgroundColor: "#000",
       opacity: 0.8,
       border: "1px solid #000",
       borderRadius: 5,
-      "& .point": {
-        margin: 0,
-        color: theme.palette.secondary.main,
-      },
+      color: theme.palette.secondary.main,
+     // width: 60,
+      lineHeight:1,
+      // "@media screen and (max-width: 992px)": {
+      //   "&": {
+      //     width: 60,
+      //   },
+      // },
+      // "@media screen and (max-width: 768px)": {
+      //   "&": {
+      //     width: 50,
+      //   },
+      // },
+      // "@media screen and (max-width: 576px)": {
+      //   "&": {
+      //     width: 40,
+      //     height: 35,
+      //   },
+      //},
+      '& .point':{
+        margin:0,
+        color:theme.palette.white,
+        fontSize:17,
+        lineHeight:1,
+        "@media screen and (max-width: 768px)": {
+            "&": {
+              fontSize:15,
+            },
+          },
+      }
     },
   },
 });
