@@ -48,7 +48,6 @@ class Home extends Component {
           </Typography>
           <Grid container>
             {this.renderMovie()}
-         {console.log(  console.log(this.renderMovie()))}
           </Grid>
           <Box mt={5}>
              {/* <Pagination_/> */}

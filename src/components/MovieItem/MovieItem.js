@@ -12,6 +12,7 @@ class MovieItem extends Component {
   render() {
     const { classes } = this.props;
     const { hinhAnh, tenPhim, danhGia } = this.props.courseItem;
+    console.log(this.props.courseItem);
     return (
       <div className={classes.item}>
         <div className="img">
@@ -31,7 +32,7 @@ class MovieItem extends Component {
           <Button fullWidth>MUA VÉ</Button>
         </div>
         <div className="score">
-          <Typography className='point' variant='h6'>{danhGia}</Typography>
+          <Typography className='point' variant='h6'>{parseFloat(danhGia)}</Typography>
           <Rating courseItem={this.props.courseItem} />
         </div>
       </div>

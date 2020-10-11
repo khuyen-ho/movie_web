@@ -137,29 +137,14 @@ const style = (theme) => ({
       border: "1px solid #000",
       borderRadius: 5,
       color: theme.palette.secondary.main,
-     // width: 60,
       lineHeight:1,
-      // "@media screen and (max-width: 992px)": {
-      //   "&": {
-      //     width: 60,
-      //   },
-      // },
-      // "@media screen and (max-width: 768px)": {
-      //   "&": {
-      //     width: 50,
-      //   },
-      // },
-      // "@media screen and (max-width: 576px)": {
-      //   "&": {
-      //     width: 40,
-      //     height: 35,
-      //   },
-      //},
+      padding:4,
       '& .point':{
         margin:0,
         color:theme.palette.white,
         fontSize:17,
         lineHeight:1,
+        //paddingTop:4,
         "@media screen and (max-width: 768px)": {
             "&": {
               fontSize:15,
