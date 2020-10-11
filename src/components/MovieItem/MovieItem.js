@@ -8,7 +8,7 @@ import {
 import style from "./styleMovie";
 import { connect } from "react-redux";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import StarRateIcon from "@material-ui/icons/StarRate";
+import Rating from "../rating/Rating";
 class MovieItem extends Component {
   goToDetail = (id) => () => {
     this.props.history.push("/detail/" + id);
@@ -18,26 +18,25 @@ class MovieItem extends Component {
     const { classes } = this.props;
     const { hinhAnh, tenPhim, danhGia } = this.props.courseItem;
    return (
-       <div class={classes.item}>
-        <div class="img">
+       <div className={classes.item}>
+        <div className="img">
           <img src={hinhAnh} alt="" />
-          <div class="img__overlay">
+          <div className="img__overlay">
             <IconButton >
               <PlayCircleOutlineIcon />
             </IconButton>
           </div>
         </div>
-        <div class="title">
+        <div className="title">
           <Typography className='titleMovie' component='h6' variant='h6'>{tenPhim}</Typography>
          
           {/* <button>MUA VÉ</button> */}
           <Button fullWidth>MUA VÉ</Button>
          
         </div>
-        <div class="score">
-          <p class="point">
-            {danhGia}
-            <StarRateIcon />
+        <div className="score">
+          <p className="point">
+            <Rating courseItem={this.props.courseItem}/>
           </p>
         </div>
       </div>

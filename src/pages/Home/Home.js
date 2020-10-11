@@ -11,10 +11,10 @@ import {
 } from "@material-ui/core";
 import MovieItem from "../../components/MovieItem/MovieItem";
 
-import Pagination_ from "../../components/Pagination/Pagination";
+//import Pagination_ from "../../components/Pagination/Pagination";
 import { getCourseList } from "../../redux/actions/courseAction";
 import { connect } from "react-redux";
-import CinemaComponent from "../../components/Cinema/CinemaComponent";
+//import CinemaComponent from "../../components/Cinema/CinemaComponent";
 
 class Home extends Component {
   renderMovie = () => {
@@ -48,29 +48,12 @@ class Home extends Component {
           </Typography>
           <Grid container>
             {this.renderMovie()}
-         
+         {console.log(  console.log(this.renderMovie()))}
           </Grid>
           <Box mt={5}>
-             <Pagination_/>
+             {/* <Pagination_/> */}
           </Box>
-         
-          {/* <Box my={5} mx={2}>
-            <Typography className={classes.title2} component="h4" variant="h4">
-              Cinema
-            </Typography>
-            <Grid className={classes.cinema} container>
-              <Grid item xs={1}>
-                <Cinema />
-              </Grid>
-              <Grid item xs={4}>
-                <CinemaDetail />
-              </Grid>
-              <Grid item xs={7} className={classes.detail}>
-               <Typography>Info</Typography>
-              </Grid>
-            </Grid>
-          </Box> */}
-          <CinemaComponent/>
+          {/* <CinemaComponent/> */}
 
          
         </Container>
@@ -80,6 +63,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.dispatch(getCourseList(this.props.pagination.currentPage,12));
+  
   }
 }
 
