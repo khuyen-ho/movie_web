@@ -22,6 +22,11 @@ class Footer extends Component {
                 ĐỐI TÁC
               </Typography>
               {this.renderLogo()}
+              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
+              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
+              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
+              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
+              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
             </Grid>
             <Grid item xs={5} md={5}>
               <Typography className='title' component="p" variant="subtitle">
