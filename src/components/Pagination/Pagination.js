@@ -5,7 +5,7 @@ import {
   GET_COURSE_LIST,
   GET_CURRENT_PAGE,
 } from "../../redux/actions/actionType";
-import { getCourseList } from "../../redux/actions/courseAction";
+import { getCourseList } from "../../redux/actions/movieAction";
 import style from './stylePagination'
 import {withStyles} from '@material-ui/core'
 

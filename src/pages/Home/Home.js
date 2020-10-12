@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import style from "./styleHome";
 import {
   Box,
-  Button,
-  ButtonGroup,
   Container,
   Grid,
   Typography,
@@ -12,7 +10,7 @@ import {
 import MovieItem from "../../components/MovieItem/MovieItem";
 
 import Pagination_ from "../../components/Pagination/Pagination";
-import { getCourseList } from "../../redux/actions/courseAction";
+import { getCourseList } from "../../redux/actions/movieAction";
 import { connect } from "react-redux";
 import CinemaComponent from "../../components/Cinema/CinemaComponent";
 

@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import course from './reducers/course'
+import course from './reducers/movie'
 import pagination from './reducers/pagination'
 import cinema from './reducers/cinema'
 import cinemaDetail from './reducers/cinemaDetail'

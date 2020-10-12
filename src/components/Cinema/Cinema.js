@@ -2,7 +2,7 @@ import { Button, ButtonGroup, Grid, Typography } from "@material-ui/core";
 import React, { Component } from "react";
 import style from "./styleCinema";
 import { withStyles } from "@material-ui/core";
-import {getCinemaList } from "../../redux/actions/courseAction";
+import {getCinemaList } from "../../redux/actions/movieAction";
 import {getCinemaDetail} from '../../redux/actions/userActions'
 import { connect } from "react-redux";
 class Cinema extends Component {
