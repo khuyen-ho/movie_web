@@ -4,6 +4,10 @@ import style from "./style";
 import { withStyles } from "@material-ui/core";
 import HdIcon from "@material-ui/icons/Hd";
 import { connect } from "react-redux";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import InstagramIcon from "@material-ui/icons/Instagram";
 class Footer extends Component {
   renderLogo = () => {
     return this.props.cinema.map((logo) => <img src={logo.logo} />);
@@ -14,31 +18,62 @@ class Footer extends Component {
       <Box className={classes.foot} py={1}>
         <Container>
           <Grid container>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={6} md={2}>
               <div className="social">
                 <h2>LIÊN KẾT</h2>
-                <ul>
-                  <li>
-                    <a href="">Facebook</a>
-                  </li>
-                  <li>
-                    <a href="">Youtube</a>
-                  </li>
-                </ul>
+<Box>
+                <Grid container>
+                  <Grid item xs={6}>
+                    <a href="">
+                      <FacebookIcon />
+                    </a>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <a href="">
+                      <YouTubeIcon />
+                    </a>
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <a className="twitter" href="">
+                      <TwitterIcon />
+                    </a>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <a className="zalo" href="">
+                      <InstagramIcon />
+                    </a>
+                  </Grid>
+                </Grid>
+                </Box>
               </div>
             </Grid>
-            <Grid item xs={6} md={3}>
-              <div className="cinema">
-                <h2>Hệ thống rạp</h2>
-                <ul>
-                  <li>
-                    <a href="">Cinema1</a>
-                  </li>
-                  <li>
-                    <a href="">Cinema2</a>
-                  </li>
-                </ul>
-              </div>
+            <Grid item xs={6} md={4}>
+              <Container>
+                <Box className="cinema" textAlign="center">
+                  <h2>Hệ thống rạp</h2>
+                  <Grid container>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Container>
             </Grid>
             <Grid item xs={6} md={3}>
               <div className="movie">
@@ -61,16 +96,6 @@ class Footer extends Component {
                     <a>0123456789</a>
                   </li>
                 </ul>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={12}>
-              <div className="logo">
-                {this.renderLogo()}
-                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
-                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
-                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
-                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
-                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
               </div>
             </Grid>
           </Grid>

@@ -6,10 +6,11 @@ const style = (theme) => ({
     backgroundSize: "cover",
     borderTop: "5px solid",
     borderColor: theme.palette.secondary.main,
-    padding:'30px 0',
+    padding: "30px 0",
     color: "#fff",
+
     "& svg": {
-      fontSize: 100,
+      fontSize: 60,
       width: "100%",
       "@media screen and (max-width: 768px)": {
         "&": {
@@ -40,6 +41,13 @@ const style = (theme) => ({
     },
     "& .social,& .cinema,& .movie,& .phone": {
       textAlign: "center",
+      "& a": {
+        color:theme.palette.grey.light,
+        "&:hover": {
+          color: theme.palette.grey.main,
+          transition:'all 0.3s',
+        },
+      },
       "& h2": {
         padding: "8px 19px",
         fontWeight: "normal",
@@ -55,7 +63,22 @@ const style = (theme) => ({
           },
         },
       },
-
+      "& img": {
+        width: 40,
+        marginTop: 15,
+        "@media screen and (max-width: 768px)": {
+          "&": {
+            width: 50,
+             marginBottom: 10,
+          },
+        },
+        "@media screen and (max-width: 576px)": {
+          "&": {
+            width: 40,
+            marginRight: 10,
+          },
+        },
+      },
       "& ul": {
         listStyle: "none",
         width: "auto",
@@ -79,28 +102,21 @@ const style = (theme) => ({
               textDecoration: "none",
               transition: "all 0.3s",
             },
+
+           
           },
+        },
+      },
+    },
+    '& .social':{
+      "@media screen and (max-width: 768px)": {
+        "&": {
+         padding:'0 50px'
         },
       },
     },
     "& .logo": {
       textAlign: "center",
-      "& img": {
-        width: 60,
-        marginRight: 30,
-        "@media screen and (max-width: 768px)": {
-          "&": {
-            width: 50,
-            // marginRight: 10,
-          },
-        },
-        "@media screen and (max-width: 576px)": {
-          "&": {
-            width: 40,
-            marginRight: 10,
-          },
-        },
-      },
     },
   },
 });
