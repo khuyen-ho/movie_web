@@ -14,26 +14,64 @@ class Footer extends Component {
       <Box className={classes.foot} py={1}>
         <Container>
           <Grid container>
-            <Grid item xs={2} md={3}>
-              <HdIcon />
+            <Grid item xs={6} md={3}>
+              <div className="social">
+                <h2>LIÊN KẾT</h2>
+                <ul>
+                  <li>
+                    <a href="">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="">Youtube</a>
+                  </li>
+                </ul>
+              </div>
             </Grid>
-            <Grid item xs={5} md={4}>
-              <Typography className='title' component="p" variant="subtitle">
-                ĐỐI TÁC
-              </Typography>
-              {this.renderLogo()}
-              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
-              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
-              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
-              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
-              <img src='http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png'/>
+            <Grid item xs={6} md={3}>
+              <div className="cinema">
+                <h2>Hệ thống rạp</h2>
+                <ul>
+                  <li>
+                    <a href="">Cinema1</a>
+                  </li>
+                  <li>
+                    <a href="">Cinema2</a>
+                  </li>
+                </ul>
+              </div>
             </Grid>
-            <Grid item xs={5} md={5}>
-              <Typography className='title' component="p" variant="subtitle">
-                LIÊN HỆ
-              </Typography>
-              <Typography className='phone' component="p">Phone: 0123456789</Typography>
-              <Typography  className='mail' component="p">Gmail: abc12345@gmail.com</Typography>
+            <Grid item xs={6} md={3}>
+              <div className="movie">
+                <h2>Phim</h2>
+                <ul>
+                  <li>
+                    <a href="">Phim đang chiếu</a>
+                  </li>
+                  <li>
+                    <a href="">Lịch chiếu</a>
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+            <Grid xs={6} md={3}>
+              <div className="phone">
+                <h2>Hotline</h2>
+                <ul>
+                  <li>
+                    <a>0123456789</a>
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <div className="logo">
+                {this.renderLogo()}
+                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+                <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" />
+              </div>
             </Grid>
           </Grid>
         </Container>
