@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import "./App.css";
+import SearchMovie from "./components/SearchMovie";
 
 class App extends Component {
   render() {
-    return <></>;
+    return (
+      <>
+        <SearchMovie />
+      </>
+    );
   }
 }
 
