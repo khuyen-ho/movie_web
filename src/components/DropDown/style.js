@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(0),
-    minWidth: 150,
+    width: "100%",
   },
   select: {
-    maxWidth: 150,
+    width: "100%",
     borderBottom: "none",
     "&:focus": {
       background: "none",

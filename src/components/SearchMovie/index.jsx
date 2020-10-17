@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Typography } from "@material-ui/core";
+import { Button, Container, Grid } from "@material-ui/core";
 import useStyle from "./style";
 import DropDown from "../DropDown";
 
@@ -11,13 +11,25 @@ const SearchMovie = (props) => {
 
   return (
     <Container fixed classes={{ fixed: useStyle().container }}>
-      <DropDown list={movieList} />
-      <DropDown list={cinemaList} />
-      <DropDown list={dateList} />
-      <DropDown list={showTimeList} />
-      <Button variant="contained" color="primary">
-        MUA VÉ NGAY
-      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12} lg={4}>
+          <DropDown list={movieList} />
+        </Grid>
+        <Grid item xs={12} lg={2}>
+          <DropDown list={cinemaList} />
+        </Grid>
+        <Grid item xs={12} lg={2}>
+          <DropDown list={dateList} />
+        </Grid>
+        <Grid item xs={12} lg={2}>
+          <DropDown list={showTimeList} />
+        </Grid>
+        <Grid item xs={12} lg={2}>
+          <Button variant="contained" color="primary">
+            MUA VÉ NGAY
+          </Button>
+        </Grid>
+      </Grid>
     </Container>
   );
 };
