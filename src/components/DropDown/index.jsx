@@ -2,9 +2,18 @@ import { FormControl, MenuItem, Select } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
 
-export default function DropDown(props) {
+const defaultList = ["Choose item", "Item 1", "Item 2", "Item 3"];
+
+const CreateList = (list = defaultList) => {
+  return list.map((item, index) => (
+    <MenuItem key={index} value={index}>
+      {item}
+    </MenuItem>
+  ));
+};
+
+const DropDown = (props) => {
   const styles = useStyles();
-  console.log(props.list);
   return (
     <FormControl className={styles.formControl}>
       <Select
@@ -14,12 +23,10 @@ export default function DropDown(props) {
           icon: styles.icon,
         }}
       >
-        {props.list.map((movie, index) => (
-          <MenuItem key={index} value={index}>
-            {movie}
-          </MenuItem>
-        ))}
+        {CreateList(props.list)}
       </Select>
     </FormControl>
   );
-}
+};
+
+export default DropDown;
