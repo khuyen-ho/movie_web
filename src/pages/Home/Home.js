@@ -11,16 +11,17 @@ import MovieItem from "../../components/MovieItem/MovieItem";
 
 import Pagination_ from "../../components/Pagination/Pagination";
 import { getCourseList } from "../../redux/actions/movieAction";
+//import Pagination_ from "../../components/Pagination/Pagination";
 import { connect } from "react-redux";
-import CinemaComponent from "../../components/Cinema/CinemaComponent";
+//import CinemaComponent from "../../components/Cinema/CinemaComponent";
 
 class Home extends Component {
   renderMovie = () => {
     const { classes } = this.props;
     return this.props.course.map((courseItem, index) => {
       return (
-        <Grid className={classes.item} item xs={6} sm={4} md={3} lg={3} >
-          <Box p={{lg:5,md:3,xs:1}}>
+        <Grid className={classes.item} item xs={3} >
+          <Box px={{lg:5,md:3,xs:1}}>
           <MovieItem key={index} courseItem={courseItem} /></Box>
         </Grid>
       );
@@ -46,29 +47,11 @@ class Home extends Component {
           </Typography>
           <Grid container>
             {this.renderMovie()}
-         
           </Grid>
           <Box mt={5}>
              <Pagination_/>
           </Box>
          
-          {/* <Box my={5} mx={2}>
-            <Typography className={classes.title2} component="h4" variant="h4">
-              Cinema
-            </Typography>
-            <Grid className={classes.cinema} container>
-              <Grid item xs={1}>
-                <Cinema />
-              </Grid>
-              <Grid item xs={4}>
-                <CinemaDetail />
-              </Grid>
-              <Grid item xs={7} className={classes.detail}>
-               <Typography>Info</Typography>
-              </Grid>
-            </Grid>
-          </Box> */}
-          <CinemaComponent/>
 
          
         </Container>
@@ -78,6 +61,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.dispatch(getCourseList(this.props.pagination.currentPage,12));
+  
   }
 }
 

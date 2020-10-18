@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-//import "./App.css";
 import Header from "./components/Header";
 import SearchMovie from "./components/SearchMovie";
+import Home from "./pages/Home/Home";
+
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <>
         <Header />
         <SearchMovie />
+        <Home />
       </>
     );
   }
