@@ -3,16 +3,16 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import course from './reducers/movie'
 import pagination from './reducers/pagination'
-import cinema from './reducers/cinema'
-import cinemaDetail from './reducers/cinemaDetail'
-import chosenCinema from './reducers/chosenCinema'
+// import cinema from './reducers/cinema'
+// import cinemaDetail from './reducers/cinemaDetail'
+// import chosenCinema from './reducers/chosenCinema'
 
 const RootReducer = combineReducers({
   course,
   pagination,
-  cinema,
-  cinemaDetail,
-  chosenCinema
+  // cinema,
+  // cinemaDetail,
+  // chosenCinema
 
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
