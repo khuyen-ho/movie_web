@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import SearchMovie from "./components/SearchMovie";
 import Home from "./pages/Home/Home";
 import Film from "./components/Film";
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <SearchMovie />
         <Home />
         <Film />
+        <Footer />
       </>
     );
   }
