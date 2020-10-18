@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import MovieItem from "../../components/MovieItem/MovieItem";
 
-import Pagination_ from "../../components/Pagination/Pagination";
+import Pagination_ from "../../components/Pagination/index";
 import { getCourseList } from "../../redux/actions/movieAction";
 //import Pagination_ from "../../components/Pagination/Pagination";
 import { connect } from "react-redux";
