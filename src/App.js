@@ -10,13 +10,9 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header /> 
-        <Carousel />
-        <SearchMovie />
+        <Header />
         <Home />
-        <Film />
         <Footer />
-     
       </>
     );
   }

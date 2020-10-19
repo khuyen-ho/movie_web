@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   container:{
-      width:'75%',
       margin:'auto',
       [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
         width:'100%'
