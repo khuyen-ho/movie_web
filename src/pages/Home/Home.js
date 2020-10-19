@@ -2,19 +2,18 @@ import React, { Component } from "react";
 import style from "./styleHome";
 import {
   Box,
-  Button,
-  ButtonGroup,
   Container,
   Grid,
   Typography,
   withStyles,
 } from "@material-ui/core";
 import MovieItem from "../../components/MovieItem/MovieItem";
-
-import Pagination_ from "../../components/Pagination/Pagination";
-import { getCourseList } from "../../redux/actions/courseAction";
+import Pagination_ from "../../components/Pagination/index";
+import { getCourseList } from "../../redux/actions/movieAction";
 import { connect } from "react-redux";
-import CinemaComponent from "../../components/Cinema/CinemaComponent";
+import Carousel from "../../components/Carousel";
+import SearchMovie from "../../components/SearchMovie";
+import Film from "../../components/Film";
 
 class Home extends Component {
   renderMovie = () => {
@@ -22,7 +21,9 @@ class Home extends Component {
     return this.props.course.map((courseItem, index) => {
       return (
         <Grid className={classes.item} item xs={3}>
-          <MovieItem key={index} courseItem={courseItem} />
+          <Box px={{ lg: 5, md: 3, xs: 1 }}>
+            <MovieItem key={index} courseItem={courseItem} />
+          </Box>
         </Grid>
       );
     });
@@ -33,6 +34,8 @@ class Home extends Component {
 
     return (
       <Box className={classes.home} textAlign="center">
+        <Carousel />
+        <SearchMovie />
         <Container className={classes.container}>
           <Typography
             className={classes.title1}
@@ -45,40 +48,20 @@ class Home extends Component {
           <Typography className={classes.title2} component="h4" variant="h4">
             New movies
           </Typography>
-          <Grid container>
-            {this.renderMovie()}
-         
-          </Grid>
+          <Grid container>{this.renderMovie()}</Grid>
           <Box mt={5}>
-             <Pagination_/>
+            <Pagination_ />
           </Box>
-         
-          {/* <Box my={5} mx={2}>
-            <Typography className={classes.title2} component="h4" variant="h4">
-              Cinema
-            </Typography>
-            <Grid className={classes.cinema} container>
-              <Grid item xs={1}>
-                <Cinema />
-              </Grid>
-              <Grid item xs={4}>
-                <CinemaDetail />
-              </Grid>
-              <Grid item xs={7} className={classes.detail}>
-               <Typography>Info</Typography>
-              </Grid>
-            </Grid>
-          </Box> */}
-          <CinemaComponent/>
-
-         
+          <Box>
+          <Film />
+          </Box>
         </Container>
       </Box>
     );
   }
 
   componentDidMount() {
-    this.props.dispatch(getCourseList(this.props.pagination.currentPage,12));
+    this.props.dispatch(getCourseList(this.props.pagination.currentPage, 12));
   }
 }
 
