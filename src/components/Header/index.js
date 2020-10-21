@@ -1,11 +1,10 @@
-import { Box, Typography, withStyles } from "@material-ui/core";
+import { Box, Typography, InputBase, withStyles } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 import React, { Component } from "react";
 import style from "./style";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import RoomIcon from "@material-ui/icons/Room";
 import MenuIcon from "@material-ui/icons/Menu";
-import GroupedSelect from "../City";
 class Header extends Component {
   render() {
     const { classes } = this.props;
@@ -21,9 +20,18 @@ class Header extends Component {
             <AccountCircleIcon fontSize="large" />
             <Typography>Đăng nhập</Typography>
           </div>
-          <div className="city">
-            <RoomIcon />
-            <GroupedSelect/>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Nhập tên phim..."
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+            />
           </div>
         </Box>
         <Box className="right2">
@@ -37,10 +45,22 @@ class Header extends Component {
                 <div>Lịch Chiếu</div>
               </li>
               <li>
-               <div>Cụm Rạp</div>
+                <div>Cụm Rạp</div>
               </li>
               <li>
-               <GroupedSelect/>
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder="Nhập tên phim..."
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </div>
               </li>
             </ul>
           </div>
