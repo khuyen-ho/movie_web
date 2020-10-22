@@ -1,7 +1,9 @@
-import { Button, IconButton, Typography } from "@material-ui/core";
+import { Button, Grid, IconButton, Typography } from "@material-ui/core";
 import React, { Component } from "react";
 import Rating from "../rating/Rating";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import useStyles from "./style";
+
 const BannerDetail = (props) => {
   const movie = {
     maPhim: 1283,
@@ -15,34 +17,40 @@ const BannerDetail = (props) => {
     ngayKhoiChieu: "2019-07-29T00:00:00",
     danhGia: 5,
   };
+  const styles = useStyles();
   return (
-    <div>
-      <div className="img">
-        <img src={movie.hinhAnh} alt="" />
-        <div className="img__overlay">
-          <IconButton>
-            <PlayCircleOutlineIcon />
-          </IconButton>
-        </div>
-      </div>
-      <div className="title">
-        <Typography className="titleMovie" component="h6" variant="h6">
-          {movie.tenPhim}
-        </Typography>
+    <div className={styles.item}>
+      <Grid container>
+        <Grid item xs={6}>
+          <div className="img">
+            <img src={movie.hinhAnh} alt="" />
+            <div className="img__overlay">
+              <IconButton>
+                <PlayCircleOutlineIcon />
+              </IconButton>
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className="title">
+            <div className="score">
+              <Typography className="point" variant="h6">
+                {parseFloat(movie.danhGia)}
+              </Typography>
+              <Rating courseItem={movie} />
+            </div>
 
-        {/* <button>MUA VÉ</button> */}
-        <Button fullWidth>MUA VÉ</Button>
-      </div>
-      <div className="score">
-        <Typography className="point" variant="h6">
-          {parseFloat(movie.danhGia)}
-        </Typography>
-        <Rating courseItem={movie} />
-      </div>
-      <div>
-  <Typography>{movie.moTa}</Typography>
-  <Typography>{movie.ngayKhoiChieu}</Typography>
-      </div>
+            <Typography className="titleMovie" component="h6" variant="h6">
+              {movie.tenPhim}
+            </Typography>
+            <Typography className="descMovie" style={{ color: "white" }}> {movie.moTa}</Typography>
+            <Typography className="dateMovie" style={{ color: "white" }}>
+              {movie.ngayKhoiChieu}
+            </Typography>
+            <Button fullWidth>MUA VÉ</Button>
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
