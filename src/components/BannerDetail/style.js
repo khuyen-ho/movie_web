@@ -4,7 +4,8 @@ const useStyle = makeStyles((theme) => ({
   item: {
     textAlign: "center",
     position: "relative",
-    background: "url(./imgs/bg-body.png)",
+   // background: "url(./imgs/bg-body.png)",
+   backgroundColor:'grey',
     paddingBottom: theme.spacing(5),
     "& .img": {
       position: "relative",
@@ -50,7 +51,7 @@ const useStyle = makeStyles((theme) => ({
       color: theme.palette.white,
       marginTop: 10,
       textAlign: "left",
-      padding:'0 30px',
+      padding: "0 30px",
       "& p": {
         texAlign: "left",
         margin: 0,
@@ -67,15 +68,15 @@ const useStyle = makeStyles((theme) => ({
         },
       },
       "& .titleMovie": {
-          color:theme.palette.white,
-          paddingBottom:theme.spacing(3),
-          fontSize:30
+        color: theme.palette.white,
+        paddingBottom: theme.spacing(3),
+        fontSize: 30,
       },
-      "& .descMovie":{
-        paddingBottom:theme.spacing(2),
+      "& .descMovie": {
+        paddingBottom: theme.spacing(2),
       },
-      "& .dateMovie":{
-        paddingBottom:theme.spacing(2),
+      "& .dateMovie": {
+        paddingBottom: theme.spacing(2),
       },
       "& button": {
         width: "130px",
@@ -93,21 +94,40 @@ const useStyle = makeStyles((theme) => ({
       backgroundColor: "#000",
       opacity: 0.8,
       border: `3px solid ${theme.palette.secondary.main}`,
-      height:70,
-      width:70,
-      borderRadius:70,
+      height: 70,
+      width: 70,
+      borderRadius: 70,
       textAlign: "center",
-      margin:'auto',
-      marginBottom:30,
-      paddingTop:15,
+      margin: "auto",
+      marginTop:30,
+      marginBottom: 30,
+      paddingTop: 15,
       "& .point": {
         margin: 0,
         color: theme.palette.white,
         fontSize: 17,
         lineHeight: 1,
       },
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        height: 60,
+        width: 60,
+        borderRadius: 60,
+        border: `2px solid ${theme.palette.secondary.main}`,
+        paddingTop: 10,
+      //  marginTop:20,
+      },
+    },
+    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+      display: "none",
     },
   },
+  trailer:{
+   // background: "url(./imgs/bg-body.png)",
+    display:'none',
+    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+        display:'block'
+      },
+  }
 }));
 
 export default useStyle;
