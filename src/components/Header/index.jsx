@@ -8,20 +8,36 @@ import useStyles from "./style";
 
 const Header = () => {
   const styles = useStyles();
+  const links = [
+    { title: "Lịch Chiếu", path: "#" },
+    { title: "Cụm Rạp", path: "#" },
+    { title: "Đăng Nhập", path: "#" },
+  ];
+
+  const createNavlinks = () => {
+    const navLinks = [];
+    for (let i = 0; i < links.length - 1; i++) {
+      navLinks.push(
+        <Link
+          href={links[i].path}
+          className={styles.link}
+          key={i}
+          variant="subtitle1"
+        >
+          {links[i].title}
+        </Link>
+      );
+    }
+    return <Box>{navLinks}</Box>;
+  };
+
   return (
     <Box className={styles.head}>
       <IconButton edge="start" aria-label="home" className={styles.iconButton}>
         <MovieRoundedIcon fontSize="large" className={styles.logo} />
       </IconButton>
 
-      <Box>
-        <Link href="#" className={styles.link} variant="subtitle1">
-          Lịch Chiếu
-        </Link>
-        <Link href="#" className={styles.link} variant="subtitle1">
-          Cụm Rạp
-        </Link>
-      </Box>
+      <Box>{createNavlinks}</Box>
 
       <Box className={styles.right}>
         <Box className={styles.signIn}>
@@ -33,8 +49,12 @@ const Header = () => {
             <AccountCircleIcon fontSize="large" />
           </IconButton>
 
-          <Link href="#" className={styles.link} variant="subtitle1">
-            Đăng nhập
+          <Link
+            href={links[2].path}
+            className={styles.link}
+            variant="subtitle1"
+          >
+            {links[2].title}
           </Link>
         </Box>
 
@@ -56,6 +76,8 @@ const Header = () => {
           </IconButton>
         </Box>
       </Box>
+
+      <CollapseMenu links={links} />
     </Box>
   );
 };
