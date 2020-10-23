@@ -1,50 +1,27 @@
-
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  logo:{
-      height:80,
-      borderColor:'grey!important',
-      '& .img':{
-           width:60,
-           padding:0
-      }
+  logo: {
+    height: 80,
+    borderColor: "grey!important",
+    textAlign: "right",
+    "& .img": {
+      width: 60,
+      padding: 0,
+    },
   },
 
-  
-  title:{
-      color:'#004697'
+  content: {
+      display:'flex',
+      justifyContent:'right'
   },
-  address:{
-      color:theme.palette.grey.main,
-      fontSize:13
+
+  container: {
+    margin: "auto",
+    [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
+      width: "100%",
+    },
   },
-  movieDetail:{
-      textTransform:'none',
-      display:'block',
-      borderColor:'transparent!important',
-      '& img':{
-          height:80,
-      },
-      '& .title':{
-          padding:'20px 0'
-      }
-  },
-  time:{
-      color:theme.palette.green.main,
-      fontSize:20,
-      padding:0,
-      margin:10,
-      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
-        margin:3,
-      },
-  },
-  container:{
-      margin:'auto',
-      [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
-        width:'100%'
-      },
-  }
 }));
 
 export default useStyles;
