@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     zIndex: 2,
     height: 60,
-    width: "100%",
+    width: "100vw",
     backgroundColor: "white",
     display: "flex",
     justifyContent: "space-between",
