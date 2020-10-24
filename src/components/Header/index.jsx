@@ -3,6 +3,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CollapseMenu from "../CollapseMenu";
 import useStyles from "./style";
 
@@ -12,11 +13,12 @@ const Header = () => {
     { title: "Lịch Chiếu", path: "#" },
     { title: "Cụm Rạp", path: "#" },
     { title: "Đăng Nhập", path: "#" },
+    { title: "Đăng Ký", path: "#" },
   ];
 
   const createNavlinks = () => {
     const navLinks = [];
-    for (let i = 0; i < links.length - 1; i++) {
+    for (let i = 0; i < links.length - 2; i++) {
       navLinks.push(
         <Link
           href={links[i].path}
@@ -40,10 +42,10 @@ const Header = () => {
       <Box>{createNavlinks}</Box>
 
       <Box className={styles.right}>
-        <Box className={styles.signIn}>
+        <Box className={styles.signInUp}>
           <IconButton
             edge="start"
-            aria-label="search"
+            aria-label="signIn"
             className={styles.iconButton}
           >
             <AccountCircleIcon fontSize="large" />
@@ -55,6 +57,24 @@ const Header = () => {
             variant="subtitle1"
           >
             {links[2].title}
+          </Link>
+        </Box>
+
+        <Box className={styles.signInUp}>
+          <IconButton
+            edge="start"
+            aria-label="signUp"
+            className={styles.iconButton}
+          >
+            <PersonAddIcon fontSize="large" />
+          </IconButton>
+
+          <Link
+            href={links[3].path}
+            className={styles.link}
+            variant="subtitle1"
+          >
+            {links[3].title}
           </Link>
         </Box>
 

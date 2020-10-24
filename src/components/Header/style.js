@@ -69,11 +69,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  signIn: {
+  signInUp: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     color: theme.palette.grey.main,
+    marginLeft: theme.spacing(2),
     "&:hover": {
       cursor: "Pointer",
     },
@@ -109,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
     },
     [theme.breakpoints.up("tablet")]: {
-      marginLeft: theme.spacing(3),
+      marginLeft: theme.spacing(2),
       marginRight: theme.spacing(0),
       width: "auto",
     },
