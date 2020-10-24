@@ -3,11 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   head: {
-    position: "fixed",
     left: 0,
-    zIndex: 2,
+    zIndex: 1,
     height: 60,
-    width: "100vw",
+    width: "100%",
     backgroundColor: "white",
     display: "flex",
     justifyContent: "space-between",
@@ -17,9 +16,13 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("smallMobile")]: {
       padding: theme.spacing(1.5, 1),
+      position: "relative",
     },
     [theme.breakpoints.up("mediumMobile")]: {
       padding: theme.spacing(1.5, 2),
+    },
+    [theme.breakpoints.up("tablet")]: {
+      position: "fixed",
     },
   },
 
