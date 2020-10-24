@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DaysOfWeek from '../DaysOfWeek'
 import MovieLogoList from '../MovieLogoList'
 
 export default class ScheduleMovie extends Component {
@@ -6,6 +7,7 @@ export default class ScheduleMovie extends Component {
         return (
             <div>
                 <MovieLogoList/>
+                <DaysOfWeek/>
             </div>
         )
     }
