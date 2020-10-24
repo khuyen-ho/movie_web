@@ -1,19 +1,23 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  logo: {
-    height: 80,
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  dayBtn: {
+    height: 60,
+    width: 100,
     borderColor: "grey!important",
-    textAlign: "right",
+    textAlign: "center",
     "& .img": {
       width: 60,
       padding: 0,
     },
-  },
-
-  content: {
-      display:'flex',
-      justifyContent:'right'
   },
 
   container: {

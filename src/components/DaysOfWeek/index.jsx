@@ -17,7 +17,7 @@ const Day = () => {
       variant="text"
     >
       {dayList.map((item, index) => (
-        <Button className={styles.logo} key={index}>
+        <Button className={styles.dayBtn} key={index}>
          {item.weekDay}
         </Button>
       ))}
@@ -29,10 +29,40 @@ const Day = () => {
 const DaysOfWeek = (props) => {
   const styles = useStyles();
   return (
+    <div className={styles.root}>
     <Box className={styles.container} my={5} mx={2} border="1px solid grey">
       {Day()}
-    </Box>
+    </Box></div>
   );
 };
 
 export default DaysOfWeek;
+// import React from 'react';
+// import Button from '@material-ui/core/Button';
+// import ButtonGroup from '@material-ui/core/ButtonGroup';
+// import { makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     '& > *': {
+//       margin: theme.spacing(1),
+//     },
+//   },
+// }));
+
+// export default function DaysOfWeek() {
+//   const classes = useStyles();
+
+//   return (
+//     <div className={classes.root}>
+//       <ButtonGroup size="small" aria-label="small outlined button group">
+//         <Button>One</Button>
+//         <Button>Two</Button>
+//         <Button>Three</Button>
+//       </ButtonGroup>
+//     </div>
+//   );
+// }
