@@ -65,7 +65,7 @@ const CinemaLogo = (cinemaList) => {
 const MovieLogoList = (props) => {
   const styles = useStyles();
   return (
-    <Box className={styles.container} my={5} mx={2} textAlign='center'>
+    <Box className={styles.container} my={5} mx={2}>
       {CinemaLogo(cinemaList)}
     </Box>
   );

@@ -19,8 +19,12 @@ const useStyles = makeStyles((theme) => ({
   container: {
     margin: "auto",
     borderRight:`1px solid ${theme.palette.grey.light}`,
+    textAlign:'center',
     [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
       width: "100%",
+    },
+    [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+      textAlign:'left',
     },
   },
 }));
