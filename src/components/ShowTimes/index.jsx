@@ -1910,7 +1910,7 @@ const Time = (
   return movieInfo.cumRap.ngayChieuGioChieu
     .filter((item) => moment(item).format("DD/MM/YYYY") === timeDefault)
     .map((item, index) => (
-      <Grid item xs={3}>
+      <Grid item xs={6} sm={3}>
         <Button className={classes.timeBtn} key={index}>
           <div className="time">
             <Typography variant="h6" component="span" className="timeStart">

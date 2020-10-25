@@ -15,6 +15,7 @@ const Day = () => {
       color="secondary"
       aria-label="outlined primary button group"
       variant="text"
+      className={styles.dayContainer}
     >
       {dayList.map((item, index) => (
         <Button className={styles.dayBtn} key={index}>

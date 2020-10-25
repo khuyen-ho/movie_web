@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
     },
   },
+  dayContainer:{
+    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+      display:"block!important"
+    },
+  },
 
   container: {
     margin: "auto",

@@ -8,9 +8,9 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
   },
-  title:{
+  title: {
     color: theme.palette.green.dark,
-    marginLeft:theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   img: {
     width: 50,
