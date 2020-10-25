@@ -13,6 +13,15 @@ const useStyle = makeStyles((theme) => ({
     alignItems: "center",
     padding: theme.spacing(3),
   },
+  button: {
+    outline: "none",
+    color: theme.palette.white,
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
+    "&:focus": {
+      outline: "none",
+    },
+  },
 }));
 
 export default useStyle;

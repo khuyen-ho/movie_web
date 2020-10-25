@@ -24,7 +24,7 @@ const Header = () => {
           href={links[i].path}
           className={styles.link}
           key={i}
-          variant="subtitle1"
+          variant="subtitle2"
         >
           {links[i].title}
         </Link>
@@ -54,7 +54,7 @@ const Header = () => {
           <Link
             href={links[2].path}
             className={styles.link}
-            variant="subtitle1"
+            variant="subtitle2"
           >
             {links[2].title}
           </Link>
@@ -72,7 +72,7 @@ const Header = () => {
           <Link
             href={links[3].path}
             className={styles.link}
-            variant="subtitle1"
+            variant="subtitle2"
           >
             {links[3].title}
           </Link>
