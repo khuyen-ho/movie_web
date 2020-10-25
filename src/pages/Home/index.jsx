@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import style from "./styleHome";
+import style from "./style";
 import {
   Box,
   Container,
@@ -53,7 +53,7 @@ class Home extends Component {
             <Pagination_ />
           </Box>
           <Box>
-          <Film />
+            <Film />
           </Box>
         </Container>
       </Box>
