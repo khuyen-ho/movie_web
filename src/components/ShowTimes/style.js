@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.grey.light}`,
     padding: "0 5px",
     marginRight: theme.spacing(3),
+    marginBottom: theme.spacing(1),
     "&:hover": {
       "& .timeStart": {
         color: theme.palette.secondary.main,
