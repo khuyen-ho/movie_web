@@ -7,7 +7,7 @@ const Day = () => {
   const dayList = [];
   const styles = useStyles();
   for(let i = 0; i<7; i++){
-    dayList.push({weekDay: moment().date(moment().date()+i).format('dddd Do')})
+    dayList.push({weekDay: moment().date(moment().date()+i).format('ddd Do')})
   }
   //console.log(dayList);
   return (

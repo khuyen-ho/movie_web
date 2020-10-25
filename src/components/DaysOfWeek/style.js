@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   dayBtn: {
     height: 60,
-    width: 100,
+    //width: 100,
     borderColor: "transparent!important",
     textAlign: "center",
     "& .img": {
