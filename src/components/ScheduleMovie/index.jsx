@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import DaysOfWeek from '../DaysOfWeek'
-import MovieLogoList from '../MovieLogoList'
+import React, { Component } from "react";
+import DaysOfWeek from "../DaysOfWeek";
+import MovieLogoList from "../MovieLogoList";
+import ShowTime from "../ShowTimes";
 
-export default class ScheduleMovie extends Component {
-    render() {
-        return (
-            <div>
-                <MovieLogoList/>
-                <DaysOfWeek/>
-            </div>
-        )
-    }
-}
+const ScheduleMovie = () => {
+  return (
+    <div>
+      {/* <MovieLogoList/> */}
+      {/* <DaysOfWeek/> */}
+      <ShowTime />
+    </div>
+  );
+};
+export default ScheduleMovie
