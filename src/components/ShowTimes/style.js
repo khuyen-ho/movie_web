@@ -1,27 +1,36 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      backgroundColor: theme.palette.background.paper,
+  root: {
+    width: "100%",
+    backgroundColor: theme.palette.background.paper,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
+  title:{
+    color: theme.palette.green.dark,
+    marginLeft:theme.spacing(2)
+  },
+  img: {
+    width: 50,
+  },
+  timeBtn: {
+    border: `1px solid ${theme.palette.grey.light}`,
+    padding: "0 5px",
+    marginRight: theme.spacing(3),
+    "&:hover": {
+      "& .timeStart": {
+        color: theme.palette.secondary.main,
+      },
     },
-    nested: {
-      paddingLeft: theme.spacing(4),
+    "& .timeStart": {
+      color: theme.palette.green.main,
     },
-    img:{
-        width:50
+    "& .timeEnd": {
+      color: theme.palette.grey.main,
     },
-    timeBtn:{
-        border: `1px solid ${theme.palette.grey.light}`,
-        //padding:theme.spacing(1),
-        marginRight:theme.spacing(3),
-        '& .timeStart':{
-            color:theme.palette.green.main,
-        },
-        "& .timeEnd":{
-            color:theme.palette.grey.main
-        }
-    }
-  }));
+  },
+}));
 
 export default useStyles;

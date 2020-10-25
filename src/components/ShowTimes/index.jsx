@@ -129,7 +129,6 @@ const FilterMovieList = (defaultList) => {
   return list;
 };
 
-
 //movieInfo: item in a list
 const Time = (movieInfo) => {
   const classes = useStyles();
@@ -156,11 +155,24 @@ const Time = (movieInfo) => {
 const RenderShowTime = (list, defaultList) => {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(true);
+  // const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  // const handleClick = () => {
+  //   setOpen(!open);
+  // };
+
+  const [openArr=[],setOpen] = React.useState([]);
+  for(let i=0;i<list.length;i++){
+    let temp = false;
+    openArr.push(temp);
+  }
+  const handleClick = (idx) => {
+      let newArr = [...openArr]
+      newArr[idx] = !newArr[idx]
+      setOpen(newArr)
+   };
+
+console.log(openArr);
 
   return list.map((item, index) => (
     <List
@@ -169,14 +181,16 @@ const RenderShowTime = (list, defaultList) => {
       className={classes.root}
       key={index}
     >
-      <ListItem button onClick={handleClick}>
+      <ListItem button onClick={()=>handleClick(index)}>
         <ListItemIcon>
           <img className={classes.img} src={defaultList.hinhAnh} alt="" />
         </ListItemIcon>
-  <div>{item.cumRap.tenCumRap}</div>
-        {open ? <ExpandLess /> : <ExpandMore />}
+        <Typography className={classes.title} component="h6" variant="h6">
+          {item.cumRap.tenCumRap}
+        </Typography>
+        {openArr[index] ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
             {Time(item)}
@@ -189,6 +203,7 @@ const RenderShowTime = (list, defaultList) => {
 
 const ShowTime = (props = defaultList) => {
   const filteredList = FilterMovieList(defaultList);
+
   return <>{RenderShowTime(filteredList, defaultList)}</>;
 };
 
