@@ -5,6 +5,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    borderBottom:`1px solid ${theme.palette.grey.light}`,
+   
     "& > *": {
       margin: theme.spacing(1),
     },
@@ -12,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   dayBtn: {
     height: 60,
     width: 100,
-    borderColor: "grey!important",
+    borderColor: "transparent!important",
     textAlign: "center",
     "& .img": {
       width: 60,

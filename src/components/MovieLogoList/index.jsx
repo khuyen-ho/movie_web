@@ -47,22 +47,25 @@ const CinemaLogo = (cinemaList) => {
     <ButtonGroup
       orientation="vertical"
       color="secondary"
-      aria-label="vertical outlined primary button group"
+      aria-label="vertical contained primary button group"
       variant="text"
+ 
     >
+      
       {cinemaList.map((item, index) => (
         <Button className={styles.logo} key={index}>
           <img className="img" src={item.logo} />
         </Button>
       ))}
     </ButtonGroup>
+
   );
 };
 
 const MovieLogoList = (props) => {
   const styles = useStyles();
   return (
-    <Box className={styles.container} my={5} mx={2} border="1px solid grey">
+    <Box className={styles.container} my={5} mx={2} textAlign='center'>
       {CinemaLogo(cinemaList)}
     </Box>
   );

@@ -3,14 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   logo: {
     height: 80,
-    borderColor: "grey!important",
+    borderColor: "transparent!important",
     textAlign: "right",
     "& .img": {
       width: 60,
       padding: 0,
     },
   },
-
+  
   content: {
       display:'flex',
       justifyContent:'right'
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
   container: {
     margin: "auto",
+    borderRight:`1px solid ${theme.palette.grey.light}`,
     [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
       width: "100%",
     },

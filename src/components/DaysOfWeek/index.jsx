@@ -9,7 +9,7 @@ const Day = () => {
   for(let i = 0; i<7; i++){
     dayList.push({weekDay: moment().date(moment().date()+i).format('dddd Do')})
   }
-  console.log(dayList);
+  //console.log(dayList);
   return (
     <ButtonGroup
       color="secondary"
@@ -30,7 +30,7 @@ const DaysOfWeek = (props) => {
   const styles = useStyles();
   return (
     <div className={styles.root}>
-    <Box className={styles.container} my={5} mx={2} border="1px solid grey">
+    <Box className={styles.container} my={5} mx={2}>
       {Day()}
     </Box></div>
   );
