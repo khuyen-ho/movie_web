@@ -111,12 +111,12 @@ const theme = createMuiTheme({
   },
   breakpoints: {
     values: {
-      smallMobile: 0,
-      mediumMobile: 375,
-      largeMobile: 576,
-      tablet: 768,
-      laptop: 992,
-      desktop: 1200,
+      xs: 0, // smallMobile
+      xsm: 375, // mediumMobile
+      sm: 576, // largeMobile
+      md: 768, // tablet
+      lg: 992, // laptop
+      xl: 1200, // desktop
     },
   },
 });

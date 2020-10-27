@@ -26,20 +26,20 @@ const SearchMovie = (props) => {
 
   return (
     <Container fixed classes={{ fixed: styles.container }}>
-      <Grid container spacing={2} justify="space-between">
-        <Grid item smallMobile={12} laptop={4}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} lg={4}>
           <DropDown list={movieList} />
         </Grid>
-        <Grid item smallMobile={12} laptop={2}>
+        <Grid item xs={12} lg={2}>
           <DropDown list={cinemaList} />
         </Grid>
-        <Grid item smallMobile={12} laptop={2}>
+        <Grid item xs={12} lg={2}>
           <DropDown list={dateList} />
         </Grid>
-        <Grid item smallMobile={12} laptop={2}>
+        <Grid item xs={12} lg={2}>
           <DropDown list={showTimeList} />
         </Grid>
-        <Grid item smallMobile={12} laptop={2}>
+        <Grid item xs={12} lg={2}>
           <Button
             variant="contained"
             color="secondary"
