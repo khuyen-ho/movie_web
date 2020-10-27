@@ -6,7 +6,7 @@ import DropDown from "../DropDown";
 const SearchMovie = (props) => {
   const movieList = [
     "Chọn phim",
-    "Phim 1",
+    "Phifffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffm 1",
     "Phim 2",
     "Phim 3",
     "Phim 4",
@@ -26,20 +26,20 @@ const SearchMovie = (props) => {
 
   return (
     <Container fixed classes={{ fixed: styles.container }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} lg={4}>
+      <Grid container spacing={2} justify="space-between">
+        <Grid item smallMobile={12} laptop={4}>
           <DropDown list={movieList} />
         </Grid>
-        <Grid item xs={12} lg={2}>
+        <Grid item smallMobile={12} laptop={2}>
           <DropDown list={cinemaList} />
         </Grid>
-        <Grid item xs={12} lg={2}>
+        <Grid item smallMobile={12} laptop={2}>
           <DropDown list={dateList} />
         </Grid>
-        <Grid item xs={12} lg={2}>
+        <Grid item smallMobile={12} laptop={2}>
           <DropDown list={showTimeList} />
         </Grid>
-        <Grid item xs={12} lg={2}>
+        <Grid item smallMobile={12} laptop={2}>
           <Button
             variant="contained"
             color="secondary"

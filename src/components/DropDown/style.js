@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
   select: {
     fontSize: theme.typography.subtitle1.fontSize,
     textAlign: "left",
+    width: "100%",
     borderBottom: "none",
     "&:focus": {
       background: "none",
