@@ -2,16 +2,16 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   collapseMenu: {
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
   },
 
   list: {
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       width: 150,
     },
-    [theme.breakpoints.up("mediumMobile")]: {
+    [theme.breakpoints.up("xsm")]: {
       width: 200,
     },
   },
