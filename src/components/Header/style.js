@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[22],
     opacity: 0.95,
 
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       padding: theme.spacing(1.5, 1),
       position: "relative",
     },
-    [theme.breakpoints.up("mediumMobile")]: {
+    [theme.breakpoints.up("xsm")]: {
       padding: theme.spacing(1.5, 2),
     },
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       position: "fixed",
     },
   },
@@ -37,6 +37,15 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1.5),
   },
 
+  links: {
+    [theme.breakpoints.up("xs")]: {
+      display: "none",
+    },
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+  },
+
   link: {
     padding: theme.spacing(0, 1),
     color: theme.palette.text.primary,
@@ -45,10 +54,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       transition: "all 0.3s",
     },
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       display: "none",
     },
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       display: "inline",
     },
   },
@@ -58,13 +67,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
 
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       width: "70%",
     },
-    [theme.breakpoints.up("mediumMobile")]: {
+    [theme.breakpoints.up("xsm")]: {
       width: "70%",
     },
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       width: "auto",
     },
   },
@@ -79,10 +88,10 @@ const useStyles = makeStyles((theme) => ({
       cursor: "Pointer",
     },
 
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       display: "none",
     },
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       display: "flex",
     },
   },
@@ -101,17 +110,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: fade(theme.palette.grey.dark, 0.25),
     },
 
-    [theme.breakpoints.up("smallMobile")]: {
+    [theme.breakpoints.up("xs")]: {
       marginLeft: theme.spacing(0),
-      marginRight: theme.spacing(0.5),
       width: "100%",
     },
-    [theme.breakpoints.up("mediumMobile")]: {
-      marginRight: theme.spacing(2),
-    },
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(0),
       width: "auto",
     },
   },
@@ -129,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   menu: {
-    [theme.breakpoints.up("tablet")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
   },

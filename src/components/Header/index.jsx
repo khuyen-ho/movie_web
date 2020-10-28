@@ -30,7 +30,7 @@ const Header = () => {
         </Link>
       );
     }
-    return <Box>{navLinks}</Box>;
+    return <Box className={styles.links}>{navLinks}</Box>;
   };
 
   return (
@@ -39,7 +39,7 @@ const Header = () => {
         <MovieRoundedIcon fontSize="large" className={styles.logo} />
       </IconButton>
 
-      <Box>{createNavlinks}</Box>
+      <Box className={styles.links}>{createNavlinks}</Box>
 
       <Box className={styles.right}>
         <Box className={styles.signInUp}>
