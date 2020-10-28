@@ -6,16 +6,15 @@ import useStyles from "./style";
 
 const BannerDetail = (props) => {
   const movie = {
-    maPhim: 1283,
-    tenPhim: "Trainwreck",
-    biDanh: "trainwreck",
-    trailer: "https://www.youtube.com/embed/2MxnhBPoIx4",
-    hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
-    moTa:
-      "Having thought that monogamy was never possible, a commitment-phobic career woman may have to face her fears when she meets a good guy.",
+    maPhim: 1288,
+    tenPhim: "Jurassic World",
+    biDanh: "jurassic-world",
+    trailer: "https://www.youtube.com/embed/RFinNxS5KN4",
+    hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/jurassicworld.jpg",
+    moTa: "A new theme park is built on the original site of Jurassic Park. Everything is going well until the park's newest attraction--a genetically modified giant stealth killing machine--escapes containment and goes on a killing spree.",
     maNhom: "GP00",
     ngayKhoiChieu: "2019-07-29T00:00:00",
-    danhGia: 5,
+    danhGia: 5
   };
   const styles = useStyles();
   return (

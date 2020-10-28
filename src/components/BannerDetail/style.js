@@ -4,15 +4,19 @@ const useStyle = makeStyles((theme) => ({
   item: {
     textAlign: "center",
     position: "relative",
-   // background: "url(./imgs/bg-body.png)",
-   backgroundColor:'grey',
+    //background: "url(./imgs/bg2.jpg)",
+    //backgroundColor:'#0a2029',
+    //backgroundImage: `linear-gradient(to bottom, white,  ${theme.palette.grey.light},  ${theme.palette.grey.main}, ${theme.palette.grey.dark})`,
+    backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
     paddingBottom: theme.spacing(5),
     "& .img": {
       position: "relative",
       marginTop: 50,
       borderRadius: 5,
       width: "100%",
-      overflow: "hidden",
+     // overflow: "hidden",
+
+      "& img": { boxShadow: "8px 8px 15px 3px #000" },
       "&:hover": {
         cursor: "pointer",
       },
@@ -68,7 +72,7 @@ const useStyle = makeStyles((theme) => ({
         },
       },
       "& .titleMovie": {
-        color: theme.palette.white,
+        color: theme.palette.secondary.main,
         paddingBottom: theme.spacing(3),
         fontSize: 30,
       },
@@ -99,7 +103,7 @@ const useStyle = makeStyles((theme) => ({
       borderRadius: 70,
       textAlign: "center",
       margin: "auto",
-      marginTop:30,
+      marginTop: 30,
       marginBottom: 30,
       paddingTop: 15,
       "& .point": {
@@ -114,20 +118,20 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 60,
         border: `2px solid ${theme.palette.secondary.main}`,
         paddingTop: 10,
-      //  marginTop:20,
+        //  marginTop:20,
       },
     },
     [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
       display: "none",
     },
   },
-  trailer:{
-   // background: "url(./imgs/bg-body.png)",
-    display:'none',
+  trailer: {
+    // background: "url(./imgs/bg-body.png)",
+    display: "none",
     [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
-        display:'block'
-      },
-  }
+      display: "block",
+    },
+  },
 }));
 
 export default useStyle;
