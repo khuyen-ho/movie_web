@@ -6,7 +6,7 @@ import DropDown from "../DropDown";
 const SearchMovie = (props) => {
   const movieList = [
     "Chọn phim",
-    "Phifffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffm 1",
+    "Phim 1",
     "Phim 2",
     "Phim 3",
     "Phim 4",

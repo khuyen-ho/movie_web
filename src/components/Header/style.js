@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     zIndex: 1,
     height: 60,
-    width: "100%",
+    width: "100vw",
     backgroundColor: "white",
     display: "flex",
     justifyContent: "space-between",
@@ -117,6 +117,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       marginLeft: theme.spacing(2),
       width: "auto",
+    },
+    [theme.breakpoints.up("xl")]: {
+      marginRight: theme.spacing(1.5),
     },
   },
   searchIcon: {

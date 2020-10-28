@@ -13,6 +13,7 @@ export default function Carousel() {
       interval="5000"
       indicators={false}
       autoPlay={true}
+      fullHeightHover={false}
     >
       {banners.map((banner, index) => (
         <CarouselItem key={index} banner={banner} />
