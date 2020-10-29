@@ -7,7 +7,7 @@ import {
   Typography,
   withStyles,
 } from "@material-ui/core";
-import MovieItem from "../../components/MovieItem/MovieItem";
+import MovieItem from "../../components/MovieItem";
 import Pagination_ from "../../components/Pagination/index";
 import { getCourseList } from "../../redux/actions/movieAction";
 import { connect } from "react-redux";
@@ -46,7 +46,7 @@ class Home extends Component {
             MOVIE
           </Typography>
           <Typography className={classes.title2} component="h4" variant="h4">
-            New movies
+            Phim đang chiếu
           </Typography>
           <Grid container>{this.renderMovie()}</Grid>
           <Box mt={5}>

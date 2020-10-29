@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Typography, Button, withStyles, IconButton } from "@material-ui/core";
-import style from "./styleMovie";
+import style from "./style";
 import { connect } from "react-redux";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import Rating from "../rating/Rating";
+import Rating from "../Rating/Rating";
 class MovieItem extends Component {
   goToDetail = (id) => () => {
     this.props.history.push("/detail/" + id);
@@ -12,7 +12,7 @@ class MovieItem extends Component {
   render() {
     const { classes } = this.props;
     const { hinhAnh, tenPhim, danhGia } = this.props.courseItem;
-    console.log(this.props.courseItem);
+
     return (
       <div className={classes.item}>
         <div className="img">
@@ -28,11 +28,12 @@ class MovieItem extends Component {
             {tenPhim}
           </Typography>
 
-          {/* <button>MUA VÉ</button> */}
           <Button fullWidth>MUA VÉ</Button>
         </div>
         <div className="score">
-          <Typography className='point' variant='h6'>{parseFloat(danhGia)}</Typography>
+          <Typography className="point" variant="h6">
+            {parseFloat(danhGia)}
+          </Typography>
           <Rating courseItem={this.props.courseItem} />
         </div>
       </div>

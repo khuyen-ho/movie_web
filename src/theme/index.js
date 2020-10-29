@@ -37,6 +37,9 @@ const theme = createMuiTheme({
     dark: "#000",
   },
   spacing: 10,
+  shape: {
+    borderRadius: 5,
+  },
   typography: {
     h1: {
       fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
