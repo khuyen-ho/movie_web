@@ -1,18 +1,23 @@
 import React from "react";
 import CarouselUI from "react-material-ui-carousel";
 import CarouselItem from "../CarouselItem";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 
 export default function Carousel() {
-  const banners = useSelector(state => state.banners);
+  const banners = useSelector((state) => state.banners);
   return (
     <CarouselUI
-      navButtonsAlwaysVisible="true"
+      indicator={false}
+      navButtonsAlwaysVisible={false}
       animation="slide"
       interval="5000"
-      autoPlay="true"
+      indicators={false}
+      autoPlay={true}
+      fullHeightHover={false}
     >
-      {banners.map((banner, index) => <CarouselItem key={index} banner={banner} />)}
+      {banners.map((banner, index) => (
+        <CarouselItem key={index} banner={banner} />
+      ))}
     </CarouselUI>
   );
 }

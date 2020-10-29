@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home";
 import Footer from "./components/Footer";
 
 class App extends Component {

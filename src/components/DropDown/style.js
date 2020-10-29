@@ -2,19 +2,22 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(0),
     width: "100%",
   },
   select: {
+    fontSize: theme.typography.subtitle1.fontSize,
+    textAlign: "left",
     width: "100%",
     borderBottom: "none",
     "&:focus": {
       background: "none",
     },
   },
-
   icon: {
-    color: "red",
+    color: theme.palette.secondary.main,
+  },
+  menuItem: {
+    fontSize: theme.typography.subtitle1.fontSize,
   },
 }));
 

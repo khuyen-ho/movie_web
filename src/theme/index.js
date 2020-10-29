@@ -11,7 +11,7 @@ const theme = createMuiTheme({
     secondary: {
       light: "#ff7e4a",
       main: "#f44a1c",
-      dark: " #b90000",
+      dark: "#b90000",
       contrastText: "#ffffff",
     },
     green: {
@@ -30,7 +30,7 @@ const theme = createMuiTheme({
     white: "#ffffff",
     text: {
       primary: "#000000",
-      secondary: "#fb4226",
+      secondary: "#f44a1c",
     },
   },
   background: {
@@ -83,13 +83,13 @@ const theme = createMuiTheme({
     subtitle1: {
       fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
       fontWeight: 600,
-      fontSize: "0.875rem",
+      fontSize: "1.0rem",
       lineHeight: 1.75,
       letterSpacing: "0.00938em",
     },
     subtitle2: {
       fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: "0.875rem",
       lineHeight: 1.57,
       letterSpacing: "0.00714em",
@@ -111,12 +111,12 @@ const theme = createMuiTheme({
   },
   breakpoints: {
     values: {
-      smallMobile: 0,
-      mediumMobile: 375,
-      largeMobile: 576,
-      tablet: 768,
-      laptop: 992,
-      desktop: 1200,
+      xs: 0, // smallMobile
+      xsm: 375, // mediumMobile
+      sm: 576, // largeMobile
+      md: 768, // tablet
+      lg: 992, // laptop
+      xl: 1200, // desktop
     },
   },
 });

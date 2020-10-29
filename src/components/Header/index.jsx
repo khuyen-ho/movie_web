@@ -24,13 +24,13 @@ const Header = () => {
           href={links[i].path}
           className={styles.link}
           key={i}
-          variant="subtitle1"
+          variant="subtitle2"
         >
           {links[i].title}
         </Link>
       );
     }
-    return <Box>{navLinks}</Box>;
+    return <Box className={styles.links}>{navLinks}</Box>;
   };
 
   return (
@@ -39,7 +39,7 @@ const Header = () => {
         <MovieRoundedIcon fontSize="large" className={styles.logo} />
       </IconButton>
 
-      <Box>{createNavlinks}</Box>
+      <Box className={styles.links}>{createNavlinks}</Box>
 
       <Box className={styles.right}>
         <Box className={styles.signInUp}>
@@ -54,7 +54,7 @@ const Header = () => {
           <Link
             href={links[2].path}
             className={styles.link}
-            variant="subtitle1"
+            variant="subtitle2"
           >
             {links[2].title}
           </Link>
@@ -72,7 +72,7 @@ const Header = () => {
           <Link
             href={links[3].path}
             className={styles.link}
-            variant="subtitle1"
+            variant="subtitle2"
           >
             {links[3].title}
           </Link>

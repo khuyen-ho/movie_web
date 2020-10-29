@@ -4,16 +4,22 @@ import useStyles from "./style";
 
 const defaultList = ["Choose item", "Item 1", "Item 2", "Item 3"];
 
-const CreateList = (list = defaultList) => {
-  return list.map((item, index) => (
-    <MenuItem key={index} value={index}>
-      {item}
-    </MenuItem>
-  ));
-};
-
 const DropDown = (props) => {
   const styles = useStyles();
+
+  const CreateList = (list = defaultList) => {
+    return list.map((item, index) => (
+      <MenuItem
+        dense
+        key={index}
+        value={index}
+        classes={{ root: styles.menuItem }}
+      >
+        {item}
+      </MenuItem>
+    ));
+  };
+
   return (
     <FormControl className={styles.formControl}>
       <Select
