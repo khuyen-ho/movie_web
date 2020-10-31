@@ -14,7 +14,7 @@ const useStyle = makeStyles((theme) => ({
       marginTop: 50,
       borderRadius: 5,
       width: "100%",
-     // overflow: "hidden",
+      // overflow: "hidden",
 
       "& img": { boxShadow: "8px 8px 15px 3px #000" },
       "&:hover": {
@@ -47,6 +47,9 @@ const useStyle = makeStyles((theme) => ({
           },
         },
       },
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        transform: "scale(0.8)"
+      },
     },
     "& .title": {
       position: "relative",
@@ -75,6 +78,9 @@ const useStyle = makeStyles((theme) => ({
         color: theme.palette.secondary.main,
         paddingBottom: theme.spacing(3),
         fontSize: 30,
+        [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+          paddingBottom: theme.spacing(1),
+        },
       },
       "& .descMovie": {
         paddingBottom: theme.spacing(2),
@@ -90,11 +96,12 @@ const useStyle = makeStyles((theme) => ({
           backgroundColor: theme.palette.secondary.dark,
         },
       },
+      
     },
     "& .score": {
       color: theme.palette.secondary.main,
       padding: 4,
-      transform: "scale(1.5) translateX(-50%)",
+      transform: "scale(2.5) translateX(-25%)",
       backgroundColor: "#000",
       opacity: 0.8,
       border: `3px solid ${theme.palette.secondary.main}`,
@@ -103,28 +110,34 @@ const useStyle = makeStyles((theme) => ({
       borderRadius: 70,
       textAlign: "center",
       margin: "auto",
-      marginTop: 30,
-      marginBottom: 30,
-      paddingTop: 15,
+      marginTop: theme.spacing(15),
+      //paddingLeft:theme.spacing(5),
+      // marginBottom: 30,
+      // paddingTop: 15,
       "& .point": {
         margin: 0,
+        paddingTop:theme.spacing(1),
         color: theme.palette.white,
         fontSize: 17,
         lineHeight: 1,
       },
-      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+      [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
         height: 60,
         width: 60,
         borderRadius: 60,
         border: `2px solid ${theme.palette.secondary.main}`,
-        paddingTop: 10,
-        //  marginTop:20,
+        paddingTop: 0,
+        transform: "scale(2) translateX(-25%)"
+      },
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        transform: "scale(1.5) translateX(-25%)"
       },
     },
     [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
       display: "none",
     },
   },
+
   trailer: {
     // background: "url(./imgs/bg-body.png)",
     display: "none",
@@ -132,6 +145,7 @@ const useStyle = makeStyles((theme) => ({
       display: "block",
     },
   },
+  
 }));
 
 export default useStyle;
