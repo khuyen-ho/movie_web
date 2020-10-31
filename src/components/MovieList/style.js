@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
 
   container: {
     marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
     padding: theme.spacing(0),
     maxWidth: 950,
   },

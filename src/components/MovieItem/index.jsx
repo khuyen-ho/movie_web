@@ -1,44 +1,52 @@
-import React, { Component } from "react";
-import { Typography, Button, withStyles, IconButton } from "@material-ui/core";
-import style from "./style";
-import { connect } from "react-redux";
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import React from "react";
+import { Typography, Button, Box } from "@material-ui/core";
+import useStyles from "./style";
+import Trailer from "../Trailer";
 import Rating from "../Rating";
-class MovieItem extends Component {
-  goToDetail = (id) => () => {
-    this.props.history.push("/detail/" + id);
-  };
 
-  render() {
-    const { classes } = this.props;
-    const { hinhAnh, tenPhim, danhGia } = this.props.courseItem;
+const getFullDate = (jsonDate) => {
+  let formatedDate = new Date(jsonDate);
+  let date = formatedDate.getDate();
+  let month = formatedDate.getMonth() + 1;
+  let year = formatedDate.getFullYear();
 
-    return (
-      <div className={classes.item}>
-        <div className="img">
-          <img src={hinhAnh} alt="" />
-          <div className="img__overlay">
-            <IconButton>
-              <PlayCircleOutlineIcon />
-            </IconButton>
-          </div>
-        </div>
-        <div className="title">
-          <Typography className="titleMovie" component="h6" variant="h6">
-            {tenPhim}
-          </Typography>
-
-          <Button fullWidth>MUA VÉ</Button>
-        </div>
-        <div className="score">
-          <Typography className="point" variant="h1">
-            {parseFloat(danhGia)}
-          </Typography>
-          {/* <Rating courseItem={this.props.courseItem} /> */}
-        </div>
-      </div>
-    );
+  if (date < 10) {
+    date = String("0" + date).slice(-2);
   }
-}
 
-export default connect()(withStyles(style)(MovieItem));
+  if (month < 10) {
+    month = String("0" + month).slice(-2);
+  }
+
+  return date + "/" + month + "/" + year;
+};
+
+const MovieItem = (props) => {
+  const styles = useStyles();
+  const { hinhAnh, tenPhim, danhGia, ngayKhoiChieu } = props.movie;
+
+  return (
+    <Box className={styles.root}>
+      <Trailer image={hinhAnh} />
+      <Typography variant="h6" className={styles.title}>
+        {tenPhim}
+      </Typography>
+      <Typography variant="subtitle2" className={styles.openingDay}>
+        Khởi chiếu: {getFullDate(ngayKhoiChieu)}
+      </Typography>
+      <Button
+        variant="contained"
+        color="secondary"
+        fullWidth
+        className={styles.button}
+      >
+        MUA VÉ
+      </Button>
+      <Box className={styles.rating}>
+        <Rating score={danhGia} type="mini" />
+      </Box>
+    </Box>
+  );
+};
+
+export default MovieItem;

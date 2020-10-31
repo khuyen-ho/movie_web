@@ -5,8 +5,9 @@ import StarHalfIcon from "@material-ui/icons/StarHalf";
 import { Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 
-const Rating = ({ score }) => {
-  const style = useStyles();
+const Rating = (props) => {
+  let { score, type } = props;
+  const style = useStyles({ type });
   const maxScore = 10.0;
 
   if (score > maxScore) {
@@ -37,6 +38,11 @@ const Rating = ({ score }) => {
       <Box>{rating}</Box>
     </Box>
   );
+};
+
+Rating.defaultProps = {
+  score: 0,
+  type: "mini",
 };
 
 export default Rating;

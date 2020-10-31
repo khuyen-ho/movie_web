@@ -2,12 +2,10 @@ import { FormControl, MenuItem, Select } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
 
-const defaultList = ["Choose item", "Item 1", "Item 2", "Item 3"];
-
 const DropDown = (props) => {
   const styles = useStyles();
 
-  const CreateList = (list = defaultList) => {
+  const CreateList = (list) => {
     return list.map((item, index) => (
       <MenuItem
         dense
@@ -33,6 +31,10 @@ const DropDown = (props) => {
       </Select>
     </FormControl>
   );
+};
+
+DropDown.defaultProps = {
+  list: ["Choose item", "Item 1", "Item 2", "Item 3"],
 };
 
 export default DropDown;

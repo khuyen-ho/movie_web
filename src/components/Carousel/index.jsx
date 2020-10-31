@@ -8,7 +8,7 @@ export default function Carousel() {
   return (
     <CarouselUI
       indicator={false}
-      navButtonsAlwaysVisible={false}
+      navButtonsAlwaysInvisible={true}
       animation="slide"
       interval="5000"
       indicators={false}

@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     overflow: "hidden",
-    width: 200,
+    width: "100%",
     textAlign: "center",
     cursor: "pointer",
     boxShadow: "8px 8px 15px 3px #3c3b37",
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
   image: {
     width: "100%",
+    height: 300,
   },
 
   overlay: {

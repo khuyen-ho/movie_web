@@ -8,19 +8,19 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.blue.dark,
-    padding: theme.spacing(0.2, 0)
+    padding: theme.spacing(0.2, 0),
   },
 
   score: {
     color: theme.palette.white,
-    marginBottom: theme.spacing(-1)
+    marginBottom: theme.spacing(-1),
   },
 
   star: {
     color: theme.palette.secondary.main,
     borderColor: "black",
     fontSize: theme.typography.subtitle2.fontSize,
-    margin: theme.spacing(-0.1)
+    margin: theme.spacing(-0.1),
   },
 }));
 
