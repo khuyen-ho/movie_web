@@ -1,4 +1,11 @@
-import { Button, Grid, IconButton, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
 import React, { Component } from "react";
 import Rating from "../rating/Rating";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
@@ -18,11 +25,16 @@ const BannerDetail = (props) => {
     danhGia: 5,
   };
   const styles = useStyles();
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <>
       <div className={styles.item}>
-        <Grid container>
-          <Grid item xs={4}>
+        <Grid className={styles.content} container>
+          <Grid item xs={5} md={4}>
             <div className="img">
               <img src={movie.hinhAnh} alt="" />
               <div className="img__overlay">
@@ -32,8 +44,14 @@ const BannerDetail = (props) => {
               </div>
             </div>
           </Grid>
-          <Grid item xs={6} md={5}>
+          <Grid item xs={7} md={5}>
             <div className="title">
+              <div className="score_after">
+                <Typography className="point" variant="h6">
+                  {parseFloat(movie.danhGia)}
+                </Typography>
+                <Rating courseItem={movie} />
+              </div>
               <Typography className="titleMovie" component="h6" variant="h6">
                 {movie.tenPhim}
               </Typography>
@@ -46,7 +64,7 @@ const BannerDetail = (props) => {
               <Button fullWidth>MUA VÉ</Button>
             </div>
           </Grid>
-          <Grid  item xs={2} md={3}>
+          <Grid className={styles.score} item xs={0} md={3}>
             <div className="score">
               <Typography className="point" variant="h6">
                 {parseFloat(movie.danhGia)}
@@ -55,11 +73,58 @@ const BannerDetail = (props) => {
             </div>
           </Grid>
         </Grid>
-      </div>
-      <div className={styles.trailer}>
-        <video width="100%" height={300} controls>
-          <source src={movie.trailer} type="video/mp4" />
-        </video>
+
+        <div className={styles.trailer}>
+          {open && (
+            <div onClick={handleClick} className={styles.overlay}>
+              <div className="title_sm">
+                <div>
+                  <Typography
+                    className="titleMovie_after"
+                    component="h6"
+                    variant="h6"
+                  >
+                    {movie.tenPhim}
+                  </Typography>
+                  <Typography
+                    className="dateMovie_after"
+                    style={{ color: "white" }}
+                  >
+                    {movie.ngayKhoiChieu}
+                  </Typography>
+                </div>
+                <div className={styles.score_sm}>
+                  <Typography className="point" variant="h6">
+                    {parseFloat(movie.danhGia)}
+                  </Typography>
+                  <div className='rating'><Rating courseItem={movie} /></div>
+                  
+                </div>
+              </div>
+              <PlayCircleOutlineIcon />
+              <img src={movie.hinhAnh}></img>
+            </div>
+          )}
+          <video width="100%" height={250} controls>
+            <source src={movie.trailer} type="video/mp4" />
+          </video>
+        </div>
+        <Container>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <div className={styles.title_desc_after}>
+              <Typography
+                className="descMovie_after"
+                style={{ color: "white" }}
+              >
+                {movie.moTa}
+              </Typography>
+            </div>
+          </Box>
+        </Container>
       </div>
     </>
   );

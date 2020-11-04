@@ -1,14 +1,25 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles((theme) => ({
+  score: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    maxWidth: 950,
+    margin: "auto",
+    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+      display: "none",
+    },
+  },
   item: {
     textAlign: "center",
     position: "relative",
-    //background: "url(./imgs/bg2.jpg)",
-    //backgroundColor:'#0a2029',
-    //backgroundImage: `linear-gradient(to bottom, white,  ${theme.palette.grey.light},  ${theme.palette.grey.main}, ${theme.palette.grey.dark})`,
     backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
     paddingBottom: theme.spacing(5),
+
     "& .img": {
       position: "relative",
       marginTop: 50,
@@ -48,7 +59,7 @@ const useStyle = makeStyles((theme) => ({
         },
       },
       [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
-        transform: "scale(0.8)"
+        transform: "scale(0.8)",
       },
     },
     "& .title": {
@@ -84,6 +95,9 @@ const useStyle = makeStyles((theme) => ({
       },
       "& .descMovie": {
         paddingBottom: theme.spacing(2),
+        [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+          display: "none",
+        },
       },
       "& .dateMovie": {
         paddingBottom: theme.spacing(2),
@@ -96,56 +110,161 @@ const useStyle = makeStyles((theme) => ({
           backgroundColor: theme.palette.secondary.dark,
         },
       },
-      
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        textAlign: "center",
+      },
     },
-    "& .score": {
+    "& .score,& .score_after": {
       color: theme.palette.secondary.main,
       padding: 4,
-      transform: "scale(2.5) translateX(-25%)",
+      transform: "scale(2.5) ",
       backgroundColor: "#000",
       opacity: 0.8,
       border: `3px solid ${theme.palette.secondary.main}`,
       height: 70,
       width: 70,
       borderRadius: 70,
-      textAlign: "center",
-      margin: "auto",
-      marginTop: theme.spacing(15),
-      //paddingLeft:theme.spacing(5),
-      // marginBottom: 30,
-      // paddingTop: 15,
       "& .point": {
         margin: 0,
-        paddingTop:theme.spacing(1),
+        paddingTop: theme.spacing(1),
         color: theme.palette.white,
         fontSize: 17,
         lineHeight: 1,
       },
+    },
+    "& .score_after": {
+      display: "none",
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        display: "block",
+        margin: "auto",
+        transform: "scale(1.5)",
+        marginBottom: theme.spacing(3),
+        marginTop: theme.spacing(4),
+      },
+    },
+    "& .score": {
       [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
         height: 60,
         width: 60,
         borderRadius: 60,
         border: `2px solid ${theme.palette.secondary.main}`,
         paddingTop: 0,
-        transform: "scale(2) translateX(-25%)"
+        transform: "scale(2) translateX(-25%)",
       },
       [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
-        transform: "scale(1.5) translateX(-25%)"
+        display: "none",
       },
-    },
-    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
-      display: "none",
     },
   },
 
   trailer: {
-    // background: "url(./imgs/bg-body.png)",
     display: "none",
+    position: "relative",
+    overflow: "hidden",
     [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
       display: "block",
     },
   },
-  
+  overlay: {
+    height: 250,
+    position: "absolute",
+    width: "100%",
+    top: 0,
+    left: 0,
+    zIndex: 10,
+    opacity: 0.8,
+    "& img": {
+      width: "100%",
+    },
+    "& svg": {
+      color: theme.palette.white,
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+      fontSize: 100,
+      "&:hover": {
+        transition: "all 0.3s",
+        color: theme.palette.secondary.main,
+      },
+    },
+    "&:hover": {
+      cursor: "pointer",
+    },
+    "& .title_sm": {
+      padding: "0 20px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+
+      "& .titleMovie_after": {
+        color: theme.palette.secondary.main,
+        fontSize: 30,
+        display: "none",
+        background: "transparent",
+        [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+          display: "block",
+        },
+      },
+
+      "& .dateMovie_after": {
+        paddingBottom: theme.spacing(2),
+        display: "none",
+        [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+          display: "block",
+        },
+      },
+    },
+  },
+  title_desc_after: {
+    "& .descMovie_after": {
+      marginTop: theme.spacing(3),
+      padding: "0 5%",
+      textAlign: "left",
+      display: "none",
+      [theme.breakpoints.down(`${theme.breakpoints.values.md}`)]: {
+        display: "block",
+      },
+      [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+        display: "none",
+      },
+    },
+
+    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
+      textAlign: "left",
+    },
+  },
+  score_sm: {
+    color: theme.palette.secondary.main,
+    padding: 4,
+    backgroundColor: "#000",
+    opacity: 0.8,
+    border: `2px solid ${theme.palette.secondary.main}`,
+    height: 50,
+    width: 70,
+    borderRadius: 5,
+    position:"relative",
+    "& .point": {
+      margin: 0,
+      //paddingTop: theme.spacing(1),
+      color: theme.palette.white,
+      fontSize: 17,
+      lineHeight: 1,
+    },
+    "& .rating": {
+      position:"absolute",
+      transform:"translate(-35%,10%)",
+      "& svg": {
+        fontSize: 11,
+        position: "relative",
+        color: theme.palette.secondary.main,
+      },
+    },
+  },
 }));
 
 export default useStyle;
