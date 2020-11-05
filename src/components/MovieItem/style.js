@@ -6,16 +6,16 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     transition: "all 0.2s",
 
-    "&:hover $title": {
-      opacity: 0,
-    },
-
-    "&:hover $openingDay": {
-      opacity: 0,
-    },
-
-    "&:hover $button": {
-      display: "block",
+    [theme.breakpoints.up("lg")]: {
+      "&:hover $title": {
+        opacity: 0,
+      },
+      "&:hover $openingDay": {
+        opacity: 0,
+      },
+      "&:hover $button": {
+        display: "block",
+      },
     },
   },
 
@@ -28,24 +28,29 @@ const useStyles = makeStyles((theme) => ({
     display: "-webkit-box",
     lineClamp: 2,
     boxOrient: "vertical",
+
+    [theme.breakpoints.up("xs")]: {
+      fontSize: theme.typography.subtitle2.fontSize,
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
 
   openingDay: {
-    marginBottom: theme.spacing(0.5),
+    marginBottom: theme.spacing(0),
   },
 
   button: {
     outline: "none",
     color: theme.palette.white,
-    fontSize: theme.typography.subtitle1.fontSize,
-    fontWeight: theme.typography.subtitle1.fontWeight,
     padding: theme.spacing(1, 0),
     display: "none",
     position: "absolute",
     bottom: 0,
 
-    "&:focus": {
-      outline: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
     },
   },
 

@@ -28,6 +28,7 @@ const useStyle = makeStyles((theme) => ({
     color: theme.palette.white,
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
+    width: "100%",
     "&:focus": {
       outline: "none",
     },

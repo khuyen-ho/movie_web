@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
   image: {
     width: "100%",
-    height: 300,
   },
 
   overlay: {
@@ -43,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: theme.palette.secondary.main,
       opacity: 1,
+    },
+
+    [theme.breakpoints.down("md")]: {
+      display: "none",
     },
   },
 

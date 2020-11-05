@@ -16,7 +16,7 @@ const MovieItem = (props) => {
         {tenPhim}
       </Typography>
       <Typography variant="subtitle2" className={styles.openingDay}>
-        Khởi chiếu: {getFullDate(ngayKhoiChieu)}
+        {getFullDate(ngayKhoiChieu)}
       </Typography>
       <Button
         variant="contained"
