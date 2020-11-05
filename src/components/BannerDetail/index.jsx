@@ -32,41 +32,54 @@ const BannerDetail = (props) => {
   };
   return (
     <>
-      <div className={styles.item}>
-        <Grid className={styles.content} container>
-          <Grid item xs={5} md={4}>
-            <div className="img">
+      <div className={styles.root}>
+        <Grid container className={styles.big_banner}>
+          {/* poster movie  */}
+          <Grid item md={4} xs={5}>
+            <div className={styles.poster}>
               <img src={movie.hinhAnh} alt="" />
-              <div className="img__overlay">
+              <div className={styles.poster_play}>
                 <IconButton>
                   <PlayCircleOutlineIcon />
                 </IconButton>
               </div>
             </div>
           </Grid>
-          <Grid item xs={7} md={5}>
-            <div className="title">
-              <div className="score_after">
-                <Typography className="point" variant="h6">
+          {/* title movie  */}
+          <Grid item md={5} xs={7}>
+            <div className={styles.title}>
+              <div className={styles.score_md}>
+                <Typography className={styles.point} variant="h6">
                   {parseFloat(movie.danhGia)}
                 </Typography>
                 <Rating courseItem={movie} />
               </div>
-              <Typography className="titleMovie" component="h6" variant="h6">
+              <Typography
+                className={styles.titleMovie}
+                component="h6"
+                variant="h6"
+              >
                 {movie.tenPhim}
               </Typography>
-              <Typography className="descMovie" style={{ color: "white" }}>
+              <Typography
+                className={styles.descMovie}
+                style={{ color: "white" }}
+              >
                 {movie.moTa}
               </Typography>
-              <Typography className="dateMovie" style={{ color: "white" }}>
+              <Typography
+                className={styles.dateMovie}
+                style={{ color: "white" }}
+              >
                 {movie.ngayKhoiChieu}
               </Typography>
               <Button fullWidth>MUA VÉ</Button>
             </div>
           </Grid>
-          <Grid className={styles.score} item xs={0} md={3}>
-            <div className="score">
-              <Typography className="point" variant="h6">
+          {/* rating  */}
+          <Grid item md={3} xs={0}>
+            <div className={styles.score}>
+              <Typography className={styles.point} variant="h6">
                 {parseFloat(movie.danhGia)}
               </Typography>
               <Rating courseItem={movie} />
@@ -74,34 +87,37 @@ const BannerDetail = (props) => {
           </Grid>
         </Grid>
 
-        <div className={styles.trailer}>
+        {/* small banner  */}
+        <div className={styles.small_banner}>
           {open && (
+            // image cover video
             <div onClick={handleClick} className={styles.overlay}>
-              <div className="title_sm">
+              <div className={styles.title_sm}>
                 <div>
                   <Typography
-                    className="titleMovie_after"
+                    className={styles.titleMovie_sm}
                     component="h6"
                     variant="h6"
                   >
                     {movie.tenPhim}
                   </Typography>
                   <Typography
-                    className="dateMovie_after"
+                    className={styles.dateMovie_sm}
                     style={{ color: "white" }}
                   >
                     {movie.ngayKhoiChieu}
                   </Typography>
                 </div>
                 <div className={styles.score_sm}>
-                  <Typography className="point" variant="h6">
+                  <Typography className={styles.point} variant="h6">
                     {parseFloat(movie.danhGia)}
                   </Typography>
-                  <div className='rating'><Rating courseItem={movie} /></div>
-                  
+                  <div className={styles.rating}>
+                    <Rating courseItem={movie} />
+                  </div>
                 </div>
               </div>
-              <PlayCircleOutlineIcon />
+              <PlayCircleOutlineIcon className={styles.playBtn} />
               <img src={movie.hinhAnh}></img>
             </div>
           )}
@@ -109,20 +125,19 @@ const BannerDetail = (props) => {
             <source src={movie.trailer} type="video/mp4" />
           </video>
         </div>
+        {/* describe movie in sm console */}
         <Container>
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
-            <div className={styles.title_desc_after}>
-              <Typography
-                className="descMovie_after"
-                style={{ color: "white" }}
-              >
-                {movie.moTa}
-              </Typography>
-            </div>
+            <Typography
+              className={styles.descMovie_md}
+              style={{ color: "white" }}
+            >
+              {movie.moTa}
+            </Typography>
           </Box>
         </Container>
       </div>

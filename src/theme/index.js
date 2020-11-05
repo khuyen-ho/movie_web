@@ -116,6 +116,12 @@ const theme = createMuiTheme({
       md: 768,
       lg: 992,
       xl: 1200,
+      smallMobile: 0,
+      mediumMobile: 375,
+      largeMobile: 576,
+      tablet: 768,
+      laptop: 992,
+      desktop: 1200,
     },
   },
 });
