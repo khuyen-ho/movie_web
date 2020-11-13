@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Typography, Grid } from "@material-ui/core";
 import MovieItem from "../MovieItem";
 import useStyles from "./style";
+import Paging from "../Paging";
 import { getMovieList } from "../../redux/actions/movieAction";
-import Pagination from "@material-ui/lab/Pagination";
 
 const MovieList = () => {
   const movies = useSelector((state) => state.course);
@@ -13,7 +13,7 @@ const MovieList = () => {
   const style = useStyles();
 
   useEffect(() => {
-    dispatch(getMovieList(1, 12));
+    dispatch(getMovieList(1, 8));
   });
 
   const renderMovie = (movies) => {
@@ -34,7 +34,7 @@ const MovieList = () => {
       <Grid container spacing={3}>
         {renderMovie(movies)}
       </Grid>
-      <Pagination count={5} shape="round" color="secondary" />
+      <Paging />
     </Container>
   );
 };
