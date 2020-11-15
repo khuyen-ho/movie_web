@@ -52,7 +52,7 @@ const SignIn = (props) => {
                 <CssButton variant="contained" color="secondary" fullWidth>
                   LOG IN
                 </CssButton>
-                <div>
+                <Box marginTop="30px">
                   <CssFormControlLabel
                     control={
                       <Switch
@@ -74,8 +74,8 @@ const SignIn = (props) => {
                     }
                     label="Forgot password?"
                   />
-                </div>
-                <Box display='flex' justifyContent='space-between' width='100%'>
+                </Box>
+                <Box display='flex' justifyContent='space-between' width='100%' marginTop='40px'>
                   <Button color="secondary">CREATE ACCOUNT</Button>
                   <Button color="secondary">NEED HELP?</Button>
                 </Box>

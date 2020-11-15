@@ -89,7 +89,8 @@ export const CssButton = withStyles((theme) => ({
 export const CssFormControlLabel = withStyles((theme) => ({
   root: {
     "&.MuiFormControlLabel-root": {
-      color: theme.palette.secondary.main,
+      color: theme.palette.grey.light,
+      margin:0
     },
   },
 }))(FormControlLabel);
