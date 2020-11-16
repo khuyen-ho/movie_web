@@ -18,6 +18,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
+
+  pagination: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: theme.spacing(2),
+  },
+
+  pageList: {
+    "& li": {
+      margin: 0,
+    },
+
+    "& li button": {
+      outline: "none",
+      margin: 0,
+    },
+  },
 }));
 
 export default useStyles;

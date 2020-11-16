@@ -1,9 +1,5 @@
 /* eslint-disable no-lone-blocks */
-import {
-  GET_CINEMA_DETAIL,
-  GET_CINEMA_LIST,
-  GET_COURSE_LIST,
-} from "./actionType";
+import { GET_CINEMA_LIST, GET_MOVIE_LIST } from "./actionType";
 import Axios from "axios";
 export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
@@ -16,9 +12,8 @@ export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
         data: null,
       })
         .then(function thanhCong(res) {
-          //console.log(res.data);
           dispatch({
-            type: GET_COURSE_LIST,
+            type: GET_MOVIE_LIST,
             payload: res.data,
           });
         })
@@ -40,8 +35,6 @@ export const getCinemaList = () => {
         data: null,
       })
         .then(function thanhCong(res) {
-          //console.log(res.data);
-          //console.log(dispatch);
           dispatch({
             type: GET_CINEMA_LIST,
             payload: res.data,

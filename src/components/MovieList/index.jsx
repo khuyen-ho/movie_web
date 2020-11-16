@@ -1,20 +1,25 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Typography, Grid } from "@material-ui/core";
 import MovieItem from "../MovieItem";
 import useStyles from "./style";
-import Paging from "../Paging";
 import { getMovieList } from "../../redux/actions/movieAction";
+import Pagination from "@material-ui/lab/Pagination";
 
 const MovieList = () => {
-  const movies = useSelector((state) => state.course);
+  const movies = useSelector((state) => state.movies.items);
+  const totalPages = useSelector((state) => state.movies.pageCount);
   const dispatch = useDispatch();
   const style = useStyles();
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(getMovieList(1, 8));
-  });
+    dispatch(getMovieList(page, 8));
+  }, [dispatch, page]);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
 
   const renderMovie = (movies) => {
     return movies.map((movie, index) => {
@@ -34,7 +39,15 @@ const MovieList = () => {
       <Grid container spacing={3}>
         {renderMovie(movies)}
       </Grid>
-      <Paging />
+      <Pagination
+        siblingCount={0}
+        count={totalPages}
+        shape="round"
+        color="secondary"
+        size="large"
+        onChange={handlePageChange}
+        classes={{ root: style.pagination, ul: style.pageList }}
+      />
     </Container>
   );
 };
