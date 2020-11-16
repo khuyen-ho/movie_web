@@ -5,10 +5,8 @@ import Trailer from "../Trailer";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
 
-const MovieItem = (props) => {
+const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu }) => {
   const styles = useStyles();
-  const { hinhAnh, tenPhim, danhGia, ngayKhoiChieu } = props.movie;
-
   return (
     <Box className={styles.root}>
       <Trailer image={hinhAnh} />

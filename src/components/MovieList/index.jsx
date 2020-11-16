@@ -17,15 +17,11 @@ const MovieList = () => {
     dispatch(getMovieList(page, 8));
   }, [dispatch, page]);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
-
   const renderMovie = (movies) => {
     return movies.map((movie, index) => {
       return (
         <Grid item xs={6} sm={4} lg={3}>
-          <MovieItem key={index} movie={movie} />
+          <MovieItem key={index} {...movie} />
         </Grid>
       );
     });
@@ -45,7 +41,7 @@ const MovieList = () => {
         shape="round"
         color="secondary"
         size="large"
-        onChange={handlePageChange}
+        onChange={(event, value) => setPage(value)}
         classes={{ root: style.pagination, ul: style.pageList }}
       />
     </Container>
