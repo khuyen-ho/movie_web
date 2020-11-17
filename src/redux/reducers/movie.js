@@ -1,16 +1,20 @@
-import { GET_COURSE_LIST } from "../actions/actionType";
+import { GET_MOVIE_LIST } from "../actions/actionType";
 
-let initialState = [];
+let initialState = {
+  items: [],
+  pageCount: 0,
+};
 
-const course = (state = initialState, action) => {
+const movies = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COURSE_LIST: {
-      state = action.payload.items;
-      return [...state];
+    case GET_MOVIE_LIST: {
+      state.items = action.payload.items;
+      state.pageCount = action.payload.totalPages;
+      return { ...state };
     }
     default:
       return state;
   }
 };
 
-export default course;
+export default movies;

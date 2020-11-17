@@ -1,28 +1,17 @@
-import { FormatLineSpacing } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
 
-const style = (theme) => ({
-  home: {
-  },
-  title1: {
-    color: "white",
-    padding: theme.spacing(5),
-  },
-  title2: {
-    color: "#dacb46",
+const useStyles = makeStyles((theme) => ({
+  title: {
+    color: theme.palette.secondary.main,
     textAlign: "left",
-    paddingLeft: theme.spacing(2),
+    margin: theme.spacing(3, 0),
   },
-  container: {
-      textAlign:'center',
-    paddingLeft: theme.spacing(10),
-    paddingRight: theme.spacing(10),
-    "@media screen and (max-width: 992px)": {
-      "&": {
-        padding:  theme.spacing(0,5),
-      },
-    },
-    
-  },
-});
 
-export default style;
+  container: {
+    marginTop: theme.spacing(5),
+    padding: theme.spacing(0),
+    maxWidth: 950,
+  },
+}));
+
+export default useStyles;
