@@ -1,7 +1,8 @@
 const { makeStyles, Tabs, withStyles } = require("@material-ui/core");
 
 const useStyles = makeStyles((theme) => ({
-   title:{
+   
+  title:{
      display:'flex',
      justifyContent:"space-between",
      alignItems:"center",

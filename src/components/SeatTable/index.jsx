@@ -86,22 +86,22 @@ const SeatTable = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Box className={classes.note}>
-            <div className={classes.noteChair}>
+            <span className={classes.noteChair}>
               <WeekendIcon />
               <Typography component="span">Ghế đang chọn</Typography>
-            </div>
-            <div className={classes.noteChair}>
+            </span>
+            <span className={classes.noteChair}>
               <WeekendIcon />
               <Typography component="span">Ghế đã chọn</Typography>
-            </div>
-            <div className={classes.noteChair}>
+            </span>
+            <span className={classes.noteChair}>
               <WeekendIcon />
               <Typography component="span">Ghế không thể chọn</Typography>
-            </div>
-            <div className={classes.noteChair}>
+            </span>
+            <span className={classes.noteChair}>
               <WeekendIcon />
               <Typography component="span">Ghế VIP</Typography>
-            </div>
+            </span>
           </Box>
         </Grid>
       </Grid>
