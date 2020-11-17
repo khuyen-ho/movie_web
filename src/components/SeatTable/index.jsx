@@ -56,7 +56,7 @@ const SeatTable = (props) => {
                   alt=""
                 />
               </div>
-              <div>
+              <div className={classes.cinema}>
                 <Typography variant="h6">
                   BHD Star <span> - Vincom 3/2</span>
                 </Typography>
@@ -69,19 +69,19 @@ const SeatTable = (props) => {
           </Container>
         </Grid>
         <Grid item xs={12}>
-          <img src="./imgs/screen.png" alt="" />
+          <Box className={classes.screen}>
+            <img src="./imgs/screen.png" alt="" />
+          </Box>
         </Grid>
         <Grid item xs={12}>
           <Box className={classes.seatArea}>
-            <Grid container>
-              {chairList.map((item, index) => (
-                <Grid item xs={1} key={index}>
-                  <IconButton aria-label="delete">
-                    <WeekendIcon />
-                  </IconButton>
-                </Grid>
-              ))}
-            </Grid>
+            {chairList.map((item, index) => (
+              <span>
+                <IconButton aria-label="delete">
+                  <WeekendIcon />
+                </IconButton>
+              </span>
+            ))}
           </Box>
         </Grid>
         <Grid item xs={12}>

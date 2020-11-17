@@ -1,4 +1,5 @@
 import { makeStyles, Table, TableContainer, withStyles } from "@material-ui/core";
+import { textAlign } from "@material-ui/system";
 
 const useStyles = makeStyles((theme) => ({
  title:{
@@ -12,17 +13,34 @@ const useStyles = makeStyles((theme) => ({
       justifyContent:'center',
       alignItems:"center"
   },
+  cinema:{
+      textAlign:"left",
+    [theme.breakpoints.down('md')]:{
+        transform:"scale(0.8)"
+      }
+      
+  },
   logo:{
       height:70,
       marginRight:theme.spacing(2),
       "& img":{
-          height:"100%"
+          height:"100%",
+      },
+      [theme.breakpoints.down('md')]:{
+        height:60,
+        marginRight:theme.spacing(0),
       }
   },
+  screen:{
+     "& img":{
+         width:"80%"
+     }
+  },
   seatArea:{
-      marginRight:theme.spacing(45),
-      marginLeft:theme.spacing(45),
-      marginTop:theme.spacing(5),
+    marginTop:theme.spacing(5),
+      maxWidth:600,
+      margin:"auto",
+      textAlign:'left'
   },
   note:{
       display:'flex',
