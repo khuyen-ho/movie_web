@@ -1,4 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Container } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.grey.dark,
@@ -6,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.secondary.main,
     padding: "30px 0",
     color: theme.palette.white,
+    overflow: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+    },
   },
   social: {
     textAlign: "center",
@@ -16,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     color: theme.palette.grey.light,
+    marginRight: theme.spacing(1),
     "&:hover": {
       color: theme.palette.grey.main,
       transition: "all 0.3s",
@@ -29,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       margin: 0,
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 30,
+    },
   },
   cinema: {
     textAlign: "center",
@@ -36,12 +45,11 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: 40,
     marginBottom: theme.spacing(1),
+    paddingRight: theme.spacing(1),
     [theme.breakpoints.down("sm")]: {
-      padding: 0,
+      height: 30,
     },
-    [theme.breakpoints.down("xs")]: {
-      height: 35,
-    },
+    [theme.breakpoints.down("xs")]: {},
   },
   movie: {
     textAlign: "center",
@@ -63,13 +71,13 @@ const useStyles = makeStyles((theme) => ({
   },
   tagA: {
     fontWeight: "normal",
-    fontSize: 20,
+    fontSize: 15,
     textTransform: "inherit",
     color: "#b3c4d5",
     display: "block",
     color: theme.palette.grey.light,
     [theme.breakpoints.down("md")]: {
-      fontSize: 17,
+      fontSize: 13,
     },
     "&:hover": {
       color: theme.palette.secondary.main,
@@ -95,5 +103,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
+export const CssContainer = withStyles((theme) => ({
+  root: {
+    "&.MuiContainer-root": {
+      [theme.breakpoints.down("sm")]: {
+        padding: 0,
+      },
+    },
+  },
+}))(Container);
 export default useStyles;

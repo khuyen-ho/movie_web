@@ -5,7 +5,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import useStyles from "./style";
-
+import {CssContainer} from './style'
 const cinema = [
   {
     maHeThongRap: "BHDStar",
@@ -49,34 +49,36 @@ const Footer = (props) => {
   const styles = useStyles();
   return (
     <Box className={styles.root} py={1}>
-      <Container>
+      <CssContainer>
         <Grid container>
           <Grid item xs={6} md={3}>
             <Container>
               <div className={styles.social}>
                 <h2 className={styles.title}>LIÊN KẾT</h2>
-                <Grid container>
-                  <Grid item xs={6}>
+                <Box margin='auto'>
+                  <div>
+                  <span>
                     <a href="" className={styles.media}>
                       <FacebookIcon className={styles.icon} />
                     </a>
-                  </Grid>
-                  <Grid item xs={6}>
+                  </span>
+                  <span>
                     <a href="" className={styles.media}>
                       <YouTubeIcon className={styles.icon} />
                     </a>
-                  </Grid>
-                  <Grid item xs={6}>
+                  </span></div>
+                  <div>
+                  <span>
                     <a href="" className={styles.media}>
                       <TwitterIcon className={styles.icon} />
                     </a>
-                  </Grid>
-                  <Grid item xs={6}>
+                  </span>
+                  <span>
                     <a href="" className={styles.media}>
                       <InstagramIcon className={styles.icon} />
                     </a>
-                  </Grid>
-                </Grid>
+                  </span></div>
+                </Box>
               </div>
             </Container>
           </Grid>
@@ -84,13 +86,13 @@ const Footer = (props) => {
             <Container>
               <Box className={styles.cinema}>
                 <h2 className={styles.title}>Hệ thống rạp</h2>
-                <Grid container>
+                <Box width='100%' margin='auto'>
                   {cinema.map((item, index) => (
-                    <Grid item xs={4} key={index}>
+                    <span>
                       <img className={styles.logo} src={item.logo} />
-                    </Grid>
+                    </span>
                   ))}
-                </Grid>
+                </Box>
               </Box>
             </Container>
           </Grid>
@@ -118,7 +120,7 @@ const Footer = (props) => {
             </div>
           </Grid>
         </Grid>
-      </Container>
+      </CssContainer>
     </Box>
   );
 };
