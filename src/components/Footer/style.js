@@ -25,37 +25,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    fontSize: 60,
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+    fontSize: 40,
     [theme.breakpoints.down("md")]: {
       margin: 0,
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 75,
-      padding: theme.spacing(0.5),
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 60,
     },
   },
   cinema: {
     textAlign: "center",
   },
   logo: {
-    width: "100%",
-    padding: theme.spacing(1),
-    [theme.breakpoints.down("md")]: {
-      padding: theme.spacing(0.8),
-    },
+    height: 40,
+    marginBottom: theme.spacing(1),
     [theme.breakpoints.down("sm")]: {
-      width: 55,
       padding: 0,
-      marginTop: theme.spacing(1.5),
-      marginBottom: theme.spacing(1.5),
     },
     [theme.breakpoints.down("xs")]: {
-      width: 40,
+      height: 35,
     },
   },
   movie: {
@@ -95,17 +80,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     padding: "8px 19px",
     fontWeight: "normal",
-    fontSize: 20,
+    fontSize: 15,
     textTransform: "uppercase",
+    textAlign: "left",
     color: "#fff",
-    backgroundColor: "rgba(255,255,255,0.1)",
+    //backgroundColor: "rgba(255,255,255,0.1)",
     marginBottom: 10,
     display: "inline-block",
     [theme.breakpoints.down("md")]: {
-      fontSize: 17,
+      fontSize: 13,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 14,
+      fontSize: 11,
     },
   },
 }));
