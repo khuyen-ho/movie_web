@@ -1,9 +1,10 @@
 const style = (theme) => ({
   foot: {
-    background: "url(./imgs/bg-footer.jpg)",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
+    // background: "url(./imgs/bg-footer.jpg)",
+    // backgroundRepeat: "no-repeat",
+    // backgroundPosition: "center",
+    // backgroundSize: "cover",
+    backgroundColor:theme.palette.grey.dark,
     borderTop: "5px solid",
     borderColor: theme.palette.secondary.main,
     padding: "30px 0",
