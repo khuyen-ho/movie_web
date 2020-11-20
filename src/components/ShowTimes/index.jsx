@@ -1966,11 +1966,11 @@ const RenderShowTime = (list, defaultList, id) => {
             <Typography className={classes.title} component="h6" variant="h6">
               {item.cumRap.tenCumRap}
             </Typography>
-            {openArr[index] ? <ExpandLess /> : <ExpandMore />}
+            
           </ListItem>
           <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
+              <ListItem className={classes.nested}>
                 <Grid container>{Time(item)}</Grid>
               </ListItem>
             </List>

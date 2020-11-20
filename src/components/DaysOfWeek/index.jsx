@@ -1,69 +1,53 @@
 import { Box, Button, ButtonGroup } from "@material-ui/core";
 import React, { Component } from "react";
-import useStyles from "./style";
-import moment from 'moment';
+import useStyles, {CssTab} from "./style";
+import moment from "moment";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+
 
 const Day = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const dayList = [];
-  const styles = useStyles();
-  for(let i = 0; i<7; i++){
-    dayList.push({weekDay: moment().date(moment().date()+i).format('ddd Do')})
+  for (let i = 0; i < 7; i++) {
+    dayList.push({
+      weekDay: moment()
+        .date(moment().date() + i)
+        .format("ddd Do"),
+    });
   }
-  //console.log(dayList);
+
   return (
-    <ButtonGroup
-      color="secondary"
-      aria-label="outlined primary button group"
-      variant="text"
-      className={styles.dayContainer}
-    >
-      {dayList.map((item, index) => (
-        <Button className={styles.dayBtn} key={index}>
-         {item.weekDay}
-        </Button>
-      ))}
-    </ButtonGroup>
+    <Paper square>
+      <Tabs
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}
+        aria-label="disabled tabs example"
+      >
+        {dayList.map((item, index) => (
+          <CssTab label={item.weekDay} key={index}  />
+        ))}
+      </Tabs>
+    </Paper>
   );
 };
-
 
 const DaysOfWeek = (props) => {
   const styles = useStyles();
   return (
     <div className={styles.root}>
-    <Box className={styles.container} my={5} mx={2}>
-      {Day()}
-    </Box></div>
+      <Box className={styles.container} my={5} mx={2}>
+        {Day()}
+      </Box>
+    </div>
   );
 };
 
 export default DaysOfWeek;
-// import React from 'react';
-// import Button from '@material-ui/core/Button';
-// import ButtonGroup from '@material-ui/core/ButtonGroup';
-// import { makeStyles } from '@material-ui/core/styles';
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     '& > *': {
-//       margin: theme.spacing(1),
-//     },
-//   },
-// }));
-
-// export default function DaysOfWeek() {
-//   const classes = useStyles();
-
-//   return (
-//     <div className={classes.root}>
-//       <ButtonGroup size="small" aria-label="small outlined button group">
-//         <Button>One</Button>
-//         <Button>Two</Button>
-//         <Button>Three</Button>
-//       </ButtonGroup>
-//     </div>
-//   );
-// }

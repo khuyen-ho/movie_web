@@ -1,4 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Tab } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,5 +35,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export const CssTab = withStyles((theme)=>({
+  root: {
+    '&.MuiTab-root.Mui-selected': {
+    background:theme.palette.secondary.main
+    },
+ 
+  },
+}))(Tab);
+
 
 export default useStyles;
