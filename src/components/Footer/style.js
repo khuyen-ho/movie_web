@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.grey.dark,
     borderTop: "5px solid",
     borderColor: theme.palette.secondary.main,
-    padding: "30px 0",
     color: theme.palette.white,
     overflow: "hidden",
     [theme.breakpoints.down("sm")]: {
@@ -13,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   social: {
-    textAlign: "center",
     [theme.breakpoints.down("sm")]: {
       paddingLeft: "10%",
       paddingRight: "10%",
@@ -103,13 +101,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export const CssContainer = withStyles((theme) => ({
-  root: {
-    "&.MuiContainer-root": {
-      [theme.breakpoints.down("sm")]: {
-        padding: 0,
-      },
-    },
-  },
-}))(Container);
+
 export default useStyles;
