@@ -37,10 +37,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const CssTab = withStyles((theme)=>({
-  root: {
+  root: {'&.MuiTab-root': {
+      color:theme.palette.grey.dark
+      },
     '&.MuiTab-root.Mui-selected': {
-    background:theme.palette.secondary.main
+    color:theme.palette.secondary.main
     },
+    
  
   },
 }))(Tab);
