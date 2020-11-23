@@ -1,12 +1,21 @@
 import { Box, Container, Grid, Link, Typography } from "@material-ui/core";
 import React from "react";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import useStyles from "./style";
 
-const cinema = [
+const socials = [
+  {
+    logo: "https://tix.vn/app/assets/img/icons/facebook-logo.png",
+    url: "https://www.facebook.com/",
+    alt: "facebook",
+  },
+  {
+    logo: "https://tix.vn/app/assets/img/icons/zalo-logo.png",
+    url: "https://id.zalo.me/account?continue=https%3A%2F%2Fchat.zalo.me%2F",
+    alt: "zalo",
+  },
+];
+
+const cinemas = [
   {
     maHeThongRap: "BHDStar",
     tenHeThongRap: "BHD Star Cineplex",
@@ -50,117 +59,69 @@ const Footer = (props) => {
   return (
     <Box className={styles.root}>
       <Container maxWidth="lg">
-        <Grid container>
-          <Grid item xs={3}>
-            <Typography variant="body1">Liên kết</Typography>
-            <Grid container>
-              <Grid item xs={6}>
-                <Link href="#">
-                  <FacebookIcon className={styles.icon} />
+        <Grid container spacing={1} className={styles.container}>
+          <Grid item xs={6} lg={3}>
+            <Box>
+              <Typography variant="body1" className={styles.title}>
+                Liên kết
+              </Typography>
+
+              {socials.map((social, index) => (
+                <Link href={social.url} key={index}>
+                  <img
+                    className={styles.logo}
+                    src={social.logo}
+                    alt={social.alt}
+                  />
                 </Link>
-              </Grid>
-              <Grid item xs={6}>
-                <Link href="#">
-                  <FacebookIcon className={styles.icon} />
-                </Link>
-              </Grid>
-              <Grid item xs={6}>
-                <Link href="#">
-                  <FacebookIcon className={styles.icon} />
-                </Link>
-              </Grid>
-              <Grid item xs={6}>
-                <Link href="#">
-                  <FacebookIcon className={styles.icon} />
-                </Link>
-              </Grid>
-            </Grid>
+              ))}
+            </Box>
           </Grid>
-          <Grid item xs={3}></Grid>
-          <Grid item xs={3}></Grid>
-          <Grid item xs={3}></Grid>
+
+          <Grid item xs={6} lg={5}>
+            <Box>
+              <Typography variant="body1" className={styles.title}>
+                Hệ thống rạp
+              </Typography>
+              {cinemas.map((item, index) => (
+                <Link href="#" key={index}>
+                  <img
+                    className={styles.logo}
+                    src={item.logo}
+                    alt={item.maHeThongRap}
+                  />
+                </Link>
+              ))}
+            </Box>
+          </Grid>
+
+          <Grid item xs={6} lg={2}>
+            <Box>
+              <Typography variant="body1" className={styles.title}>
+                Danh sách
+              </Typography>
+              <Link href="#" className={styles.link} variant="body2">
+                Lịch chiếu
+              </Link>
+              <Link href="#" className={styles.link} variant="body2">
+                Cụm rạp
+              </Link>
+            </Box>
+          </Grid>
+
+          <Grid item xs={6} lg={2}>
+            <Box>
+              <Typography variant="body1" className={styles.title}>
+                Hot line
+              </Typography>
+              <Link href="#" className={styles.link} variant="body2">
+                0123456789
+              </Link>
+            </Box>
+          </Grid>
         </Grid>
       </Container>
     </Box>
-
-    // <Box className={styles.root} py={1}>
-    //   <Container maxWidth="lg">
-    //     <Grid container>
-    //       <Grid item xs={6} md={3}>
-    //         <div className={styles.social}>
-    //           <h2 className={styles.title}>LIÊN KẾT</h2>
-    //           <Box margin="auto">
-    //             <div>
-    //               <span>
-    //                 <a href="" className={styles.media}>
-    //                   <FacebookIcon className={styles.icon} />
-    //                 </a>
-    //               </span>
-    //               <span>
-    //                 <a href="" className={styles.media}>
-    //                   <YouTubeIcon className={styles.icon} />
-    //                 </a>
-    //               </span>
-    //             </div>
-    //             <div>
-    //               <span>
-    //                 <a href="" className={styles.media}>
-    //                   <TwitterIcon className={styles.icon} />
-    //                 </a>
-    //               </span>
-    //               <span>
-    //                 <a href="" className={styles.media}>
-    //                   <InstagramIcon className={styles.icon} />
-    //                 </a>
-    //               </span>
-    //             </div>
-    //           </Box>
-    //         </div>
-    //       </Grid>
-    //       <Grid item xs={6} md={3}>
-    //         <Box className={styles.cinema}>
-    //           <h2 className={styles.title}>Hệ thống rạp</h2>
-    //           <Box width="100%" margin="auto">
-    //             {cinema.map((item, index) => (
-    //               <span>
-    //                 <img className={styles.logo} src={item.logo} />
-    //               </span>
-    //             ))}
-    //           </Box>
-    //         </Box>
-    //       </Grid>
-    //       <Grid item xs={6} md={3}>
-    //         <div className={styles.movie}>
-    //           <h2 className={styles.title}>Phim</h2>
-    //           <ul className={styles.list}>
-    //             <li>
-    //               <a className={styles.tagA} href="">
-    //                 Phim đang chiếu
-    //               </a>
-    //             </li>
-    //             <li>
-    //               <a className={styles.tagA} href="">
-    //                 Lịch chiếu
-    //               </a>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //       </Grid>
-    //       <Grid item xs={6} md={3}>
-    //         <div className={styles.phone}>
-    //           <h2 className={styles.title}>Hotline</h2>
-    //           <ul className={styles.list}>
-    //             <li>
-    //               <a className={styles.tagA} href="">
-    //                 0123456789
-    //               </a>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //       </Grid>
-    //     </Grid>
-    //   </Container>
-    // </Box>
   );
 };
 
