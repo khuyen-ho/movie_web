@@ -1,6 +1,6 @@
 import { Box, Button, ButtonGroup } from "@material-ui/core";
 import React, { Component } from "react";
-import useStyles, {CssTab} from "./style";
+import useStyles, {CssTab, CssPaper, CssTabs} from "./style";
 import moment from "moment";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
@@ -11,7 +11,7 @@ const Day = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
+  }; 
 
   const dayList = [];
   for (let i = 0; i < 7; i++) {
@@ -22,20 +22,28 @@ const Day = () => {
     });
   }
 
+    //show thông tin thời gian chiếu cụm rạp đó
+    const handleClick = (time) =>{
+      console.log(time);
+    }
+
+
   return (
-    <Paper square>
+    <CssPaper square>   
       <Tabs
         value={value}
-        indicatorColor="primary"
-        textColor="primary"
+        indicatorColor="secondary"
+        textColor="secondary"
         onChange={handleChange}
-        aria-label="disabled tabs example"
+        aria-label="scrollable disabled tabs example"
+        scrollButtons="on"
+        variant="scrollable"
       >
         {dayList.map((item, index) => (
-          <CssTab label={item.weekDay} key={index}  />
+          <CssTab label={item.weekDay} key={index} onClick={()=>handleClick(item.weekDay)} />
         ))}
       </Tabs>
-    </Paper>
+    </CssPaper>
   );
 };
 

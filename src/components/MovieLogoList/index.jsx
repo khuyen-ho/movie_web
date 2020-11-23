@@ -1,6 +1,8 @@
 import { Box, Typography, Button, ButtonGroup } from "@material-ui/core";
 import React, { Component } from "react";
 import useStyles from "./style";
+import { useSelector, useDispatch } from "react-redux";
+import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 
 const cinemaList = [
   {
@@ -43,27 +45,35 @@ const cinemaList = [
 
 const CinemaLogo = (cinemaList) => {
   const styles = useStyles();
+
+  //click to change to another cinema
+  const dispatch = useDispatch();
+
   return (
     <ButtonGroup
       orientation="vertical"
       color="secondary"
       aria-label="vertical contained primary button group"
       variant="text"
- 
     >
-      
       {cinemaList.map((item, index) => (
-        <Button className={styles.logo} key={index}>
+        <Button
+          className={styles.logo}
+          key={index}
+          onClick={() => dispatch({type: GET_ID_CINEMA,
+            payload: item.maHeThongRap})}
+        >
           <img className="img" src={item.logo} />
         </Button>
       ))}
+      {console.log(dispatch)}
     </ButtonGroup>
-
   );
 };
 
 const MovieLogoList = (props) => {
   const styles = useStyles();
+
   return (
     <Box className={styles.container} my={5} mx={2}>
       {CinemaLogo(cinemaList)}

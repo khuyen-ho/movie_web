@@ -14,6 +14,7 @@ const ScheduleMovie = () => {
           </Grid>
           <Grid xs={12} item md={10}>
             <DaysOfWeek />
+            {/* CHINH PHAN NAY, CHIEU NHIEU PHIM, HARDCODE LAY DU LIEU TU BACKEND */}
             <ShowTime />
           </Grid>
         </Grid>

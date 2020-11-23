@@ -5,10 +5,10 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Collapse from "@material-ui/core/Collapse";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import moment from "moment";
+import { useSelector, useDispatch } from "react-redux";
 
+//lấy chi tiết lịch chiếu
 //defaultList: data
 const defaultList = {
   lichChieu: [
@@ -1895,7 +1895,7 @@ const FilterMovieList = (defaultList) => {
       });
     }
   });
-
+//console.log(list);
   return list;
 };
 
@@ -1906,29 +1906,34 @@ const Time = (
   timeDefault = moment("01/07/2019").format("DD/MM/YYYY")
 ) => {
   const classes = useStyles();
-  // console.log(timeDefault);
+
+  //show thông tin thời gian chiếu cụm rạp đó
+  const handleClick = (time) =>{
+    console.log(time);
+  }
+
   return movieInfo.cumRap.ngayChieuGioChieu
     .filter((item) => moment(item).format("DD/MM/YYYY") === timeDefault)
     .map((item, index) => (
-      <Grid item xs={6} sm={3}>
-        <Button className={classes.timeBtn} key={index}>
-          <div className="time">
-            <Typography variant="h6" component="span" className="timeStart">
-              {moment(item).format("hh:mm")}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              component="span"
-              className="timeEnd"
-            >
-              ~
-              {moment(item)
-                .minute(moment(item).minute() + movieInfo.cumRap.thoiLuong)
-                .format("hh:mm")}
-            </Typography>
-          </div>
-        </Button>
-      </Grid>
+      <span>
+         <Button className={classes.timeBtn} key={index} onClick = {()=>handleClick(moment(item).format("hh:mm DD/MM/YYYY"))}>
+           <div className="time">
+             <Typography variant="h6" component="span" className="timeStart">
+               {moment(item).format("hh:mm")}
+             </Typography>
+             <Typography
+               variant="subtitle1"
+               component="span"
+               className="timeEnd"
+             >
+               ~
+               {moment(item)
+                 .minute(moment(item).minute() + movieInfo.cumRap.thoiLuong)
+                 .format("hh:mm")}
+             </Typography>
+           </div>
+         </Button>
+       </span>
     ));
 };
 
@@ -1971,18 +1976,25 @@ const RenderShowTime = (list, defaultList, id) => {
           <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem className={classes.nested}>
-                <Grid container>{Time(item)}</Grid>
+                <div>{Time(item)}</div>
               </ListItem>
             </List>
           </Collapse>
         </List>
       );
+      
   });
 };
 
+
+//Gắn id cinema vào để lấy thông tin pim theo rạp đó
 const ShowTime = (props = defaultList) => {
+  const idCinema = useSelector((state) => state.idCinema);
+  //console.log(idCinema);
   const filteredList = FilterMovieList(defaultList);
-  return <>{RenderShowTime(filteredList, defaultList, "BHDStar")}</>;
+  return <>
+  {RenderShowTime(filteredList, defaultList, idCinema)}
+  </>;
 };
 
 export default ShowTime;
