@@ -66,7 +66,7 @@ const CinemaLogo = (cinemaList) => {
           <img className="img" src={item.logo} />
         </Button>
       ))}
-      {console.log(dispatch)}
+      {/* {console.log(dispatch)} */}
     </ButtonGroup>
   );
 };

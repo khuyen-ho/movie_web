@@ -1895,7 +1895,7 @@ const FilterMovieList = (defaultList) => {
       });
     }
   });
-//console.log(list);
+  //console.log(list);
   return list;
 };
 
@@ -1908,32 +1908,36 @@ const Time = (
   const classes = useStyles();
 
   //show thông tin thời gian chiếu cụm rạp đó
-  const handleClick = (time) =>{
+  const handleClick = (time) => {
     console.log(time);
-  }
+  };
 
   return movieInfo.cumRap.ngayChieuGioChieu
     .filter((item) => moment(item).format("DD/MM/YYYY") === timeDefault)
     .map((item, index) => (
       <span>
-         <Button className={classes.timeBtn} key={index} onClick = {()=>handleClick(moment(item).format("hh:mm DD/MM/YYYY"))}>
-           <div className="time">
-             <Typography variant="h6" component="span" className="timeStart">
-               {moment(item).format("hh:mm")}
-             </Typography>
-             <Typography
-               variant="subtitle1"
-               component="span"
-               className="timeEnd"
-             >
-               ~
-               {moment(item)
-                 .minute(moment(item).minute() + movieInfo.cumRap.thoiLuong)
-                 .format("hh:mm")}
-             </Typography>
-           </div>
-         </Button>
-       </span>
+        <Button
+          className={classes.timeBtn}
+          key={index}
+          onClick={() => handleClick(moment(item).format("hh:mm DD/MM/YYYY"))}
+        >
+          <div className="time">
+            <Typography variant="h6" component="span" className="timeStart">
+              {moment(item).format("hh:mm")}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              component="span"
+              className="timeEnd"
+            >
+              ~
+              {moment(item)
+                .minute(moment(item).minute() + movieInfo.cumRap.thoiLuong)
+                .format("hh:mm")}
+            </Typography>
+          </div>
+        </Button>
+      </span>
     ));
 };
 
@@ -1956,6 +1960,7 @@ const RenderShowTime = (list, defaultList, id) => {
   };
 
   return list.map((item, index) => {
+    //console.log(id);
     if (item.maHeThongRap === id)
       return (
         <List
@@ -1971,7 +1976,6 @@ const RenderShowTime = (list, defaultList, id) => {
             <Typography className={classes.title} component="h6" variant="h6">
               {item.cumRap.tenCumRap}
             </Typography>
-            
           </ListItem>
           <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
@@ -1982,19 +1986,19 @@ const RenderShowTime = (list, defaultList, id) => {
           </Collapse>
         </List>
       );
-      
+      else{
+        //fix bug khi nhấn vào logo rạp nhưng không in ra được
+       Time(item);
+    }
   });
 };
-
 
 //Gắn id cinema vào để lấy thông tin pim theo rạp đó
 const ShowTime = (props = defaultList) => {
   const idCinema = useSelector((state) => state.idCinema);
   //console.log(idCinema);
   const filteredList = FilterMovieList(defaultList);
-  return <>
-  {RenderShowTime(filteredList, defaultList, idCinema)}
-  </>;
+  return <>{RenderShowTime(filteredList, defaultList, idCinema)}</>;
 };
 
 export default ShowTime;
