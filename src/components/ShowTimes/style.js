@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft:theme.spacing(1)
+     },
   },
   title: {
     color: theme.palette.green.dark,
@@ -35,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     "& .timeEnd": {
       color: theme.palette.grey.main,
     },
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(1),
+      marginBottom: theme.spacing(0.5),
+     },
   },
 }));
 
