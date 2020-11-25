@@ -14,7 +14,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 import ShowTime from "../ShowTimes";
 
-
 const cinemaList = [
   {
     maHeThongRap: "BHDStar",
@@ -105,16 +104,16 @@ const CinemaLogo = (cinemaList) => {
     <div>
       {cinemaList.map((item, index) => (
         <List
-          onClick={() => handleClick(index)}
+          onClick={() =>
+            dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
+          }
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
           <ListItem
             button
-            onClick={() =>
-              dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
-            }
-             className={styles.logo}
+            onClick={() => handleClick(index)}
+            className={styles.logo}
           >
             <ListItemIcon>
               <img className="img" src={item.logo} />
