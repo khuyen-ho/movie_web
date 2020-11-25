@@ -28,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
       borderRight:"none"
     },
   },
+  smallScreen:{
+    display:"none",
+    [theme.breakpoints.down("sm")]: {
+      display:"block"
+    },
+  }
 }));
 
 export default useStyles;

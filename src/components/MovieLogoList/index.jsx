@@ -1,8 +1,19 @@
-import { Box, Typography, Button, ButtonGroup } from "@material-ui/core";
+import {
+  Box,
+  Typography,
+  Button,
+  ButtonGroup,
+  ListItem,
+  ListItemIcon,
+  Collapse,
+  List,
+} from "@material-ui/core";
 import React, { Component } from "react";
 import useStyles from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_ID_CINEMA } from "../../redux/actions/actionType";
+import ShowTime from "../ShowTimes";
+
 
 const cinemaList = [
   {
@@ -43,34 +54,88 @@ const cinemaList = [
   },
 ];
 
+//CinemaLogo version 1 - no responsive
+// const CinemaLogo = (cinemaList) => {
+//   const styles = useStyles();
+//   const idCinema = useSelector((state) => state.idCinema);
+//   //click to change to another cinema
+//   const dispatch = useDispatch();
+
+//   return (
+//     <ButtonGroup
+//       orientation="vertical"
+//       color="secondary"
+//       aria-label="vertical contained primary button group"
+//       variant="text"
+//     >
+//       {cinemaList.map((item, index) => (
+//         <><Button
+//           className={styles.logo}
+//           key={index}
+//           onClick={() => dispatch({type: GET_ID_CINEMA,
+//             payload: item.maHeThongRap})}
+//         >
+//           <img className="img" src={item.logo} />
+//         </Button>
+//        </>
+//       ))}
+//       {/* {console.log(dispatch)} */}
+//     </ButtonGroup>
+//   );
+// };
+
+//CinemaLogo version 2 - responsive with Link and Collapse
 const CinemaLogo = (cinemaList) => {
   const styles = useStyles();
-
+  const idCinema = useSelector((state) => state.idCinema);
   //click to change to another cinema
   const dispatch = useDispatch();
-
+  //open/close Collapse
+  const [openArr = [], setOpen] = React.useState([]);
+  for (let i = 0; i < cinemaList.length; i++) {
+    let temp = false;
+    openArr.push(temp);
+  }
+  const handleClick = (idx) => {
+    let newArr = [...openArr];
+    newArr[idx] = !newArr[idx];
+    setOpen(newArr);
+  };
   return (
-    <ButtonGroup
-      orientation="vertical"
-      color="secondary"
-      aria-label="vertical contained primary button group"
-      variant="text"
-    >
+    <div>
       {cinemaList.map((item, index) => (
-        <Button
-          className={styles.logo}
-          key={index}
-          onClick={() => dispatch({type: GET_ID_CINEMA,
-            payload: item.maHeThongRap})}
+        <List
+          onClick={() => handleClick(index)}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
         >
-          <img className="img" src={item.logo} />
-        </Button>
+          <ListItem
+            button
+            onClick={() =>
+              dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
+            }
+             className={styles.logo}
+          >
+            <ListItemIcon>
+              <img className="img" src={item.logo} />
+            </ListItemIcon>
+          </ListItem>
+          <div className={styles.smallScreen}>
+            {item.maHeThongRap === idCinema && (
+              <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem>
+                    <ShowTime />
+                  </ListItem>
+                </List>
+              </Collapse>
+            )}
+          </div>
+        </List>
       ))}
-      {/* {console.log(dispatch)} */}
-    </ButtonGroup>
+    </div>
   );
 };
-
 const MovieLogoList = (props) => {
   const styles = useStyles();
 

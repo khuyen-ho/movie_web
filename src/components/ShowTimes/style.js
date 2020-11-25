@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.green.dark,
     marginLeft: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      fontSize:10,
+      margin:0
+     },
   },
   img: {
     width: 50,
