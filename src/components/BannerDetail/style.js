@@ -5,7 +5,7 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "center",
     position: "relative",
     backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
-    paddingBottom: theme.spacing(5),
+    padding: theme.spacing(5, 0),
   },
 
   //-------------- big banner ----------------
