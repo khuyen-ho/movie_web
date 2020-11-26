@@ -1,9 +1,9 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { List } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
     height: 80,
-    borderColor: "transparent!important",
     textAlign: "right",
     "& .img": {
       width: 60,
@@ -35,5 +35,14 @@ const useStyles = makeStyles((theme) => ({
     },
   }
 }));
-
+export const CssList = withStyles((theme) => ({
+  root: {
+    "&.MuiList-root": {
+      [theme.breakpoints.down("sm")]: {
+       borderBottom:`1px solid ${theme.palette.grey.light}`
+      },
+      
+    },
+  },
+}))(List);
 export default useStyles;

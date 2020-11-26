@@ -9,10 +9,11 @@ import {
   List,
 } from "@material-ui/core";
 import React, { Component } from "react";
-import useStyles from "./style";
+import useStyles, { CssList } from "./style";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 import ShowTime from "../ShowTimes";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
 const cinemaList = [
   {
@@ -103,7 +104,7 @@ const CinemaLogo = (cinemaList) => {
   return (
     <div>
       {cinemaList.map((item, index) => (
-        <List
+        <CssList
           onClick={() =>
             dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
           }
@@ -115,9 +116,18 @@ const CinemaLogo = (cinemaList) => {
             onClick={() => handleClick(index)}
             className={styles.logo}
           >
-            <ListItemIcon>
-              <img className="img" src={item.logo} />
-            </ListItemIcon>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              width="100%"
+              alignItems="center"
+            >
+              <ListItemIcon>
+                <img className="img" src={item.logo} />
+              </ListItemIcon>
+              <div className={styles.smallScreen}>
+              {openArr[index] ? <ExpandLess /> : <ExpandMore />}</div>
+            </Box>
           </ListItem>
           <div className={styles.smallScreen}>
             {item.maHeThongRap === idCinema && (
@@ -130,7 +140,7 @@ const CinemaLogo = (cinemaList) => {
               </Collapse>
             )}
           </div>
-        </List>
+        </CssList>
       ))}
     </div>
   );

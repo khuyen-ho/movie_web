@@ -8,16 +8,16 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {
-      paddingLeft:theme.spacing(1)
-     },
+      paddingLeft: theme.spacing(1),
+    },
   },
   title: {
     color: theme.palette.green.dark,
     marginLeft: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
-      fontSize:10,
-      margin:0
-     },
+      fontSize: 10,
+      margin: 0,
+    },
   },
   img: {
     width: 50,
@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary.main,
       },
     },
+    "&:focus":{
+      outline:"none"
+    },
     "& .timeStart": {
       color: theme.palette.green.main,
     },
@@ -41,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: theme.spacing(1),
       marginBottom: theme.spacing(0.5),
-     },
+    },
   },
 }));
 

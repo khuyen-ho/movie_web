@@ -42,12 +42,16 @@ export const CssTab = withStyles((theme) => ({
       color: theme.palette.grey.dark,
       padding: 0,
       minWidth: 0,
-      paddingRight:theme.spacing(1.5),
-      paddingLeft:theme.spacing(1.5)
+      paddingRight: theme.spacing(1.5),
+      paddingLeft: theme.spacing(1.5),
+      "&:focus":{
+        outline:"none"
+      }
     },
     "&.MuiTab-root.Mui-selected": {
       color: theme.palette.secondary.main,
     },
+
   },
 }))(Tab);
 

@@ -7,6 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Collapse from "@material-ui/core/Collapse";
 import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
 //lấy chi tiết lịch chiếu
 //defaultList: data
@@ -1950,7 +1951,7 @@ const RenderShowTime = (list, defaultList, id) => {
   //open/close Collapse
   const [openArr = [], setOpen] = React.useState([]);
   for (let i = 0; i < list.length; i++) {
-    let temp = false;
+    let temp = true;
     openArr.push(temp);
   }
   const handleClick = (idx) => {
@@ -1977,18 +1978,20 @@ const RenderShowTime = (list, defaultList, id) => {
               {item.cumRap.tenCumRap}
             </Typography>
           </ListItem>
-          <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem className={classes.nested}>
-                <div>{Time(item)}</div>
-              </ListItem>
-            </List>
-          </Collapse>
+        
+            <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem className={classes.nested}>
+                  <div>{Time(item)}</div>
+                </ListItem>
+              </List>
+            </Collapse>
+       
         </List>
       );
-      else{
-        //fix bug khi nhấn vào logo rạp nhưng không in ra được
-       Time(item);
+    else {
+      //fix bug khi nhấn vào logo rạp nhưng không in ra được
+      Time(item);
     }
   });
 };
