@@ -4,10 +4,11 @@ import {
   Container,
   Grid,
   IconButton,
+  RadioGroup,
   Typography,
 } from "@material-ui/core";
 import React from "react";
-import Rating from "../rating/Rating";
+import Rating from "../Rating";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import useStyles from "./style";
 import Trailer from "../Trailer";
@@ -35,18 +36,19 @@ const BannerDetail = (props) => {
   return (
     <Box className={styles.root}>
       <Container maxWidth="lg">
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid item xs={3}>
-            <Box maxWidth={200}>
-              <Trailer
-                image={movie.hinhAnh}
-                shadowColor="black"
-                layoutBackground={false}
-              />
-            </Box>
+            <Trailer
+              width={200}
+              image={movie.hinhAnh}
+              shadowColor="black"
+              layoutBackground={false}
+            />
           </Grid>
           <Grid item xs={6}></Grid>
-          <Grid item xs={3}></Grid>
+          <Grid item xs={3}>
+            <Rating />
+          </Grid>
         </Grid>
       </Container>
     </Box>
