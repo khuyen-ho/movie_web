@@ -15,13 +15,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.green.dark,
     marginLeft: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
-      fontSize: 10,
+      fontSize: 12,
       margin: 0,
     },
   },
   address:{
     color:theme.palette.grey.main,
-    paddingLeft: theme.spacing(2)
+    paddingLeft: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 10,
+      padding:0
+    },
   },
   img: {
     width: 50,
