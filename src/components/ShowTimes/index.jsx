@@ -1916,7 +1916,7 @@ const Time = (
   return movieInfo.cumRap.ngayChieuGioChieu
     .filter((item) => moment(item).format("DD/MM/YYYY") === timeDefault)
     .map((item, index) => (
-      <span>
+      <span key={index}>
         <Button
           className={classes.timeBtn}
           key={index}

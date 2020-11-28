@@ -104,7 +104,7 @@ const CinemaLogo = (cinemaList) => {
   return (
     <div>
       {cinemaList.map((item, index) => (
-        <CssList
+        <CssList key={index}
           onClick={() =>
             dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
           }
