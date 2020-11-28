@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
     },
   },
+  address:{
+    color:theme.palette.grey.main,
+    paddingLeft: theme.spacing(2)
+  },
   img: {
     width: 50,
   },

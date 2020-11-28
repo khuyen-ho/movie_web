@@ -9,6 +9,45 @@ import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
+const defaultAddressList = [
+  {
+    maCumRap: "bhd-star-cineplex-3-2",
+    tenCumRap: "BHD Star Cineplex - 3/2",
+    diaChi: "L5-Vincom 3/2, 3C Đường 3/2, Q.10",
+    danhSachRap: [
+      {
+        maRap: 451,
+        tenRap: "Rạp 1",
+      },
+      {
+        maRap: 452,
+        tenRap: "Rạp 2",
+      },
+    ],
+  },
+  {
+    maCumRap: "bhd-star-cineplex-bitexco",
+    tenCumRap: "BHD Star Cineplex - Bitexco",
+    diaChi: "L3-Bitexco Icon 68, 2 Hải Triều, Q.1",
+    danhSachRap: [
+      {
+        maRap: 461,
+        tenRap: "Rạp 1",
+      },
+      {
+        maRap: 462,
+        tenRap: "Rạp 2",
+      },
+    ],
+  },
+];
+
+//function get address from maHeThongRap and maCumRap
+const getAddress = (list = defaultAddressList, maCumRap) => {
+  //console.log(maCumRap);
+  return list.find((item) => item.maCumRap === maCumRap);
+};
+
 //lấy chi tiết lịch chiếu
 //defaultList: data
 const defaultList = {
@@ -1869,13 +1908,15 @@ const FilterMovieList = (defaultList) => {
     //   maHeThongRap: "BHDStar",
     //   cumRap: {
     //     maCumRap: "bhd-star-cineplex-bitexco",
-    //      tenCumRap:
+    //     tenCumRap:
+    //      diaChi:
     //     ngayChieuGioChieu: ["2019-01-01T10:10:00"],
     //     giaVe: 75000,
     //     thoiLuong: 120,
     //   },
     // },
   ];
+  const addressList = useSelector((state) => state.addressCinema);
   defaultList.lichChieu.forEach((cinema) => {
     let idx = list.findIndex(
       (cinemaInfo) =>
@@ -1884,16 +1925,23 @@ const FilterMovieList = (defaultList) => {
     if (idx !== -1) {
       list[idx].cumRap.ngayChieuGioChieu.push(cinema.ngayChieuGioChieu);
     } else {
-      list.push({
-        maHeThongRap: cinema.thongTinRap.maHeThongRap,
-        cumRap: {
-          maCumRap: cinema.thongTinRap.maCumRap,
-          tenCumRap: cinema.thongTinRap.tenCumRap,
-          ngayChieuGioChieu: [cinema.ngayChieuGioChieu],
-          giaVe: cinema.giaVe,
-          thoiLuong: cinema.thoiLuong,
-        },
-      });
+      let currentCinema = getAddress(addressList, cinema.thongTinRap.maCumRap);
+      // console.log(currentCinema);
+      if (currentCinema) {
+        list.push({
+          maHeThongRap: cinema.thongTinRap.maHeThongRap,
+          cumRap: {
+            maCumRap: cinema.thongTinRap.maCumRap,
+            tenCumRap: cinema.thongTinRap.tenCumRap,
+            diaChi: currentCinema.diaChi,
+            ngayChieuGioChieu: [cinema.ngayChieuGioChieu],
+            giaVe: cinema.giaVe,
+            thoiLuong: cinema.thoiLuong,
+          },
+        });
+      }
+
+      //console.log(list);
     }
   });
   //console.log(list);
@@ -1942,6 +1990,11 @@ const Time = (
     ));
 };
 
+const Timeline = (props) => {
+  //console.log(props);
+  return <Box>{Time(props.item)}</Box>;
+};
+
 //list: filtered list
 //defaultList: data/ props
 //id: maHeThongRap
@@ -1961,7 +2014,7 @@ const RenderShowTime = (list, defaultList, id) => {
   };
 
   return list.map((item, index) => {
-    //console.log(id);
+    //console.log(item);
     if (item.maHeThongRap === id)
       return (
         <List
@@ -1974,25 +2027,29 @@ const RenderShowTime = (list, defaultList, id) => {
             <ListItemIcon>
               <img className={classes.img} src={defaultList.hinhAnh} alt="" />
             </ListItemIcon>
-            <Typography className={classes.title} component="h6" variant="h6">
-              {item.cumRap.tenCumRap}
-            </Typography>
+            <Box>
+              <Typography className={classes.title} component="h6" variant="h6">
+                {item.cumRap.tenCumRap}
+              </Typography>
+              <Typography
+                className={classes.address}
+                component="h6"
+                variant="subtitle"
+              >
+                {item.cumRap.diaChi}
+              </Typography>
+            </Box>
           </ListItem>
-        
-            <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem className={classes.nested}>
-                  <div>{Time(item)}</div>
-                </ListItem>
-              </List>
-            </Collapse>
-       
+
+          <Collapse in={openArr[index]} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem className={classes.nested}>
+                <Timeline item={item} />
+              </ListItem>
+            </List>
+          </Collapse>
         </List>
       );
-    else {
-      //fix bug khi nhấn vào logo rạp nhưng không in ra được
-      Time(item);
-    }
   });
 };
 

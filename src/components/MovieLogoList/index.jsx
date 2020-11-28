@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 import ShowTime from "../ShowTimes";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { getCinemaDetailList } from "../../redux/actions/movieAction";
 
 const cinemaList = [
   {
@@ -102,9 +103,10 @@ const CinemaLogo = (cinemaList) => {
     setOpen(newArr);
   };
   return (
-    <div>
+    <div onClick={dispatch(getCinemaDetailList(idCinema))}>
       {cinemaList.map((item, index) => (
-        <CssList key={index}
+        <CssList
+          key={index}
           onClick={() =>
             dispatch({ type: GET_ID_CINEMA, payload: item.maHeThongRap })
           }
@@ -126,7 +128,8 @@ const CinemaLogo = (cinemaList) => {
                 <img className="img" src={item.logo} />
               </ListItemIcon>
               <div className={styles.smallScreen}>
-              {openArr[index] ? <ExpandLess /> : <ExpandMore />}</div>
+                {openArr[index] ? <ExpandLess /> : <ExpandMore />}
+              </div>
             </Box>
           </ListItem>
           <div className={styles.smallScreen}>
