@@ -50,7 +50,7 @@ const Rating = (props) => {
         className={`${style.star} ${
           type === "mini" ? style.mini_star : style.large_star
         }`}
-        key={i}
+        key={i + starCount}
       />
     );
   }
