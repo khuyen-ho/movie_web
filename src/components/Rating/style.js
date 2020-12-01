@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme, props) => ({
   },
 
   score: {
-    color: theme.palette.white,
+    color: theme.palette.white.main,
   },
 
   mini_score: {

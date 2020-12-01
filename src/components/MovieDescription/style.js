@@ -6,16 +6,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   desc: {
-    color: theme.palette.white,
+    color: theme.palette.white.main,
   },
 
   openingDay: {
-    color: theme.palette.white,
+    color: theme.palette.white.main,
   },
 
   button: {
     outline: "none",
-    color: theme.palette.white,
+    color: theme.palette.white.main,
     padding: theme.spacing(0.5, 0),
     width: 150,
 
