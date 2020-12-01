@@ -4,7 +4,7 @@ import { IconButton, Box } from "@material-ui/core";
 import useStyles from "./style";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
-const Trailer = (props) => {
+const Poster = (props) => {
   const styles = useStyles(props);
   const { image } = props;
 
@@ -20,17 +20,17 @@ const Trailer = (props) => {
   );
 };
 
-Trailer.propTypes = {
+Poster.propTypes = {
   layoutBackground: PropTypes.bool,
   shadowColor: PropTypes.string,
   layoutColor: PropTypes.string,
 };
 
-Trailer.defaultProps = {
+Poster.defaultProps = {
   width: "100%",
   layoutBackground: true,
   shadowColor: "#3c3b37",
   layoutColor: "#3c3b37",
 };
 
-export default Trailer;
+export default Poster;
