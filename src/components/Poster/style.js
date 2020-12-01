@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme, props) => ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    color: theme.palette.white,
+    color: theme.palette.white.main,
     transition: "all 0.2s",
     outlineStyle: "none!important",
 
