@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-
+import idCinema from './reducers/idCinema'
+import addressCinema from './reducers/addressCinema'
 const RootReducer = combineReducers({
- 
+ idCinema,
+ addressCinema
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

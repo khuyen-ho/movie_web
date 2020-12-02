@@ -1,4 +1,4 @@
-import { GET_CINEMA_DETAIL, GET_CINEMA_LIST, GET_COURSE_LIST } from "./actionType";
+import { GET_ADDRESS_CINEMA, GET_CINEMA_DETAIL, GET_CINEMA_LIST, GET_COURSE_LIST } from "./actionType";
 import Axios from "axios";
 export const getCourseList = (pageNumber=1,itemsPerPage=12) => {
     return (dispatch) => {
@@ -56,3 +56,34 @@ export const getCourseList = (pageNumber=1,itemsPerPage=12) => {
     };
   };
   
+  //get info of smaller cinemas
+  export const getCinemaDetailList = (idCinema) => {
+    //console.log(idCinema);
+    return (dispatch) => {
+      {
+        //call api
+       // connector({
+         Axios({ 
+          url:
+          `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${idCinema}`,
+          method: "GET",
+          
+         
+        })
+          .then(function thanhCong(res) {
+           // console.log(res.data);
+       
+            //console.log(dispatch);
+            dispatch({
+              type: GET_ADDRESS_CINEMA,
+              payload: res.data,
+            });
+           
+          })
+          .catch(function thatBai(err) {
+            console.log(err);
+           
+          });
+      }
+    };
+  };

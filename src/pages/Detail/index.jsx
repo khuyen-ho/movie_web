@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import ScheduleMovie from '../../components/ScheduleMovie'
 import BannerDetail from '../../components/BannerDetail'
 
 export default class Detail extends Component {
@@ -6,6 +8,7 @@ export default class Detail extends Component {
         return (
             <div>
                 <BannerDetail/>
+                <ScheduleMovie/>
             </div>
         )
     }
