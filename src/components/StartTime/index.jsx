@@ -1,5 +1,5 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import { Button, Typography } from "@material-ui/core";
 import { getTime } from "../../helpers/time-manager";
 import useStyles from "./style";
@@ -23,8 +23,8 @@ const StartTime = ({ start, duration }) => {
 };
 
 StartTime.propTypes = {
-  start: Proptypes.string,
-  duration: Proptypes.number,
+  start: PropTypes.string,
+  duration: PropTypes.number,
 };
 
 StartTime.defaultProps = {

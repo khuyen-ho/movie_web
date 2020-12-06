@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
-import StartTime from "./components/StartTime";
+import CinemaInfo from "./components/CinemaInfo";
 
 class App extends Component {
   render() {
@@ -10,7 +8,7 @@ class App extends Component {
       <>
         {/* <Header /> */}
         {/* <Detail /> */}
-        <StartTime />
+        <CinemaInfo />
         {/* <Footer /> */}
       </>
     );

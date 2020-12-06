@@ -6,6 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Collapse from "@material-ui/core/Collapse";
 import moment from "moment";
+import StartTime from "../StartTime";
 import { useSelector, useDispatch } from "react-redux";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
@@ -1926,7 +1927,6 @@ const FilterMovieList = (defaultList) => {
       list[idx].cumRap.ngayChieuGioChieu.push(cinema.ngayChieuGioChieu);
     } else {
       let currentCinema = getAddress(addressList, cinema.thongTinRap.maCumRap);
-      // console.log(currentCinema);
       if (currentCinema) {
         list.push({
           maHeThongRap: cinema.thongTinRap.maHeThongRap,
@@ -1940,11 +1940,8 @@ const FilterMovieList = (defaultList) => {
           },
         });
       }
-
-      //console.log(list);
     }
   });
-  //console.log(list);
   return list;
 };
 
@@ -1956,36 +1953,11 @@ const Time = (
 ) => {
   const classes = useStyles();
 
-  //show thông tin thời gian chiếu cụm rạp đó
-  const handleClick = (time) => {
-    console.log(time);
-  };
-
   return movieInfo.cumRap.ngayChieuGioChieu
     .filter((item) => moment(item).format("DD/MM/YYYY") === timeDefault)
     .map((item, index) => (
       <span key={index}>
-        <Button
-          className={classes.timeBtn}
-          key={index}
-          onClick={() => handleClick(moment(item).format("hh:mm DD/MM/YYYY"))}
-        >
-          <div className="time">
-            <Typography variant="h6" component="span" className="timeStart">
-              {moment(item).format("hh:mm")}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              component="span"
-              className="timeEnd"
-            >
-              ~
-              {moment(item)
-                .minute(moment(item).minute() + movieInfo.cumRap.thoiLuong)
-                .format("hh:mm")}
-            </Typography>
-          </div>
-        </Button>
+        <StartTime />
       </span>
     ));
 };
