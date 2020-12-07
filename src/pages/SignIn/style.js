@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     position: "relative",
     minHeight: "100vh",
+    [theme.breakpoints.down("xs")]: {
+      background: "linear-gradient(to bottom,rgba(20,50,93),rgba(8,22,48))",
+      height:"100%"
+     },
   },
   content: {
     position: "absolute",
@@ -16,9 +20,13 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 500,
     margin: "auto",
     transform: "translate(-50%,-50%)",
-    // [theme.breakpoints.down("md")]: {
-    //   maxWidth: 900,
-    // },
+    background: "linear-gradient(to bottom,rgba(20,50,93,.9),rgba(8,22,48,.9))",
+    borderRadius:15,
+    padding: theme.spacing(3),
+    [theme.breakpoints.down("xs")]: {
+     //width:"100%"
+     background:"none"
+    },
   },
   root_form: {
     "& .MuiTextField-root": {
@@ -39,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     margin: theme.spacing(3),
   },
+  title:{
+    [theme.breakpoints.down("xs")]: {
+     display:"none"
+     },
+  }
 }));
 
 export const CssTextField = withStyles((theme) => ({
@@ -75,6 +88,10 @@ export const CssTextField = withStyles((theme) => ({
 
 export const CssButton = withStyles((theme) => ({
   root: {
+    "&.MuiButton-root":{
+      outline:"none",
+      boxShadow:"none"
+    },
     "&.MuiButton-fullWidth": {
       height: 20,
       padding: 25,
@@ -82,6 +99,15 @@ export const CssButton = withStyles((theme) => ({
     },
     "&.MuiButton-containedSecondary": {
       borderRadius: 50,
+    },
+  },
+}))(Button);
+
+export const ButtonWithoutOutline = withStyles((theme) => ({
+  root: {
+    "&.MuiButton-root":{
+      outline:"none",
+      boxShadow:"none"
     },
   },
 }))(Button);

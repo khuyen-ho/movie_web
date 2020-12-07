@@ -5,7 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 export const CssPaper = withStyles((theme) => ({
   root: {
     "&.MuiPaper-root": {
-      background:"transparent"
+      background:"transparent",
+     maxWidth: 1500
     },
     "&.MuiPaper-rounded": {
       borderRadius: 0,
@@ -34,6 +35,10 @@ export const CssPaper = withStyles((theme) => ({
         borderColor: theme.palette.primary.dark,
       },
     },
+    "& .MuiButtonBase-root":{
+      outline:"none"
+    }
   },
 }))(Paper);
+
 

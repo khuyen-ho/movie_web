@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 const Navbar = (props) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(3);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,10 +30,8 @@ const Navbar = (props) => {
         textColor="primary"
         centered
       >
-        <Tab label="Sign In" />
         <Tab label="Sign Up" />
         <Tab label="Home" />
-        <Tab label="Contact" />
       </Tabs>
     </CssPaper>
   );
