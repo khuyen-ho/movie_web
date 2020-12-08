@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import ShowTime from "./components/ShowTime";
+import ShowTimeList from "./components/ShowTimeList";
 
 class App extends Component {
   render() {
     return (
       <>
-        <ShowTime />
+        <ShowTimeList />
       </>
     );
   }
