@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     minHeight: "100vh",
     [theme.breakpoints.down("xs")]: {
-      background: "linear-gradient(to bottom,rgba(20,50,93),rgba(8,22,48))",
+      background: "linear-gradient(to bottom,rgba(8,22,48),rgba(20,50,93))",
       height:"100%"
      },
   },
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 500,
     margin: "auto",
     transform: "translate(-50%,-50%)",
-    background: "linear-gradient(to bottom,rgba(20,50,93,.9),rgba(8,22,48,.9))",
+    background: "linear-gradient(to bottom,rgba(8,22,48,.9),rgba(20,50,93,.9))",
     borderRadius:15,
     padding: theme.spacing(3),
     [theme.breakpoints.down("xs")]: {

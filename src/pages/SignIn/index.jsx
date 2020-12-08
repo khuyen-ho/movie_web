@@ -56,19 +56,19 @@ const SignIn = (props) => {
                 <Box marginTop="30px">
                   <CssFormControlLabel
                     control={
-                      // <Switch
-                      //   //checked={state.checkedB}
-                      //   //onChange={handleChange}
-                      //   name="checkedB"
-                      //   color="secondary"
-                      // />
-                      <Checkbox
-                      //    checked={state.checkedA}
-                      //   onChange={handleChange}
-                      name="checkedA"
-                    />
+                      <Switch
+                        //checked={state.checkedB}
+                        //onChange={handleChange}
+                        name="checkedB"
+                        color="secondary"
+                      />
+                    //   <Checkbox
+                    //   //    checked={state.checkedA}
+                    //   //   onChange={handleChange}
+                    //   name="checkedA"
+                    // />
                     }
-                    label="Keep logged in"
+                    label="Duy trì đăng nhập"
                   />
                   <CssFormControlLabel
                     control={
