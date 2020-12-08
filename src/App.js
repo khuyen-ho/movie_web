@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import ShowTimeList from "./components/ShowTimeList";
+import CinemaSystem from "./components/CinemaSystem";
 
 class App extends Component {
   render() {
     return (
       <>
-        <ShowTimeList />
+        <CinemaSystem />
       </>
     );
   }
