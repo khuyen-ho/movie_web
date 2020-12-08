@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import Detail from "./pages/Detail";
-import CinemaInfo from "./components/CinemaInfo";
+import ShowTime from "./components/ShowTime";
 
 class App extends Component {
   render() {
     return (
       <>
-        {/* <Header /> */}
-        {/* <Detail /> */}
-        <CinemaInfo />
-        {/* <Footer /> */}
+        <ShowTime />
       </>
     );
   }

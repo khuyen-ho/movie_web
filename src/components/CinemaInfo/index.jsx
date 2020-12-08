@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 
-const CinemaInfo = ({ logo, cinemaName, address }) => {
+const CinemaInfo = ({ logo, cinemaName, address, openTimeList }) => {
   const styles = useStyles();
 
   return (
-    <Box className={styles.root}>
+    <Box className={styles.root} onClick={openTimeList}>
       <Avatar src={logo} variant="square" className={styles.logo}></Avatar>
       <Box>
         <Typography variant="subtitle1" component="p" className={styles.name}>
