@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import CinemaSystemList from "./components/CinemaSystemList";
+import Date from "./components/Date";
 
 class App extends Component {
   render() {
     return (
       <>
-        <CinemaSystemList />
+        <Date />
       </>
     );
   }
