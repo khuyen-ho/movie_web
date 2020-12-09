@@ -56,6 +56,36 @@ const useStyles = makeStyles((theme, props) => ({
     fontSize: 60,
     opacity: 0.7,
   },
+
+  trailer: {
+    width: "75%",
+    margin: "0 auto",
+    padding: theme.spacing(5),
+  },
+
+  wrapper: {
+    position: "relative",
+    paddingTop: "56.25%",
+  },
+
+  player: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
+
+  closeButton: {
+    position: "absolute",
+    top: -25,
+    right: -30,
+    width: 40,
+
+    "&:focus": {
+      outline: "none",
+    },
+  },
 }));
 
 export default useStyles;
