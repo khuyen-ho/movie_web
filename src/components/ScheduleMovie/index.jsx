@@ -1,34 +1,34 @@
-import { Container, Grid } from "@material-ui/core";
-import React, { Component } from "react";
+import React from "react";
+import { Box, Container, Grid } from "@material-ui/core";
+import CinemaSystemList from "../CinemaSystemList";
 import DaysOfWeek from "../DaysOfWeek";
 import MovieLogoList from "../MovieLogoList";
 import ShowTime from "../ShowTimes";
 import useStyles from "./style";
 
 const ScheduleMovie = () => {
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <div>
-      <Container>
-        <Grid className={classes.bigScreen} container>
-          <Grid item xs={12} md={2}>
-            <MovieLogoList />
+    <Box className={styles.root}>
+      <Container maxWith="lg">
+        <Grid container className={styles.bigScreen}>
+          <Grid item xs={12} md={3}>
+            <CinemaSystemList />
           </Grid>
-          <Grid xs={12} item md={10}>
+          <Grid xs={12} item md={9}>
             <DaysOfWeek />
-            {/* CHINH PHAN NAY, CHIEU NHIEU PHIM, HARDCODE LAY DU LIEU TU BACKEND */}
             <ShowTime />
           </Grid>
         </Grid>
-        <Grid className={classes.smallScreen} container>
+        <Grid className={styles.smallScreen} container>
           <Grid>
             <DaysOfWeek />
             <MovieLogoList />
-          {/* <ShowTime/> */}
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 };
+
 export default ScheduleMovie;

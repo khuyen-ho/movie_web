@@ -12,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       opacity: 1.0,
     },
+
+    "&:focus": {
+      opacity: 1.0,
+      outline: "none",
+    },
   },
 
   logo: {

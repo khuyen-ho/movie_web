@@ -6,9 +6,9 @@ import useStyles from "./style";
 const CinemaSystem = ({ logo, name }) => {
   const styles = useStyles();
   return (
-    <Box className={styles.root}>
+    <Box className={styles.root} tabIndex="1">
       <Avatar src={logo} variant="square" className={styles.logo} />
-      <Typography variant="subtitle1" component="p" className={styles.name}>
+      <Typography variant="subtitle2" component="p" className={styles.name}>
         {name}
       </Typography>
     </Box>
