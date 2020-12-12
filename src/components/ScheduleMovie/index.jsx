@@ -3,7 +3,7 @@ import { Box, Container, Grid } from "@material-ui/core";
 import CinemaSystemList from "../CinemaSystemList";
 import DaysOfWeek from "../DaysOfWeek";
 import MovieLogoList from "../MovieLogoList";
-import ShowTime from "../ShowTimes";
+import ShowTimeList from "../ShowTimeList";
 import useStyles from "./style";
 
 const ScheduleMovie = () => {
@@ -17,7 +17,7 @@ const ScheduleMovie = () => {
           </Grid>
           <Grid xs={12} item md={9}>
             <DaysOfWeek />
-            <ShowTime />
+            <ShowTimeList />
           </Grid>
         </Grid>
         <Grid className={styles.smallScreen} container>

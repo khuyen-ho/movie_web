@@ -8,15 +8,19 @@ const StartTime = ({ start, duration }) => {
   const styles = useStyles();
   return (
     <Button className={styles.root}>
-      <Typography variant="h6" component="span" className={styles.startTime}>
-        {getTime(start)}
-      </Typography>
       <Typography
         variant="subtitle1"
         component="span"
+        className={styles.startTime}
+      >
+        {getTime(start)}
+      </Typography>
+      <Typography
+        variant="subtitle2"
+        component="span"
         className={styles.endTime}
       >
-        ~{getTime(start, duration)}
+        ~ {getTime(start, duration)}
       </Typography>
     </Button>
   );
