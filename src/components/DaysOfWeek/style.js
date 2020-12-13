@@ -1,82 +1,30 @@
-import { Paper, Tab, Tabs } from "@material-ui/core";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  tabs: {
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.palette.grey.light}`,
+    width: 699,
+    height: 82,
+    background: theme.palette.white,
+    border: `1px solid ${theme.palette.grey.light}`,
+    borderLeft: "none",
+    borderTopRightRadius: theme.shape.borderRadius,
+  },
 
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-  dayBtn: {
-    height: 60,
-    //width: 100,
-    borderColor: "transparent!important",
-    textAlign: "center",
-    "& .img": {
-      width: 60,
-      padding: 0,
-    },
-  },
-  dayContainer: {
-    [theme.breakpoints.down(`${theme.breakpoints.values.sm}`)]: {
-      display: "block!important",
+  tabRoot: {
+    color: theme.palette.grey.dark,
+    minWidth: 0,
+    "&:focus": {
+      outline: "none",
     },
   },
 
-  container: {
-    margin: "auto",
-    [theme.breakpoints.down(`${theme.breakpoints.values.lg}`)]: {
-      width: "100%",
+  selected: {
+    "& .MuiTab-wrapper p": {
+      color: theme.palette.secondary.main,
     },
   },
 }));
-
-export const CssTab = withStyles((theme) => ({
-  root: {
-    "&.MuiTab-root": {
-      color: theme.palette.grey.dark,
-      padding: 0,
-      minWidth: 0,
-      paddingRight: theme.spacing(1.5),
-      paddingLeft: theme.spacing(1.5),
-      "&:focus":{
-        outline:"none"
-      }
-    },
-    "&.MuiTab-root.Mui-selected": {
-      color: theme.palette.secondary.main,
-    },
-
-  },
-}))(Tab);
-
-export const CssPaper = withStyles((theme) => ({
-  root: {
-    "&.MuiPaper-elevation1": {
-      boxShadow: "0 0 black",
-      //display:"none"
-    },
-  },
-}))(Paper);
-
-// export const CssTabs = withStyles((theme) => ({
-//   root: {
-//     "&.MuiTab-root": {
-//       color: theme.palette.grey.dark,
-//       padding: 0,
-//       minWidth: 0,
-//       paddingRight:theme.spacing(1.5),
-//       paddingLeft:theme.spacing(1.5)
-//     },
-//     "&.MuiTab-root.Mui-selected": {
-//       color: theme.palette.secondary.main,
-//     },
-//   },
-// }))(Tabs);
 
 export default useStyles;
