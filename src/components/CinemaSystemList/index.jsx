@@ -1,21 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "@material-ui/core";
+import { List } from "@material-ui/core";
 import useStyles from "./style";
 import CinemaSystem from "../CinemaSystem";
 
 const CinemaSystemList = ({ list }) => {
   const styles = useStyles();
+
   return (
-    <Box className={styles.root}>
+    <List className={styles.root}>
       {list.map((system, index) => (
         <CinemaSystem
+          id={system.maHeThongRap}
           logo={system.logo}
           name={system.tenHeThongRap}
           key={index}
         />
       ))}
-    </Box>
+    </List>
   );
 };
 

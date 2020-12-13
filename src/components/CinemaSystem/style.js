@@ -6,17 +6,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey.light}`,
     padding: theme.spacing(1.5, 0),
-    opacity: 0.7,
+    opacity: 0.5,
 
     "&:hover": {
       cursor: "pointer",
       opacity: 1.0,
     },
+  },
 
-    "&:focus": {
-      opacity: 1.0,
-      outline: "none",
-    },
+  selected: {
+    background: "none!important",
+    opacity: 1.0,
   },
 
   logo: {
