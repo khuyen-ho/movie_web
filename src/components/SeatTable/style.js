@@ -1,9 +1,14 @@
-import { makeStyles} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   screen: {
+    width: "80%",
+    margin:"auto",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
     "& img": {
-      width: "80%",
+      width: "100%",
     },
   },
 
