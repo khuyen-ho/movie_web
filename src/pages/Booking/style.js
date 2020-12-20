@@ -1,18 +1,17 @@
 import { Container, makeStyles, withStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-
-    headerBooking: {
+  headerBooking: {
     [theme.breakpoints.down("sm")]: {
-       display:"none"
-      },
+      display: "none",
+    },
   },
 }));
 
 export const CssContainer = withStyles({
   root: {
     "&.MuiContainer-root": {
-      maxWidth:1500
+      maxWidth: 1500,
     },
   },
 })(Container);

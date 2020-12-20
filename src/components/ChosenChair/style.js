@@ -1,14 +1,9 @@
-import {
-    makeStyles,
-  } from "@material-ui/core";
-  
-  const useStyles = makeStyles((theme) => ({
-    chosenChair: {
-      textAlign: "left",
-    },
-  }));
-  
+import { makeStyles } from "@material-ui/core";
 
-  
-  export default useStyles;
-  
+const useStyles = makeStyles((theme) => ({
+  chosenChair: {
+    textAlign: "left",
+  },
+}));
+
+export default useStyles;

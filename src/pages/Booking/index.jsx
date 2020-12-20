@@ -14,7 +14,9 @@ const Booking = (props) => {
           <div className={classes.headerBooking}>
             <HeaderBooking />
           </div>
-          <SeatTable />
+          <Box marginTop="50px">
+            <SeatTable />
+          </Box>
         </Grid>
         <Grid item xs={12} md={3}>
           <PriceTable />
