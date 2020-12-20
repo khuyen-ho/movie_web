@@ -19,7 +19,9 @@ const Booking = (props) => {
           </Box>
         </Grid>
         <Grid item xs={12} md={3}>
-          <PriceTable />
+          <Box className={classes.priceTable}>
+            <PriceTable />
+          </Box>
         </Grid>
       </Grid>
     </CssContainer>
