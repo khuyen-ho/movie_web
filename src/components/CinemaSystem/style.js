@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey.light}`,
+    background: "none!important",
     padding: theme.spacing(1.5, 0),
     opacity: 0.5,
 
@@ -12,10 +13,13 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       opacity: 1.0,
     },
+
+    [theme.breakpoints.down("sm")]: {
+      opacity: 1.0,
+    },
   },
 
   selected: {
-    background: "none!important",
     opacity: 1.0,
   },
 
@@ -28,6 +32,20 @@ const useStyles = makeStyles((theme) => ({
   name: {
     color: theme.palette.text.primary,
     fontWeight: 600,
+  },
+
+  openIcon: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
+  },
+
+  showTimeList: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
   },
 }));
 

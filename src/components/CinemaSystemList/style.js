@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
     },
+
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: 0,
+    },
   },
 }));
 

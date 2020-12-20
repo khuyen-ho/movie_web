@@ -10,9 +10,6 @@ const ShowTimeList = (props) => {
       <ShowTime />
       <ShowTime />
       <ShowTime />
-      <ShowTime />
-      <ShowTime />
-      <ShowTime />
     </Box>
   );
 };

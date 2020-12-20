@@ -4,12 +4,16 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     display: "flex",
     alignItems: "center",
-    width: 699,
-    height: 82,
+    width: "100%",
+    height: "12%",
     background: theme.palette.white,
     border: `1px solid ${theme.palette.grey.light}`,
     borderLeft: "none",
     borderTopRightRadius: theme.shape.borderRadius,
+
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: 0,
+    },
   },
 
   tabRoot: {

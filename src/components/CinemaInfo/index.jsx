@@ -10,7 +10,7 @@ const CinemaInfo = ({ logo, name, address, open }) => {
     <Box className={styles.root} onClick={open}>
       <Avatar src={logo} variant="square" className={styles.logo} />
       <Box>
-        <Typography variant="subtitle1" component="p" className={styles.name}>
+        <Typography variant="subtitle2" component="p" className={styles.name}>
           {name}
         </Typography>
         <Typography

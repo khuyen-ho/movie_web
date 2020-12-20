@@ -27,14 +27,14 @@ const theme = createMuiTheme({
       main: " #949494",
       dark: "#3c3b37",
     },
-    white:'#fff',
+    white: "#fff",
     text: {
       primary: "#3c3b37",
       secondary: "#fb4226",
     },
   },
-  background:{
-    dark:'#000'
+  background: {
+    dark: "#000",
   },
   spacing: 10,
   typography: {
@@ -107,6 +107,11 @@ const theme = createMuiTheme({
       fontSize: "0.875rem",
       lineHeight: 1.43,
       letterSpacing: "0.01071em",
+    },
+  },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
     },
   },
   breakpoints: {
