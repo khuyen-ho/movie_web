@@ -15,7 +15,7 @@ export default function HeaderBooking() {
     <CssPaper className={classes.title} square>
       <CinemaDetail/>
       <Box>
-        <Typography variant='h6'>Họ tên</Typography>
+        <Typography className={classes.userName} variant='h6'>Họ tên</Typography>
       </Box>
     </CssPaper>
   );

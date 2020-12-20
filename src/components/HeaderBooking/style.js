@@ -9,6 +9,15 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(3),
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  },
+  userName: {
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 16,
+    },
   },
 }));
 
