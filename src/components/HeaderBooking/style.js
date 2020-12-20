@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
      alignItems:"center",
      paddingLeft:theme.spacing(3),
      paddingRight:theme.spacing(3),
+     paddingTop:theme.spacing(1),
+     paddingBottom:theme.spacing(1),
    }
   }));
 

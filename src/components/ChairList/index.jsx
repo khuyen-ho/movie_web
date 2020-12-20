@@ -1,11 +1,7 @@
-import { Box, Container, Grid, Typography } from "@material-ui/core";
-import React from "react";
-import WeekendIcon from "@material-ui/icons/Weekend";
-import IconButton from "@material-ui/core/IconButton";
+import { Box } from "@material-ui/core";
+import React, { Component } from "react";
+import Chair from "../chair";
 import useStyles from "./style";
-import ChairList from "../ChairList";
-import ChairNote from "../ChairNote";
-import CinemaDetail from "../CinemaDetail";
 
 const chairList = [
   { SoGhe: 1, TenGhe: "số 1 ", Gia: 100, TrangThai: false },
@@ -45,27 +41,17 @@ const chairList = [
   { SoGhe: 35, TenGhe: "số 35 ", Gia: 100, TrangThai: false },
 ];
 
-const SeatTable = (props) => {
+const ChairList = (props) => {
   const classes = useStyles();
   return (
-    <Box textAlign="center">
-      <Grid container>
-        <Grid item xs={12}>
-          <Box className={classes.screen}>
-            <img src="./imgs/screen.png" alt="" />
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Box className={classes.seatArea}>
-            <ChairList/>
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <ChairNote/>
-        </Grid>
-      </Grid>
+    <Box className={classes.seatArea}>
+      <div className={classes.container}>
+        {chairList.map((item, index) => (
+          <Chair />
+        ))}
+      </div>{" "}
     </Box>
   );
 };
 
-export default SeatTable;
+export default ChairList;
