@@ -1,11 +1,4 @@
-import {
-  Button,
-  Input,
-  makeStyles,
-  Table,
-  TableContainer,
-  withStyles,
-} from "@material-ui/core";
+import { makeStyles, Table, withStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   price: {
@@ -15,41 +8,23 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     paddingLeft: theme.spacing(3),
   },
-  chosenChair: {
-    textAlign: "left",
-    paddingLeft: theme.spacing(3),
-  },
-  email: {
-    paddingLeft: theme.spacing(3),
-  },
-  phone: { paddingLeft: theme.spacing(3) },
 }));
 
-export const CssTableContainer = withStyles({
+export const CssTable = withStyles((theme) => ({
   root: {
-    "&.MuiTableContainer-root": {
-      //width:"25%",
+    "&.MuiTable-root": {
       height: "100vh",
+      borderLeft: "1px solid rgba(224, 224, 224, 1)",
+      [theme.breakpoints.down("sm")]: {
+        borderLeft: "none",
+      },
     },
-  },
-})(TableContainer);
 
-export const CssInput = withStyles({
-  root: {
-    "&.MuiInput-underline::before": {
-      borderBottom: "none",
+    "& .MuiTableCell-root": {
+      borderBottom: "1px dashed rgba(224, 224, 224, 1)",
+      borderLeft: "none",
     },
   },
-})(Input);
-
-export const CssButton = withStyles((theme) => ({
-  root: {
-    "&.MuiButtonBase-root": {
-      background: theme.palette.secondary.main,
-      color:theme.palette.white,
-      height:60
-    },
-  },
-}))(Button);
+}))(Table);
 
 export default useStyles;
