@@ -58,7 +58,7 @@ const SeatTable = (props) => {
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Box marginTop="30px">
+          <Box className={classes.chairNote} marginTop="30px">
             <ChairNote />
           </Box>
         </Grid>
