@@ -1,11 +1,8 @@
-import { Box, Container, Grid, Typography } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import React from "react";
-import WeekendIcon from "@material-ui/icons/Weekend";
-import IconButton from "@material-ui/core/IconButton";
 import useStyles from "./style";
 import ChairList from "../ChairList";
 import ChairNote from "../ChairNote";
-import CinemaDetail from "../CinemaDetail";
 
 const chairList = [
   { SoGhe: 1, TenGhe: "số 1 ", Gia: 100, TrangThai: false },

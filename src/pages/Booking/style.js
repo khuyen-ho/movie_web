@@ -1,11 +1,7 @@
 import { Container, makeStyles, withStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  headerBooking: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
+  headerBooking: {},
 }));
 
 export const CssContainer = withStyles({

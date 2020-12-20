@@ -1,21 +1,13 @@
-import {
-    Input,
-    makeStyles,
-    withStyles,
-  } from "@material-ui/core";
-  
-  const useStyles = makeStyles((theme) => ({
+import { Input, makeStyles, withStyles } from "@material-ui/core";
 
-  }));
+const useStyles = makeStyles((theme) => ({}));
 
-  
-  export const CssInput = withStyles({
-    root: {
-      "&.MuiInput-underline::before": {
-        borderBottom: "none",
-      },
+export const CssInput = withStyles({
+  root: {
+    "&.MuiInput-underline::before": {
+      borderBottom: "none",
     },
-  })(Input);
-  
-  export default useStyles;
-  
+  },
+})(Input);
+
+export default useStyles;

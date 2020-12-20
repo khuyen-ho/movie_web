@@ -1,5 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
-import React, { Component } from "react";
+import React from "react";
 import useStyles from "./style";
 
 const MovieTime = (props) => {

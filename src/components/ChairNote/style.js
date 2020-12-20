@@ -1,8 +1,4 @@
-const {
-  makeStyles,
-  withStyles,
-  IconButton,
-} = require("@material-ui/core");
+const { makeStyles, withStyles, IconButton } = require("@material-ui/core");
 
 const useStyles = makeStyles((theme) => ({
   noteChair: {

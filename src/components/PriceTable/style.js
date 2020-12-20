@@ -4,10 +4,6 @@ const useStyles = makeStyles((theme) => ({
   price: {
     color: theme.palette.green.main,
   },
-  detail: {
-    textAlign: "left",
-    paddingLeft: theme.spacing(3),
-  },
 }));
 
 export const CssTable = withStyles((theme) => ({

@@ -1,5 +1,5 @@
-import { Box, Container, Grid } from "@material-ui/core";
-import React, { Component } from "react";
+import { Box, Grid } from "@material-ui/core";
+import React from "react";
 import HeaderBooking from "../../components/HeaderBooking";
 import PriceTable from "../../components/PriceTable";
 import useStyles, { CssContainer } from "./style";
