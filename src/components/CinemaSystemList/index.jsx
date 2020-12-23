@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Collapse, List, ListItem } from "@material-ui/core";
+import { List } from "@material-ui/core";
 import useStyles from "./style";
 import CinemaSystem from "../CinemaSystem";
-import ShowTimeList from "../ShowTimeList";
 
 const CinemaSystemList = ({ list }) => {
   const styles = useStyles();

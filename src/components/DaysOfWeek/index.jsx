@@ -28,7 +28,8 @@ const DaysOfWeek = ({ startDate }) => {
       {dateList.map((date, index) => (
         <Tab
           classes={{ root: styles.tabRoot, selected: styles.selected }}
-          label={<Date day={getDay(date)} date={getDate(date)} key={index} />}
+          label={<Date day={getDay(date)} date={getDate(date)} />}
+          key={index}
         />
       ))}
     </Tabs>

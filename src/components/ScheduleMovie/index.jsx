@@ -9,7 +9,7 @@ const ScheduleMovie = () => {
   const styles = useStyles();
   return (
     <Box className={styles.root}>
-      <Container maxWith="lg" className={styles.container}>
+      <Container maxWidth="lg" className={styles.container}>
         <Grid container className={styles.bigScreen}>
           <Grid item xs={12} md={3}>
             <CinemaSystemList />
