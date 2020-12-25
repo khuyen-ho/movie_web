@@ -112,6 +112,11 @@ const theme = createMuiTheme({
       letterSpacing: "0.01071em",
     },
   },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+  },
   breakpoints: {
     values: {
       xs: 0, // smallMobile
