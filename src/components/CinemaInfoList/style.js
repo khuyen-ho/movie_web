@@ -2,10 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(0, 2),
     border: `1.5px solid ${theme.palette.grey.light}`,
-    borderTopLeftRadius: theme.shape.borderRadius,
-    borderBottomLeftRadius: theme.shape.borderRadius,
+    borderLeft: "none",
     background: theme.palette.white,
     minHeight: 700,
 
@@ -16,11 +15,10 @@ const useStyles = makeStyles((theme) => ({
 
   item: {
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.palette.grey.light}`,
-    background: "none!important",
     padding: theme.spacing(1.5, 0),
+    borderBottom: `1.5px solid ${theme.palette.grey.light}`,
+    background: "none!important",
     opacity: 0.5,
 
     "&:hover": {

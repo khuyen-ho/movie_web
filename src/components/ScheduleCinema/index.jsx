@@ -2,6 +2,7 @@ import { Container, Grid } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
 import CinemaLogoList from "../CinemaLogoList";
+import CinemaInfoList from "../CinemaInfoList";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
@@ -12,11 +13,9 @@ const ScheduleCinema = (props) => {
           <CinemaLogoList />
         </Grid>
         <Grid item xs={4}>
-          <CinemaLogoList />
+          <CinemaInfoList />
         </Grid>
-        <Grid item xs={7}>
-          <CinemaLogoList />
-        </Grid>
+        <Grid item xs={7}></Grid>
       </Grid>
     </Container>
   );

@@ -1,16 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { List } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { GET_ID_CINEMA_SYSTEM } from "../../redux/actions/actionType";
+import { List, ListItem } from "@material-ui/core";
 import CinemaLogo from "../CinemaLogo";
 import useStyles from "./style";
 
 const CinemaLogoList = ({ list }) => {
   const styles = useStyles();
+  const selectedSystem = useSelector((state) => state.idCinemaSystem);
+  const dispatch = useDispatch();
 
   return (
     <List className={styles.root}>
       {list.map((system, index) => (
-        <CinemaLogo id={system.maHeThongRap} logo={system.logo} key={index} />
+        <ListItem
+          className={styles.item}
+          button
+          classes={{ selected: styles.selected }}
+          selected={selectedSystem === system.id}
+          onclick={() => {
+            dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: system.id });
+          }}
+        >
+          <CinemaLogo {...system} key={index} />
+        </ListItem>
       ))}
     </List>
   );
@@ -23,27 +37,27 @@ CinemaLogoList.propTypes = {
 CinemaLogoList.defaultProps = {
   list: [
     {
-      maHeThongRap: "BHDStar",
+      id: "BHDStar",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
     },
     {
-      maHeThongRap: "CGV",
+      id: "CGV",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png",
     },
     {
-      maHeThongRap: "CineStar",
+      id: "CineStar",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cinestar.png",
     },
     {
-      maHeThongRap: "Galaxy",
+      id: "Galaxy",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/galaxy-cinema.png",
     },
     {
-      maHeThongRap: "LotteCinima",
+      id: "LotteCinima",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/lotte-cinema.png",
     },
     {
-      maHeThongRap: "MegaGS",
+      id: "MegaGS",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/megags.png",
     },
   ],
