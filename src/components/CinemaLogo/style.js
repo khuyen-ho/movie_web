@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    justifyContent: "center",
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey.light}`,
     background: "none!important",
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
 
   selected: {
     opacity: 1.0,
+  },
+
+  icon: {
+    minWidth: 0,
   },
 
   logo: {

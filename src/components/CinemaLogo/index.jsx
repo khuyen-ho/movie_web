@@ -23,7 +23,7 @@ const CinemaLogo = ({ id, logo }) => {
       selected={selectedSystem === id}
       onClick={() => handleClick()}
     >
-      <ListItemIcon>
+      <ListItemIcon className={styles.icon}>
         <Avatar src={logo} variant="square" className={styles.logo} />
       </ListItemIcon>
     </ListItem>
@@ -38,7 +38,6 @@ CinemaLogo.propTypes = {
 CinemaLogo.defaultProps = {
   id: "BHDStar",
   logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
-  name: "BHD Star Cineplex",
 };
 
 export default CinemaLogo;

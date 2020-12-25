@@ -1,69 +1,52 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { List } from "@material-ui/core";
-import useStyles from "./style";
 import CinemaLogo from "../CinemaLogo";
+import useStyles from "./style";
 
-const CinemaSystemList = ({ list }) => {
+const CinemaLogoList = ({ list }) => {
   const styles = useStyles();
 
   return (
     <List className={styles.root}>
       {list.map((system, index) => (
-        <CinemaLogo
-          id={system.maHeThongRap}
-          logo={system.logo}
-          name={system.tenHeThongRap}
-          key={index}
-        />
+        <CinemaLogo id={system.maHeThongRap} logo={system.logo} key={index} />
       ))}
     </List>
   );
 };
 
-CinemaSystemList.propTypes = {
+CinemaLogoList.propTypes = {
   list: PropTypes.array,
 };
 
-CinemaSystemList.defaultProps = {
+CinemaLogoList.defaultProps = {
   list: [
     {
       maHeThongRap: "BHDStar",
-      tenHeThongRap: "BHD Star Cineplex",
-      biDanh: "bhd-star-cineplex",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
     },
     {
       maHeThongRap: "CGV",
-      tenHeThongRap: "CGV",
-      biDanh: "cgv",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png",
     },
     {
       maHeThongRap: "CineStar",
-      tenHeThongRap: "CineStar",
-      biDanh: "cinestar",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cinestar.png",
     },
     {
       maHeThongRap: "Galaxy",
-      tenHeThongRap: "Galaxy Cinema",
-      biDanh: "galaxy-cinema",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/galaxy-cinema.png",
     },
     {
       maHeThongRap: "LotteCinima",
-      tenHeThongRap: "Lotte Cinema",
-      biDanh: "lotte-cinema",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/lotte-cinema.png",
     },
     {
       maHeThongRap: "MegaGS",
-      tenHeThongRap: "MegaGS",
-      biDanh: "megags",
       logo: "http://movie0706.cybersoft.edu.vn/hinhanh/megags.png",
     },
   ],
 };
 
-export default CinemaSystemList;
+export default CinemaLogoList;
