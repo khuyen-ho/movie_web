@@ -1,17 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(0, 2),
-    border: `1.5px solid ${theme.palette.grey.light}`,
-    borderLeft: "none",
-    background: theme.palette.white,
-    minHeight: 700,
-
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
+  root: {},
 
   item: {
     display: "flex",

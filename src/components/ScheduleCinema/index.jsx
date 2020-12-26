@@ -1,8 +1,9 @@
-import { Container, Grid } from "@material-ui/core";
 import React from "react";
+import { Container, Grid, Box } from "@material-ui/core";
 import useStyles from "./style";
 import CinemaLogoList from "../CinemaLogoList";
 import CinemaInfoList from "../CinemaInfoList";
+import ShowTimeList from "../ShowTimeList";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
@@ -10,12 +11,20 @@ const ScheduleCinema = (props) => {
     <Container maxWidth="lg" className={styles.container}>
       <Grid container className={styles.bigScreen}>
         <Grid item xs={1}>
-          <CinemaLogoList />
+          <Box className={styles.cinemaLogoList}>
+            <CinemaLogoList />
+          </Box>
         </Grid>
         <Grid item xs={4}>
-          <CinemaInfoList />
+          <Box className={styles.cinemaInfoList}>
+            <CinemaInfoList />
+          </Box>
         </Grid>
-        <Grid item xs={7}></Grid>
+        <Grid item xs={7}>
+          <Box className={styles.showTimeList}>
+            <ShowTimeList />
+          </Box>
+        </Grid>
       </Grid>
     </Container>
   );
