@@ -1,23 +1,29 @@
 import React from "react";
 import { List, ListItem } from "@material-ui/core";
-import ShowTime from "../ShowTime";
+import MovieShowTime from "../MovieShowTime";
 import useStyles from "./style";
 
-const ShowTimeList = (props) => {
+const MovieShowTimeList = (props) => {
   const styles = useStyles();
   return (
     <List className={styles.root}>
       <ListItem disableGutters className={styles.item}>
-        <ShowTime />
+        <MovieShowTime />
       </ListItem>
       <ListItem disableGutters className={styles.item}>
-        <ShowTime />
+        <MovieShowTime />
       </ListItem>
       <ListItem disableGutters className={styles.item}>
-        <ShowTime />
+        <MovieShowTime />
+      </ListItem>
+      <ListItem disableGutters className={styles.item}>
+        <MovieShowTime />
+      </ListItem>
+      <ListItem disableGutters className={styles.item}>
+        <MovieShowTime />
       </ListItem>
     </List>
   );
 };
 
-export default ShowTimeList;
+export default MovieShowTimeList;

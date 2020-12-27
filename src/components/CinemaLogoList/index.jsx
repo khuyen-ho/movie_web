@@ -13,17 +13,17 @@ const CinemaLogoList = ({ list }) => {
 
   return (
     <List className={styles.root}>
-      {list.map((system, index) => (
+      {list.map((system) => (
         <ListItem
           className={styles.item}
           button
           classes={{ selected: styles.selected }}
           selected={selectedSystem === system.id}
-          onclick={() => {
+          onClick={() => {
             dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: system.id });
           }}
         >
-          <CinemaLogo {...system} key={index} />
+          <CinemaLogo {...system} key={system.id} />
         </ListItem>
       ))}
     </List>

@@ -13,7 +13,7 @@ const CinemaInfoList = ({ list }) => {
 
   return (
     <List className={styles.root}>
-      {list.map((cinema, index) => (
+      {list.map((cinema) => (
         <ListItem
           className={styles.item}
           classes={styles.selected}
@@ -23,7 +23,7 @@ const CinemaInfoList = ({ list }) => {
             dispatch({ type: GET_ID_CINEMA, payload: cinema.id });
           }}
         >
-          <CinemaInfo {...cinema} key={index} />
+          <CinemaInfo {...cinema} key={cinema.id} />
         </ListItem>
       ))}
     </List>

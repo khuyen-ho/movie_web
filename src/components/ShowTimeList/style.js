@@ -1,9 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    padding: theme.spacing(0),
+  },
   item: {
-    padding: theme.spacing(1, 0),
+    padding: theme.spacing(0),
   },
 }));
 
