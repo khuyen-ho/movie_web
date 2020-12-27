@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  showTimeList: {
+  list: {
     background: theme.palette.white,
     padding: theme.spacing(0, 2),
     height: 700,
@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
     borderRight: "none",
     borderTopRightRadius: theme.shape.borderRadius,
     borderBottomRightRadius: theme.shape.borderRadius,
+  },
+
+  listItem: {
+    padding: theme.spacing(0),
+    borderBottom: `1px solid ${theme.palette.grey.light}`,
   },
 }));
 

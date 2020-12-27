@@ -1,9 +1,11 @@
 import React from "react";
-import { Container, Grid, Box } from "@material-ui/core";
+import { Container, Grid, Box, List, ListItem } from "@material-ui/core";
 import useStyles from "./style";
-import CinemaLogoList from "../CinemaLogoList";
+import CinemaLogoList from "../CinemaSystemList";
 import CinemaInfoList from "../CinemaInfoList";
-import ShowTimeList from "../ShowTimeList";
+import Show from "../Show";
+import MovieInfo from "../MovieInfo";
+import StartTimeList from "../StartTimeList";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
@@ -12,7 +14,7 @@ const ScheduleCinema = (props) => {
       <Grid container className={styles.bigScreen}>
         <Grid item xs={1}>
           <Box className={styles.cinemaLogoList}>
-            <CinemaLogoList />
+            {/* <CinemaLogoList /> */}
           </Box>
         </Grid>
         <Grid item xs={4}>
@@ -21,9 +23,23 @@ const ScheduleCinema = (props) => {
           </Box>
         </Grid>
         <Grid item xs={7}>
-          <Box className={styles.showTimeList}>
-            <ShowTimeList />
-          </Box>
+          <List className={styles.list}>
+            <ListItem disableGutters className={styles.listItem}>
+              <Show info={<MovieInfo />} showlist={<StartTimeList />} />
+            </ListItem>
+            <ListItem disableGutters className={styles.listItem}>
+              <Show info={<MovieInfo />} showlist={<StartTimeList />} />
+            </ListItem>
+            <ListItem disableGutters className={styles.listItem}>
+              <Show />
+            </ListItem>
+            <ListItem disableGutters className={styles.listItem}>
+              <Show info={<MovieInfo />} showlist={<StartTimeList />} />
+            </ListItem>
+            <ListItem disableGutters className={styles.listItem}>
+              <Show info={<MovieInfo />} showlist={<StartTimeList />} />
+            </ListItem>
+          </List>
         </Grid>
       </Grid>
     </Container>

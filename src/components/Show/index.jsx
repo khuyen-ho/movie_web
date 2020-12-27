@@ -9,12 +9,15 @@ const ShowTime = ({ info, showlist }) => {
 
   return (
     <Box className={styles.root}>
-      <Box className={styles.movieInfo} onClick={() => setOpen(!open)}>
+      <Box className={styles.info} onClick={() => setOpen(!open)}>
         {info}
       </Box>
-      <Collapse in={open} timeout="auto">
-        {showlist}
-      </Collapse>
+
+      {showlist && (
+        <Collapse in={open} timeout="auto">
+          {showlist}
+        </Collapse>
+      )}
     </Box>
   );
 };
@@ -26,7 +29,6 @@ ShowTime.propTypes = {
 
 ShowTime.defaultProps = {
   info: <Typography>No info</Typography>,
-  showlist: <Typography>Nothing to show</Typography>,
 };
 
 export default ShowTime;
