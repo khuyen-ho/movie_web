@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Collapse } from "@material-ui/core";
-import CinemaInfo from "../CinemaInfo";
+import MovieInfo from "../MovieInfo";
 import StartTimeList from "../StartTimeList";
 import useStyles from "./style";
 
-const ShowTime = ({ cinemaLogo, cinemaName, cinemaAddress, showTimeList }) => {
+const MovieShowTime = ({
+  movieId,
+  movieLogo,
+  movieName,
+  movieDuration,
+  movieScore,
+  showTimeList,
+}) => {
   const styles = useStyles();
   const [open, setOpen] = useState(true);
 
   return (
     <Box className={styles.root}>
-      <CinemaInfo
-        logo={cinemaLogo}
-        name={cinemaName}
-        address={cinemaAddress}
-        open={() => setOpen(!open)}
-      />
+      <Box className={styles.movieInfo} onClick={() => setOpen(!open)}>
+        <MovieInfo
+          id={movieId}
+          logo={movieLogo}
+          name={movieName}
+          duration={movieDuration}
+          score={movieScore}
+        />
+      </Box>
+
       <Collapse in={open} timeout="auto">
         <StartTimeList list={showTimeList} />
       </Collapse>
@@ -24,17 +35,21 @@ const ShowTime = ({ cinemaLogo, cinemaName, cinemaAddress, showTimeList }) => {
   );
 };
 
-ShowTime.propTypes = {
-  cinemaLogo: PropTypes.string,
-  cinemaName: PropTypes.string,
-  cinemaAddress: PropTypes.string,
+MovieShowTime.propTypes = {
+  movieId: PropTypes.number,
+  movieLogo: PropTypes.string,
+  movieName: PropTypes.string,
+  movieDuration: PropTypes.number,
+  movieScore: PropTypes.number,
   showTimeList: PropTypes.array,
 };
 
-ShowTime.defaultProps = {
-  cinemaLogo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
-  cinemaName: "BHD Star Cineplex - 3/2",
-  cinemaAddress: "L5-Vincom 3/2, 3C Đường 3/2, Q.10",
+MovieShowTime.defaultProps = {
+  movieId: 1283,
+  movieLogo: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
+  movieName: "Trainwreck",
+  movieDuration: 100,
+  movieScore: 5.2,
   showTimeList: [
     {
       start: "2019-01-01T10:10:00",
@@ -60,19 +75,7 @@ ShowTime.defaultProps = {
       start: "2019-01-01T21:20:00",
       duration: 145,
     },
-    {
-      start: "2019-01-01T15:40:00",
-      duration: 200,
-    },
-    {
-      start: "2019-01-01T18:10:00",
-      duration: 134,
-    },
-    {
-      start: "2019-01-01T21:20:00",
-      duration: 309,
-    },
   ],
 };
 
-export default ShowTime;
+export default MovieShowTime;
