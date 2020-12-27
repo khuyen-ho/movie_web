@@ -3,7 +3,7 @@ import { Container, Grid, Box } from "@material-ui/core";
 import useStyles from "./style";
 import CinemaLogoList from "../CinemaLogoList";
 import CinemaInfoList from "../CinemaInfoList";
-import MovieShowTimeList from "../MovieShowTimeList";
+import ShowTimeList from "../ShowTimeList";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
@@ -22,7 +22,7 @@ const ScheduleCinema = (props) => {
         </Grid>
         <Grid item xs={7}>
           <Box className={styles.showTimeList}>
-            <MovieShowTimeList />
+            <ShowTimeList />
           </Box>
         </Grid>
       </Grid>
