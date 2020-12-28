@@ -10,13 +10,17 @@ const CinemaInfo = ({ id, logo, name, address }) => {
     <>
       <Avatar src={logo} variant="square" className={styles.logo} />
       <Box>
-        <Typography variant="subtitle2" component="p" className={styles.name}>
+        <Typography
+          variant="subtitle2"
+          component="p"
+          className={`${styles.name} ${styles.ellipsis}`}
+        >
           {name}
         </Typography>
         <Typography
           variant="subtitle2"
           component="p"
-          className={styles.address}
+          className={`${styles.address} ${styles.ellipsis}`}
         >
           {address}
         </Typography>

@@ -9,12 +9,14 @@ const useStyles = makeStyles((theme) => ({
 
   name: {
     color: theme.palette.secondary.main,
-    fontWeight: 600,
   },
 
   address: {
-    width: "90%",
     color: theme.palette.grey.main,
+  },
+
+  ellipsis: {
+    width: 210,
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",

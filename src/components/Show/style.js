@@ -6,14 +6,21 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 
-  info: {
+  desc: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     padding: theme.spacing(1, 0),
 
     "&:hover": {
       cursor: "pointer",
     },
+  },
+
+  info: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 }));
 

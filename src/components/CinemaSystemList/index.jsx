@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_ID_CINEMA_SYSTEM } from "../../redux/actions/actionType";
 import { List, ListItem } from "@material-ui/core";
-import CinemaLogo from "../CinemaLogo";
+import CinemaSystem from "../CinemaSystem";
 import useStyles from "./style";
 
-const CinemaLogoList = ({ list }) => {
+const CinemaSystemList = ({ list }) => {
   const styles = useStyles();
   const selectedSystem = useSelector((state) => state.idCinemaSystem);
   const dispatch = useDispatch();
@@ -23,18 +23,18 @@ const CinemaLogoList = ({ list }) => {
             dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: system.id });
           }}
         >
-          <CinemaLogo {...system} key={system.id} />
+          <CinemaSystem {...system} key={system.id} />
         </ListItem>
       ))}
     </List>
   );
 };
 
-CinemaLogoList.propTypes = {
+CinemaSystemList.propTypes = {
   list: PropTypes.array,
 };
 
-CinemaLogoList.defaultProps = {
+CinemaSystemList.defaultProps = {
   list: [
     {
       id: "BHDStar",
@@ -63,4 +63,4 @@ CinemaLogoList.defaultProps = {
   ],
 };
 
-export default CinemaLogoList;
+export default CinemaSystemList;

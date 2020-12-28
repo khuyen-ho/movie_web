@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey.light}`,
     background: "none!important",
@@ -14,19 +13,39 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       opacity: 1.0,
     },
+
+    [theme.breakpoints.down("sm")]: {
+      opacity: 1.0,
+    },
   },
 
   selected: {
     opacity: 1.0,
   },
 
-  icon: {
-    minWidth: 0,
-  },
-
   logo: {
     width: 50,
     height: 50,
+    marginRight: theme.spacing(1),
+  },
+
+  name: {
+    color: theme.palette.text.primary,
+    fontWeight: 600,
+  },
+
+  openIcon: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
+  },
+
+  showTimeList: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
   },
 }));
 

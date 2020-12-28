@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 
-const MovieInfo = ({ id, logo, name, duration, score }) => {
+const MovieInfo = ({ id, logo, name, duration, score, ...props }) => {
   const styles = useStyles();
 
   return (
