@@ -22,32 +22,7 @@ StarTimeList.propTypes = {
 };
 
 StarTimeList.defaultProps = {
-  list: [
-    {
-      start: "2019-01-01T10:10:00",
-      duration: 100,
-    },
-    {
-      start: "2019-01-01T11:30:00",
-      duration: 123,
-    },
-    {
-      start: "2019-01-01T12:20:00",
-      duration: 180,
-    },
-    {
-      start: "2019-01-01T15:40:00",
-      duration: 200,
-    },
-    {
-      start: "2019-01-01T18:10:00",
-      duration: 100,
-    },
-    {
-      start: "2019-01-01T21:20:00",
-      duration: 145,
-    },
-  ],
+  list: [],
 };
 
 export default StarTimeList;
