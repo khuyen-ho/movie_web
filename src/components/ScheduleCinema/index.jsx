@@ -18,7 +18,7 @@ const ScheduleCinema = (props) => {
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
           >
-            <CinemaSystemList disableShowList />
+            <CinemaSystemList />
           </List>
         </Grid>
         <Grid item xs={4}>
