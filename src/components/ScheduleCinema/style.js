@@ -11,8 +11,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 2),
     height: 700,
     border: `1.5px solid ${theme.palette.grey.light}`,
-    borderRight: "none",
     borderRadius: theme.shape.borderRadius,
+
+    [theme.breakpoints.down("md")]: {
+      height: "100%",
+    },
   },
 
   smallPadding: {
@@ -21,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
 
   verticalScroll: {
     overflowY: "scroll",
+  },
+
+  noRightBorder: {
+    borderRight: "none",
   },
 
   noTopLeftRadius: {
@@ -39,22 +46,16 @@ const useStyles = makeStyles((theme) => ({
     borderBottomRightRadius: 0,
   },
 
-  listItem: {
-    padding: theme.spacing(0),
-    borderBottom: `1px solid ${theme.palette.grey.light}`,
+  largeScreen: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
 
-  selected: {
-    opacity: 1.0,
-    background: "none",
-  },
-
-  fade: {
-    opacity: 0.5,
-    background: "none!important",
-    "&:hover": {
-      cursor: "pointer",
-      opacity: 1.0,
+  smallScreen: {
+    display: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
     },
   },
 }));

@@ -5,9 +5,9 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./style";
 
-const ShowTime = ({ info, showlist, hasOpenIcon }) => {
+const ShowTime = ({ info, showList, hasOpenIcon, opened }) => {
   const styles = useStyles();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(opened);
 
   return (
     <Box className={styles.root}>
@@ -20,9 +20,9 @@ const ShowTime = ({ info, showlist, hasOpenIcon }) => {
         )}
       </Box>
 
-      {showlist && (
+      {showList && (
         <Collapse in={open} timeout="auto">
-          {showlist}
+          {showList}
         </Collapse>
       )}
     </Box>
@@ -31,13 +31,14 @@ const ShowTime = ({ info, showlist, hasOpenIcon }) => {
 
 ShowTime.propTypes = {
   info: PropTypes.element,
-  showlist: PropTypes.element,
+  showList: PropTypes.element,
   hasOpenIcon: PropTypes.bool,
+  opened: PropTypes.bool,
+  disableShowList: PropTypes.bool,
 };
 
 ShowTime.defaultProps = {
   info: <Typography>No info</Typography>,
-  hasOpenIcon: false,
 };
 
 export default ShowTime;

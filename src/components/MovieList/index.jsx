@@ -20,8 +20,8 @@ const MovieList = () => {
   const renderMovie = (movies) => {
     return movies.map((movie, index) => {
       return (
-        <Grid item xs={6} sm={4} lg={3}>
-          <MovieItem key={index} {...movie} />
+        <Grid item xs={6} sm={4} lg={3} key={index}>
+          <MovieItem {...movie} />
         </Grid>
       );
     });

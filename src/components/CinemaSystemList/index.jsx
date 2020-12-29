@@ -7,33 +7,36 @@ import Show from "../Show";
 import CinemaSystem from "../CinemaSystem";
 import useStyles from "./style";
 
-const CinemaSystemList = ({ list }) => {
+const CinemaSystemList = ({ showList, ...props }) => {
   const styles = useStyles();
-  const selectedSystem = useSelector((state) => state.idCinemaSystem);
+  const systemList = useSelector((state) => state.cinemaSystems.list);
+  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const dispatch = useDispatch();
 
-  return list.map((system) => (
+  const handleClick = (id) => {
+    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id });
+  };
+
+  return systemList.map((system) => (
     <ListItem
-      className={`${styles.listItem} ${styles.fade}`}
-      classes={styles.selected}
+      className={styles.listItem}
+      classes={{ selected: styles.selected }}
       button
       selected={selectedSystem === system.id}
-      onclick={() => {
-        dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: system.id });
-      }}
+      onClick={() => handleClick(system.id)}
       key={system.id}
     >
-      <Show info={<CinemaSystem {...system} />} />
+      <Show
+        hasOpenIcon
+        info={<CinemaSystem {...system} hasName={props.hasName} />}
+        showList={showList}
+      />
     </ListItem>
   ));
 };
 
 CinemaSystemList.propTypes = {
-  list: PropTypes.array,
-};
-
-CinemaSystemList.defaultProps = {
-  list: [],
+  showList: PropTypes.element,
 };
 
 export default CinemaSystemList;

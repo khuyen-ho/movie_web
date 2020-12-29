@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.grey.dark,
     borderTop: "5px solid",
     borderColor: theme.palette.secondary.main,
-    color: theme.palette.white,
+    color: theme.palette.white.main,
     overflow: "hidden",
     padding: theme.spacing(3, 0),
   },

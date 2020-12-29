@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
     display: "-webkit-box",
     lineClamp: 2,
     boxOrient: "vertical",
+
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      whiteSpace: "pre-wrap",
+    },
   },
 }));
 

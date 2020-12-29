@@ -22,6 +22,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
   },
+
+  openIcon: {
+    display: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
+  },
 }));
 
 export default useStyles;
