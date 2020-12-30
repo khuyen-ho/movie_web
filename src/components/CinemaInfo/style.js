@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
       color: theme.palette.text.secondary,
     },
+
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
 
   ellipsis: {
