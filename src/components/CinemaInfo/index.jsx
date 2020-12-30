@@ -3,38 +3,38 @@ import PropTypes from "prop-types";
 import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 
-const CinemaInfo = ({ logo, name, address, open }) => {
-  const styles = useStyles();
+const CinemaInfo = ({ id, logo, name, address, ...props }) => {
+  const styles = useStyles(props);
 
   return (
-    <Box className={styles.root} onClick={open}>
+    <>
       <Avatar src={logo} variant="square" className={styles.logo} />
       <Box>
-        <Typography variant="subtitle2" component="p" className={styles.name}>
+        <Typography
+          variant="subtitle2"
+          component="p"
+          className={`${styles.name} ${styles.ellipsis}`}
+        >
           {name}
         </Typography>
         <Typography
           variant="subtitle2"
           component="p"
-          className={styles.address}
+          className={`${styles.address} ${styles.ellipsis}`}
         >
           {address}
         </Typography>
       </Box>
-    </Box>
+    </>
   );
 };
 
 CinemaInfo.propTypes = {
+  id: PropTypes.string,
   logo: PropTypes.string,
   name: PropTypes.string,
   address: PropTypes.string,
-};
-
-CinemaInfo.defaultProps = {
-  logo: "",
-  name: "",
-  address: "",
+  hasEllipsis: PropTypes.bool,
 };
 
 export default CinemaInfo;

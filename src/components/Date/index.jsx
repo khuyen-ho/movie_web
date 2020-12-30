@@ -24,8 +24,8 @@ Date.propTypes = {
 };
 
 Date.defaultProps = {
-  day: "Thứ 3",
-  date: "08",
+  day: "No day",
+  date: "No date",
 };
 
 export default Date;

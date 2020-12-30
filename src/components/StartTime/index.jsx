@@ -31,9 +31,4 @@ StartTime.propTypes = {
   duration: PropTypes.number,
 };
 
-StartTime.defaultProps = {
-  start: "2019-01-09T00:00:00",
-  duration: 0,
-};
-
 export default StartTime;

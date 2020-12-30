@@ -5,13 +5,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
-    height: "12%",
+    height: 92,
     background: theme.palette.white,
-    border: `1px solid ${theme.palette.grey.light}`,
-    borderLeft: "none",
+    border: `1.5px solid ${theme.palette.grey.light}`,
+    borderBottom: `2px solid ${theme.palette.grey.light}`,
     borderTopRightRadius: theme.shape.borderRadius,
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       borderRadius: 0,
     },
   },

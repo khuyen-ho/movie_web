@@ -1,16 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(1, 0),
-
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-
   logo: {
     width: 50,
     height: 50,
@@ -24,7 +14,23 @@ const useStyles = makeStyles((theme) => ({
 
   address: {
     color: theme.palette.grey.main,
+    fontWeight: 600,
   },
+
+  ellipsis: (props) => ({
+    width: props.hasEllipsis ? 210 : "100%",
+    whiteSpace: props.hasEllipsis ? "nowrap" : "pre-wrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    lineClamp: 2,
+    boxOrient: "vertical",
+
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      whiteSpace: "pre-wrap",
+    },
+  }),
 }));
 
 export default useStyles;
