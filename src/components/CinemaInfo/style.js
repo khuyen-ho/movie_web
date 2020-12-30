@@ -13,6 +13,17 @@ const useStyles = makeStyles((theme) => ({
 
   address: {
     color: theme.palette.grey.main,
+    fontSize: 12,
+  },
+
+  detail: {
+    color: theme.palette.text.secondary,
+    display: "block",
+    fontSize: 12,
+    "&:hover": {
+      textDecoration: "none",
+      color: theme.palette.text.secondary,
+    },
   },
 
   ellipsis: {

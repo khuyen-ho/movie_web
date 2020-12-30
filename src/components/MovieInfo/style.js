@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   info: {
-    width: "90%",
     color: theme.palette.grey.main,
     display: "inline",
     marginRight: theme.spacing(0.5),
