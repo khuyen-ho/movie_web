@@ -30,6 +30,7 @@ export const getDateList = (startDate, numberOfDate = 1) => {
     dateList.push(moment(startDate).add(i, "days"));
   }
   return dateList;
+};
 
 export const getFullDate = (jsonDate) => {
   let formatedDate = new Date(jsonDate);
