@@ -6,6 +6,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(5),
   },
 
+  root: {
+    boxShadow: "0 0 10px rgba(0,0,0,.3)",
+    borderRadius: theme.shape.borderRadius,
+  },
+
   list: {
     background: theme.palette.white,
     padding: theme.spacing(0, 2),
