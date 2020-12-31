@@ -4,14 +4,14 @@ import { withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "url(./imgs/bg_login.jpg) no-repeat center",
+    background: "url(./images/bg_login.jpg) no-repeat center",
     backgroundSize: "cover",
     position: "relative",
     minHeight: "100vh",
     [theme.breakpoints.down("xs")]: {
       background: "linear-gradient(to bottom,rgba(8,22,48),rgba(20,50,93))",
-      height:"100%"
-     },
+      height: "100%",
+    },
   },
   content: {
     position: "absolute",
@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     transform: "translate(-50%,-50%)",
     background: "linear-gradient(to bottom,rgba(8,22,48,.9),rgba(20,50,93,.9))",
-    borderRadius:15,
+    borderRadius: 15,
     padding: theme.spacing(3),
     [theme.breakpoints.down("xs")]: {
-     //width:"100%"
-     background:"none"
+      //width:"100%"
+      background: "none",
     },
   },
   root_form: {
@@ -47,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     margin: theme.spacing(3),
   },
-  title:{
+  title: {
     [theme.breakpoints.down("xs")]: {
-     display:"none"
-     },
-  }
+      display: "none",
+    },
+  },
 }));
 
 export const CssTextField = withStyles((theme) => ({
@@ -63,7 +63,7 @@ export const CssTextField = withStyles((theme) => ({
       borderBottomColor: theme.palette.white,
     },
     "& .MuiInputBase-input": {
-      width:"auto"
+      width: "auto",
     },
     "&.MuiTextField-root": {
       width: "100%",
@@ -88,9 +88,9 @@ export const CssTextField = withStyles((theme) => ({
 
 export const CssButton = withStyles((theme) => ({
   root: {
-    "&.MuiButton-root":{
-      outline:"none",
-      boxShadow:"none"
+    "&.MuiButton-root": {
+      outline: "none",
+      boxShadow: "none",
     },
     "&.MuiButton-fullWidth": {
       height: 20,
@@ -105,9 +105,9 @@ export const CssButton = withStyles((theme) => ({
 
 export const ButtonWithoutOutline = withStyles((theme) => ({
   root: {
-    "&.MuiButton-root":{
-      outline:"none",
-      boxShadow:"none"
+    "&.MuiButton-root": {
+      outline: "none",
+      boxShadow: "none",
     },
   },
 }))(Button);
@@ -116,7 +116,7 @@ export const CssFormControlLabel = withStyles((theme) => ({
   root: {
     "&.MuiFormControlLabel-root": {
       color: theme.palette.grey.light,
-      margin:0
+      margin: 0,
     },
   },
 }))(FormControlLabel);

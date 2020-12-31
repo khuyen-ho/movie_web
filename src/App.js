@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import SignIn from "./pages/SignIn";
-
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Footer from "./components/Footer/index.jsx";
 
 class App extends Component {
   render() {
     return (
       <>
-       <SignIn/>
+        <Header />
+        <Home />
+        <Footer />
       </>
     );
   }
