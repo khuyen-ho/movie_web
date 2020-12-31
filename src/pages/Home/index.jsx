@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../../components/Carousel";
 import SearchMovie from "../../components/SearchMovie";
 import MovieList from "../../components/MovieList";
+import ScheduleCinema from "../../components/ScheduleCinema";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Carousel />
       <SearchMovie />
       <MovieList />
+      <ScheduleCinema />
     </>
   );
 };
