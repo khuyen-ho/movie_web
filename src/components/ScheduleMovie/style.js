@@ -1,16 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
-    padding: theme.spacing(5, 0),
-  },
-
   container: {
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
 
     [theme.breakpoints.down("md")]: {
+      marginTop: 0,
       padding: 0,
     },
   },

@@ -8,7 +8,7 @@ import useStyles from "./style";
 const ScheduleMovie = (props) => {
   const styles = useStyles();
   return (
-    <Box className={styles.root}>
+    <>
       <Container maxWidth="lg" className={styles.container}>
         <Grid container className={styles.largeScreen}>
           <Grid item xs={12} md={3}>
@@ -52,7 +52,7 @@ const ScheduleMovie = (props) => {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </>
   );
 };
 

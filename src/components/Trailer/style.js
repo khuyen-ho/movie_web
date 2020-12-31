@@ -5,12 +5,6 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     width: "100%",
     zIndex: 10,
-    [theme.breakpoints.up("xs")]: {
-      display: "block",
-    },
-    [theme.breakpoints.up("lg")]: {
-      display: "none",
-    },
   },
 
   layout: {

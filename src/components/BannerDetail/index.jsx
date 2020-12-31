@@ -12,7 +12,7 @@ const BannerDetail = (props) => {
   const { movie } = props;
 
   return (
-    <Box className={styles.root}>
+    <>
       <Container maxWidth="lg" className={styles.detail}>
         <Grid container spacing={3}>
           <Grid item xs={3}>
@@ -38,8 +38,10 @@ const BannerDetail = (props) => {
           </Grid>
         </Grid>
       </Container>
-      <Trailer movie={movie} />
-    </Box>
+      <Box className={styles.trailer}>
+        <Trailer movie={movie} />
+      </Box>
+    </>
   );
 };
 
