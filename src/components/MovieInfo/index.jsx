@@ -19,13 +19,6 @@ const MovieInfo = ({ id, logo, name, duration, score }) => {
         >
           {duration} phút
         </Typography>
-        <Typography
-          variant="subtitle2"
-          component="span"
-          className={styles.info}
-        >
-          - {score}
-        </Typography>
       </Box>
     </>
   );
