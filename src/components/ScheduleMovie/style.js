@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   list: {
-    background: theme.palette.white,
+    background: theme.palette.white.main,
     padding: theme.spacing(0, 2),
     height: 700,
     border: `1.5px solid ${theme.palette.grey.light}`,

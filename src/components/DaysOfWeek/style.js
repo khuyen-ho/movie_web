@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: "100%",
     height: 92,
-    background: theme.palette.white,
+    background: theme.palette.white.main,
     border: `1.5px solid ${theme.palette.grey.light}`,
     borderBottom: `2px solid ${theme.palette.grey.light}`,
     borderTopRightRadius: theme.shape.borderRadius,

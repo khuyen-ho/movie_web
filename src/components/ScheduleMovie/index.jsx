@@ -8,51 +8,49 @@ import useStyles from "./style";
 const ScheduleMovie = (props) => {
   const styles = useStyles();
   return (
-    <>
-      <Container maxWidth="lg" className={styles.container}>
-        <Grid container className={styles.largeScreen}>
-          <Grid item xs={12} md={3}>
-            <List
-              className={`${styles.list} 
+    <Container maxWidth="lg" className={styles.container}>
+      <Grid container className={styles.largeScreen}>
+        <Grid item xs={12} md={3}>
+          <List
+            className={`${styles.list} 
               ${styles.noRightBorder}
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
-            >
-              <CinemaSystemList hasName />
-            </List>
-          </Grid>
-          <Grid item xs={12} md={9}>
-            <DaysOfWeek />
-            <List
-              style={{ height: 608, borderTop: "none" }}
-              className={`${styles.list}
+          >
+            <CinemaSystemList hasName />
+          </List>
+        </Grid>
+        <Grid item xs={12} md={9}>
+          <DaysOfWeek />
+          <List
+            style={{ height: 608, borderTop: "none" }}
+            className={`${styles.list}
               ${styles.noRightBorder} 
               ${styles.noTopLeftRadius} 
               ${styles.noBottomLeftRadius}
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}
               ${styles.verticalScroll}`}
-            >
-              <MovieShowTimeList />
-            </List>
-          </Grid>
+          >
+            <MovieShowTimeList />
+          </List>
         </Grid>
-        <Grid className={styles.smallScreen} container>
-          <Grid item xs={12}>
-            <DaysOfWeek />
-            <List
-              className={`${styles.list} 
+      </Grid>
+      <Grid className={styles.smallScreen} container>
+        <Grid item xs={12}>
+          <DaysOfWeek />
+          <List
+            className={`${styles.list} 
               ${styles.noTopLeftRadius} 
               ${styles.noBottomLeftRadius}
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}`}
-            >
-              <CinemaSystemList hasName showList={<MovieShowTimeList />} />
-            </List>
-          </Grid>
+          >
+            <CinemaSystemList hasName showList={<MovieShowTimeList />} />
+          </List>
         </Grid>
-      </Container>
-    </>
+      </Grid>
+    </Container>
   );
 };
 
