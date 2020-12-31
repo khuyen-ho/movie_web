@@ -1,57 +1,72 @@
-import { Paper, Tab, Tabs } from "@material-ui/core";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  bigScreen: {
-    [theme.breakpoints.down("sm")]: {
-       display: "none",
+  root: {
+    backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
+    padding: theme.spacing(5, 0),
+  },
+
+  container: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
+
+    [theme.breakpoints.down("md")]: {
+      padding: 0,
     },
   },
+
+  list: {
+    background: theme.palette.white,
+    padding: theme.spacing(0, 2),
+    height: 700,
+    border: `1.5px solid ${theme.palette.grey.light}`,
+    borderRadius: theme.shape.borderRadius,
+
+    [theme.breakpoints.down("md")]: {
+      height: "100%",
+    },
+  },
+
+  smallPadding: {
+    padding: theme.spacing(0, 1),
+  },
+
+  verticalScroll: {
+    overflowY: "scroll",
+  },
+
+  noRightBorder: {
+    borderRight: "none",
+  },
+
+  noTopLeftRadius: {
+    borderTopLeftRadius: 0,
+  },
+
+  noTopRightRadius: {
+    borderTopRightRadius: 0,
+  },
+
+  noBottomLeftRadius: {
+    borderBottomLeftRadius: 0,
+  },
+
+  noBottomRightRadius: {
+    borderBottomRightRadius: 0,
+  },
+
+  largeScreen: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+
   smallScreen: {
     display: "none",
-    [theme.breakpoints.down("sm")]: {
-        display: "block",
-       },
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
   },
 }));
-
-export const CssTab = withStyles((theme) => ({
-  root: {
-    "&.MuiTab-root": {
-      color: theme.palette.grey.dark,
-      padding: 0,
-      minWidth: 0,
-      paddingRight: theme.spacing(1.5),
-      paddingLeft: theme.spacing(1.5),
-    },
-    "&.MuiTab-root.Mui-selected": {
-      color: theme.palette.secondary.main,
-    },
-  },
-}))(Tab);
-
-export const CssPaper = withStyles((theme) => ({
-  root: {
-    "&.MuiPaper-elevation1": {
-      boxShadow: "0 0 black",
-      //display:"none"
-    },
-  },
-}))(Paper);
-
-// export const CssTabs = withStyles((theme) => ({
-//   root: {
-//     "&.MuiTab-root": {
-//       color: theme.palette.grey.dark,
-//       padding: 0,
-//       minWidth: 0,
-//       paddingRight:theme.spacing(1.5),
-//       paddingLeft:theme.spacing(1.5)
-//     },
-//     "&.MuiTab-root.Mui-selected": {
-//       color: theme.palette.secondary.main,
-//     },
-//   },
-// }))(Tabs);
 
 export default useStyles;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ScheduleMovie from "./components/ScheduleMovie";
 import Detail from "./pages/Detail";
 
 class App extends Component {
@@ -6,6 +7,7 @@ class App extends Component {
     return (
       <>
         <Detail />
+        <ScheduleMovie />
       </>
     );
   }

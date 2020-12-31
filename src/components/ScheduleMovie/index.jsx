@@ -1,34 +1,59 @@
-import { Container, Grid } from "@material-ui/core";
-import React, { Component } from "react";
+import React from "react";
+import { Container, Grid, List, Box } from "@material-ui/core";
+import CinemaSystemList from "../CinemaSystemList";
+import MovieShowTimeList from "../MovieShowTimeList";
 import DaysOfWeek from "../DaysOfWeek";
-import MovieLogoList from "../MovieLogoList";
-import ShowTime from "../ShowTimes";
 import useStyles from "./style";
 
-const ScheduleMovie = () => {
-  const classes = useStyles();
+const ScheduleMovie = (props) => {
+  const styles = useStyles();
   return (
-    <div>
-      <Container>
-        <Grid className={classes.bigScreen} container>
-          <Grid item xs={12} md={2}>
-            <MovieLogoList />
+    <Box className={styles.root}>
+      <Container maxWidth="lg" className={styles.container}>
+        <Grid container className={styles.largeScreen}>
+          <Grid item xs={12} md={3}>
+            <List
+              className={`${styles.list} 
+              ${styles.noRightBorder}
+              ${styles.noTopRightRadius}
+              ${styles.noBottomRightRadius}`}
+            >
+              <CinemaSystemList hasName />
+            </List>
           </Grid>
-          <Grid xs={12} item md={10}>
+          <Grid item xs={12} md={9}>
             <DaysOfWeek />
-            {/* CHINH PHAN NAY, CHIEU NHIEU PHIM, HARDCODE LAY DU LIEU TU BACKEND */}
-            <ShowTime />
+            <List
+              style={{ height: 608, borderTop: "none" }}
+              className={`${styles.list}
+              ${styles.noRightBorder} 
+              ${styles.noTopLeftRadius} 
+              ${styles.noBottomLeftRadius}
+              ${styles.noTopRightRadius} 
+              ${styles.noBottomRightRadius}
+              ${styles.verticalScroll}`}
+            >
+              <MovieShowTimeList />
+            </List>
           </Grid>
         </Grid>
-        <Grid className={classes.smallScreen} container>
-          <Grid>
+        <Grid className={styles.smallScreen} container>
+          <Grid item xs={12}>
             <DaysOfWeek />
-            <MovieLogoList />
-          {/* <ShowTime/> */}
+            <List
+              className={`${styles.list} 
+              ${styles.noTopLeftRadius} 
+              ${styles.noBottomLeftRadius}
+              ${styles.noTopRightRadius} 
+              ${styles.noBottomRightRadius}`}
+            >
+              <CinemaSystemList hasName showList={<MovieShowTimeList />} />
+            </List>
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 };
+
 export default ScheduleMovie;
