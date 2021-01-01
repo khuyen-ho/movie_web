@@ -25,13 +25,11 @@ const useStyles = makeStyles((theme) => ({
 
   startTime: {
     color: theme.palette.green.main,
-    fontWeight: 600,
     marginRight: theme.spacing(0.5),
   },
 
   endTime: {
     color: theme.palette.grey.main,
-    fontWeight: 600,
   },
 }));
 

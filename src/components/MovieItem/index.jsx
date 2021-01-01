@@ -1,15 +1,15 @@
 import React from "react";
 import { Typography, Button, Box } from "@material-ui/core";
 import useStyles from "./style";
-import Trailer from "../Trailer";
+import Poster from "../Poster";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
 
-const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu }) => {
+const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
   const styles = useStyles();
   return (
     <Box className={styles.root}>
-      <Trailer image={hinhAnh} />
+      <Poster image={hinhAnh} trailer={trailer} />
       <Typography variant="h6" className={styles.title}>
         {tenPhim}
       </Typography>

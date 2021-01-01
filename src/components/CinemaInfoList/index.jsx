@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { ListItem } from "@material-ui/core";
 import { GET_ID_CINEMA } from "../../redux/actions/actionType";
@@ -25,9 +26,13 @@ const CinemaInfoList = (props) => {
       onClick={() => handleClick(cinema.id)}
       key={cinema.id}
     >
-      <Show info={<CinemaInfo {...cinema} />} />
+      <Show info={<CinemaInfo {...cinema} hasEllipsis={props.hasEllipsis} />} />
     </ListItem>
   ));
+};
+
+CinemaInfoList.propTypes = {
+  hasEllipsis: PropTypes.bool,
 };
 
 export default CinemaInfoList;

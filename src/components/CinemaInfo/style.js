@@ -31,10 +31,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   ellipsis: {
-    width: 210,
+    width: (props) => (props.hasEllipsis ? 210 : "100%"),
     whiteSpace: "nowrap",
     overflow: "hidden",
-    textOverflow: "ellipsis",
+    textOverflow: (props) => (props.hasEllipsis ? "ellipsis" : "initial"),
     display: "-webkit-box",
     lineClamp: 2,
     boxOrient: "vertical",

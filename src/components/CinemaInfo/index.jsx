@@ -4,7 +4,7 @@ import { Avatar, Box, Typography, Link } from "@material-ui/core";
 import useStyles from "./style";
 
 const CinemaInfo = ({ id, logo, name, address, ...props }) => {
-  const styles = useStyles();
+  const styles = useStyles(props);
 
   return (
     <>
@@ -37,7 +37,7 @@ CinemaInfo.propTypes = {
   logo: PropTypes.string,
   name: PropTypes.string,
   address: PropTypes.string,
-  hasDetailLink: PropTypes.bool,
+  hasEllipsis: PropTypes.bool,
 };
 
 export default CinemaInfo;

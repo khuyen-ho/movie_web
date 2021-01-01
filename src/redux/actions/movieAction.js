@@ -1,6 +1,11 @@
 /* eslint-disable no-lone-blocks */
-import { GET_CINEMA_LIST, GET_MOVIE_LIST } from "./actionType";
+import {
+  GET_CINEMA_LIST,
+  GET_MOVIE_LIST,
+  GET_ADDRESS_CINEMA,
+} from "./actionType";
 import Axios from "axios";
+
 export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
@@ -37,6 +42,33 @@ export const getCinemaList = () => {
         .then(function thanhCong(res) {
           dispatch({
             type: GET_CINEMA_LIST,
+            payload: res.data,
+          });
+        })
+        .catch(function thatBai(err) {
+          console.log(err);
+        });
+    }
+  };
+};
+
+//get info of smaller cinemas
+export const getCinemaDetailList = (idCinema) => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    {
+      //call api
+      // connector({
+      Axios({
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${idCinema}`,
+        method: "GET",
+      })
+        .then(function thanhCong(res) {
+          // console.log(res.data);
+
+          //console.log(dispatch);
+          dispatch({
+            type: GET_ADDRESS_CINEMA,
             payload: res.data,
           });
         })

@@ -31,7 +31,7 @@ const ScheduleCinema = (props) => {
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}`}
             >
-              <CinemaInfoList />
+              <CinemaInfoList hasEllipsis />
             </List>
           </Grid>
           <Grid item xs={7}>
