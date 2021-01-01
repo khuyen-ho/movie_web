@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import Home from "./pages/Home";
+import MovieDetail from "./pages/MovieDetail";
 import Footer from "./components/Footer/index.jsx";
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <>
         <Header />
-        <Home />
+        <MovieDetail />
         <Footer />
       </>
     );
