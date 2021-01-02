@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import Home from "./pages/Home";
 import Footer from "./components/Footer/index.jsx";
+import CinemaDetail from "./pages/CinemaDetail";
 
 class App extends Component {
   render() {
     return (
       <>
         <Header />
-        <Home />
+        <CinemaDetail />
         <Footer />
       </>
     );
