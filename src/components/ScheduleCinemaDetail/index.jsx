@@ -1,27 +1,29 @@
 import React from "react";
-import { Container, Grid, List } from "@material-ui/core";
-import CinemaSystemList from "../CinemaSystemList";
-import MovieShowTimeList from "../MovieShowTimeList";
+import { Box, Container, Grid, List } from "@material-ui/core";
+import CinemaInfoList from "../CinemaInfoList";
+import CinemaShowTimeList from "../CinemaShowTimeList";
 import DaysOfWeek from "../DaysOfWeek";
 import useStyles from "./style";
 
-const ScheduleMovie = (props) => {
+const ScheduleMovieDetail = (props) => {
   const styles = useStyles();
   return (
     <Container maxWidth="lg" className={styles.container}>
       <Grid container className={styles.largeScreen}>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={4}>
           <List
             className={`${styles.list} 
               ${styles.noRightBorder}
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
           >
-            <CinemaSystemList hasName />
+            <CinemaInfoList hasEllipsis />
           </List>
         </Grid>
-        <Grid item xs={12} md={9}>
-          <DaysOfWeek />
+        <Grid item xs={8}>
+          <Box height={92}>
+            <DaysOfWeek />
+          </Box>
           <List
             style={{ height: 608, borderTop: "none" }}
             className={`${styles.list}
@@ -32,13 +34,15 @@ const ScheduleMovie = (props) => {
               ${styles.noBottomRightRadius}
               ${styles.verticalScroll}`}
           >
-            <MovieShowTimeList />
+            <CinemaShowTimeList />
           </List>
         </Grid>
       </Grid>
-      <Grid className={styles.smallScreen} container>
+      <Grid className={styles.smallScreen}>
         <Grid item xs={12}>
-          <DaysOfWeek />
+          <Box height={92}>
+            <DaysOfWeek />
+          </Box>
           <List
             className={`${styles.list} 
               ${styles.noTopLeftRadius} 
@@ -46,7 +50,7 @@ const ScheduleMovie = (props) => {
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}`}
           >
-            <CinemaSystemList hasName showList={<MovieShowTimeList />} />
+            <CinemaShowTimeList />
           </List>
         </Grid>
       </Grid>
@@ -54,4 +58,4 @@ const ScheduleMovie = (props) => {
   );
 };
 
-export default ScheduleMovie;
+export default ScheduleMovieDetail;

@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
+    padding: theme.spacing(5, 0),
 
     [theme.breakpoints.up("xs")]: {
       flexDirection: "column",

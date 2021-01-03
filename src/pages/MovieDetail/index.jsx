@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@material-ui/core";
-import ScheduleMovie from "../../components/ScheduleMovie";
+import ScheduleMovieDetail from "../../components/ScheduleMovieDetail";
 import MovieBannerDetail from "../../components/MovieBannerDetail";
 import useStyles from "./style";
 
@@ -10,7 +10,7 @@ const MovieDetail = () => {
   return (
     <Box className={styles.root}>
       <MovieBannerDetail />
-      <ScheduleMovie />
+      <ScheduleMovieDetail />
     </Box>
   );
 };
