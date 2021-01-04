@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Footer from "./components/Footer/index.jsx";
+import SignInUpNavBar from "./components/SignInUpNavBar";
+import SignIn from "./pages/SignIn";
 
 class App extends Component {
   render() {
     return (
       <>
-        <Header />
-        <Home />
-        <Footer />
+        <SignInUpNavBar />
+        <SignIn />
       </>
     );
   }
