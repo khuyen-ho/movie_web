@@ -13,7 +13,7 @@ const Tag = (props) => {
       <IconButton className={styles.icon}>
         {iconElement}
         <Link href={link} className={styles.link} variant="subtitle2">
-          {title}
+          {!props.noTitle && title}
         </Link>
       </IconButton>
     </Box>
@@ -26,12 +26,14 @@ Tag.propTypes = {
   link: PropTypes.string,
   color: PropTypes.string,
   hoverColor: PropTypes.string,
+  noTitle: PropTypes.bool,
 };
 
 Tag.defaultProps = {
   title: "No title",
   iconElement: <SentimentVeryDissatisfiedIcon />,
   link: "#",
+  noTitle: false,
 };
 
 export default Tag;

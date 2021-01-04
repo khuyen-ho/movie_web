@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import SignInUpNavBar from "./components/SignInUpNavBar";
-import SignIn from "./pages/SignIn";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 class App extends Component {
   render() {
     return (
       <>
-        <SignInUpNavBar />
-        <SignIn />
+        <Header />
+        <Home />
+        <Footer />
       </>
     );
   }
