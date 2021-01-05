@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  FormControlLabel,
-  Link,
-} from "@material-ui/core";
-import Switch from "@material-ui/core/Switch";
+import { Box, Typography, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
 
 const SignIn = (props) => {
@@ -17,8 +9,15 @@ const SignIn = (props) => {
     <form className={styles.root} noValidate autoComplete="off">
       <Box className={styles.content}>
         <Typography className={styles.title} variant="h6">
-          ĐĂNG NHẬP
+          ĐĂNG KÝ
         </Typography>
+
+        <TextField
+          classes={{ root: styles.input }}
+          label="Họ tên"
+          variant="outlined"
+          type="text"
+        />
 
         <TextField
           classes={{ root: styles.input }}
@@ -34,29 +33,27 @@ const SignIn = (props) => {
           type="password"
         />
 
+        <TextField
+          classes={{ root: styles.input }}
+          label="Email"
+          variant="outlined"
+        />
+
+        <TextField
+          classes={{ root: styles.input }}
+          label="Số điện thoại"
+          variant="outlined"
+          type="text"
+        />
+
         <Button
           variant="contained"
           color="secondary"
           fullWidth
           className={styles.button}
         >
-          ĐĂNG NHẬP
+          ĐĂNG KÝ
         </Button>
-
-        <Box className={styles.bottomGroup}>
-          <FormControlLabel
-            classes={{ root: styles.switch, label: styles.label }}
-            control={<Switch name="keepLoggedIn" />}
-            label="Duy trì đăng nhập"
-          />
-          <Link
-            href="#"
-            className={`${styles.label} ${styles.link}`}
-            variant="subtitle1"
-          >
-            Quên mật khẩu
-          </Link>
-        </Box>
       </Box>
     </form>
   );
