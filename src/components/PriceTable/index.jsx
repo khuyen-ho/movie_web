@@ -29,7 +29,7 @@ const PriceTable = (props) => {
           <ChosenChair />
         </TableCell>
       </TableRow>
-      <TableRow>
+      {/* <TableRow>
         <TableCell align="center" component="th" scope="row">
           <Input name="Email" />
         </TableCell>
@@ -38,7 +38,7 @@ const PriceTable = (props) => {
         <TableCell align="center" component="th" scope="row">
           <Input name="Phone" />
         </TableCell>
-      </TableRow>
+      </TableRow> */}
       <TableRow>
         <TableCell align="center" component="th" scope="row">
           <ModifiedButton name="ĐẶT VÉ" />
