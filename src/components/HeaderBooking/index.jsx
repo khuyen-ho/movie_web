@@ -2,6 +2,7 @@ import React from "react";
 import useStyles, { CssPaper} from "./style";
 import { Box, Typography } from "@material-ui/core";
 import CinemaDetail from "../CinemaDetail";
+import AvatarAndName from '../Avatar'
 
 export default function HeaderBooking() {
   const [value, setValue] = React.useState(2);
@@ -15,7 +16,7 @@ export default function HeaderBooking() {
     <CssPaper className={classes.title} square>
       <CinemaDetail/>
       <Box>
-        <Typography className={classes.userName} variant='h6'>Họ tên</Typography>
+        <AvatarAndName/>
       </Box>
     </CssPaper>
   );
