@@ -2,10 +2,13 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 550,
-    background: "linear-gradient(to bottom,rgba(8,22,48,.9),rgba(20,50,93,.9))",
+    background: "rgba(8,22,48)",
     borderRadius: theme.shape.borderRadius,
     padding: theme.spacing(3),
+
+    [theme.breakpoints.down("md")]: {
+      borderRadius: 0,
+    },
   },
 
   content: {
@@ -25,9 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
-    },
-    "& .MuiInputBase-input": {
-      width: "auto",
     },
     "&.MuiTextField-root": {
       width: "100%",
@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
 
     "&:focus": {
       outline: "none",
-      boxShadow: "none",
     },
   },
 
@@ -64,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1),
   },
 
   switch: {
@@ -73,6 +72,13 @@ const useStyles = makeStyles((theme) => ({
 
   label: {
     color: theme.palette.white.main,
+
+    [theme.breakpoints.up("xs")]: {
+      fontSize: 12,
+    },
+    [theme.breakpoints.up("xsm")]: {
+      fontSize: "1rem",
+    },
   },
 
   link: {

@@ -54,7 +54,7 @@ const SignIn = (props) => {
             className={`${styles.label} ${styles.link}`}
             variant="subtitle1"
           >
-            Quên mật khẩu
+            Quên mật khẩu?
           </Link>
         </Box>
       </Box>

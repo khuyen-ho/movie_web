@@ -10,8 +10,8 @@ const SignInUpNavBar = () => {
   const styles = useStyles();
 
   return (
-    <AppBar color="transparent">
-      <Toolbar classes={{ root: styles.root }}>
+    <AppBar color="transparent" className={styles.root}>
+      <Toolbar className={styles.toolBar}>
         <Box marginLeft={2}>
           <Tag
             title="Trang chủ"
