@@ -10,15 +10,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  chairNote: {
-    paddingLeft:"40%",
-    [theme.breakpoints.down("sm")]: {
-      paddingLeft:"30%",
-    },
-    [theme.breakpoints.down("xs")]: {
-      paddingLeft:"10%",
-    },
-  },
+  // chairNote: {
+  //   paddingLeft:"40%",
+  //   [theme.breakpoints.down("sm")]: {
+  //     paddingLeft:"30%",
+  //   },
+  //   [theme.breakpoints.down("xs")]: {
+  //     paddingLeft:"10%",
+  //   },
+  // },
 }));
 
 export default useStyles;

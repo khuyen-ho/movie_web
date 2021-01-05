@@ -7,22 +7,18 @@ const ChairNote = (props) => {
   const classes = useStyles();
   return (
     <Box className={classes.note}>
-      <div className={classes.noteChair}>
-        <WeekendIcon />
+      <span className={classes.noteChair}>
+        <WeekendIcon className={classes.isChosing} />
         <Typography component="span">Ghế đang chọn</Typography>
-      </div>
-      <div className={classes.noteChair}>
-        <WeekendIcon />
+      </span>
+      <span className={classes.noteChair}>
+        <WeekendIcon  className={classes.chosen}/>
         <Typography component="span">Ghế đã chọn</Typography>
-      </div>
-      <div className={classes.noteChair}>
-        <WeekendIcon />
-        <Typography component="span">Ghế không thể chọn</Typography>
-      </div>
-      <div className={classes.noteChair}>
-        <WeekendIcon />
+      </span>
+      <span className={classes.noteChair}>
+        <WeekendIcon className={classes.vip} />
         <Typography component="span">Ghế VIP</Typography>
-      </div>
+      </span>
     </Box>
   );
 };
