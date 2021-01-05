@@ -6,7 +6,7 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import Tag from "../Tag";
 import useStyles from "./style";
 
-export default function ButtonAppBar() {
+const SignInUpNavBar = () => {
   const styles = useStyles();
 
   return (
@@ -36,4 +36,6 @@ export default function ButtonAppBar() {
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+export default SignInUpNavBar;
