@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, TextField, Button } from "@material-ui/core";
+import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
 
 const SignIn = (props) => {
@@ -54,6 +54,17 @@ const SignIn = (props) => {
         >
           ĐĂNG KÝ
         </Button>
+
+        <Typography component="span" className={styles.label}>
+          {`Đã có tài khoản? `}
+          <Link
+            href="#"
+            className={`${styles.label} ${styles.link}`}
+            variant="subtitle1"
+          >
+            Đăng nhập
+          </Link>
+        </Typography>
       </Box>
     </form>
   );

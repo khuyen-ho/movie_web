@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@material-ui/core";
 import SignInUpNavBar from "../../components/SignInUpNavBar";
-import SignIn from "../../components/SignIn";
+// import SignIn from "../../components/SignIn";
 import SignUp from "../../components/SignUp";
 import useStyles from "./style";
 

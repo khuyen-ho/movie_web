@@ -52,9 +52,24 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 50,
     color: theme.palette.white.main,
     padding: theme.spacing(1.5, 0),
+    marginBottom: theme.spacing(1),
 
     "&:focus": {
       outline: "none",
+    },
+  },
+
+  label: {
+    color: theme.palette.white.main,
+    display: "inline",
+  },
+
+  link: {
+    fontWeight: 400,
+    "&:hover": {
+      textDecoration: "none",
+      color: theme.palette.secondary.main,
+      transition: "all 0.3s",
     },
   },
 }));
