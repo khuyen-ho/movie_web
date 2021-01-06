@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { Box, Link } from "@material-ui/core";
+import { Box, Link, Menu, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -11,6 +11,7 @@ import useStyles from "./style";
 
 const Header = (props) => {
   const theme = useTheme();
+  const [accountAnchor, setAccountAnchor] = React.useState(null);
   const styles = useStyles();
 
   const links = [
@@ -37,6 +38,14 @@ const Header = (props) => {
     return <Box className={styles.links}>{navLinks}</Box>;
   };
 
+  const handleClick = (event) => {
+    setAccountAnchor(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAccountAnchor(null);
+  };
+
   return (
     <Box className={styles.root}>
       <Box marginRight={1}>
@@ -49,22 +58,35 @@ const Header = (props) => {
       </Box>
       <Box className={styles.links}>{createNavlinks}</Box>
       <Box className={styles.right}>
-        <Box className={styles.signInUp}>
+        <Box
+          className={styles.signInUp}
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
           <Tag
             iconElement={<AccountCircleIcon fontSize="large" />}
             color={theme.palette.grey.main}
             hoverColor={theme.palette.secondary.main}
-            title={links[2].title}
-            link={links[2].path}
+            title="Cao Thanh Long"
           />
         </Box>
+        <Menu
+          id="simple-menu"
+          anchorEl={accountAnchor}
+          keepMounted
+          open={Boolean(accountAnchor)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
+          <MenuItem onClick={handleClose}>Đăng xuất</MenuItem>
+        </Menu>
+
         <Box className={styles.signInUp}>
           <Tag
             iconElement={<PersonAddIcon fontSize="large" />}
             color={theme.palette.grey.main}
             hoverColor={theme.palette.secondary.main}
             title={links[3].title}
-            link={links[3].path}
           />
         </Box>
         <Box className={styles.search}>
