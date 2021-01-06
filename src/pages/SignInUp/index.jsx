@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@material-ui/core";
 import SignInUpNavBar from "../../components/SignInUpNavBar";
 import SignIn from "../../components/SignIn";
-// import SignUp from "../../components/SignUp";
+import SignUp from "../../components/SignUp";
 import useStyles from "./style";
 
 const SignInUp = () => {
@@ -13,12 +13,12 @@ const SignInUp = () => {
       <Box className={styles.navBar}>
         <SignInUpNavBar />
       </Box>
-      <Box className={styles.center}>
-        <SignIn />
-      </Box>
       {/* <Box className={styles.center}>
-        <SignUp />
+        <SignIn />
       </Box> */}
+      <Box className={styles.center}>
+        <SignUp />
+      </Box>
     </Box>
   );
 };
