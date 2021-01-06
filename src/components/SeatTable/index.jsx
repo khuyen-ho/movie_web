@@ -1,7 +1,7 @@
 import { Box, Grid } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
-import ChairList from "../ChairList";
+import { ChairList, ChairRow } from "../ChairList";
 import ChairNote from "../ChairNote";
 
 const chairList = [

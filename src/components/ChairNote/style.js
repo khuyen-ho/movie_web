@@ -6,13 +6,16 @@ const useStyles = makeStyles((theme) => ({
     textAlign:"center",
   },
   chosen:{
-    color:"red"
+    backgroundColor:"red",
+    pointerEvents:"none",
   },
   isChosing:{
-    color:theme.palette.green.main
+    backgroundColor:theme.palette.green.main,
+    pointerEvents:"none",
   },
   vip:{
-    color:"orange"
+    backgroundColor:"orange",
+    pointerEvents:"none",
   }
  
 }));
@@ -21,6 +24,10 @@ export const CssIconButton = withStyles((theme) => ({
   root: {
     "&.MuiIconButton-root": {
       outline: "none",
+      // backgroundColor:theme.palette.secondary.main,
+      borderRadius: 6,
+      width:40,
+      height:40,
     },
   },
 }))(IconButton);

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   seatArea: {
     maxWidth: 600,
     margin: "auto",
-    textAlign: "left",
+    // textAlign: "left",
   },
 }));
 
