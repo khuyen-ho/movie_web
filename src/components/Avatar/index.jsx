@@ -7,7 +7,7 @@ const AvatarAndName = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.ava}>
-          <img src="./imgs/avatar.jpg" alt=""/>
+          <img src="./images/avatar.jpg" alt=""/>
       </div>
       <Typography className={classes.name} variant='subtitle1'>Họ và tên</Typography>
     </div>

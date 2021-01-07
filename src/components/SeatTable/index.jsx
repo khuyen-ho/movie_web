@@ -49,7 +49,7 @@ const SeatTable = (props) => {
       <Grid container>
         <Grid item xs={12}>
           <Box className={classes.screen}>
-            <img src="./imgs/screen.png" alt="" />
+            <img src="./images/screen.png" alt="" />
           </Box>
         </Grid>
         <Grid item xs={12}>
