@@ -9,10 +9,10 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         {/* <CinemaDetail /> */}
         <AdminPage />
-        <Footer />
+        {/* <Footer /> */}
         {/* <Booking/> */}
       </>
     );

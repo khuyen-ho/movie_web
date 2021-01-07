@@ -2,7 +2,7 @@ import { Container, makeStyles, withStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      paddingTop: 100,
+      // paddingTop: 100,
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
       display: "flex",
