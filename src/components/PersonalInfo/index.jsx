@@ -71,19 +71,19 @@ const PersonalInfo = (props) => {
           <Collapse in={changePassword} timeout="auto">
             <Box className={styles.info}>
               <TextField
-                classes={{ root: styles.input }}
+                className={styles.input}
                 label="Mật khẩu hiện tại"
                 variant="outlined"
                 type="password"
               />
               <TextField
-                classes={{ root: styles.input }}
+                className={styles.input}
                 label="Mật khẩu mới"
                 variant="outlined"
                 type="password"
               />
               <TextField
-                classes={{ root: styles.input }}
+                className={styles.input}
                 label="Xác nhận mật khẩu"
                 variant="outlined"
                 type="password"
