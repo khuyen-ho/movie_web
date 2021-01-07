@@ -4,6 +4,7 @@ import {
     TableCell,
     TableRow,
     IconButton,
+    Button,
   } from "@material-ui/core";
   
   export const useStyles1 = makeStyles((theme) => ({
@@ -28,6 +29,17 @@ import {
       },
     },
   }))(IconButton);
+  export const CssButton = withStyles((theme) => ({
+    root: {
+      "&.MuiButton-root": {
+        outline:"none",
+        padding:5,
+        backgroundColor:"green",
+        color:theme.palette.white.main
+        
+      },
+    },
+  }))(Button);
   export const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.grey.dark,

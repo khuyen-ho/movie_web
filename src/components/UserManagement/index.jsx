@@ -7,6 +7,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CreateIcon from "@material-ui/icons/Create";
 import {
+  CssButton,
   CssIconButton,
   StyledTableCell,
   StyledTableRow,
@@ -298,6 +299,9 @@ function UserManagement() {
           </TableFooter>
         </Table>
       </TableContainer>
+      <Box textAlign='right' my={2}>
+      <CssButton>Thêm</CssButton>
+      </Box>
     </>
   );
 }

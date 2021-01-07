@@ -7,6 +7,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CreateIcon from "@material-ui/icons/Create";
 import {
+  CssButton,
   CssIconButton,
   StyledTableCell,
   StyledTableRow,
@@ -15,7 +16,7 @@ import {
 } from "./style";
 import BlockIcon from "@material-ui/icons/Block";
 import SearchBar from "../SearchBar";
-import { Box } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import TableCell from "@material-ui/core/TableCell";
@@ -26,6 +27,7 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
+import AddIcon from "@material-ui/icons/Add";
 const movieList = [
   {
     maPhim: 1314,
@@ -162,7 +164,7 @@ function UserManagement() {
 
   return (
     <>
-      <Box my={1}>
+      <Box my={1} display="flex">
         <SearchBar />
       </Box>
 
@@ -185,7 +187,9 @@ function UserManagement() {
               <TableRow key={index}>
                 <StyledTableCell align="right">{row.id}</StyledTableCell>
                 <StyledTableCell align="right">{row.name}</StyledTableCell>
-                <StyledTableCell align="right">{row.pic}</StyledTableCell>
+                <StyledTableCell align="right">
+                  <img src={row.pic} style={{ height: 60 }} />
+                </StyledTableCell>
                 <StyledTableCell align="right">{row.date}</StyledTableCell>
                 <StyledTableCell align="right">
                   <EditButton />
@@ -220,6 +224,9 @@ function UserManagement() {
           </TableFooter>
         </Table>
       </TableContainer>
+      <Box textAlign='right' my={2}>
+      <CssButton>Thêm</CssButton>
+      </Box>
     </>
   );
 }
