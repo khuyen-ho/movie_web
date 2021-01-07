@@ -6,18 +6,24 @@ import {
   IconButton,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+export const useStyles1 = makeStyles((theme) => ({
+  root: {
+    flexShrink: 0,
+    marginLeft: theme.spacing(2.5),
+  },
+}));
+
+export const useStyles2 = makeStyles({
   table: {
-    minWidth: 700,
+    minWidth: 500,
   },
 });
 
 export const CssIconButton = withStyles((theme) => ({
   root: {
     "&.MuiIconButton-root": {
-      outline:"none",
-      padding:5,
-      
+      outline: "none",
+      padding: 5,
     },
   },
 }))(IconButton);
@@ -38,4 +44,4 @@ export const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
-export default useStyles;
+
