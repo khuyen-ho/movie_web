@@ -50,7 +50,7 @@ const list = {
     tenPhim: "Trainwreck",
     hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
     ngayChieu: "01/01/2019",
-    gioChieu: "12:01"
+    gioChieu: "12:01",
   },
   danhSachGhe: [
     {
@@ -61,7 +61,7 @@ const list = {
       stt: "01",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47562,
@@ -71,7 +71,7 @@ const list = {
       stt: "02",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47563,
@@ -81,7 +81,7 @@ const list = {
       stt: "03",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47564,
@@ -91,7 +91,7 @@ const list = {
       stt: "04",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47565,
@@ -101,7 +101,7 @@ const list = {
       stt: "05",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47566,
@@ -111,7 +111,7 @@ const list = {
       stt: "06",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47567,
@@ -121,7 +121,7 @@ const list = {
       stt: "07",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47568,
@@ -131,7 +131,7 @@ const list = {
       stt: "08",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47569,
@@ -141,7 +141,7 @@ const list = {
       stt: "09",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47570,
@@ -151,7 +151,7 @@ const list = {
       stt: "10",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47571,
@@ -161,7 +161,7 @@ const list = {
       stt: "11",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47572,
@@ -171,7 +171,7 @@ const list = {
       stt: "12",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47573,
@@ -181,7 +181,7 @@ const list = {
       stt: "13",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47574,
@@ -191,7 +191,7 @@ const list = {
       stt: "14",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47575,
@@ -201,7 +201,7 @@ const list = {
       stt: "15",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47576,
@@ -211,7 +211,7 @@ const list = {
       stt: "16",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47577,
@@ -221,7 +221,7 @@ const list = {
       stt: "17",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47578,
@@ -231,7 +231,7 @@ const list = {
       stt: "18",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47579,
@@ -241,7 +241,7 @@ const list = {
       stt: "19",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47580,
@@ -251,7 +251,7 @@ const list = {
       stt: "20",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47581,
@@ -261,7 +261,7 @@ const list = {
       stt: "21",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47582,
@@ -271,7 +271,7 @@ const list = {
       stt: "22",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47583,
@@ -281,7 +281,7 @@ const list = {
       stt: "23",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47584,
@@ -291,7 +291,7 @@ const list = {
       stt: "24",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47585,
@@ -301,7 +301,7 @@ const list = {
       stt: "25",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47586,
@@ -311,7 +311,7 @@ const list = {
       stt: "26",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47587,
@@ -321,7 +321,7 @@ const list = {
       stt: "27",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47588,
@@ -331,7 +331,7 @@ const list = {
       stt: "28",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47589,
@@ -341,7 +341,7 @@ const list = {
       stt: "29",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47590,
@@ -351,7 +351,7 @@ const list = {
       stt: "30",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47591,
@@ -361,7 +361,7 @@ const list = {
       stt: "31",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47592,
@@ -371,7 +371,7 @@ const list = {
       stt: "32",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47593,
@@ -381,7 +381,7 @@ const list = {
       stt: "33",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47594,
@@ -391,7 +391,7 @@ const list = {
       stt: "34",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47595,
@@ -401,7 +401,7 @@ const list = {
       stt: "35",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47596,
@@ -411,7 +411,7 @@ const list = {
       stt: "36",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47597,
@@ -421,7 +421,7 @@ const list = {
       stt: "37",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47598,
@@ -431,7 +431,7 @@ const list = {
       stt: "38",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47599,
@@ -441,7 +441,7 @@ const list = {
       stt: "39",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47600,
@@ -451,7 +451,7 @@ const list = {
       stt: "40",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47601,
@@ -461,7 +461,7 @@ const list = {
       stt: "41",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47602,
@@ -471,7 +471,7 @@ const list = {
       stt: "42",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47603,
@@ -481,7 +481,7 @@ const list = {
       stt: "43",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47604,
@@ -491,7 +491,7 @@ const list = {
       stt: "44",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47605,
@@ -501,7 +501,7 @@ const list = {
       stt: "45",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47606,
@@ -511,7 +511,7 @@ const list = {
       stt: "46",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47607,
@@ -521,7 +521,7 @@ const list = {
       stt: "47",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47608,
@@ -531,7 +531,7 @@ const list = {
       stt: "48",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47609,
@@ -541,7 +541,7 @@ const list = {
       stt: "49",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47610,
@@ -551,7 +551,7 @@ const list = {
       stt: "50",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47611,
@@ -561,7 +561,7 @@ const list = {
       stt: "51",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47612,
@@ -571,7 +571,7 @@ const list = {
       stt: "52",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47613,
@@ -581,7 +581,7 @@ const list = {
       stt: "53",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47614,
@@ -591,7 +591,7 @@ const list = {
       stt: "54",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47615,
@@ -601,7 +601,7 @@ const list = {
       stt: "55",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47616,
@@ -611,7 +611,7 @@ const list = {
       stt: "56",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47617,
@@ -621,7 +621,7 @@ const list = {
       stt: "57",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47618,
@@ -631,7 +631,7 @@ const list = {
       stt: "58",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47619,
@@ -641,7 +641,7 @@ const list = {
       stt: "59",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47620,
@@ -651,7 +651,7 @@ const list = {
       stt: "60",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47621,
@@ -661,7 +661,7 @@ const list = {
       stt: "61",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47622,
@@ -671,7 +671,7 @@ const list = {
       stt: "62",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47623,
@@ -681,7 +681,7 @@ const list = {
       stt: "63",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47624,
@@ -691,7 +691,7 @@ const list = {
       stt: "64",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47625,
@@ -701,7 +701,7 @@ const list = {
       stt: "65",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47626,
@@ -711,7 +711,7 @@ const list = {
       stt: "66",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47627,
@@ -721,7 +721,7 @@ const list = {
       stt: "67",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47628,
@@ -731,7 +731,7 @@ const list = {
       stt: "68",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47629,
@@ -741,7 +741,7 @@ const list = {
       stt: "69",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47630,
@@ -751,7 +751,7 @@ const list = {
       stt: "70",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47631,
@@ -761,7 +761,7 @@ const list = {
       stt: "71",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47632,
@@ -771,7 +771,7 @@ const list = {
       stt: "72",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47633,
@@ -781,7 +781,7 @@ const list = {
       stt: "73",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47634,
@@ -791,7 +791,7 @@ const list = {
       stt: "74",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47635,
@@ -801,7 +801,7 @@ const list = {
       stt: "75",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47636,
@@ -811,7 +811,7 @@ const list = {
       stt: "76",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47637,
@@ -821,7 +821,7 @@ const list = {
       stt: "77",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47638,
@@ -831,7 +831,7 @@ const list = {
       stt: "78",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47639,
@@ -841,7 +841,7 @@ const list = {
       stt: "79",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47640,
@@ -851,7 +851,7 @@ const list = {
       stt: "80",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47641,
@@ -861,7 +861,7 @@ const list = {
       stt: "81",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47642,
@@ -871,7 +871,7 @@ const list = {
       stt: "82",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47643,
@@ -881,7 +881,7 @@ const list = {
       stt: "83",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47644,
@@ -891,7 +891,7 @@ const list = {
       stt: "84",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47645,
@@ -901,7 +901,7 @@ const list = {
       stt: "85",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47646,
@@ -911,7 +911,7 @@ const list = {
       stt: "86",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47647,
@@ -921,7 +921,7 @@ const list = {
       stt: "87",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47648,
@@ -931,7 +931,7 @@ const list = {
       stt: "88",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47649,
@@ -941,7 +941,7 @@ const list = {
       stt: "89",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47650,
@@ -951,7 +951,7 @@ const list = {
       stt: "90",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47651,
@@ -961,7 +961,7 @@ const list = {
       stt: "91",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47652,
@@ -971,7 +971,7 @@ const list = {
       stt: "92",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47653,
@@ -981,7 +981,7 @@ const list = {
       stt: "93",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47654,
@@ -991,7 +991,7 @@ const list = {
       stt: "94",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47655,
@@ -1001,7 +1001,7 @@ const list = {
       stt: "95",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47656,
@@ -1011,7 +1011,7 @@ const list = {
       stt: "96",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47657,
@@ -1021,7 +1021,7 @@ const list = {
       stt: "97",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47658,
@@ -1031,7 +1031,7 @@ const list = {
       stt: "98",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47659,
@@ -1041,7 +1041,7 @@ const list = {
       stt: "99",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47660,
@@ -1051,7 +1051,7 @@ const list = {
       stt: "100",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47661,
@@ -1061,7 +1061,7 @@ const list = {
       stt: "101",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47662,
@@ -1071,7 +1071,7 @@ const list = {
       stt: "102",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47663,
@@ -1081,7 +1081,7 @@ const list = {
       stt: "103",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47664,
@@ -1091,7 +1091,7 @@ const list = {
       stt: "104",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47665,
@@ -1101,7 +1101,7 @@ const list = {
       stt: "105",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47666,
@@ -1111,7 +1111,7 @@ const list = {
       stt: "106",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47667,
@@ -1121,7 +1121,7 @@ const list = {
       stt: "107",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47668,
@@ -1131,7 +1131,7 @@ const list = {
       stt: "108",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47669,
@@ -1141,7 +1141,7 @@ const list = {
       stt: "109",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47670,
@@ -1151,7 +1151,7 @@ const list = {
       stt: "110",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47671,
@@ -1161,7 +1161,7 @@ const list = {
       stt: "111",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47672,
@@ -1171,7 +1171,7 @@ const list = {
       stt: "112",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47673,
@@ -1181,7 +1181,7 @@ const list = {
       stt: "113",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47674,
@@ -1191,7 +1191,7 @@ const list = {
       stt: "114",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47675,
@@ -1201,7 +1201,7 @@ const list = {
       stt: "115",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47676,
@@ -1211,7 +1211,7 @@ const list = {
       stt: "116",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47677,
@@ -1221,7 +1221,7 @@ const list = {
       stt: "117",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47678,
@@ -1231,7 +1231,7 @@ const list = {
       stt: "118",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47679,
@@ -1241,7 +1241,7 @@ const list = {
       stt: "119",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47680,
@@ -1251,7 +1251,7 @@ const list = {
       stt: "120",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47681,
@@ -1261,7 +1261,7 @@ const list = {
       stt: "121",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47682,
@@ -1271,7 +1271,7 @@ const list = {
       stt: "122",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47683,
@@ -1281,7 +1281,7 @@ const list = {
       stt: "123",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47684,
@@ -1291,7 +1291,7 @@ const list = {
       stt: "124",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47685,
@@ -1301,7 +1301,7 @@ const list = {
       stt: "125",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47686,
@@ -1311,7 +1311,7 @@ const list = {
       stt: "126",
       giaVe: 90000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47687,
@@ -1321,7 +1321,7 @@ const list = {
       stt: "127",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47688,
@@ -1331,7 +1331,7 @@ const list = {
       stt: "128",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47689,
@@ -1341,7 +1341,7 @@ const list = {
       stt: "129",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47690,
@@ -1351,7 +1351,7 @@ const list = {
       stt: "130",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47691,
@@ -1361,7 +1361,7 @@ const list = {
       stt: "131",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47692,
@@ -1371,7 +1371,7 @@ const list = {
       stt: "132",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47693,
@@ -1381,7 +1381,7 @@ const list = {
       stt: "133",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47694,
@@ -1391,7 +1391,7 @@ const list = {
       stt: "134",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47695,
@@ -1401,7 +1401,7 @@ const list = {
       stt: "135",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47696,
@@ -1411,7 +1411,7 @@ const list = {
       stt: "136",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47697,
@@ -1421,7 +1421,7 @@ const list = {
       stt: "137",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47698,
@@ -1431,7 +1431,7 @@ const list = {
       stt: "138",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47699,
@@ -1441,7 +1441,7 @@ const list = {
       stt: "139",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47700,
@@ -1451,7 +1451,7 @@ const list = {
       stt: "140",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47701,
@@ -1461,7 +1461,7 @@ const list = {
       stt: "141",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47702,
@@ -1471,7 +1471,7 @@ const list = {
       stt: "142",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47703,
@@ -1481,7 +1481,7 @@ const list = {
       stt: "143",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47704,
@@ -1491,7 +1491,7 @@ const list = {
       stt: "144",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47705,
@@ -1501,7 +1501,7 @@ const list = {
       stt: "145",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47706,
@@ -1511,7 +1511,7 @@ const list = {
       stt: "146",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47707,
@@ -1521,7 +1521,7 @@ const list = {
       stt: "147",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47708,
@@ -1531,7 +1531,7 @@ const list = {
       stt: "148",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47709,
@@ -1541,7 +1541,7 @@ const list = {
       stt: "149",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47710,
@@ -1551,7 +1551,7 @@ const list = {
       stt: "150",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47711,
@@ -1561,7 +1561,7 @@ const list = {
       stt: "151",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47712,
@@ -1571,7 +1571,7 @@ const list = {
       stt: "152",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47713,
@@ -1581,7 +1581,7 @@ const list = {
       stt: "153",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47714,
@@ -1591,7 +1591,7 @@ const list = {
       stt: "154",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47715,
@@ -1601,7 +1601,7 @@ const list = {
       stt: "155",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47716,
@@ -1611,7 +1611,7 @@ const list = {
       stt: "156",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47717,
@@ -1621,7 +1621,7 @@ const list = {
       stt: "157",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47718,
@@ -1631,7 +1631,7 @@ const list = {
       stt: "158",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47719,
@@ -1641,7 +1641,7 @@ const list = {
       stt: "159",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
+      taiKhoanNguoiDat: null,
     },
     {
       maGhe: 47720,
@@ -1651,28 +1651,61 @@ const list = {
       stt: "160",
       giaVe: 75000,
       daDat: false,
-      taiKhoanNguoiDat: null
-    }
-  ]
-}
+      taiKhoanNguoiDat: null,
+    },
+  ],
+};
+
+const NormalChair = (props) => {
+  const classes = useStyles();
+  return (
+    <Grid container>
+      {list.danhSachGhe.map((item, index) => {
+        if (item.loaiGhe === "Thuong")
+          return (
+            <Grid key={index} item xs={1}>
+              <Box m={0.5}>
+                <Chair
+                  tenGhe={item.tenGhe}
+                  loaiGhe={item.loaiGhe}
+                  daDat={item.daDat}
+                />
+              </Box>
+            </Grid>
+          );
+      })}
+    </Grid>
+  );
+};
+
+const VipChair = (props)=>{
+  const classes = useStyles();
+  return (
+    <Grid container>
+      {list.danhSachGhe.map((item, index) => {
+        if (item.loaiGhe === "Vip")
+          return (
+            <Grid key={index} item xs={1}>
+              <Box m={0.5}>
+                <Chair
+                  tenGhe={item.tenGhe}
+                  loaiGhe={item.loaiGhe}
+                  daDat={item.daDat}
+                />
+              </Box>
+            </Grid>
+          );
+      })}
+    </Grid>
+  );
+};
 
 export const ChairList = (props) => {
   const classes = useStyles();
   return (
     <Box className={classes.seatArea}>
-      <Grid container>
-        {list.danhSachGhe.map((item, index) => (
-          <Grid key={index} item xs={1}>
-            <Box m={0.5}>
-              <Chair
-                tenGhe={item.tenGhe}
-                loaiGhe={item.loaiGhe}
-                daDat={item.daDat}
-              />
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+      <NormalChair />
+      <VipChair/>
     </Box>
   );
 };

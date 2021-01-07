@@ -25,9 +25,14 @@ export const CssIconButton = withStyles((theme) => ({
       outline: "none",
       // backgroundColor:theme.palette.grey.light,
       borderRadius: 6,
-      width:40,
-      height:40,
-      fontSize:20,
+      width:30,
+      height:30,
+      fontSize:15,
+      [theme.breakpoints.down("xs")]: {
+        height:20,
+        width:20,
+        fontSize:10,
+      },
 
     },
     

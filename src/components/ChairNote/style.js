@@ -4,6 +4,12 @@ const useStyles = makeStyles((theme) => ({
   noteChair: {
     //paddingRight: theme.spacing(1),
     textAlign:"center",
+    "& span":{
+      [theme.breakpoints.down("xs")]: {
+        fontSize:10
+      },
+     
+    }
   },
   chosen:{
     backgroundColor:"red",
@@ -26,8 +32,12 @@ export const CssIconButton = withStyles((theme) => ({
       outline: "none",
       // backgroundColor:theme.palette.secondary.main,
       borderRadius: 6,
-      width:40,
-      height:40,
+      width:30,
+      height:30,
+      [theme.breakpoints.down("xs")]: {
+        height:20,
+        width:20,
+      },
     },
   },
 }))(IconButton);
