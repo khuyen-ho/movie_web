@@ -5,11 +5,14 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import useStyles from "./style";
+import useStyles, { CssButton, CssTab, CssTabs, StyledTab } from "./style";
 import UserManagement from "../../components/UserManagement";
 import MovieManagement from "../../components/MovieManagement";
 import ScheduleManagement from "../../components/ScheduleManagement";
-
+import { Button } from "@material-ui/core";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import MovieIcon from '@material-ui/icons/Movie';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -45,7 +48,7 @@ function a11yProps(index) {
 
 function AdminPage() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -53,7 +56,7 @@ function AdminPage() {
 
   return (
     <div className={classes.root}>
-      <Tabs
+      <CssTabs
         orientation="vertical"
         variant="scrollable"
         value={value}
@@ -61,17 +64,21 @@ function AdminPage() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Quản lí người dùng" {...a11yProps(0)} />
-        <Tab label="Quản lí phim" {...a11yProps(1)} />
-        <Tab label="Quản lí lịch chiếu" {...a11yProps(2)} />
-      </Tabs>
-      <TabPanel value={value} index={0}>
+        <StyledTab label="TRANG CHỦ"  {...a11yProps(0)} fullWidth />
+
+        <CssTab disableRipple='false' icon={<AccountCircleIcon />} label="Quản lí người dùng" {...a11yProps(1)} fullWidth />
+        <CssTab  icon={<MovieIcon />} label="Quản lí phim" {...a11yProps(2)} />
+        <CssTab icon={<ScheduleIcon />}  label="Quản lí lịch chiếu" {...a11yProps(3)} />
+      </CssTabs>
+
+     
+      <TabPanel value={value} index={1}>
         <UserManagement />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={2}>
         <MovieManagement />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={3}>
         <ScheduleManagement />
       </TabPanel>
     </div>
