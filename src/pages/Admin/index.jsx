@@ -1,18 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import useStyles, { CssButton, CssTab, CssTabs, StyledTab } from "./style";
+import useStyles, { CssTab, CssTabPanel, CssTabs, StyledTab } from "./style";
 import UserManagement from "../../components/UserManagement";
 import MovieManagement from "../../components/MovieManagement";
 import ScheduleManagement from "../../components/ScheduleManagement";
-import { Button } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import MovieIcon from '@material-ui/icons/Movie';
-import ScheduleIcon from '@material-ui/icons/Schedule';
+import MovieIcon from "@material-ui/icons/Movie";
+import ScheduleIcon from "@material-ui/icons/Schedule";
+import Tag from "../../components/Tag";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -64,23 +61,33 @@ function AdminPage() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <StyledTab label="TRANG CHỦ"  {...a11yProps(0)} fullWidth />
-
-        <CssTab disableRipple='false' icon={<AccountCircleIcon />} label="Quản lí người dùng" {...a11yProps(1)} fullWidth />
-        <CssTab  icon={<MovieIcon />} label="Quản lí phim" {...a11yProps(2)} />
-        <CssTab icon={<ScheduleIcon />}  label="Quản lí lịch chiếu" {...a11yProps(3)} />
+        <StyledTab label="TRANG CHỦ" {...a11yProps(0)} fullWidth />
+        <CssTab
+          disableRipple="false"
+          icon={<AccountCircleIcon />}
+          label="Quản lí người dùng"
+          {...a11yProps(1)}
+          fullWidth
+        />
+        <CssTab icon={<MovieIcon />} label="Quản lí phim" {...a11yProps(2)} />
+        <CssTab
+          icon={<ScheduleIcon />}
+          label="Quản lí lịch chiếu"
+          {...a11yProps(3)}
+        />
       </CssTabs>
 
-     
-      <TabPanel value={value} index={1}>
-        <UserManagement />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <MovieManagement />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <ScheduleManagement />
-      </TabPanel>
+      <Box margin="auto">
+        <TabPanel value={value} index={1}>
+          <UserManagement />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <MovieManagement />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <ScheduleManagement />
+        </TabPanel>{" "}
+      </Box>
     </div>
   );
 }

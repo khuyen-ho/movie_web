@@ -41,7 +41,8 @@ export const CssButton = withStyles((theme) => ({
 }))(Button);
 export const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.grey.dark,
+    // backgroundColor: theme.palette.grey.dark,
+    backgroundImage: `linear-gradient(to bottom ,#181a67,#4c0144)`,
     color: theme.palette.common.white,
   },
   body: {

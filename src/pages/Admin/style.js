@@ -6,6 +6,7 @@ import {
   Tabs,
   withStyles,
 } from "@material-ui/core";
+import { TabPanel } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,11 +61,20 @@ export const StyledTab = withStyles((theme) => ({
 export const CssTabs = withStyles((theme) => ({
   root: {
     "&.MuiTabs-root": {
-      backgroundColor: theme.palette.grey.dark,
+      // backgroundColor: theme.palette.grey.dark,
+      backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
       color: theme.palette.white.main,
     },
   },
 }))(Tabs);
+
+export const CssTabPanel = withStyles((theme) => ({
+  root:{
+    "&.MuiBox-root":{
+      paddingLeft:"50%"
+    }
+  }
+}))(TabPanel);
 
 export const CssButton = withStyles((theme) => ({
   root: {
