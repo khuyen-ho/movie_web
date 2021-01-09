@@ -37,6 +37,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import * as locales from "@material-ui/core/locale";
+import UserModal from "../UserModal";
 
 const userList = [
   {
@@ -326,7 +327,8 @@ function UserManagement() {
         </TableContainer>
       </ThemeProvider>
       <Box textAlign="right" my={2}>
-        <CssButton>Thêm</CssButton>
+        {/* <CssButton>Thêm</CssButton> */}
+        <UserModal/>
       </Box>
     </>
   );
