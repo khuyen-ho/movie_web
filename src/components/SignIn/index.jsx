@@ -21,14 +21,14 @@ const SignIn = (props) => {
         </Typography>
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Tên tài khoản"
           variant="outlined"
           type="text"
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Mật khẩu"
           variant="outlined"
           type="password"

@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Container, Grid } from "@material-ui/core";
+import { Box, Button, Container, Grid } from "@material-ui/core";
 import Rating from "../Rating";
 import useStyles from "./style";
 import Poster from "../Poster";
 import MovieDescription from "../MovieDescription";
 import Trailer from "../Trailer";
 
-const BannerDetail = (props) => {
+const MovieBannerDetail = (props) => {
   const styles = useStyles();
   const { movie } = props;
 
@@ -24,7 +24,19 @@ const BannerDetail = (props) => {
             />
           </Grid>
           <Grid item xs={6}>
-            <MovieDescription movie={movie} />
+            <Box className={styles.descWrapper}>
+              <Box height="65%">
+                <MovieDescription movie={movie} />
+              </Box>
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                className={styles.button}
+              >
+                MUA VÉ
+              </Button>
+            </Box>
           </Grid>
           <Grid item xs={3}>
             <Box
@@ -38,6 +50,7 @@ const BannerDetail = (props) => {
           </Grid>
         </Grid>
       </Container>
+
       <Box className={styles.trailer}>
         <Trailer movie={movie} />
       </Box>
@@ -45,11 +58,11 @@ const BannerDetail = (props) => {
   );
 };
 
-BannerDetail.propTypes = {
+MovieBannerDetail.propTypes = {
   movie: PropTypes.object,
 };
 
-BannerDetail.defaultProps = {
+MovieBannerDetail.defaultProps = {
   movie: {
     maPhim: 1288,
     tenPhim: "Jurassic World",
@@ -64,4 +77,4 @@ BannerDetail.defaultProps = {
   },
 };
 
-export default BannerDetail;
+export default MovieBannerDetail;

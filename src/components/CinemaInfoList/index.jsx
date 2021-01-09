@@ -26,13 +26,22 @@ const CinemaInfoList = (props) => {
       onClick={() => handleClick(cinema.id)}
       key={cinema.id}
     >
-      <Show info={<CinemaInfo {...cinema} hasEllipsis={props.hasEllipsis} />} />
+      <Show
+        info={
+          <CinemaInfo
+            {...cinema}
+            hasEllipsis={props.hasEllipsis}
+            hasDetailLink={props.hasDetailLink}
+          />
+        }
+      />
     </ListItem>
   ));
 };
 
 CinemaInfoList.propTypes = {
   hasEllipsis: PropTypes.bool,
+  hasDetailLink: PropTypes.bool,
 };
 
 export default CinemaInfoList;

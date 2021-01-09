@@ -1,20 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, IconButton, Link } from "@material-ui/core";
+import { Box, IconButton, Typography } from "@material-ui/core";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import useStyles from "./style";
 
 const Tag = (props) => {
-  const { title, iconElement, link } = props;
+  const { title, iconElement } = props;
   const styles = useStyles(props);
 
   return (
     <Box className={styles.root}>
       <IconButton className={styles.icon}>
         {iconElement}
-        <Link href={link} className={styles.link} variant="subtitle2">
+        <Typography className={styles.title} variant="subtitle2">
           {!props.noTitle && title}
-        </Link>
+        </Typography>
       </IconButton>
     </Box>
   );
@@ -23,7 +23,6 @@ const Tag = (props) => {
 Tag.propTypes = {
   title: PropTypes.string,
   iconElement: PropTypes.element,
-  link: PropTypes.string,
   color: PropTypes.string,
   hoverColor: PropTypes.string,
   noTitle: PropTypes.bool,
@@ -32,7 +31,6 @@ Tag.propTypes = {
 Tag.defaultProps = {
   title: "No title",
   iconElement: <SentimentVeryDissatisfiedIcon />,
-  link: "#",
   noTitle: false,
 };
 

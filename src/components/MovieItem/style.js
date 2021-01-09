@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     outline: "none",
     color: theme.palette.white,
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
     padding: theme.spacing(1, 0),
     display: "none",
     position: "absolute",

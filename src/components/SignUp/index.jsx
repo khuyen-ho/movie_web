@@ -13,41 +13,42 @@ const SignIn = (props) => {
         </Typography>
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Họ tên"
           variant="outlined"
           type="text"
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Tên tài khoản"
           variant="outlined"
           type="text"
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Mật khẩu"
           variant="outlined"
           type="password"
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          classes={styles.input}
           label="Xác nhận mật khẩu"
           variant="outlined"
           type="password"
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          classes={styles.input}
           label="Email"
           variant="outlined"
+          type="email
         />
 
         <TextField
-          classes={{ root: styles.input }}
+          className={styles.input}
           label="Số điện thoại"
           variant="outlined"
           type="text"

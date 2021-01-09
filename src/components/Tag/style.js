@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       transition: "all 0.3s",
     },
 
-    "&:hover $link": {
+    "&:hover $title": {
       color: (props) =>
         props.hoverColor ? props.hoverColor : theme.palette.secondary.main,
       transition: "all 0.3s",
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  link: {
+  title: {
     padding: theme.spacing(0, 0.5),
     color: (props) => (props.color ? props.color : theme.palette.primary.main),
 
