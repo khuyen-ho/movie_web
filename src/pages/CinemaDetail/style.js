@@ -6,10 +6,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
 
     [theme.breakpoints.up("xs")]: {
-      padding: 0,
+      paddingBottom: 0,
     },
     [theme.breakpoints.up("lg")]: {
-      padding: theme.spacing(5, 0),
+      paddingBottom: theme.spacing(5),
     },
   },
 }));

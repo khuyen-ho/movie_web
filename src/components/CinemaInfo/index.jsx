@@ -24,9 +24,11 @@ const CinemaInfo = ({ id, logo, name, address, ...props }) => {
         >
           {address}
         </Typography>
-        <Link href="#" className={styles.detail} variant="body2">
-          [chi tiết]
-        </Link>
+        {props.hasDetailLink && (
+          <Link href="#" className={styles.detail} variant="body2">
+            [chi tiết]
+          </Link>
+        )}
       </Box>
     </>
   );
@@ -38,6 +40,7 @@ CinemaInfo.propTypes = {
   name: PropTypes.string,
   address: PropTypes.string,
   hasEllipsis: PropTypes.bool,
+  hasDetailLink: PropTypes.bool,
 };
 
 export default CinemaInfo;
