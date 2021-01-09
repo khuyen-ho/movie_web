@@ -33,7 +33,19 @@ const SignIn = (props) => {
           type="password"
         />
 
-        <TextField className={styles.input} label="Email" variant="outlined" />
+        <TextField
+          classes={styles.input}
+          label="Xác nhận mật khẩu"
+          variant="outlined"
+          type="password"
+        />
+
+        <TextField
+          classes={styles.input}
+          label="Email"
+          variant="outlined"
+          type="email
+        />
 
         <TextField
           className={styles.input}
