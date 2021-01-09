@@ -250,13 +250,12 @@ function UserManagement() {
 
   return (
     <>
+      <Box my={1}>
+        <SearchBar />
+      </Box>
       <ThemeProvider
         theme={(outerTheme) => createMuiTheme(outerTheme, locales[locale])}
       >
-        <Box my={1}>
-          <SearchBar />
-        </Box>
-
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="custom pagination table">
             <TableHead>
@@ -325,10 +324,10 @@ function UserManagement() {
             </TableFooter>
           </Table>
         </TableContainer>
-        <Box textAlign="right" my={2}>
-          <CssButton>Thêm</CssButton>
-        </Box>
       </ThemeProvider>
+      <Box textAlign="right" my={2}>
+        <CssButton>Thêm</CssButton>
+      </Box>
     </>
   );
 }

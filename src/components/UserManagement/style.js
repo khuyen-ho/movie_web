@@ -34,7 +34,7 @@ export const CssButton = withStyles((theme) => ({
     "&.MuiButton-root": {
       outline:"none",
       padding:5,
-      backgroundColor:"green",
+      backgroundColor:theme.palette.green.main,
       color:theme.palette.white.main
       
     },
