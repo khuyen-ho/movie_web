@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   Checkbox,
   Collapse,
+  Button,
 } from "@material-ui/core";
 import useStyles from "./style";
 
@@ -91,6 +92,10 @@ const PersonalInfo = (props) => {
             </Box>
           </Collapse>
         </Box>
+
+        <Button variant="contained" color="secondary" className={styles.button}>
+          LƯU LẠI
+        </Button>
       </form>
     </Container>
   );
