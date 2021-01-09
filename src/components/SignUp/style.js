@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     background: "rgba(8,22,48)",
     borderRadius: theme.shape.borderRadius,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2, 3),
 
     [theme.breakpoints.down("md")]: {
       borderRadius: 0,

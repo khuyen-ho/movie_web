@@ -35,6 +35,13 @@ const SignIn = (props) => {
 
         <TextField
           classes={{ root: styles.input }}
+          label="Xác nhận mật khẩu"
+          variant="outlined"
+          type="password"
+        />
+
+        <TextField
+          classes={{ root: styles.input }}
           label="Email"
           variant="outlined"
         />
