@@ -1,14 +1,19 @@
-import { Box, IconButton, InputBase, Link } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import { Box, Link, Menu, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CollapseMenu from "../CollapseMenu";
+import Tag from "../Tag";
+import Search from "../Search";
 import useStyles from "./style";
 
-const Header = () => {
+const Header = (props) => {
+  const theme = useTheme();
+  const [accountAnchor, setAccountAnchor] = React.useState(null);
   const styles = useStyles();
+
   const links = [
     { title: "Lịch Chiếu", path: "#" },
     { title: "Cụm Rạp", path: "#" },
@@ -33,67 +38,59 @@ const Header = () => {
     return <Box className={styles.links}>{navLinks}</Box>;
   };
 
+  const handleClick = (event) => {
+    setAccountAnchor(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAccountAnchor(null);
+  };
+
   return (
-    <Box className={styles.head}>
-      <IconButton edge="start" aria-label="home" className={styles.iconButton}>
-        <MovieRoundedIcon fontSize="large" className={styles.logo} />
-      </IconButton>
-
+    <Box className={styles.root}>
+      <Box marginRight={1}>
+        <Tag
+          iconElement={<MovieRoundedIcon fontSize="large" />}
+          color={theme.palette.secondary.main}
+          hoverColor="none"
+          noTitle
+        />
+      </Box>
       <Box className={styles.links}>{createNavlinks}</Box>
-
       <Box className={styles.right}>
-        <Box className={styles.signInUp}>
-          <IconButton
-            edge="start"
-            aria-label="signIn"
-            className={styles.iconButton}
-          >
-            <AccountCircleIcon fontSize="large" />
-          </IconButton>
-
-          <Link
-            href={links[2].path}
-            className={styles.link}
-            variant="subtitle2"
-          >
-            {links[2].title}
-          </Link>
-        </Box>
-
-        <Box className={styles.signInUp}>
-          <IconButton
-            edge="start"
-            aria-label="signUp"
-            className={styles.iconButton}
-          >
-            <PersonAddIcon fontSize="large" />
-          </IconButton>
-
-          <Link
-            href={links[3].path}
-            className={styles.link}
-            variant="subtitle2"
-          >
-            {links[3].title}
-          </Link>
-        </Box>
-
-        <Box className={styles.search}>
-          <InputBase
-            placeholder="Nhập tên phim..."
-            fullWidth
-            classes={{
-              root: styles.inputRoot,
-              input: styles.inputInput,
-            }}
+        <Box
+          className={styles.signInUp}
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <Tag
+            iconElement={<AccountCircleIcon fontSize="large" />}
+            color={theme.palette.grey.main}
+            hoverColor={theme.palette.secondary.main}
+            title="ctlong"
           />
-          <IconButton
-            edge="start"
-            aria-label="search"
-            className={styles.iconButton}
-          >
-            <SearchIcon className={styles.searchIcon} fontSize="large" />
-          </IconButton>
+        </Box>
+        <Menu
+          id="simple-menu"
+          anchorEl={accountAnchor}
+          keepMounted
+          open={Boolean(accountAnchor)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
+          <MenuItem onClick={handleClose}>Đăng xuất</MenuItem>
+        </Menu>
+
+        <Box className={styles.signInUp}>
+          <Tag
+            iconElement={<PersonAddIcon fontSize="large" />}
+            color={theme.palette.grey.main}
+            hoverColor={theme.palette.secondary.main}
+            title={links[3].title}
+          />
+        </Box>
+        <Box className={styles.search}>
+          <Search placeholder="Nhập tên phim..." />
         </Box>
       </Box>
 

@@ -120,6 +120,22 @@ const theme = createMuiTheme({
       disableRipple: true,
     },
   },
+  overrides: {
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        "& button": {
+          outline: "none",
+        },
+      },
+    },
+    MuiPickersCalendar: {
+      week: {
+        "& button": {
+          outline: "none",
+        },
+      },
+    },
+  },
   breakpoints: {
     values: {
       xs: 0, // smallMobile

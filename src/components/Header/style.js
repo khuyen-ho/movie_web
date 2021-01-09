@@ -1,8 +1,7 @@
-import { fade } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  head: {
+  root: {
     position: "fixed",
     left: 0,
     top: -1,
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
     [theme.breakpoints.up("md")]: {
-      display: "block",
+      display: "flex",
     },
   },
 
@@ -66,10 +65,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     [theme.breakpoints.up("xs")]: {
-      width: "70%",
-    },
-    [theme.breakpoints.up("xsm")]: {
-      width: "70%",
+      width: "100%",
     },
     [theme.breakpoints.up("md")]: {
       width: "auto",
@@ -77,14 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   signInUp: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    color: theme.palette.grey.main,
-    marginLeft: theme.spacing(2),
-    "&:hover": {
-      cursor: "Pointer",
-    },
+    marginLeft: theme.spacing(1),
 
     [theme.breakpoints.up("xs")]: {
       display: "none",
@@ -95,47 +84,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   search: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    color: theme.palette.grey.main,
-    border: "solid 1px",
-    borderColor: theme.palette.grey.main,
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.grey.dark, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.grey.dark, 0.25),
-    },
-
     [theme.breakpoints.up("xs")]: {
-      marginLeft: theme.spacing(0),
       width: "100%",
     },
     [theme.breakpoints.up("md")]: {
-      marginLeft: theme.spacing(2),
       width: "auto",
-    },
-    [theme.breakpoints.up("xl")]: {
-      marginRight: theme.spacing(1.5),
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0.5),
-    height: "100%",
-    pointerEvents: "none",
-    color: theme.palette.secondary.main,
-  },
-
-  inputInput: {
-    color: theme.palette.text.primary,
-    fontSize: theme.typography.subtitle2.fontSize,
-    padding: theme.spacing(1),
-  },
-
-  menu: {
-    [theme.breakpoints.up("md")]: {
-      display: "none",
     },
   },
 }));
