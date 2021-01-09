@@ -51,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     borderRadius: 50,
     color: theme.palette.white.main,
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
     padding: theme.spacing(1.5, 0),
     marginBottom: theme.spacing(1),
 

@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     outline: "none",
     color: theme.palette.white.main,
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
     padding: theme.spacing(0.5, 0),
     width: 150,
 
