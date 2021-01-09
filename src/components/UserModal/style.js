@@ -1,61 +1,94 @@
 import {
-    withStyles,
-    makeStyles,
-    TableCell,
-    TableRow,
-    IconButton,
-    Button,
-    TablePagination,
-  } from "@material-ui/core";
-  
-  export const useStyles1 = makeStyles((theme) => ({
-    root: {
-      flexShrink: 0,
-      marginLeft: theme.spacing(2.5),
+  withStyles,
+  makeStyles,
+  TableCell,
+  TableRow,
+  IconButton,
+  Button,
+  TablePagination,
+} from "@material-ui/core";
+
+export const useStyles = makeStyles((theme) => ({
+  container: {
+    background: theme.palette.white.main,
+    borderRadius: 7,
+  },
+
+  title: {
+    color: theme.palette.secondary.main,
+    margin: theme.spacing(1.5, 0),
+    textAlign: "left",
+
+    [theme.breakpoints.up("xs")]: {
+      fontSize: theme.typography.h6.fontSize,
     },
-  }));
-  
-  export const useStyles2 = makeStyles({
-    table: {
-      minWidth: 500,
+    [theme.breakpoints.up("xsm")]: {
+      fontSize: theme.typography.h5.fontSize,
     },
-  });
-  
-  export const CssIconButton = withStyles((theme) => ({
-    root: {
-      "&.MuiIconButton-root": {
-        outline: "none",
-        padding: 5,
+  },
+
+  info: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  input: {
+    margin: theme.spacing(1.5, 0),
+
+    "& .MuiInputLabel-root": {
+      color: theme.palette.primary.main,
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: theme.shape.borderRadius,
+
+      "& fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&:hover fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
       },
     },
-  }))(IconButton);
-  export const CssButton = withStyles((theme) => ({
-    root: {
-      "&.MuiButton-root": {
-        outline:"none",
-        padding:5,
-        backgroundColor:theme.palette.green.main,
-        color:theme.palette.white.main
-        
-      },
+  },
+
+  button: {
+    color: theme.palette.white,
+    margin: theme.spacing(1.5, 0),
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
+    "&:focus": {
+      outline: "none",
     },
-  }))(Button);
-  export const StyledTableCell = withStyles((theme) => ({
-    head: {
-      // backgroundColor: theme.palette.grey.dark,
-      backgroundImage: `linear-gradient(to bottom ,#181a67,#4c0144)`,
-      color: theme.palette.common.white,
+
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
     },
-    body: {
-      fontSize: 14,
+    [theme.breakpoints.up("sm")]: {
+      width: 150,
     },
-  }))(TableCell);
-  
-  export const StyledTableRow = withStyles((theme) => ({
-    root: {
-      "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-      },
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
+export const CssButton = withStyles((theme) => ({
+  root: {
+    "&.MuiButton-root": {
+      outline: "none",
+      padding: 5,
+      backgroundColor: theme.palette.green.main,
+      color: theme.palette.white.main,
     },
-  }))(TableRow);
-  
+  },
+}))(Button);
