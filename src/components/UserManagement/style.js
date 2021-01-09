@@ -5,6 +5,7 @@ import {
   TableRow,
   IconButton,
   Button,
+  TablePagination,
 } from "@material-ui/core";
 
 export const useStyles1 = makeStyles((theme) => ({
@@ -57,4 +58,3 @@ export const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
-

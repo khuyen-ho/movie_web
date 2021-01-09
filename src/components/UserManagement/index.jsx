@@ -9,6 +9,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import {
   CssButton,
   CssIconButton,
+  CssTablePagination,
   StyledTableCell,
   StyledTableRow,
   useStyles1,
@@ -27,6 +28,16 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
+
+//////////
+
+import Pagination from "@material-ui/lab/Pagination";
+import Rating from "@material-ui/lab/Rating";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import * as locales from "@material-ui/core/locale";
+
 const userList = [
   {
     taiKhoan: "123",
@@ -219,6 +230,8 @@ const rows = userList.map((user) =>
 );
 
 function UserManagement() {
+  const [locale, setLocale] = React.useState("viVN");
+
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -237,71 +250,85 @@ function UserManagement() {
 
   return (
     <>
-      <Box my={1}>
-        <SearchBar />
-      </Box>
+      <ThemeProvider
+        theme={(outerTheme) => createMuiTheme(outerTheme, locales[locale])}
+      >
+        <Box my={1}>
+          <SearchBar />
+        </Box>
 
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="custom pagination table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Tài khoản</StyledTableCell>
-              <StyledTableCell align="right">Họ tên</StyledTableCell>
-              <StyledTableCell align="right">Email</StyledTableCell>
-              <StyledTableCell align="right">Số điện thoại</StyledTableCell>
-              <StyledTableCell align="right">Loại người dùng</StyledTableCell>
-              <StyledTableCell align="right">Chỉnh sửa/Xóa</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {(rowsPerPage > 0
-              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              : rows
-            ).map((row, index) => (
-              <TableRow key={index}>
-                <StyledTableCell component="th" scope="row">
-                  {row.username}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.fullname}</StyledTableCell>
-                <StyledTableCell align="right">{row.email}</StyledTableCell>
-                <StyledTableCell align="right">{row.phone}</StyledTableCell>
-                <StyledTableCell align="right">{row.role}</StyledTableCell>
-                <StyledTableCell align="right">
-                  <EditButton />
-                  <DeleteButton />
-                </StyledTableCell>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="custom pagination table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Tài khoản</StyledTableCell>
+                <StyledTableCell align="right">Họ tên</StyledTableCell>
+                <StyledTableCell align="right">Email</StyledTableCell>
+                <StyledTableCell align="right">Số điện thoại</StyledTableCell>
+                <StyledTableCell align="right">Loại người dùng</StyledTableCell>
+                <StyledTableCell align="right">Chỉnh sửa/Xóa</StyledTableCell>
               </TableRow>
-            ))}
+            </TableHead>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? rows.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : rows
+              ).map((row, index) => (
+                <TableRow key={index}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.username}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.fullname}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{row.email}</StyledTableCell>
+                  <StyledTableCell align="right">{row.phone}</StyledTableCell>
+                  <StyledTableCell align="right">{row.role}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    <EditButton />
+                    <DeleteButton />
+                  </StyledTableCell>
+                </TableRow>
+              ))}
 
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={6} />
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[
+                    5,
+                    10,
+                    25,
+                    { label: "Tất cả", value: -1 },
+                  ]}
+                  colSpan={3}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  SelectProps={{
+                    inputProps: { "aria-label": "rows per page" },
+                    native: true,
+                  }}
+                  onChangePage={handleChangePage}
+                  onChangeRowsPerPage={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
               </TableRow>
-            )}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-                colSpan={3}
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: { "aria-label": "rows per page" },
-                  native: true,
-                }}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-                ActionsComponent={TablePaginationActions}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
-      <Box textAlign='right' my={2}>
-      <CssButton>Thêm</CssButton>
-      </Box>
+            </TableFooter>
+          </Table>
+        </TableContainer>
+        <Box textAlign="right" my={2}>
+          <CssButton>Thêm</CssButton>
+        </Box>
+      </ThemeProvider>
     </>
   );
 }
