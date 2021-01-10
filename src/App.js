@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Seat from "./components/Seat";
+import SeatPlan from "./components/SeatPlan";
 
 class App extends Component {
   render() {
     return (
       <>
-        <Seat type="normal" />
+        <SeatPlan />
       </>
     );
   }
