@@ -1,6 +1,6 @@
 import { Box, Grid } from "@material-ui/core";
 import React, { Component } from "react";
-import Chair from "../chair";
+import Seat from "../Seat";
 import useStyles from "./style";
 
 // const chairList = [
@@ -1678,7 +1678,7 @@ const NormalChair = (props) => {
   );
 };
 
-const VipChair = (props)=>{
+const VipChair = (props) => {
   const classes = useStyles();
   return (
     <Grid container>
@@ -1687,7 +1687,7 @@ const VipChair = (props)=>{
           return (
             <Grid key={index} item xs={1}>
               <Box m={0.5}>
-                <Chair
+                <Seat
                   tenGhe={item.tenGhe}
                   loaiGhe={item.loaiGhe}
                   daDat={item.daDat}
@@ -1705,7 +1705,7 @@ export const ChairList = (props) => {
   return (
     <Box className={classes.seatArea}>
       <NormalChair />
-      <VipChair/>
+      <VipChair />
     </Box>
   );
 };
