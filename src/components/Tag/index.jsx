@@ -26,12 +26,14 @@ Tag.propTypes = {
   color: PropTypes.string,
   hoverColor: PropTypes.string,
   noTitle: PropTypes.bool,
+  noPointer: PropTypes.bool,
 };
 
 Tag.defaultProps = {
   title: "No title",
   iconElement: <SentimentVeryDissatisfiedIcon />,
   noTitle: false,
+  noPointer: false,
 };
 
 export default Tag;

@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
     outlineStyle: "none!important",
     padding: 0,
     color: (props) => (props.color ? props.color : theme.palette.primary.main),
+    cursor: (props) => (props.noPointer ? "default!important" : "pointer"),
 
     "&:hover": {
       color: (props) =>
