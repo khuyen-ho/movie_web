@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
 
   info: {
     color: theme.palette.grey.main,
-    display: "inline",
     marginRight: theme.spacing(0.5),
+    fontSize: 12,
   },
 }));
 
