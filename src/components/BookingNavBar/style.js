@@ -1,7 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    background: theme.palette.white.main,
+    left: 0,
+    width: "75%",
+    zIndex: 2,
+  },
 
   toolBar: {
     height: 85,

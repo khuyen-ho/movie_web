@@ -1,19 +1,20 @@
-import { Container, makeStyles, withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  priceTable: {
-    [theme.breakpoints.down("sm")]: {
-      marginTop: theme.spacing(8),
-    },
+  seatPlan: {
+    marginTop: 75,
+    padding: theme.spacing(2, 0),
+  },
+
+  priceInfo: {
+    position: "fixed",
+    top: 0,
+    right: 0,
+    width: "26%",
+    height: "100%",
+    boxShadow: theme.shadows[22],
+    zIndex: 3,
   },
 }));
-
-export const CssContainer = withStyles((theme) => ({
-  root: {
-    "&.MuiContainer-root": {
-      maxWidth: 1500,
-    },
-  },
-}))(Container);
 
 export default useStyles;

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
+    background: theme.palette.white.main,
   },
 
   totalPrice: {
@@ -42,10 +43,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   input: {
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(0.5, 0),
+
+    "& .MuiInputBase-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
+      fontSize: theme.typography.body2.fontSize,
     },
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.shape.borderRadius,
@@ -66,8 +72,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     color: theme.palette.white,
     margin: 0,
-    fontSize: theme.typography.subtitle2.fontSize,
-    fontWeight: theme.typography.subtitle2.fontWeight,
+    fontSize: theme.typography.subtitle1.fontSize,
+    fontWeight: theme.typography.subtitle1.fontWeight,
     "&:focus": {
       outline: "none",
     },

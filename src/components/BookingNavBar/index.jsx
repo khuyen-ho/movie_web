@@ -12,7 +12,7 @@ const BookingNavBar = ({ movieInfo, cinemaInfo, showTimeInfo }) => {
   const theme = useTheme();
 
   return (
-    <AppBar color="transparent" className={styles.root}>
+    <AppBar className={styles.root}>
       <Toolbar className={styles.toolBar}>
         <Box className={styles.info}>
           <MovieInfo {...movieInfo} />

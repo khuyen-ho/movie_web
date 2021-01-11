@@ -18,8 +18,8 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
         <Typography variant="subtitle1">
           Tên phim: {showTimeInfo.movieName}
         </Typography>
-        <Typography variant="body1">{`Rạp: ${showTimeInfo.cinema} - ${showTimeInfo.cinemaNumber}`}</Typography>
-        <Typography variant="body1">{`Suất chiếu: ${showTimeInfo.showTime} - ${showTimeInfo.showTimeDate}`}</Typography>
+        <Typography variant="body2">{`Rạp: ${showTimeInfo.cinema} - ${showTimeInfo.cinemaNumber}`}</Typography>
+        <Typography variant="body2">{`Suất chiếu: ${showTimeInfo.showTime} - ${showTimeInfo.showTimeDate}`}</Typography>
       </Box>
       <Grid container className={`${styles.seats} ${styles.dashedBoder}`}>
         <Grid item xs={7}>
@@ -46,18 +46,12 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
       </Grid>
 
       <Box className={styles.userInfo}>
-        <TextField
-          className={styles.input}
-          label="Email"
-          variant="outlined"
-          value={userInfo.email}
-        />
+        <TextField className={styles.input} label="Email" variant="outlined" />
         <TextField
           className={styles.input}
           label="Số điện thoại"
           variant="outlined"
           type="text"
-          value={userInfo.phoneNumber}
         />
       </Box>
 

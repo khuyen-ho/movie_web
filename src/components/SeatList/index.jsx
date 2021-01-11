@@ -11,19 +11,34 @@ const SeatList = ({ list }) => {
     return list
       .filter((seat) => seat.loaiGhe === type)
       .map((seat, index) => {
-        if (index % 12 === 0) {
+        if (index % 11 === 0) {
           rowIndex++;
           return (
-            <Grid key={index} item xs={1}>
-              <Letter index={index / 12 + currentRow} />
-            </Grid>
+            <>
+              <Grid key={index} item xs={1}>
+                <Letter index={index / 11 + currentRow} />
+              </Grid>
+              <Grid key={seat.maGhe} item xs={1}>
+                <Seat
+                  type={type}
+                  seatNumber={seat.tenGhe}
+                  reserved={seat.daDat}
+                />
+              </Grid>
+            </>
           );
         }
 
         return (
-          <Grid key={index} item xs={1}>
-            <Seat type={type} seatNumber={seat.tenGhe} reserved={seat.daDat} />
-          </Grid>
+          <>
+            <Grid key={seat.maGhe} item xs={1}>
+              <Seat
+                type={type}
+                seatNumber={seat.tenGhe}
+                reserved={seat.daDat}
+              />
+            </Grid>
+          </>
         );
       });
   };
