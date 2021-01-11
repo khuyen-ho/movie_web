@@ -10,7 +10,7 @@ const SeatPlan = (props) => {
   return (
     <Box textAlign="center">
       <Box className={classes.screen}>
-        <img src="./images/screen.png" alt="screen" />
+        <img src="./images/screen.png" alt="screen" width="100%" />
       </Box>
       <Box className={classes.seatList}>
         <SeatList />

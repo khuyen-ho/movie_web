@@ -1,24 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
+import Letter from "../Alphabet";
 import Seat from "../Seat";
 
 const SeatList = ({ list }) => {
-  const RenderSeats = (type) => {
+  let rowIndex = 0;
+
+  const RenderSeats = (type, currentRow = 0) => {
     return list
       .filter((seat) => seat.loaiGhe === type)
-      .map((seat) => (
-        <Grid key={seat.maGhe} item xs={1}>
-          <Seat type={type} seatNumber={seat.tenGhe} reserved={seat.daDat} />
-        </Grid>
-      ));
+      .map((seat, index) => {
+        if (index % 12 === 0) {
+          rowIndex++;
+          return (
+            <Grid key={index} item xs={1}>
+              <Letter index={index / 12 + currentRow} />
+            </Grid>
+          );
+        }
+
+        return (
+          <Grid key={index} item xs={1}>
+            <Seat type={type} seatNumber={seat.tenGhe} reserved={seat.daDat} />
+          </Grid>
+        );
+      });
   };
 
   return (
-    <>
-      <Grid container>{RenderSeats("Thuong")}</Grid>
-      <Grid container>{RenderSeats("Vip")}</Grid>
-    </>
+    <Grid container>
+      <Grid item xs={11}>
+        <Grid container>{RenderSeats("Thuong")}</Grid>
+        <Grid container>{RenderSeats("Vip", rowIndex)}</Grid>
+      </Grid>
+      <Grid item xs={1}></Grid>
+    </Grid>
   );
 };
 
@@ -155,7 +172,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "13",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -165,7 +182,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "14",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -185,7 +202,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "16",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -255,7 +272,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "23",
       giaVe: 75000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -295,7 +312,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "27",
       giaVe: 75000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -325,7 +342,7 @@ SeatList.defaultProps = {
       loaiGhe: "Thuong",
       stt: "30",
       giaVe: 75000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -925,7 +942,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "90",
       giaVe: 90000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -935,7 +952,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "91",
       giaVe: 90000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -955,7 +972,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "93",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -965,7 +982,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "94",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1015,7 +1032,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "99",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1025,7 +1042,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "100",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1045,7 +1062,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "102",
       giaVe: 90000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1055,7 +1072,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "103",
       giaVe: 90000,
-      daDat: false,
+      daDat: true,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1065,7 +1082,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "104",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
@@ -1095,7 +1112,7 @@ SeatList.defaultProps = {
       loaiGhe: "Vip",
       stt: "107",
       giaVe: 90000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: null,
     },
     {
