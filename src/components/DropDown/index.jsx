@@ -1,4 +1,5 @@
 import { FormControl, MenuItem, Select } from "@material-ui/core";
+import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
 
@@ -31,6 +32,10 @@ const DropDown = (props) => {
       </Select>
     </FormControl>
   );
+};
+
+DropDown.propTypes = {
+  list: PropTypes.array,
 };
 
 DropDown.defaultProps = {
