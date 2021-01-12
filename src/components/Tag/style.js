@@ -25,13 +25,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     padding: theme.spacing(0, 0.5),
     color: (props) => (props.color ? props.color : theme.palette.primary.main),
-
-    [theme.breakpoints.up("xs")]: {
-      display: "none",
-    },
-    [theme.breakpoints.up("md")]: {
-      display: "inline",
-    },
   },
 }));
 

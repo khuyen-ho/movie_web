@@ -1,12 +1,16 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 576,
+    margin: "auto",
+  },
+
   screen: {
     width: "100%",
   },
 
   seatList: {
-    maxWidth: 600,
     margin: "auto",
   },
 

@@ -5,17 +5,17 @@ import SeatList from "../SeatList";
 import SeatNote from "../SeatNote";
 
 const SeatPlan = (props) => {
-  const classes = useStyles();
+  const styles = useStyles();
 
   return (
-    <Box textAlign="center">
-      <Box className={classes.screen}>
+    <Box textAlign="center" className={styles.root}>
+      <Box className={styles.screen}>
         <img src="./images/screen.png" alt="screen" width="100%" />
       </Box>
-      <Box className={classes.seatList}>
+      <Box className={styles.seatList}>
         <SeatList />
       </Box>
-      <Box className={classes.seatNote}>
+      <Box className={styles.seatNote}>
         <SeatNote />
       </Box>
     </Box>

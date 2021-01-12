@@ -6,22 +6,23 @@ import SeatPlan from "../../components/SeatPlan";
 import useStyles from "./style";
 
 const Booking = (props) => {
-  const classes = useStyles();
+  const styles = useStyles();
+
   return (
-    <Container maxWidth="xl">
+    <Container className={styles.root}>
       <Grid container>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} xl={8}>
           <BookingNavBar />
-          <Box className={classes.seatPlan}>
+          <Box className={styles.seatPlan}>
             <SeatPlan />
           </Box>
         </Grid>
-        <Grid item xs={12} md={4}></Grid>
+        <Grid item xs={12} xl={4}>
+          <Box className={styles.priceInfo}>
+            <PriceInfo />
+          </Box>
+        </Grid>
       </Grid>
-
-      <Box className={classes.priceInfo}>
-        <PriceInfo />
-      </Box>
     </Container>
   );
 };

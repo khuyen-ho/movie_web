@@ -4,10 +4,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
     background: theme.palette.white.main,
+    height: "100%",
   },
 
   totalPrice: {
-    padding: theme.spacing(1, 0),
+    paddingBottom: theme.spacing(1),
   },
 
   center: {
@@ -70,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
     width: "100%",
+    height: 50,
     color: theme.palette.white,
     margin: 0,
     fontSize: theme.typography.subtitle1.fontSize,
