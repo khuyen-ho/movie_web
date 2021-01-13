@@ -4,6 +4,7 @@ import useStyles from "./style";
 import { NavLink } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
+import Axios from "axios";
 
 const signUpSchema = yup.object().shape({
   taiKhoan: yup.string().required("*Bắt buộc"),
@@ -19,7 +20,16 @@ const signUpSchema = yup.object().shape({
 
 const SignUp = (props) => {
   const styles = useStyles();
-  const handleSubmit = (user) => {};
+  const handleSubmit = (user) => {
+    // console.log(user);
+    Axios({
+      method: "POST",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+      data: user,
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <Formik
       initialValues={{
