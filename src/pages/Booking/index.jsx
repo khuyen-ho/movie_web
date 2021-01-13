@@ -1,30 +1,29 @@
-import { Box, Grid } from "@material-ui/core";
+import { Box, Container, Grid } from "@material-ui/core";
 import React from "react";
-import HeaderBooking from "../../components/HeaderBooking";
-import PriceTable from "../../components/PriceTable";
-import useStyles, { CssContainer } from "./style";
-import SeatTable from "../../components/SeatTable";
+import BookingNavBar from "../../components/BookingNavBar";
+import PriceInfo from "../../components/PriceInfo";
+import SeatPlan from "../../components/SeatPlan";
+import useStyles from "./style";
 
 const Booking = (props) => {
-  const classes = useStyles();
+  const styles = useStyles();
+
   return (
-    <CssContainer>
+    <Container className={styles.root}>
       <Grid container>
-        <Grid item xs={12} md={9}>
-          <div className={classes.headerBooking}>
-            <HeaderBooking />
-          </div>
-          <Box marginTop="50px">
-            <SeatTable />
+        <Grid item xs={12} xl={8}>
+          <BookingNavBar />
+          <Box className={styles.seatPlan}>
+            <SeatPlan />
           </Box>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Box className={classes.priceTable}>
-            <PriceTable />
+        <Grid item xs={12} xl={4}>
+          <Box className={styles.priceInfo}>
+            <PriceInfo />
           </Box>
         </Grid>
       </Grid>
-    </CssContainer>
+    </Container>
   );
 };
 

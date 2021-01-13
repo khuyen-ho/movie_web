@@ -24,7 +24,7 @@ const PersonalInfo = (props) => {
           </Typography>
 
           <TextField
-            classes={{ root: styles.input }}
+            className={styles.input}
             label="Tên tài khoản"
             variant="outlined"
             type="text"
@@ -35,7 +35,7 @@ const PersonalInfo = (props) => {
           />
 
           <TextField
-            classes={{ root: styles.input }}
+            className={styles.input}
             label="Họ và tên"
             variant="outlined"
             type="text"
@@ -43,14 +43,14 @@ const PersonalInfo = (props) => {
           />
 
           <TextField
-            classes={{ root: styles.input }}
+            className={styles.input}
             label="Email"
             variant="outlined"
             defaultValue="long@gmail.com"
           />
 
           <TextField
-            classes={{ root: styles.input }}
+            className={styles.input}
             label="Số điện thoại"
             variant="outlined"
             type="text"
