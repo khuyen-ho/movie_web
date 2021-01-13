@@ -65,44 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   table: {
-    margin: theme.spacing(1, 0),
-    border: `1.0px solid ${theme.palette.grey.dark}`,
-    borderRadius: theme.shape.borderRadius,
-    maxHeight: 750,
-    maxWidth: 920,
-  },
-
-  darkCell: {
-    background: theme.palette.grey.dark,
-    color: theme.palette.white.main,
-    fontWeight: 500,
-    padding: theme.spacing(1.5),
-    textAlign: "center",
-  },
-
-  footer: {
-    borderBottom: "none",
-  },
-
-  select: {
-    "&:focus": {
-      background: "none",
-    },
-  },
-
-  selectIcon: {
-    color: theme.palette.white.main,
-  },
-
-  cell: {
-    padding: theme.spacing(1.5),
-    textAlign: "center",
-  },
-
-  row: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
+    padding: theme.spacing(1, 0),
   },
 }));
 

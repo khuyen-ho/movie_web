@@ -111,7 +111,7 @@ const Admin = () => {
         </List>
       </Box>
       <Box className={styles.info}>
-        <AccountManagement />
+        <MovieManagement />
       </Box>
     </Container>
   );
