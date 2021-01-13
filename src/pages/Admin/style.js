@@ -6,7 +6,7 @@ import {
   Tabs,
   withStyles,
 } from "@material-ui/core";
-import { TabPanel } from '@material-ui/lab';
+import { TabPanel } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +26,7 @@ export const CssTab = withStyles((theme) => ({
     "&.MuiButtonBase-root": {
       textTransform: "none",
       // borderTop:"1px solid grey"
-      margin:5
+      margin: 5,
     },
   },
   selected: {
@@ -44,7 +44,6 @@ export const StyledTab = withStyles((theme) => ({
     "&.MuiButtonBase-root": {
       textTransform: "none",
       borderBottom: "1px solid grey",
-      
     },
   },
   selected: {
@@ -69,11 +68,11 @@ export const CssTabs = withStyles((theme) => ({
 }))(Tabs);
 
 export const CssTabPanel = withStyles((theme) => ({
-  root:{
-    "&.MuiBox-root":{
-      paddingLeft:"50%"
-    }
-  }
+  root: {
+    "&.MuiBox-root": {
+      paddingLeft: "50%",
+    },
+  },
 }))(TabPanel);
 
 export const CssButton = withStyles((theme) => ({

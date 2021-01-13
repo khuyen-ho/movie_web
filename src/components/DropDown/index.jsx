@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select } from "@material-ui/core";
+import { FormControl, MenuItem, Select, InputLabel } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
@@ -20,13 +20,15 @@ const DropDown = (props) => {
   };
 
   return (
-    <FormControl className={styles.formControl}>
+    <FormControl variant="outlined" className={styles.formControl}>
+      <InputLabel id="select-label">{props.label}</InputLabel>
       <Select
         defaultValue={0}
         classes={{
           select: styles.select,
           icon: styles.icon,
         }}
+        label={props.label}
       >
         {CreateList(props.list)}
       </Select>
@@ -36,10 +38,12 @@ const DropDown = (props) => {
 
 DropDown.propTypes = {
   list: PropTypes.array,
+  label: PropTypes.string,
 };
 
 DropDown.defaultProps = {
   list: ["Choose item", "Item 1", "Item 2", "Item 3"],
+  label: "Label",
 };
 
 export default DropDown;
