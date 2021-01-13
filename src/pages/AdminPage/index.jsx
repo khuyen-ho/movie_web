@@ -7,6 +7,8 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import AccountManagement from "../../components/AccountManagement";
+import PersonalInfo from "../../components/PersonalInfo";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Tag from "../../components/Tag";
 import useStyles from "./style";
 
@@ -87,6 +89,20 @@ const Admin = () => {
             <Tag
               iconElement={<AccountCircleIcon fontSize="large" />}
               title="Thông tin cá nhân"
+              color={theme.palette.white.main}
+              hoverColor="none"
+            />
+          </ListItem>
+          <ListItem
+            className={styles.listItem}
+            classes={{ selected: styles.selected, button: styles.noBackground }}
+            button
+            selected={tab === 5}
+            onClick={() => setTab(5)}
+          >
+            <Tag
+              iconElement={<ExitToAppIcon fontSize="large" />}
+              title="Đăng xuất"
               color={theme.palette.white.main}
               hoverColor="none"
             />

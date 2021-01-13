@@ -6,12 +6,12 @@ const useStyles = makeStyles((theme) => ({
     border: `1.0px solid ${theme.palette.grey.dark}`,
     borderRadius: theme.shape.borderRadius,
     maxHeight: 500,
-    maxWidth: 1040,
+    maxWidth: 1000,
   },
 
   search: {
     margin: theme.spacing(1, 0),
-    width: "49%",
+    width: "48%",
   },
 
   darkRow: {

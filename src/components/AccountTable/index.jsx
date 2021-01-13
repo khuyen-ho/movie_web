@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { useTheme } from "@material-ui/core/styles";
 import Search from "../../components/Search";
 import { Box } from "@material-ui/core";
 import Table from "@material-ui/core/Table";
@@ -21,7 +20,6 @@ const AccountTable = (props) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const accounts = useSelector((state) => state.accounts);
-  const theme = useTheme();
   const styles = useStyles();
 
   let rows = accounts.map((account) => ({

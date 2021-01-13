@@ -1,11 +1,11 @@
 import React from "react";
-import AccountInfo from "../../components/AccountInfo";
+import AccountForm from "../AccountForm";
 import AccountTable from "../../components/AccountTable";
 
 const AccountManagement = () => {
   return (
     <>
-      <AccountInfo />
+      <AccountForm />
       <AccountTable />
     </>
   );

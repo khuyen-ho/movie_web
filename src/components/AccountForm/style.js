@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   input: {
     margin: theme.spacing(1, 0),
     marginRight: theme.spacing(1),
-    width: "49%",
+    width: "48%",
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
     color: theme.palette.white,
-    margin: theme.spacing(0.5, 0),
+    margin: theme.spacing(1, 0),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
     "&:focus": {

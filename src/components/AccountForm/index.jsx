@@ -3,7 +3,7 @@ import { Box, Typography, TextField, Button } from "@material-ui/core";
 import DropDown from "../DropDown";
 import useStyles from "./style";
 
-const AccountInfo = (props) => {
+const AccountForm = (props) => {
   const styles = useStyles();
 
   return (
@@ -77,4 +77,4 @@ const AccountInfo = (props) => {
   );
 };
 
-export default AccountInfo;
+export default AccountForm;
