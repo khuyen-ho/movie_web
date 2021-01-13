@@ -5,7 +5,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import AdminNavBar from "../../components/AdminNavBar";
-import AccountInfo from "../../components/AccountInfo";
+import AccountManagement from "../../components/AccountManagement";
 import Tag from "../../components/Tag";
 import useStyles from "./style";
 
@@ -62,10 +62,8 @@ const Admin = () => {
           </ListItem>
         </List>
       </Box>
-
       <Box className={styles.info}>
-        <AdminNavBar />
-        <AccountInfo />
+        <AccountManagement />
       </Box>
     </Container>
   );

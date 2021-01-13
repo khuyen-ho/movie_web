@@ -4,6 +4,10 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     width: "100%",
 
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
+
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
     },
@@ -20,21 +24,10 @@ const useStyles = makeStyles((theme) => ({
         borderColor: theme.palette.primary.main,
       },
     },
-
-    [theme.breakpoints.up("xs")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body2.fontSize,
-      },
-    },
-    [theme.breakpoints.up("xsm")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body1.fontSize,
-      },
-    },
   },
 
   select: {
-    fontSize: theme.typography.subtitle1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
     textAlign: "left",
     width: "100%",
     borderBottom: "none",
@@ -48,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   menuItem: {
-    fontSize: theme.typography.subtitle1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
   },
 }));
 

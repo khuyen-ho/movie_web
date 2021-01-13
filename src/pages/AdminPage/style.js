@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     width: 260,
     height: "100vh",
     backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
+    zIndex: 3,
   },
 
   list: {
@@ -46,8 +47,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     width: "calc(100% - 260px)",
-    height: "100vh",
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(1, 3),
   },
 }));
 

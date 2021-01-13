@@ -16,15 +16,15 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("xs")]: {
-      marginLeft: theme.spacing(0),
+      // marginLeft: theme.spacing(0),
       width: "100%",
     },
     [theme.breakpoints.up("md")]: {
-      marginLeft: theme.spacing(2),
+      // marginLeft: theme.spacing(2),
       width: "auto",
     },
     [theme.breakpoints.up("xl")]: {
-      marginRight: theme.spacing(1.5),
+      // marginRight: theme.spacing(1.5),
     },
   },
 

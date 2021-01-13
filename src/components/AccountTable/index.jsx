@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Container, Box, Typography } from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
+import { useTheme } from "@material-ui/core/styles";
+import Search from "../../components/Search";
+import { Box } from "@material-ui/core";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -15,31 +12,25 @@ import TableRow from "@material-ui/core/TableRow";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import TablePaginationArrows from "../TablePaginationArrows";
-import { getFullDate, getTime } from "../../helpers/time-manager";
+import IconButton from "@material-ui/core/IconButton";
+import CreateIcon from "@material-ui/icons/Create";
+import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./style";
 
-const PersonalInfo = (props) => {
-  const [fromDate, setFromDate] = useState(new Date());
-  const [toDate, setToDate] = useState(new Date());
+const AccountTable = (props) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const account = useSelector((state) => state.account);
+  const accounts = useSelector((state) => state.accounts);
+  const theme = useTheme();
   const styles = useStyles();
 
-  let rows = account.thongTinDatVe.map((ticket) =>
-    ticket.danhSachGhe.map((chair) => ({
-      date: ticket.ngayDat,
-      ticketId: ticket.maVe,
-      movieTitle: ticket.tenPhim,
-      price: ticket.giaVe,
-      duration: ticket.thoiLuongPhim,
-      cinema: chair.tenHeThongRap,
-      cinemaNumber: chair.tenRap,
-      chairNumber: chair.tenGhe,
-    }))
-  );
-
-  rows = [].concat.apply([], rows);
+  let rows = accounts.map((account) => ({
+    id: account.taiKhoan,
+    fullName: account.hoTen,
+    type: account.maLoaiNguoiDung,
+    emal: account.email,
+    phoneNumber: account.soDt,
+  }));
 
   const renderBookingInfo = () => {
     console.log(rows);
@@ -48,16 +39,19 @@ const PersonalInfo = (props) => {
       : rows
     ).map((row, index) => (
       <TableRow className={styles.row} key={index}>
-        <TableCell className={styles.cell}>{`${getFullDate(row.date)} ${getTime(
-          row.date
-        )}`}</TableCell>
-        <TableCell className={styles.cell}>{row.ticketId}</TableCell>
-        <TableCell className={styles.cell}>{row.movieTitle}</TableCell>
-        <TableCell className={styles.cell}>{row.price}</TableCell>
-        <TableCell className={styles.cell}>{row.duration}</TableCell>
-        <TableCell className={styles.cell}>{row.cinema}</TableCell>
-        <TableCell className={styles.cell}>{row.cinemaNumber}</TableCell>
-        <TableCell className={styles.cell}>{row.chairNumber}</TableCell>
+        <TableCell className={styles.cell}>{row.id}</TableCell>
+        <TableCell className={styles.cell}>{row.fullName}</TableCell>
+        <TableCell className={styles.cell}>{row.type}</TableCell>
+        <TableCell className={styles.cell}>{row.emal}</TableCell>
+        <TableCell className={styles.cell}>{row.phoneNumber}</TableCell>
+        <TableCell className={`${styles.cell} ${styles.center}`}>
+          <IconButton className={styles.iconButton}>
+            <CreateIcon color="primary" />
+          </IconButton>
+          <IconButton className={styles.iconButton}>
+            <DeleteIcon color="error" />
+          </IconButton>
+        </TableCell>
       </TableRow>
     ));
   };
@@ -72,60 +66,22 @@ const PersonalInfo = (props) => {
   };
 
   return (
-    <Container maxWidth="lg" className={styles.container}>
-      <Box className={styles.info}>
-        <Typography className={styles.title} component="h1" variant="h5">
-          Thông tin đặt vé
-        </Typography>
+    <>
+      <Box className={styles.search}>
+        <Search />
       </Box>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Box className={styles.dateGroup}>
-          <KeyboardDatePicker
-            disableToolbar
-            autoOk
-            variant="inline"
-            inputVariant="outlined"
-            invalidDateMessage="Ngày không đúng định dạng"
-            maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-            minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-            format="dd/MM/yyyy"
-            id="from-date"
-            label="Từ ngày"
-            value={fromDate}
-            onChange={(date) => setFromDate(date)}
-            className={styles.datePicker}
-          />
-          <KeyboardDatePicker
-            disableToolbar
-            autoOk
-            variant="inline"
-            inputVariant="outlined"
-            invalidDateMessage="Ngày không đúng định dạng"
-            maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-            minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-            format="dd/MM/yyyy"
-            id="to-date"
-            label="Đến ngày"
-            value={toDate}
-            onChange={(date) => setToDate(date)}
-            className={styles.datePicker}
-          />
-        </Box>
-      </MuiPickersUtilsProvider>
-      <TableContainer className={styles.table}>
+      <TableContainer className={styles.root}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={styles.darkRow}>Ngày đặt</TableCell>
-              <TableCell className={styles.darkRow}>Mã vé</TableCell>
-              <TableCell className={styles.darkRow}>Tên phim</TableCell>
-              <TableCell className={styles.darkRow}>Giá vé (VND)</TableCell>
-              <TableCell className={styles.darkRow}>
-                Thời lượng (phút)
+              <TableCell className={styles.darkRow}>Tên tài khoản</TableCell>
+              <TableCell className={styles.darkRow}>Họ và tên</TableCell>
+              <TableCell className={styles.darkRow}>Loại người dùng</TableCell>
+              <TableCell className={styles.darkRow}>Email</TableCell>
+              <TableCell className={styles.darkRow}>Số điện thoại</TableCell>
+              <TableCell className={`${styles.darkRow} ${styles.center}`}>
+                Chỉnh sửa/Xoá
               </TableCell>
-              <TableCell className={styles.darkRow}>Cụm rạp</TableCell>
-              <TableCell className={styles.darkRow}>Tên rạp</TableCell>
-              <TableCell className={styles.darkRow}>Số ghế</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{renderBookingInfo()}</TableBody>
@@ -151,8 +107,8 @@ const PersonalInfo = (props) => {
           </TableFooter>
         </Table>
       </TableContainer>
-    </Container>
+    </>
   );
 };
 
-export default PersonalInfo;
+export default AccountTable;

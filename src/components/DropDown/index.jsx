@@ -20,7 +20,7 @@ const DropDown = (props) => {
   };
 
   return (
-    <FormControl variant="outlined" className={styles.formControl}>
+    <FormControl variant="outlined" size="small" className={styles.formControl}>
       <InputLabel id="select-label">{props.label}</InputLabel>
       <Select
         defaultValue={0}

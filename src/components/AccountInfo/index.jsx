@@ -7,7 +7,7 @@ const AccountInfo = (props) => {
   const styles = useStyles();
 
   return (
-    <Box className={styles.root}>
+    <>
       <form noValidate autoComplete="off">
         <Box className={styles.content}>
           <Typography className={styles.title} component="h1" variant="h5">
@@ -20,6 +20,7 @@ const AccountInfo = (props) => {
               label="Tên tài khoản"
               variant="outlined"
               type="text"
+              size="small"
               defaultValue="ctlong"
             />
 
@@ -28,6 +29,7 @@ const AccountInfo = (props) => {
               label="Họ và tên"
               variant="outlined"
               type="text"
+              size="small"
               defaultValue="Cao Thanh Long"
             />
 
@@ -43,6 +45,7 @@ const AccountInfo = (props) => {
               label="Mật khẩu"
               variant="outlined"
               type="password"
+              size="small"
               defaultValue="123"
             />
 
@@ -50,6 +53,8 @@ const AccountInfo = (props) => {
               className={styles.input}
               label="Email"
               variant="outlined"
+              type="email"
+              size="small"
               defaultValue="long@gmail.com"
             />
 
@@ -58,6 +63,7 @@ const AccountInfo = (props) => {
               label="Số điện thoại"
               variant="outlined"
               type="text"
+              size="small"
               defaultValue="0123456789"
             />
           </Box>
@@ -67,7 +73,7 @@ const AccountInfo = (props) => {
           Thêm
         </Button>
       </form>
-    </Box>
+    </>
   );
 };
 

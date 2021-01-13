@@ -18,7 +18,7 @@ import TablePaginationArrows from "../TablePaginationArrows";
 import { getFullDate, getTime } from "../../helpers/time-manager";
 import useStyles from "./style";
 
-const PersonalInfo = (props) => {
+const BookingInfo = (props) => {
   const [fromDate, setFromDate] = useState(new Date());
   const [toDate, setToDate] = useState(new Date());
   const [page, setPage] = useState(0);
@@ -155,4 +155,4 @@ const PersonalInfo = (props) => {
   );
 };
 
-export default PersonalInfo;
+export default BookingInfo;
