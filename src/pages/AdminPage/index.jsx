@@ -8,6 +8,7 @@ import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import AccountManagement from "../../components/AccountManagement";
 import PersonalInfo from "../../components/PersonalInfo";
+import MovieManagement from "../../components/MovieManagement";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Tag from "../../components/Tag";
 import useStyles from "./style";
