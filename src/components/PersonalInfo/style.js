@@ -40,6 +40,26 @@ const useStyles = makeStyles((theme) => ({
         borderColor: theme.palette.primary.main,
       },
     },
+
+    [theme.breakpoints.up("xs")]: {
+      "& .MuiInputBase-root, & .MuiInputLabel-root": {
+        fontSize: theme.typography.body2.fontSize,
+      },
+    },
+    [theme.breakpoints.up("xsm")]: {
+      "& .MuiInputBase-root, & .MuiInputLabel-root": {
+        fontSize: theme.typography.body1.fontSize,
+      },
+    },
+  },
+
+  label: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: theme.typography.subtitle2.fontSize,
+    },
+    [theme.breakpoints.up("xsm")]: {
+      fontSize: theme.typography.subtitle1.fontSize,
+    },
   },
 
   button: {

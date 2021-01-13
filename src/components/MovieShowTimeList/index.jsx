@@ -14,7 +14,7 @@ const MovieShowTimeList = ({ info, ...props }) => {
     <ListItem className={styles.listItem} key={showTime.cinemaInfo.id}>
       <Show
         opened
-        info={<CinemaInfo {...showTime.cinemaInfo} />}
+        info={<CinemaInfo {...showTime.cinemaInfo} hasInfo />}
         showList={<StartTimeList list={showTime.list} />}
       />
     </ListItem>

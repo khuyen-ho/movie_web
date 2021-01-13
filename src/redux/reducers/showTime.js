@@ -160,44 +160,6 @@ let initialState = [
       },
     ],
   },
-  {
-    cinemaInfo: {
-      id: "bhd-star-cineplex-vincom-thao-dien",
-      logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
-      name: "BHD Star Cineplex - Vincom Thảo Điền",
-      address: "L5-Megamall, 159 XL Hà Nội, Q.2",
-    },
-    list: [
-      {
-        start: "2019-01-01T09:30:00",
-        duration: 125,
-      },
-      {
-        start: "2019-01-01T10:40:00",
-        duration: 125,
-      },
-      {
-        start: "2019-01-01T12:55:00",
-        duration: 125,
-      },
-      {
-        start: "2019-01-01T14:10:00",
-        duration: 125,
-      },
-      {
-        start: "2019-01-01T18:20:00",
-        duration: 125,
-      },
-      {
-        start: "2019-01-01T21:45:00",
-        duration: 180,
-      },
-      {
-        start: "2019-01-01T22:50:00",
-        duration: 180,
-      },
-    ],
-  },
 ];
 
 const showTimes = (state = initialState, action) => {

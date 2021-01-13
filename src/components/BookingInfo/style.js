@@ -66,6 +66,17 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
     },
+
+    [theme.breakpoints.up("xs")]: {
+      "& .MuiInputBase-root, & .MuiInputLabel-root": {
+        fontSize: theme.typography.body2.fontSize,
+      },
+    },
+    [theme.breakpoints.up("xsm")]: {
+      "& .MuiInputBase-root, & .MuiInputLabel-root": {
+        fontSize: theme.typography.body1.fontSize,
+      },
+    },
   },
 
   table: {

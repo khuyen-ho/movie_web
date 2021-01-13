@@ -32,6 +32,7 @@ const CinemaInfoList = (props) => {
             {...cinema}
             hasEllipsis={props.hasEllipsis}
             hasDetailLink={props.hasDetailLink}
+            hasInfo
           />
         }
       />
