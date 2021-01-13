@@ -5,7 +5,7 @@ import SignInUpNavBar from "../../components/SignInUpNavBar";
 import SignUp from "../../components/SignUp";
 import useStyles from "./style";
 
-const SignInUp = () => {
+const SignUpPage = () => {
   const styles = useStyles();
 
   return (
@@ -13,9 +13,11 @@ const SignInUp = () => {
       <Box className={styles.navBar}>
         <SignInUpNavBar />
       </Box>
+
       {/* <Box className={styles.center}>
-        <SignIn />
-      </Box> */}
+          <SignIn />
+        </Box> */}
+
       <Box className={styles.center}>
         <SignUp />
       </Box>
@@ -23,4 +25,4 @@ const SignInUp = () => {
   );
 };
 
-export default SignInUp;
+export default SignUpPage;
