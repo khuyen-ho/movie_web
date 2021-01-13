@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  divider: {
+    height: 1,
+    background: theme.palette.grey.main,
+    margin: theme.spacing(1, 0),
+  },
+
   info: {
     position: "absolute",
     top: 0,
