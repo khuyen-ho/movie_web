@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Container, Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -72,7 +72,7 @@ const BookingInfo = (props) => {
   };
 
   return (
-    <Container maxWidth="lg" className={styles.container}>
+    <>
       <Box className={styles.info}>
         <Typography className={styles.title} component="h1" variant="h5">
           Thông tin đặt vé
@@ -85,6 +85,7 @@ const BookingInfo = (props) => {
             autoOk
             variant="inline"
             inputVariant="outlined"
+            size="small"
             invalidDateMessage="Ngày không đúng định dạng"
             maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
             minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
@@ -100,6 +101,7 @@ const BookingInfo = (props) => {
             autoOk
             variant="inline"
             inputVariant="outlined"
+            size="small"
             invalidDateMessage="Ngày không đúng định dạng"
             maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
             minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
@@ -151,7 +153,7 @@ const BookingInfo = (props) => {
           </TableFooter>
         </Table>
       </TableContainer>
-    </Container>
+    </>
   );
 };
 

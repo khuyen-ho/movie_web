@@ -1,28 +1,44 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
-
   title: {
     color: theme.palette.secondary.main,
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(1, 0),
     textAlign: "left",
-
-    [theme.breakpoints.up("xs")]: {
-      fontSize: theme.typography.h6.fontSize,
-    },
-    [theme.breakpoints.up("xsm")]: {
-      fontSize: theme.typography.h5.fontSize,
-    },
+    fontSize: theme.typography.h6.fontSize,
   },
 
-  info: {
+  content: {
     display: "flex",
     flexDirection: "column",
   },
 
+  info: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+    },
+
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+  },
+
   input: {
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(1, 0),
+    marginRight: theme.spacing(1),
+
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+
+    [theme.breakpoints.up("md")]: {
+      width: "48%",
+    },
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
@@ -40,31 +56,19 @@ const useStyles = makeStyles((theme) => ({
         borderColor: theme.palette.primary.main,
       },
     },
+  },
 
-    [theme.breakpoints.up("xs")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body2.fontSize,
-      },
-    },
-    [theme.breakpoints.up("xsm")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body1.fontSize,
-      },
-    },
+  checkbox: {
+    marginBottom: 0,
   },
 
   label: {
-    [theme.breakpoints.up("xs")]: {
-      fontSize: theme.typography.subtitle2.fontSize,
-    },
-    [theme.breakpoints.up("xsm")]: {
-      fontSize: theme.typography.subtitle1.fontSize,
-    },
+    fontSize: theme.typography.subtitle1.fontSize,
   },
 
   button: {
     color: theme.palette.white,
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(1, 0),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
     "&:focus": {

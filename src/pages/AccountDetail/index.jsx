@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import PersonalInfo from "../../components/PersonalInfo";
 import BookingInfo from "../../components/BookingInfo";
 import useStyles from "./style";
@@ -8,10 +8,10 @@ const Home = () => {
   const styles = useStyles();
 
   return (
-    <Box className={styles.root}>
+    <Container maxWidth="lg" className={styles.root}>
       <PersonalInfo />
       <BookingInfo />
-    </Box>
+    </Container>
   );
 };
 
