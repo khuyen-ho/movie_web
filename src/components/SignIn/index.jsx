@@ -11,11 +11,19 @@ import Switch from "@material-ui/core/Switch";
 import useStyles from "./style";
 import { NavLink } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
+import { userService } from "../../services";
+
 const SignIn = (props) => {
   const styles = useStyles();
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = (user) => {
+    userService.signIn(user)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <Formik
@@ -54,7 +62,7 @@ const SignIn = (props) => {
               color="secondary"
               fullWidth
               className={styles.button}
-              type='submit'
+              type="submit"
             >
               ĐĂNG NHẬP
             </Button>
