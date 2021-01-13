@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 import PersonalInfo from "../../components/PersonalInfo";
 import BookingInfo from "../../components/BookingInfo";
 import useStyles from "./style";
-
+import wrapper from "../../HOCs/Wrapper";
 const Home = () => {
   const styles = useStyles();
 
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default wrapper(Home);

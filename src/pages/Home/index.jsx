@@ -5,7 +5,7 @@ import SearchMovie from "../../components/SearchMovie";
 import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
 import useStyles from "./style";
-
+import wrapper from '../../HOCs/Wrapper'
 const Home = () => {
   const styles = useStyles();
 
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default wrapper(Home);

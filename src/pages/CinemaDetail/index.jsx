@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 import CinemaBannerDetail from "../../components/CinemaBannerDetail";
 import ScheduleCinemaDetail from "../../components/ScheduleCinemaDetail";
 import useStyles from "./style";
-
+import wrapper from "../../HOCs/Wrapper";
 const CinemaDetail = () => {
   const styles = useStyles();
 
@@ -15,4 +15,4 @@ const CinemaDetail = () => {
   );
 };
 
-export default CinemaDetail;
+export default wrapper(CinemaDetail);

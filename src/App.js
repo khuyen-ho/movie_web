@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
@@ -14,7 +12,6 @@ import SignUp from "./pages/SignUpPage";
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route exact path="/booking" component={Booking} />
@@ -26,7 +23,6 @@ const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/" component={Home} />
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 };
