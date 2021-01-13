@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   seat: {
-    cursor: "pointer",
     color: (props) =>
       props.type === "Thuong"
         ? theme.palette.grey.main
@@ -23,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
   reserved: {
     color: theme.palette.red.light,
+    cursor: "no-drop",
+
+    "& + $number": {
+      cursor: "no-drop",
+    },
   },
 
   number: {
