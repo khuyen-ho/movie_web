@@ -3,7 +3,8 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import account from "./reducers/account";
 import accounts from "./reducers/accounts";
-import movies from "./reducers/movie";
+import movie from "./reducers/movie";
+import movies from "./reducers/movies";
 import banners from "./reducers/banner";
 import cinemaSystems from "./reducers/cinemaSystem";
 import cinemas from "./reducers/cinema";
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   account,
   accounts,
   banners,
+  movie,
   movies,
   cinemaSystems,
   cinemas,

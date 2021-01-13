@@ -14,20 +14,21 @@ import TablePaginationArrows from "../TablePaginationArrows";
 import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { getFullDate } from "../../helpers/time-manager";
 import useStyles from "./style";
 
-const AccountTable = (props) => {
+const MovieTable = (props) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const accounts = useSelector((state) => state.accounts);
+  const movies = useSelector((state) => state.movies);
   const styles = useStyles();
 
-  let rows = accounts.map((account) => ({
-    id: account.taiKhoan,
-    fullName: account.hoTen,
-    type: account.maLoaiNguoiDung,
-    emal: account.email,
-    phoneNumber: account.soDt,
+  let rows = movies.map((movie) => ({
+    id: movie.maPhim,
+    name: movie.tenPhim,
+    startDate: movie.ngayKhoiChieu,
+    score: movie.danhGia,
+    poster: movie.hinhAnh,
   }));
 
   const renderBookingInfo = () => {
@@ -38,10 +39,16 @@ const AccountTable = (props) => {
     ).map((row, index) => (
       <TableRow className={styles.row} key={index}>
         <TableCell className={styles.cell}>{row.id}</TableCell>
-        <TableCell className={styles.cell}>{row.fullName}</TableCell>
-        <TableCell className={styles.cell}>{row.type}</TableCell>
-        <TableCell className={styles.cell}>{row.emal}</TableCell>
-        <TableCell className={styles.cell}>{row.phoneNumber}</TableCell>
+        <TableCell className={styles.cell}>{row.name}</TableCell>
+        <TableCell className={styles.cell}>
+          {getFullDate(row.startDate)}
+        </TableCell>
+        <TableCell className={styles.cell}>
+          {parseFloat(row.score).toFixed(1)}
+        </TableCell>
+        <TableCell className={styles.cell}>
+          <img src={row.poster} alt="img" className={styles.image} />
+        </TableCell>
         <TableCell className={styles.cell}>
           <IconButton className={styles.iconButton}>
             <CreateIcon color="primary" />
@@ -59,7 +66,7 @@ const AccountTable = (props) => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(event.target.value);
+    setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
@@ -72,19 +79,19 @@ const AccountTable = (props) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={styles.darkCell}>Tên tài khoản</TableCell>
-              <TableCell className={styles.darkCell}>Họ và tên</TableCell>
-              <TableCell className={styles.darkCell}>Loại người dùng</TableCell>
-              <TableCell className={styles.darkCell}>Email</TableCell>
-              <TableCell className={styles.darkCell}>Số điện thoại</TableCell>
-              <TableCell className={styles.darkCell}>Chỉnh sửa/Xoá</TableCell>
+              <TableCell className={styles.darkRow}>Mã phim</TableCell>
+              <TableCell className={styles.darkRow}>Tên phim</TableCell>
+              <TableCell className={styles.darkRow}>Ngày khởi chiếu</TableCell>
+              <TableCell className={styles.darkRow}>Đánh giá</TableCell>
+              <TableCell className={styles.darkRow}>Hình ảnh</TableCell>
+              <TableCell className={styles.darkRow}>Chỉnh sửa/Xoá</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{renderBookingInfo()}</TableBody>
           <TableFooter>
             <TableRow>
               <TablePagination
-                className={`${styles.footer} ${styles.darkCell}`}
+                className={`${styles.footer} ${styles.darkRow}`}
                 classes={{
                   select: styles.select,
                   selectIcon: styles.selectIcon,
@@ -107,4 +114,4 @@ const AccountTable = (props) => {
   );
 };
 
-export default AccountTable;
+export default MovieTable;

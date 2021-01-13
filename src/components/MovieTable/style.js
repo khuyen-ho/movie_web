@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     width: "48%",
   },
 
-  darkCell: {
+  darkRow: {
     background: theme.palette.grey.dark,
     color: theme.palette.white.main,
     fontWeight: 500,
@@ -39,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
   cell: {
     padding: theme.spacing(1.5),
     textAlign: "center",
+  },
+
+  image: {
+    width: 50,
   },
 
   iconButton: {

@@ -67,7 +67,7 @@ const BookingInfo = (props) => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(event.target.value);
     setPage(0);
   };
 
@@ -118,23 +118,23 @@ const BookingInfo = (props) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={styles.darkRow}>Ngày đặt</TableCell>
-              <TableCell className={styles.darkRow}>Mã vé</TableCell>
-              <TableCell className={styles.darkRow}>Tên phim</TableCell>
-              <TableCell className={styles.darkRow}>Giá vé (VND)</TableCell>
-              <TableCell className={styles.darkRow}>
+              <TableCell className={styles.darkCell}>Ngày đặt</TableCell>
+              <TableCell className={styles.darkCell}>Mã vé</TableCell>
+              <TableCell className={styles.darkCell}>Tên phim</TableCell>
+              <TableCell className={styles.darkCell}>Giá vé (VND)</TableCell>
+              <TableCell className={styles.darkCell}>
                 Thời lượng (phút)
               </TableCell>
-              <TableCell className={styles.darkRow}>Cụm rạp</TableCell>
-              <TableCell className={styles.darkRow}>Tên rạp</TableCell>
-              <TableCell className={styles.darkRow}>Số ghế</TableCell>
+              <TableCell className={styles.darkCell}>Cụm rạp</TableCell>
+              <TableCell className={styles.darkCell}>Tên rạp</TableCell>
+              <TableCell className={styles.darkCell}>Số ghế</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{renderBookingInfo()}</TableBody>
           <TableFooter>
             <TableRow>
               <TablePagination
-                className={`${styles.footer} ${styles.darkRow}`}
+                className={`${styles.footer} ${styles.darkCell}`}
                 classes={{
                   select: styles.select,
                   selectIcon: styles.selectIcon,

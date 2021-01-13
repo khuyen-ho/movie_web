@@ -72,11 +72,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 920,
   },
 
-  darkRow: {
+  darkCell: {
     background: theme.palette.grey.dark,
     color: theme.palette.white.main,
     fontWeight: 500,
     padding: theme.spacing(1.5),
+    textAlign: "center",
   },
 
   footer: {
@@ -95,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
 
   cell: {
     padding: theme.spacing(1.5),
+    textAlign: "center",
   },
 
   row: {
