@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import Switch from "@material-ui/core/Switch";
 import useStyles from "./style";
+import { NavLink } from "react-router-dom";
 
 const SignIn = (props) => {
   const styles = useStyles();
@@ -49,13 +50,15 @@ const SignIn = (props) => {
             control={<Switch name="keepLoggedIn" />}
             label="Duy trì đăng nhập"
           />
-          <Link
-            href="#"
-            className={`${styles.label} ${styles.link}`}
-            variant="subtitle1"
-          >
-            Đăng ký tài khoản
-          </Link>
+          <NavLink to="/signup">
+            <Link
+              href="#"
+              className={`${styles.label} ${styles.link}`}
+              variant="subtitle1"
+            >
+              Đăng ký tài khoản
+            </Link>
+          </NavLink>
         </Box>
       </Box>
     </form>
