@@ -8,6 +8,7 @@ import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
 import useStyles from "./style";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -82,12 +83,14 @@ const Header = (props) => {
         </Menu>
 
         <Box className={styles.signInUp}>
+          <NavLink to='signup'>
           <Tag
             iconElement={<PersonAddIcon fontSize="large" />}
             color={theme.palette.grey.main}
             hoverColor={theme.palette.secondary.main}
             title={links[3].title}
           />
+          </NavLink>
         </Box>
         <Box className={styles.search}>
           <Search placeholder="Nhập tên phim..." />

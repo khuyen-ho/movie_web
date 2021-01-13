@@ -5,6 +5,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import Tag from "../Tag";
 import useStyles from "./style";
+import { NavLink } from "react-router-dom";
 
 const SignInUpNavBar = () => {
   const styles = useStyles();
@@ -13,25 +14,31 @@ const SignInUpNavBar = () => {
     <AppBar color="transparent" className={styles.root}>
       <Toolbar className={styles.toolBar}>
         <Box marginLeft={2}>
-          <Tag
-            title="Trang chủ"
-            iconElement={<MovieRoundedIcon fontSize="large" />}
-            link="#"
-          />
+          <NavLink to="/">
+            <Tag
+              title="Trang chủ"
+              iconElement={<MovieRoundedIcon fontSize="large" />}
+              link="#"
+            />
+          </NavLink>
         </Box>
         <Box marginLeft={2}>
-          <Tag
-            title="Đăng Nhập"
-            iconElement={<AccountCircleIcon fontSize="large" />}
-            link="#"
-          />
+          <NavLink to="/signin">
+            <Tag
+              title="Đăng Nhập"
+              iconElement={<AccountCircleIcon fontSize="large" />}
+              link="#"
+            />
+          </NavLink>
         </Box>
         <Box marginLeft={2}>
-          <Tag
-            title="Đăng Ký"
-            iconElement={<PersonAddIcon fontSize="large" />}
-            link="#"
-          />
+          <NavLink to="/signup">
+            <Tag
+              title="Đăng Ký"
+              iconElement={<PersonAddIcon fontSize="large" />}
+              link="#"
+            />
+          </NavLink>
         </Box>
       </Toolbar>
     </AppBar>

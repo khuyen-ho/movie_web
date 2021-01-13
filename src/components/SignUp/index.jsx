@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
+import { NavLink } from "react-router-dom";
 
-const SignIn = (props) => {
+const SignUp = (props) => {
   const styles = useStyles();
 
   return (
@@ -65,17 +66,19 @@ const SignIn = (props) => {
 
         <Typography component="span" className={styles.label}>
           {`Đã có tài khoản? `}
-          <Link
-            href="#"
-            className={`${styles.label} ${styles.link}`}
-            variant="subtitle1"
-          >
-            Đăng nhập
-          </Link>
+          <NavLink to="signin">
+            <Link
+              href="#"
+              className={`${styles.label} ${styles.link}`}
+              variant="subtitle1"
+            >
+              Đăng nhập
+            </Link>
+          </NavLink>
         </Typography>
       </Box>
     </form>
   );
 };
 
-export default SignIn;
+export default SignUp;
