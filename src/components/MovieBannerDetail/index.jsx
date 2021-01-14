@@ -33,6 +33,7 @@ const MovieBannerDetail = (props) => {
                 color="secondary"
                 fullWidth
                 className={styles.button}
+                onClick={()=>{alert("Hãy chọn suất chiếu")}}
               >
                 MUA VÉ
               </Button>
