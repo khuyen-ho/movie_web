@@ -3,32 +3,26 @@ import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
 import { NavLink } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
 import Axios from "axios";
+import { signUpSchema } from "../../services/user";
 
-const signUpSchema = yup.object().shape({
-  taiKhoan: yup.string().required("*Bắt buộc"),
-  matKhau: yup.string().required("*Bắt buộc"),
-  email: yup.string().required("*Bắt buộc").email("*Email không hợp lệ"),
-  soDt: yup
-    .string()
-    .required("*Bắt buộc")
-    .matches(/^[0-9]+$/, "Số điện thoại không hợp lệ"),
-
-  hoTen: yup.string().required("*Bắt buộc"),
-});
-
-const SignUp = (props) => {
+const SignUp = ({ props }) => {
   const styles = useStyles();
   const handleSubmit = (user) => {
-    // console.log(user);
+    console.log(props);
     Axios({
       method: "POST",
       url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
       data: user,
     })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        console.log(res);
+        props.history.replace("/home");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Đăng kí thất bại");
+      });
   };
   return (
     <Formik

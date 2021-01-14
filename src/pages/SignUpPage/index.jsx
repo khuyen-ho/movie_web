@@ -5,7 +5,7 @@ import SignInUpNavBar from "../../components/SignInUpNavBar";
 import SignUp from "../../components/SignUp";
 import useStyles from "./style";
 
-const SignUpPage = () => {
+const SignUpPage = (props) => {
   const styles = useStyles();
 
   return (
@@ -19,7 +19,7 @@ const SignUpPage = () => {
         </Box> */}
 
       <Box className={styles.center}>
-        <SignUp />
+        <SignUp props={props}/>
       </Box>
     </Box>
   );

@@ -6,7 +6,7 @@ import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
 const MovieDetail = () => {
   const styles = useStyles();
-
+  
   return (
     <Box className={styles.root}>
       <MovieBannerDetail />

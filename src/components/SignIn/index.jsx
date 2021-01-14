@@ -13,16 +13,19 @@ import { NavLink } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { userService } from "../../services";
 
-const SignIn = (props) => {
+const SignIn = ({ props }) => {
   const styles = useStyles();
 
   const handleSubmit = (user) => {
-    userService.signIn(user)
+    userService
+      .signIn(user)
       .then((res) => {
         console.log(res);
+        props.history.replace("/home");
       })
       .catch((err) => {
         console.log(err);
+        alert("Tài khoản hoặc mật khẩu không chính xác")
       });
   };
   return (
