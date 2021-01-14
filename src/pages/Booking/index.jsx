@@ -33,7 +33,6 @@ const Booking = (props) => {
       </Container>
     );
   } else {
-    alert("Vui lòng đăng nhập");
     return <Redirect to="/signin" />;
   }
 };

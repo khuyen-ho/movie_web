@@ -19,7 +19,6 @@ const Home = (props) => {
       </Box>
     );
   } else {
-    alert("Vui lòng đăng nhập");
     return <Redirect to="/signin" />;
   }
 };
