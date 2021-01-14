@@ -17,32 +17,27 @@ const socials = [
 
 const cinemaSystem = [
   {
-    maHeThongRap: "BHDStar",
-    tenHeThongRap: "BHD Star Cineplex",
+    alt: "BHDStar",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
     url: "https://www.bhdstar.vn/",
   },
   {
-    maHeThongRap: "CGV",
-    tenHeThongRap: "cgv",
+    alt: "CGV",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png",
     url: "https://www.cgv.vn/",
   },
   {
-    maHeThongRap: "CineStar",
-    tenHeThongRap: "CineStar",
+    alt: "CineStar",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cinestar.png",
     url: "https://cinestar.com.vn/",
   },
   {
-    maHeThongRap: "Galaxy",
-    tenHeThongRap: "Galaxy Cinema",
+    alt: "Galaxy",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/galaxy-cinema.png",
     url: "https://www.galaxycine.vn/",
   },
   {
-    maHeThongRap: "LotteCinema",
-    tenHeThongRap: "Lotte Cinema",
+    alt: "LotteCinema",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/lotte-cinema.png",
     url: "http://www.lottecinemavn.com/LCHS/Contents/Movie/Movie-List.aspx",
   },
@@ -101,14 +96,10 @@ const Footer = (props) => {
                 Danh sách
               </Typography>
               <NavLink to="/home">
-                <Link href="#movieList" className={styles.link} variant="body2">
+                <Link href="#" className={styles.link} variant="body2">
                   Lịch chiếu
                 </Link>
-                <Link
-                  href="#scheduleCinema"
-                  className={styles.link}
-                  variant="body2"
-                >
+                <Link href="#" className={styles.link} variant="body2">
                   Cụm rạp
                 </Link>
               </NavLink>
@@ -120,9 +111,9 @@ const Footer = (props) => {
               <Typography variant="body1" className={styles.title}>
                 Hot line
               </Typography>
-              <Link href="#" className={styles.link} variant="body2">
+              <Typography href="#" className={styles.link} variant="body2">
                 0123456789
-              </Link>
+              </Typography>
             </Box>
           </Grid>
         </Grid>
