@@ -1,7 +1,7 @@
-import { Box, Container, Grid, Link, Typography } from "@material-ui/core";
+import { Box, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
-
+import { NavLink, Link } from "react-router-dom";
 const socials = [
   {
     logo: "https://tix.vn/app/assets/img/icons/facebook-logo.png",
@@ -15,42 +15,42 @@ const socials = [
   },
 ];
 
-const cinemas = [
+const cinemaSystem = [
   {
     maHeThongRap: "BHDStar",
     tenHeThongRap: "BHD Star Cineplex",
-    biDanh: "bhd-star-cineplex",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
+    url: "https://www.bhdstar.vn/",
   },
   {
     maHeThongRap: "CGV",
     tenHeThongRap: "cgv",
-    biDanh: "cgv",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png",
+    url: "https://www.cgv.vn/",
   },
   {
     maHeThongRap: "CineStar",
     tenHeThongRap: "CineStar",
-    biDanh: "cinestar",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/cinestar.png",
+    url: "https://cinestar.com.vn/",
   },
   {
     maHeThongRap: "Galaxy",
     tenHeThongRap: "Galaxy Cinema",
-    biDanh: "galaxy-cinema",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/galaxy-cinema.png",
+    url: "https://www.galaxycine.vn/",
   },
   {
-    maHeThongRap: "LotteCinima",
+    maHeThongRap: "LotteCinema",
     tenHeThongRap: "Lotte Cinema",
-    biDanh: "lotte-cinema",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/lotte-cinema.png",
+    url: "http://www.lottecinemavn.com/LCHS/Contents/Movie/Movie-List.aspx",
   },
   {
     maHeThongRap: "MegaGS",
     tenHeThongRap: "MegaGS",
-    biDanh: "megags",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/megags.png",
+    url: "https://www.megagscinemas.vn/",
   },
 ];
 
@@ -67,13 +67,13 @@ const Footer = (props) => {
               </Typography>
 
               {socials.map((social, index) => (
-                <Link href={social.url} key={index}>
+                <a href={social.url} key={index}>
                   <img
                     className={styles.logo}
                     src={social.logo}
                     alt={social.alt}
                   />
-                </Link>
+                </a>
               ))}
             </Box>
           </Grid>
@@ -83,14 +83,14 @@ const Footer = (props) => {
               <Typography variant="body1" className={styles.title}>
                 Hệ thống rạp
               </Typography>
-              {cinemas.map((item, index) => (
-                <Link href="#" key={index}>
+              {cinemaSystem.map((item, index) => (
+                <a href={item.url} key={index}>
                   <img
                     className={styles.logo}
                     src={item.logo}
                     alt={item.maHeThongRap}
                   />
-                </Link>
+                </a>
               ))}
             </Box>
           </Grid>
@@ -100,12 +100,18 @@ const Footer = (props) => {
               <Typography variant="body1" className={styles.title}>
                 Danh sách
               </Typography>
-              <Link href="#" className={styles.link} variant="body2">
-                Lịch chiếu
-              </Link>
-              <Link href="#" className={styles.link} variant="body2">
-                Cụm rạp
-              </Link>
+              <NavLink to="/home">
+                <Link href="#movieList" className={styles.link} variant="body2">
+                  Lịch chiếu
+                </Link>
+                <Link
+                  href="#scheduleCinema"
+                  className={styles.link}
+                  variant="body2"
+                >
+                  Cụm rạp
+                </Link>
+              </NavLink>
             </Box>
           </Grid>
 

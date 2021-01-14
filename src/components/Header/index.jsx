@@ -9,9 +9,7 @@ import Tag from "../Tag";
 import Search from "../Search";
 import useStyles, { CssMenu } from "./style";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/actions/userAction";
 import { REMOVE_CREDENTIALS } from "../../redux/actions/actionType";
 
 const Header = (props) => {
@@ -36,11 +34,11 @@ const Header = (props) => {
     const navLinks = [];
     for (let i = 0; i < 2; i++) {
       navLinks.push(
-        // <NavLink to={links[i].path}>
+         <NavLink to='/home'>
           <Link href={links[i].path} className={styles.link} key={i} variant="subtitle2">
             {links[i].title}
           </Link>
-        // </NavLink>
+         </NavLink>
       );
     }
     return <Box className={styles.links}>{navLinks}</Box>;
