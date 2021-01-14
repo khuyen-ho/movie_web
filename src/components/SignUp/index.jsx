@@ -5,16 +5,18 @@ import { NavLink } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import { signUpSchema } from "../../services/user";
+import { userService } from "../../services";
 
 const SignUp = ({ props }) => {
   const styles = useStyles();
   const handleSubmit = (user) => {
     console.log(props);
-    Axios({
-      method: "POST",
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
-      data: user,
-    })
+    // Axios({
+    //   method: "POST",
+    //   url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+    //   data: user,
+    // })
+    userService.signUp
       .then((res) => {
         console.log(res);
         props.history.replace("/home");
