@@ -5,21 +5,22 @@ import BookingInfo from "../../components/BookingInfo";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
 import { Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = (props) => {
   const styles = useStyles();
-  console.log(props.history);
-  if (localStorage.getItem("userLogin")) {
+  const userLogin = useSelector((state) => state.userLogin);
+
+  if (userLogin) {
     return (
       <Box className={styles.root}>
         <PersonalInfo />
         <BookingInfo />
       </Box>
     );
-  }
-  else{
-    alert("Vui lòng đăng nhập")
-    return <Redirect to='/signin'/>
+  } else {
+    alert("Vui lòng đăng nhập");
+    return <Redirect to="/signin" />;
   }
 };
 

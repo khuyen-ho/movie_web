@@ -21,21 +21,6 @@ const SignIn = ({ props }) => {
   const userLogin = useSelector((state) => state.userLogin);
   let dispatch = useDispatch();
   const handleSubmit = (user) => {
-    // userService
-    //   .signIn(user)
-    //   .then((res) => {
-    //     dispatch({
-    //       type: FETCH_CREDENTIALS,
-    //       payload: res.data,
-    //     });
-    //     //console.log(res.data);
-    //     props.history.replace("/home");
-    //     localStorage.setItem("userLogin", JSON.stringify(res.data));
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     alert("Tài khoản hoặc mật khẩu không chính xác");
-    //   });
     dispatch(login(user));
   };
   if (!userLogin) {
