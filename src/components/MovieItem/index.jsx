@@ -4,7 +4,7 @@ import useStyles from "./style";
 import Poster from "../Poster";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
   const styles = useStyles();
@@ -17,7 +17,7 @@ const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
       <Typography variant="subtitle2" className={styles.openingDay}>
         {getFullDate(ngayKhoiChieu)}
       </Typography>
-      <Link to={`/movieDetail/${tenPhim}`}>
+      <NavLink to={`/movieDetail/${tenPhim}`}>
       <Button
         variant="contained"
         color="secondary"
@@ -26,7 +26,7 @@ const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
       >
         MUA VÉ
       </Button>
-      </Link>
+      </NavLink>
       <Box className={styles.rating}>
         <Rating score={danhGia} type="mini" />
       </Box>

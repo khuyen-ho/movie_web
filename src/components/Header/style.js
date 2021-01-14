@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     boxShadow: theme.shadows[22],
     opacity: 0.95,
+    "& a:hover": {
+      textDecoration: "none",
+    },
 
     [theme.breakpoints.up("xs")]: {
       padding: theme.spacing(1.5, 1),
