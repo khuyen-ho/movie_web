@@ -8,6 +8,7 @@ import AccountDetail from "./pages/AccountDetail";
 import Admin from "./pages/Admin";
 import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
+import Page404 from "./pages/Page404";
 
 const App = () => {
   
@@ -22,7 +23,7 @@ const App = () => {
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
-        <Route path="*" component={Home} />
+        <Route path="*" component={Page404} />
       </Switch>
     </BrowserRouter>
   );

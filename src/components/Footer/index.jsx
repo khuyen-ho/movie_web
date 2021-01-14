@@ -1,7 +1,8 @@
-import { Box, Container, Grid, Typography } from "@material-ui/core";
+import { Box, Container, Grid, Link, Typography } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 const socials = [
   {
     logo: "https://tix.vn/app/assets/img/icons/facebook-logo.png",
@@ -51,6 +52,9 @@ const cinemaSystem = [
 
 const Footer = (props) => {
   const styles = useStyles();
+  const { url } = useSelector((state) => state.currentPage);
+  console.log(url);
+
   return (
     <Box className={styles.root}>
       <Container maxWidth="lg">
@@ -95,14 +99,41 @@ const Footer = (props) => {
               <Typography variant="body1" className={styles.title}>
                 Danh sách
               </Typography>
-              <NavLink to="/home">
-                <Link href="#" className={styles.link} variant="body2">
-                  Lịch chiếu
-                </Link>
-                <Link href="#" className={styles.link} variant="body2">
-                  Cụm rạp
-                </Link>
-              </NavLink>
+              {url === "/home" ? (
+                <>
+                  <Link
+                    href="#movieList"
+                    className={styles.link}
+                    variant="body2"
+                  >
+                    Lịch chiếu
+                  </Link>
+                  <Link
+                    href="#scheduleCinema"
+                    className={styles.link}
+                    variant="body2"
+                  >
+                    Cụm rạp
+                  </Link>
+                </>
+              ) : (
+                <NavLink to="/home">
+                  <Link
+                    href="#movieList"
+                    className={styles.link}
+                    variant="body2"
+                  >
+                    Lịch chiếu
+                  </Link>
+                  <Link
+                    href="#scheduleCinema"
+                    className={styles.link}
+                    variant="body2"
+                  >
+                    Cụm rạp
+                  </Link>
+                </NavLink>
+              )}
             </Box>
           </Grid>
 

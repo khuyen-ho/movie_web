@@ -8,6 +8,7 @@ import cinemaSystems from "./reducers/cinemaSystem";
 import cinemas from "./reducers/cinema";
 import showTimes from "./reducers/showTime";
 import user from "./reducers/user";
+import currentPage from "./reducers/page";
 const RootReducer = combineReducers({
   account,
   banners,
@@ -15,7 +16,8 @@ const RootReducer = combineReducers({
   cinemaSystems,
   cinemas,
   showTimes,
-  userLogin:user
+  userLogin: user,
+  currentPage,
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
