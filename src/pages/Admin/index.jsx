@@ -7,8 +7,9 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import ScheduleIcon from "@material-ui/icons/Schedule";
 import AccountManagement from "../../components/AccountManagement";
-import PersonalInfo from "../../components/PersonalInfo";
+import ShowTimeManagement from "../../components/ShowTimeManagement";
 import MovieManagement from "../../components/MovieManagement";
+import PersonalInfo from "../../components/PersonalInfo";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Tag from "../../components/Tag";
 import useStyles from "./style";
@@ -111,7 +112,7 @@ const Admin = () => {
         </List>
       </Box>
       <Box className={styles.info}>
-        <MovieManagement />
+        <ShowTimeManagement />
       </Box>
     </Container>
   );

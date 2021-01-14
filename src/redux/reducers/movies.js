@@ -1,5 +1,3 @@
-import { GET_MOVIE_LIST } from "../actions/actionType";
-
 let initialState = [
   {
     maPhim: 1283,

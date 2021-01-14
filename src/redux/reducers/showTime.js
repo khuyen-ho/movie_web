@@ -162,11 +162,11 @@ let initialState = [
   },
 ];
 
-const showTimes = (state = initialState, action) => {
+const showTime = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default showTimes;
+export default showTime;
