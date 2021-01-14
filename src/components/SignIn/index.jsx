@@ -20,12 +20,13 @@ const SignIn = ({ props }) => {
     userService
       .signIn(user)
       .then((res) => {
-        console.log(res);
+        // console.log(res.data);
         props.history.replace("/home");
+        localStorage.setItem("userLogin", JSON.stringify(res.data));
       })
       .catch((err) => {
         console.log(err);
-        alert("Tài khoản hoặc mật khẩu không chính xác")
+        alert("Tài khoản hoặc mật khẩu không chính xác");
       });
   };
   return (

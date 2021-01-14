@@ -7,7 +7,7 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
-import useStyles from "./style";
+import useStyles, { CssMenu } from "./style";
 import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
@@ -47,6 +47,11 @@ const Header = (props) => {
     setAccountAnchor(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userLogin");
+    handleClose();
+  };
+
   return (
     <Box className={styles.root}>
       <Box marginRight={1}>
@@ -71,25 +76,27 @@ const Header = (props) => {
             title="ctlong"
           />
         </Box>
-        <Menu
+        <CssMenu
           id="simple-menu"
           anchorEl={accountAnchor}
           keepMounted
           open={Boolean(accountAnchor)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
-          <MenuItem onClick={handleClose}>Đăng xuất</MenuItem>
-        </Menu>
+          <NavLink to="/accountDetail">
+            <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
+          </NavLink>
+          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+        </CssMenu>
 
         <Box className={styles.signInUp}>
-          <NavLink to='signup'>
-          <Tag
-            iconElement={<PersonAddIcon fontSize="large" />}
-            color={theme.palette.grey.main}
-            hoverColor={theme.palette.secondary.main}
-            title={links[3].title}
-          />
+          <NavLink to="signup">
+            <Tag
+              iconElement={<PersonAddIcon fontSize="large" />}
+              color={theme.palette.grey.main}
+              hoverColor={theme.palette.secondary.main}
+              title={links[3].title}
+            />
           </NavLink>
         </Box>
         <Box className={styles.search}>

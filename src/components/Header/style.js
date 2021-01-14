@@ -1,4 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Menu, MenuItem } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -92,5 +94,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export const CssMenu = withStyles((theme) => ({
+  list: {
+    "& .MuiListItem-root": {
+      color: "black",
+    },
+    "& a": {
+      "&:hover": {
+        textDecoration: "none",
+      },
+    },
+  },
+}))(Menu);
 
 export default useStyles;
