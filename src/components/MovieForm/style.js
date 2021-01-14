@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary.main,
-    margin: theme.spacing(1, 0),
-    textAlign: "left",
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(2),
     fontSize: theme.typography.h6.fontSize,
   },
 
@@ -14,9 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   input: {
-    margin: theme.spacing(1, 0),
     marginRight: theme.spacing(1),
-    width: "48%",
+    width: "100%",
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
@@ -41,8 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   datePicker: {
-    margin: theme.spacing(1, 0),
-    width: "48%",
+    width: "100%",
 
     "& button": {
       outlineStyle: "none",
@@ -78,9 +76,49 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  info: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+  },
+
+  uploader: {
+    "& .fileContainer": {
+      border: "1.0px solid red",
+      height: 372,
+      justifyContent: "flex-start",
+      margin: 0,
+      padding: theme.spacing(1, 0),
+      borderColor: theme.palette.primary.main,
+      borderRadius: theme.shape.borderRadius,
+      "& p": {
+        margin: theme.spacing(0.5, 0),
+      },
+
+      "& button": {
+        color: theme.palette.white,
+        margin: theme.spacing(1),
+        fontSize: theme.typography.subtitle2.fontSize,
+        fontWeight: theme.typography.subtitle2.fontWeight,
+        background: theme.palette.primary.main,
+      },
+
+      "& .uploadPictureContainer": {
+        margin: 0,
+        width: 150,
+
+        "& .deleteImage": {
+          background: theme.palette.secondary.main,
+        },
+      },
+    },
+  },
+
   button: {
     color: theme.palette.white,
-    margin: theme.spacing(1, 0),
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
     "&:focus": {
