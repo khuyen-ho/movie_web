@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Avatar, Box, Typography, Link } from "@material-ui/core";
+import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
+import {Link} from 'react-router-dom'
 
 const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
   const styles = useStyles(props);
@@ -26,7 +27,7 @@ const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
             {address}
           </Typography>
           {props.hasDetailLink && (
-            <Link href="#" className={styles.detail} variant="body2">
+            <Link to="/cinemaDetail" className={styles.detail} variant="body2">
               [chi tiết]
             </Link>
           )}
