@@ -9,11 +9,17 @@ import Tag from "../Tag";
 import Search from "../Search";
 import useStyles, { CssMenu } from "./style";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/actions/userAction";
+import { REMOVE_CREDENTIALS } from "../../redux/actions/actionType";
 
 const Header = (props) => {
   const theme = useTheme();
   const [accountAnchor, setAccountAnchor] = React.useState(null);
   const styles = useStyles();
+  const userLogin = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch();
 
   const links = [
     { title: "Lịch Chiếu", path: "#" },
@@ -48,6 +54,10 @@ const Header = (props) => {
   };
 
   const handleLogout = () => {
+    dispatch({
+      type: REMOVE_CREDENTIALS,
+      payload: "",
+    });
     localStorage.removeItem("userLogin");
     handleClose();
   };
@@ -55,50 +65,58 @@ const Header = (props) => {
   return (
     <Box className={styles.root}>
       <Box marginRight={1}>
-        <Tag
-          iconElement={<MovieRoundedIcon fontSize="large" />}
-          color={theme.palette.secondary.main}
-          hoverColor="none"
-          noTitle
-        />
+        <NavLink to="/home">
+          <Tag
+            iconElement={<MovieRoundedIcon fontSize="large" />}
+            color={theme.palette.secondary.main}
+            hoverColor="none"
+            noTitle
+          />
+        </NavLink>
       </Box>
       <Box className={styles.links}>{createNavlinks}</Box>
       <Box className={styles.right}>
-        <Box
-          className={styles.signInUp}
-          aria-haspopup="true"
-          onClick={handleClick}
-        >
-          <Tag
-            iconElement={<AccountCircleIcon fontSize="large" />}
-            color={theme.palette.grey.main}
-            hoverColor={theme.palette.secondary.main}
-            title="ctlong"
-          />
-        </Box>
-        <CssMenu
-          id="simple-menu"
-          anchorEl={accountAnchor}
-          keepMounted
-          open={Boolean(accountAnchor)}
-          onClose={handleClose}
-        >
-          <NavLink to="/accountDetail">
-            <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
-          </NavLink>
-          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
-        </CssMenu>
+        {userLogin ? (
+          <>
+            {" "}
+            <Box
+              className={styles.signInUp}
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
+              <Tag
+                iconElement={<AccountCircleIcon fontSize="large" />}
+                color={theme.palette.grey.main}
+                hoverColor={theme.palette.secondary.main}
+                title="ctlong"
+              />
+            </Box>
+            <CssMenu
+              id="simple-menu"
+              anchorEl={accountAnchor}
+              keepMounted
+              open={Boolean(accountAnchor)}
+              onClose={handleClose}
+            >
+              <NavLink to="/accountDetail">
+                <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
+              </NavLink>
+              <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+            </CssMenu>
+          </>
+        ) : (
+          <Box className={styles.signInUp}>
+            <NavLink to="signup">
+              <Tag
+                iconElement={<PersonAddIcon fontSize="large" />}
+                color={theme.palette.grey.main}
+                hoverColor={theme.palette.secondary.main}
+                title={links[3].title}
+              />
+            </NavLink>
+          </Box>
+        )}
 
-        <Box className={styles.signInUp}>
-          <NavLink to="signup">
-            <Tag
-              iconElement={<PersonAddIcon fontSize="large" />}
-              color={theme.palette.grey.main}
-              hoverColor={theme.palette.secondary.main}
-              title={links[3].title}
-            />
-          </NavLink>
-        </Box>
         <Box className={styles.search}>
           <Search placeholder="Nhập tên phim..." />
         </Box>
