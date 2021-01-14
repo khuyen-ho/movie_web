@@ -4,9 +4,12 @@ import ScheduleMovieDetail from "../../components/ScheduleMovieDetail";
 import MovieBannerDetail from "../../components/MovieBannerDetail";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
+import { useEffect } from "react";
 const MovieDetail = (props) => {
   const styles = useStyles();
-  // console.log(props.match);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <Box className={styles.root}>
       <MovieBannerDetail />

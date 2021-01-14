@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
@@ -10,6 +10,7 @@ import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 
 const App = () => {
+  
   return (
     <BrowserRouter>
       <Switch>

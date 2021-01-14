@@ -40,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   links: {
+    "& a": {
+      color: theme.palette.grey.dark,
+      "&:hover": {
+        color: theme.palette.secondary.main,
+        transition:"all 0.15s"
+      },
+    },
+
     [theme.breakpoints.up("xs")]: {
       display: "none",
     },

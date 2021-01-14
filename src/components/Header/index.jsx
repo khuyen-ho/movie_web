@@ -22,24 +22,21 @@ const Header = (props) => {
   const dispatch = useDispatch();
 
   const links = [
-    { title: "Lịch Chiếu", path: "#" },
-    { title: "Cụm Rạp", path: "#" },
-    { title: "Đăng Nhập", path: "#" },
-    { title: "Đăng Ký", path: "#" },
+    { title: "Lịch Chiếu", path: "/home" },
+    { title: "Cụm Rạp", path: "/home" },
+    { title: "Đăng Nhập", path: "/signin" },
+    { title: "Đăng Ký", path: "/signup" },
   ];
 
   const createNavlinks = () => {
     const navLinks = [];
     for (let i = 0; i < links.length - 2; i++) {
       navLinks.push(
-        <Link
-          href={links[i].path}
-          className={styles.link}
-          key={i}
-          variant="subtitle2"
-        >
-          {links[i].title}
-        </Link>
+        <NavLink to={links[i].path}>
+          <Link className={styles.link} key={i} variant="subtitle2">
+            {links[i].title}
+          </Link>
+        </NavLink>
       );
     }
     return <Box className={styles.links}>{navLinks}</Box>;
@@ -78,7 +75,6 @@ const Header = (props) => {
       <Box className={styles.right}>
         {userLogin ? (
           <>
-            {" "}
             <Box
               className={styles.signInUp}
               aria-haspopup="true"
@@ -106,7 +102,7 @@ const Header = (props) => {
           </>
         ) : (
           <Box className={styles.signInUp}>
-            <NavLink to="signup">
+            <NavLink to={links[3].path}>
               <Tag
                 iconElement={<PersonAddIcon fontSize="large" />}
                 color={theme.palette.grey.main}

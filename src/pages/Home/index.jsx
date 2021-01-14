@@ -6,9 +6,12 @@ import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
 import useStyles from "./style";
 import wrapper from '../../HOCs/Wrapper'
+import { useEffect } from "react";
 const Home = () => {
   const styles = useStyles();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <Box className={styles.root}>
       <Carousel />

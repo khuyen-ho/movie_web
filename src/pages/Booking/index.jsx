@@ -1,5 +1,6 @@
 import { Box, Container, Grid } from "@material-ui/core";
 import React from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import BookingNavBar from "../../components/BookingNavBar";
@@ -9,6 +10,9 @@ import useStyles from "./style";
 
 const Booking = (props) => {
   const styles = useStyles();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const userLogin = useSelector((state) => state.userLogin);
   if (userLogin) {
     return (
