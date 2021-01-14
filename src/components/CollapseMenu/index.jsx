@@ -11,7 +11,7 @@ import {
 import { Menu } from "@material-ui/icons";
 import { useState } from "react";
 import useStyles from "./style";
-
+import { NavLink } from "react-router-dom";
 const CollapseMenu = ({ links }) => {
   const [state, setState] = useState({ right: false });
   const styles = useStyles();
@@ -26,11 +26,13 @@ const CollapseMenu = ({ links }) => {
       >
         <List component="nav">
           {links.map(({ title, path }) => (
-            <Link href={path} key={title} className={styles.linkText}>
-              <ListItem button>
-                <ListItemText primary={title} />
-              </ListItem>
-            </Link>
+            // <NavLink to={path}>
+              <Link href={path} key={title} className={styles.linkText}>
+                <ListItem button>
+                  <ListItemText primary={title} />
+                </ListItem>
+              </Link>
+            // </NavLink>
           ))}
         </List>
       </div>

@@ -22,21 +22,25 @@ const Header = (props) => {
   const dispatch = useDispatch();
 
   const links = [
-    { title: "Lịch Chiếu", path: "/home" },
-    { title: "Cụm Rạp", path: "/home" },
-    { title: "Đăng Nhập", path: "/signin" },
-    { title: "Đăng Ký", path: "/signup" },
+    { title: "Lịch Chiếu", path: "#movieList" },
+    { title: "Cụm Rạp", path: "#scheduleCinema" },
   ];
+  if (!userLogin) {
+    links.push(
+      { title: "Đăng Nhập", path: "/signin" },
+      { title: "Đăng Ký", path: "/signup" }
+    );
+  }
 
   const createNavlinks = () => {
     const navLinks = [];
-    for (let i = 0; i < links.length - 2; i++) {
+    for (let i = 0; i < 2; i++) {
       navLinks.push(
-        <NavLink to={links[i].path}>
-          <Link className={styles.link} key={i} variant="subtitle2">
+        // <NavLink to={links[i].path}>
+          <Link href={links[i].path} className={styles.link} key={i} variant="subtitle2">
             {links[i].title}
           </Link>
-        </NavLink>
+        // </NavLink>
       );
     }
     return <Box className={styles.links}>{navLinks}</Box>;

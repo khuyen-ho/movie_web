@@ -5,7 +5,7 @@ import SearchMovie from "../../components/SearchMovie";
 import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
 import useStyles from "./style";
-import wrapper from '../../HOCs/Wrapper'
+import wrapper from "../../HOCs/Wrapper";
 import { useEffect } from "react";
 const Home = () => {
   const styles = useStyles();
@@ -16,8 +16,12 @@ const Home = () => {
     <Box className={styles.root}>
       <Carousel />
       <SearchMovie />
-      <MovieList />
-      <ScheduleCinema />
+      <div id="movieList">
+        <MovieList />
+      </div>
+      <div id="scheduleCinema">
+        <ScheduleCinema />
+      </div>
     </Box>
   );
 };
