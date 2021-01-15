@@ -145,6 +145,16 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiPickersTimePickerToolbar: {
+      hourMinuteLabel: {
+        "& button": {
+          outline: "none",
+          "&:hover": {
+            background: "none",
+          },
+        },
+      },
+    },
   },
   breakpoints: {
     values: {

@@ -3,39 +3,35 @@ import PropTypes from "prop-types";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardDatePicker,
+  KeyboardTimePicker,
 } from "@material-ui/pickers";
 import useStyles from "./style";
 
-const DatePicker = (props) => {
+const TimePicker = (props) => {
   const [date, setDate] = useState(new Date());
   const styles = useStyles();
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        disableToolbar
-        autoOk
-        animateYearScrolling
+      <KeyboardTimePicker
+        ampm={false}
         variant="inline"
         inputVariant="outlined"
+        label={props.label}
         size="small"
         invalidDateMessage="Ngày không đúng định dạng"
         maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
         minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-        format="dd/MM/yyyy"
-        id="date"
-        label={props.label}
         value={date}
         onChange={(date) => setDate(date)}
-        className={styles.datePicker}
+        className={styles.timePicker}
       />
     </MuiPickersUtilsProvider>
   );
 };
 
-DatePicker.propTypes = {
+TimePicker.propTypes = {
   label: PropTypes.string,
 };
 
-export default DatePicker;
+export default TimePicker;

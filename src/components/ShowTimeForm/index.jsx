@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Box, Grid, Typography, TextField, Button } from "@material-ui/core";
 import DropDown from "../DropDown";
 import DatePicker from "../DatePicker";
+import TimePicker from "../TimePicker";
 import useStyles from "./style";
 
 const ShowTimeForm = (props) => {
@@ -78,33 +79,22 @@ const ShowTimeForm = (props) => {
             </Grid>
 
             <Grid item xs={4}>
-              <TextField
-                className={styles.input}
-                label="Mã lịch chiếu"
-                variant="outlined"
-                type="text"
-                size="small"
-                defaultValue={15235}
-              />
-              <Box className={styles.dropDown}>
-                <DatePicker label="Ngày chiếu" />
-              </Box>
-
-              {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardTimePicker
-                  ampm={false}
-                  variant="inline"
-                  inputVariant="outlined"
-                  label="Giờ chiếu"
+              <Box className={styles.info}>
+                <TextField
+                  className={styles.input}
+                  label="Mã lịch chiếu"
+                  variant="outlined"
+                  type="text"
                   size="small"
-                  invalidDateMessage="Ngày không đúng định dạng"
-                  maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-                  minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-                  value={showTimeDate}
-                  onChange={(date) => setShowTimeDate(date)}
-                  className={styles.datePicker}
+                  defaultValue={15235}
                 />
-              </MuiPickersUtilsProvider> */}
+                <Box className={styles.dropDown}>
+                  <DatePicker label="Ngày chiếu" />
+                </Box>
+                <Box className={styles.dropDown}>
+                  <TimePicker label="Giờ chiếu" />
+                </Box>
+              </Box>
             </Grid>
           </Grid>
         </Box>
