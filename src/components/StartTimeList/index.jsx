@@ -11,7 +11,7 @@ const StarTimeList = ({ list }) => {
     <Box className={styles.root}>
       {list.map((time, index) => {
         return (
-          <Link to="/booking">
+          <Link to="/booking" key={index}>
             <StartTime
               start={time.start}
               duration={time.duration}

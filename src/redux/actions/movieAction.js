@@ -3,9 +3,10 @@ import {
   GET_CINEMA_LIST,
   GET_MOVIE_LIST,
   GET_ADDRESS_CINEMA,
+  GET_MOVIE_DETAIL,
 } from "./actionType";
 import Axios from "axios";
-
+import { movieService } from "../../services";
 export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
@@ -76,5 +77,21 @@ export const getCinemaDetailList = (idCinema) => {
           console.log(err);
         });
     }
+  };
+};
+
+export const getMovieDetail = (movieTitle) => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    movieService
+      .fetchMovieDetail(movieTitle)
+      .then((res) => {
+        // console.log(res);
+        dispatch({
+          type: GET_MOVIE_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
   };
 };

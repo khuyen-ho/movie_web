@@ -5,7 +5,7 @@ let initialState = {
 };
 
 const currentPage = (state = initialState, action) => {
-   console.log(action);
+  //  console.log(action);
   switch (action.type) {
    
     case GET_CURRENT_WEB_PAGE: {

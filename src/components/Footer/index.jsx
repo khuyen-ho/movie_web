@@ -53,7 +53,7 @@ const cinemaSystem = [
 const Footer = (props) => {
   const styles = useStyles();
   const { url } = useSelector((state) => state.currentPage);
-  console.log(url);
+  // console.log(url);
 
   return (
     <Box className={styles.root}>

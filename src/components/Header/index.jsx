@@ -17,6 +17,7 @@ const Header = (props) => {
   const [accountAnchor, setAccountAnchor] = React.useState(null);
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
+  const { url } = useSelector((state) => state.currentPage);
   const dispatch = useDispatch();
 
   const links = [
@@ -33,13 +34,29 @@ const Header = (props) => {
   const createNavlinks = () => {
     const navLinks = [];
     for (let i = 0; i < 2; i++) {
-      navLinks.push(
-         <NavLink to='/home'>
-          <Link href={links[i].path} className={styles.link} key={i} variant="subtitle2">
-            {links[i].title}
-          </Link>
-         </NavLink>
-      );
+      url !== "/home"
+        ? navLinks.push(
+            <NavLink key={i} to="/home">
+              <Link
+                href={links[i].path}
+                className={styles.link}
+                key={i}
+                variant="subtitle2"
+              >
+                {links[i].title}
+              </Link>
+            </NavLink>
+          )
+        : navLinks.push(
+            <Link
+              href={links[i].path}
+              className={styles.link}
+              key={i}
+              variant="subtitle2"
+            >
+              {links[i].title}
+            </Link>
+          );
     }
     return <Box className={styles.links}>{navLinks}</Box>;
   };
