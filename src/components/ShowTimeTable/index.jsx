@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import DropDown from "../../components/DropDown";
-import { Grid, Box } from "@material-ui/core";
+import {
+  Grid,
+  Box,
+  Collapse,
+  FormControlLabel,
+  Checkbox,
+} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getFullDate, getTime } from "../../helpers/time-manager";
@@ -13,6 +19,7 @@ const ShowTimeTable = (props) => {
   const cinemas = useSelector((state) => state.cinemas);
   const movies = useSelector((state) => state.movies);
   const showTimes = useSelector((state) => state.showTimes);
+  const [search, setSearch] = useState(false);
   const styles = useStyles();
 
   let cinemaSystemList = cinemaSystems.map((system) => system.tenHeThongRap);
@@ -45,17 +52,31 @@ const ShowTimeTable = (props) => {
 
   return (
     <>
-      <Grid container spacing={1}>
-        <Grid item xs={4} className={styles.dropDown}>
-          <DropDown label="Hệ thống rạp" list={cinemaSystemList} />
+      <FormControlLabel
+        classes={{ root: styles.checkbox, label: styles.label }}
+        control={
+          <Checkbox
+            checked={search}
+            onChange={() => setSearch(!search)}
+            name="search"
+          />
+        }
+        label="Tìm kiếm"
+      />
+      <Collapse in={search} timeout="auto">
+        <Grid container spacing={1}>
+          <Grid item xs={4} className={styles.dropDown}>
+            <DropDown label="Hệ thống rạp" list={cinemaSystemList} />
+          </Grid>
+          <Grid item xs={4} className={styles.dropDown}>
+            <DropDown label="Cụm rạp" list={cinemaList} />
+          </Grid>
+          <Grid item xs={4} className={styles.dropDown}>
+            <DropDown label="Phim" list={movieList} />
+          </Grid>
         </Grid>
-        <Grid item xs={4} className={styles.dropDown}>
-          <DropDown label="Cụm rạp" list={cinemaList} />
-        </Grid>
-        <Grid item xs={4} className={styles.dropDown}>
-          <DropDown label="Phim" list={movieList} />
-        </Grid>
-      </Grid>
+      </Collapse>
+
       <Box className={styles.table}>
         <Table
           headers={headers}

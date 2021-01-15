@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -11,7 +11,7 @@ import {
 import useStyles from "./style";
 
 const PersonalInfo = (props) => {
-  const [changePassword, setChangePassword] = React.useState(false);
+  const [changePassword, setChangePassword] = useState(false);
   const styles = useStyles();
 
   return (
