@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { ListItem } from "@material-ui/core";
@@ -6,14 +6,23 @@ import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import useStyles from "./style";
+import { getCinemaInfo } from "../../redux/actions/cinemaAction";
 
 const CinemaInfoList = (props) => {
-  const cinemaList = useSelector((state) => state.cinemas.list);
   const selectedCinema = useSelector((state) => state.cinemas.selected);
+  const selectedCinemaSystem = useSelector((state) => state.cinemaSystems);
   const dispatch = useDispatch();
   const styles = useStyles(props);
 
+  useEffect(() => {
+    //  console.log(selectedCinemaSystem.id);
+    dispatch(getCinemaInfo(selectedCinemaSystem.selected,selectedCinemaSystem.logo));
+  }, [selectedCinemaSystem]);
+
+  const cinemaList = useSelector((state) => state.cinemas.list);
+
   const handleClick = (id) => {
+    //console.log(id);
     dispatch({ type: GET_ID_CINEMA, payload: id });
   };
 

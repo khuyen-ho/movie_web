@@ -34,12 +34,14 @@ let initialState = {
     },
   ],
   selected: "BHDStar",
+  logo:"http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"
 };
 
 const cinemaSystems = (state = initialState, action) => {
   switch (action.type) {
     case GET_ID_CINEMA_SYSTEM: {
       state.selected = action.payload;
+      state.logo = action.logo
       return { ...state };
     }
     default:
