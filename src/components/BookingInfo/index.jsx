@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Box, Typography } from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
+import DatePicker from "../DatePicker";
 import Table from "../DataTable";
 import { getFullDate, getTime } from "../../helpers/time-manager";
 import useStyles from "./style";
 
 const BookingInfo = (props) => {
-  const [fromDate, setFromDate] = useState(new Date());
-  const [toDate, setToDate] = useState(new Date());
   const account = useSelector((state) => state.account);
   const styles = useStyles();
 
@@ -49,42 +43,16 @@ const BookingInfo = (props) => {
           Thông tin đặt vé
         </Typography>
       </Box>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Box className={styles.dateGroup}>
-          <KeyboardDatePicker
-            disableToolbar
-            autoOk
-            variant="inline"
-            inputVariant="outlined"
-            size="small"
-            invalidDateMessage="Ngày không đúng định dạng"
-            maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-            minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-            format="dd/MM/yyyy"
-            id="from-date"
-            label="Từ ngày"
-            value={fromDate}
-            onChange={(date) => setFromDate(date)}
-            className={styles.datePicker}
-          />
-          <KeyboardDatePicker
-            disableToolbar
-            autoOk
-            variant="inline"
-            inputVariant="outlined"
-            size="small"
-            invalidDateMessage="Ngày không đúng định dạng"
-            maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-            minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-            format="dd/MM/yyyy"
-            id="to-date"
-            label="Đến ngày"
-            value={toDate}
-            onChange={(date) => setToDate(date)}
-            className={styles.datePicker}
-          />
+
+      <Box className={styles.dateGroup}>
+        <Box className={styles.datePicker}>
+          <DatePicker label="Từ ngày" />
         </Box>
-      </MuiPickersUtilsProvider>
+        <Box className={styles.datePicker}>
+          <DatePicker label="Đến ngày" />
+        </Box>
+      </Box>
+
       <Box className={styles.table}>
         <Table headers={headers} rows={data} maxWidth={920} maxHeight={500} />
       </Box>

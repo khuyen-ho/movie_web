@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box, Grid, Typography, TextField, Button } from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-  KeyboardTimePicker,
-} from "@material-ui/pickers";
 import DropDown from "../DropDown";
+import DatePicker from "../DatePicker";
 import useStyles from "./style";
 
 const ShowTimeForm = (props) => {
   const cinemaSystems = useSelector((state) => state.cinemaSystems);
   const cinemas = useSelector((state) => state.cinemas);
   const movies = useSelector((state) => state.movies);
-  const [showTimeDate, setShowTimeDate] = useState(new Date());
   const styles = useStyles();
 
   let cinemaSystemList = cinemaSystems.map((system) => system.tenHeThongRap);
@@ -92,26 +86,11 @@ const ShowTimeForm = (props) => {
                 size="small"
                 defaultValue={15235}
               />
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                  disableToolbar
-                  autoOk
-                  variant="inline"
-                  inputVariant="outlined"
-                  size="small"
-                  invalidDateMessage="Ngày không đúng định dạng"
-                  maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-                  minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-                  format="dd/MM/yyyy"
-                  id="start-date"
-                  label="Ngày chiếu"
-                  value={showTimeDate}
-                  onChange={(date) => setShowTimeDate(date)}
-                  className={styles.datePicker}
-                />
-              </MuiPickersUtilsProvider>
+              <Box className={styles.dropDown}>
+                <DatePicker label="Ngày chiếu" />
+              </Box>
 
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardTimePicker
                   ampm={false}
                   variant="inline"
@@ -125,7 +104,7 @@ const ShowTimeForm = (props) => {
                   onChange={(date) => setShowTimeDate(date)}
                   className={styles.datePicker}
                 />
-              </MuiPickersUtilsProvider>
+              </MuiPickersUtilsProvider> */}
             </Grid>
           </Grid>
         </Box>
