@@ -11,10 +11,10 @@ import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
 
 const App = () => {
-  
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/booking" component={Booking} />
         <Route exact path="/cinemaDetail" component={CinemaDetail} />
