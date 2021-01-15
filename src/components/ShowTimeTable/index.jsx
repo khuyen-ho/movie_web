@@ -9,11 +9,11 @@ import Table from "../DataTable";
 import useStyles from "./style";
 
 const ShowTimeTable = (props) => {
-  const styles = useStyles();
   const cinemaSystems = useSelector((state) => state.cinemaSystems);
   const cinemas = useSelector((state) => state.cinemas);
   const movies = useSelector((state) => state.movies);
   const showTimes = useSelector((state) => state.showTimes);
+  const styles = useStyles();
 
   let cinemaSystemList = cinemaSystems.map((system) => system.tenHeThongRap);
   let cinemaList = cinemas.map((cinema) => cinema.tenCumRap);
