@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     maxHeight: (props) => props.maxHeight,
     maxWidth: (props) => props.maxWidth,
+
+    [theme.breakpoints.down("lg")]: {
+      maxHeight: "100% !important",
+    },
   },
 
   darkCell: {

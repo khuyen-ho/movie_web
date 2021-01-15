@@ -83,8 +83,6 @@ const DataTable = ({ headers, rows, ...props }) => {
 DataTable.propTypes = {
   headers: PropTypes.array,
   rows: PropTypes.array,
-  maxWidth: PropTypes.number,
-  maxHeight: PropTypes.number,
 };
 
 DataTable.defaultProps = {

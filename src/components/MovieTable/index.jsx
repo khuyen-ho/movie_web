@@ -19,7 +19,8 @@ const MovieTable = (props) => {
     "Ngày khởi chiếu",
     "Đánh giá",
     "Hình ảnh",
-    "Chỉnh sửa/Xoá",
+    "Chỉnh sửa",
+    "Xoá",
   ];
 
   let data = movies.map((movie) => ({
@@ -28,15 +29,15 @@ const MovieTable = (props) => {
     startDate: getFullDate(movie.ngayKhoiChieu),
     score: parseFloat(movie.danhGia).toFixed(1),
     poster: <img src={movie.hinhAnh} alt="img" className={styles.image} />,
-    editDelete: (
-      <>
-        <IconButton className={styles.iconButton}>
-          <CreateIcon color="primary" />
-        </IconButton>
-        <IconButton className={styles.iconButton}>
-          <DeleteIcon color="error" />
-        </IconButton>
-      </>
+    edit: (
+      <IconButton className={styles.iconButton}>
+        <CreateIcon color="primary" />
+      </IconButton>
+    ),
+    delete: (
+      <IconButton className={styles.iconButton}>
+        <DeleteIcon color="error" />
+      </IconButton>
     ),
   }));
 

@@ -18,7 +18,8 @@ const AccountTable = (props) => {
     "Loại người dùng",
     "Email",
     "Số điện thoại",
-    "Chỉnh sửa/Xoá",
+    "Chỉnh sửa",
+    "Xoá",
   ];
 
   let data = accounts.map((account) => ({
@@ -27,15 +28,15 @@ const AccountTable = (props) => {
     type: account.maLoaiNguoiDung,
     emal: account.email,
     phoneNumber: account.soDt,
-    editDelete: (
-      <>
-        <IconButton className={styles.iconButton}>
-          <CreateIcon color="primary" />
-        </IconButton>
-        <IconButton className={styles.iconButton}>
-          <DeleteIcon color="error" />
-        </IconButton>
-      </>
+    edit: (
+      <IconButton className={styles.iconButton}>
+        <CreateIcon color="primary" />
+      </IconButton>
+    ),
+    delete: (
+      <IconButton className={styles.iconButton}>
+        <DeleteIcon color="error" />
+      </IconButton>
     ),
   }));
 

@@ -127,7 +127,7 @@ const MovieForm = (props) => {
                 className={styles.uploader}
                 {...props}
                 buttonText="Tải poster phim"
-                label="Định dạng file: jpg/gif/png. Dung lượng file tối đa: 5MB"
+                label="Dung lượng file tối đa: 5MB"
                 fileSizeError="Dung lượng file quá lớn"
                 fileTypeError="Định dạng file không được hỗ trợ"
                 withIcon={true}

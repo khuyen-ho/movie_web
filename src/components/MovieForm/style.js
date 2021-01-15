@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
       borderColor: theme.palette.primary.main,
       borderRadius: theme.shape.borderRadius,
       "& p": {
-        margin: theme.spacing(0.5, 0),
+        margin: theme.spacing(0.5, 1),
       },
 
       "& button": {
@@ -105,8 +105,8 @@ const useStyles = makeStyles((theme) => ({
       },
 
       "& .uploadPictureContainer": {
-        margin: 0,
-        width: 150,
+        margin: theme.spacing(1),
+        width: 142,
 
         "& .deleteImage": {
           background: theme.palette.secondary.main,
