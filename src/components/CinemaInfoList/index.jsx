@@ -15,8 +15,8 @@ const CinemaInfoList = (props) => {
   const styles = useStyles(props);
 
   useEffect(() => {
-    //  console.log(selectedCinemaSystem.id);
-    dispatch(getCinemaInfo(selectedCinemaSystem.selected,selectedCinemaSystem.logo));
+      //  console.log(selectedCinemaSystem.selectedLogo);
+    dispatch(getCinemaInfo(selectedCinemaSystem.selected,selectedCinemaSystem.selectedLogo));
   }, [selectedCinemaSystem]);
 
   const cinemaList = useSelector((state) => state.cinemas.list);
@@ -25,6 +25,9 @@ const CinemaInfoList = (props) => {
     //console.log(id);
     dispatch({ type: GET_ID_CINEMA, payload: id });
   };
+
+  // console.log(cinemaList);
+
 
   return cinemaList.map((cinema) => (
     <ListItem

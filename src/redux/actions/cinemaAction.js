@@ -4,6 +4,7 @@ import { GET_CINEMA_INFO } from "./actionType";
 
 export const getCinemaInfo = (id, logo) => {
   const refactorData = (list) => {
+    // console.log(logo);
     return list.map((item) => ({
       id: item.maCumRap,
       name: item.tenCumRap,
@@ -19,7 +20,7 @@ export const getCinemaInfo = (id, logo) => {
       .then((res) => {
         //console.log(res.data);
         const list = refactorData(res.data);
-        console.log(list);
+         //console.log(list.selectedLogo);
         dispatch({
           type: GET_CINEMA_INFO,
           payload: list,

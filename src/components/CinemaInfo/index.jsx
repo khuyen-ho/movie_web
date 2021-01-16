@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
   const styles = useStyles(props);
-
+// console.log(logo);
   return (
     <>
       <Avatar src={logo} variant="square" className={styles.logo} />
