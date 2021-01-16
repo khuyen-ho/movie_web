@@ -14,6 +14,7 @@ const cinemas = (state = initialState, action) => {
     case GET_CINEMA_INFO: {
       //console.log(action.payload);
       state.list = action.payload;
+      state.selected = action.payload[0].maCumRap
       return { ...state };
     }
     default:

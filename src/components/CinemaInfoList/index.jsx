@@ -26,7 +26,7 @@ const CinemaInfoList = (props) => {
     dispatch({ type: GET_ID_CINEMA, payload: id });
   };
 
-   console.log(cinemaList);
+  //  console.log(cinemaList);
 
 
   return cinemaList.map((cinema) => (
