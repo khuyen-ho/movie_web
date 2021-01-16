@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropsType from "prop-types";
 import { Box } from "@material-ui/core";
 import StartTime from "../StartTime";
@@ -9,7 +9,12 @@ import moment from "moment";
 const StarTimeList = ({ list }) => {
   const styles = useStyles();
   const currentDate = useSelector((state) => state.showTimes.selected);
+
+  useEffect(() => {
+  console.log(currentDate);
+  }, [currentDate]);
   // console.log(list);
+
   const url = useSelector((state) => state.currentPage.url);
   if (url === "/" || url === "/home")
     return (
@@ -32,8 +37,16 @@ const StarTimeList = ({ list }) => {
     return (
       <Box className={styles.root}>
         {list.map((time, index) => {
-          console.log(moment(currentDate).format('YYYY-MM-DD')===moment(time.ngayChieuGioChieu).format('YYYY-MM-DD'),time.ngayChieuGioChieu);
-          if (moment(currentDate).format('YYYY-MM-DD')===moment(time.ngayChieuGioChieu).format('YYYY-MM-DD'))
+          // console.log(
+          //   moment(currentDate).format("YYYY-MM-DD") ===
+          //     moment(time.ngayChieuGioChieu).format("YYYY-MM-DD"),
+          //   moment(currentDate).format("YYYY-MM-DD"),
+          //   moment(time.ngayChieuGioChieu).format("YYYY-MM-DD")
+          // );
+          if (
+            moment(currentDate).format("YYYY-MM-DD") ===
+            moment(time.ngayChieuGioChieu).format("YYYY-MM-DD")
+          )
             return (
               <Link to="/booking" key={index}>
                 <StartTime

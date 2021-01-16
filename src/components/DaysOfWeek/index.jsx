@@ -20,7 +20,7 @@ const DaysOfWeek = ({ startDate }) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    // console.log(dateList[newValue].format());
+  //  console.log(dateList[newValue].format());
     dispatch(setCurrentTime(dateList[newValue].format()));
   };
 
@@ -51,7 +51,7 @@ DaysOfWeek.propTypes = {
 };
 
 DaysOfWeek.defaultProps = {
-  startDate: "2019-01-09T00:00:00",
+  startDate: "2019-01-01T00:00:00",
 };
 
 export default DaysOfWeek;
