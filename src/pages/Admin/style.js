@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1),
     marginBottom: theme.spacing(1),
+    "&:hover": {
+      background: "none",
+    },
   },
 
   selected: {
@@ -41,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
     boxShadow:
       "0 12px 20px -10px rgba(0, 172, 193,.28), 0 4px 20px 0 rgba(0, 0, 0,.12), 0 7px 8px -5px rgba(0, 172, 193,.2);",
     transition: "all 150ms linear",
-  },
-
-  noBackground: {
     "&:hover": {
       background: "none",
     },
