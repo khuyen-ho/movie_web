@@ -15,10 +15,10 @@ const Header = (props) => {
   const styles = useStyles();
 
   const links = [
-    { title: "Lịch Chiếu", path: "#" },
-    { title: "Cụm Rạp", path: "#" },
-    { title: "Đăng Nhập", path: "#" },
-    { title: "Đăng Ký", path: "#" },
+    { title: "Lịch Chiếu", path: "#", target: "_self" },
+    { title: "Cụm Rạp", path: "#", target: "_self" },
+    { title: "Đăng Nhập", path: "#", target: "_self" },
+    { title: "Đăng Ký", path: "#", target: "_self" },
   ];
 
   const createNavlinks = () => {
@@ -48,7 +48,7 @@ const Header = (props) => {
 
   return (
     <Box className={styles.root}>
-      <Box marginRight={1}>
+      <Box>
         <Tag
           iconElement={<MovieRoundedIcon fontSize="large" />}
           color={theme.palette.secondary.main}
@@ -94,7 +94,9 @@ const Header = (props) => {
         </Box>
       </Box>
 
-      <CollapseMenu links={links} />
+      <Box className={styles.collapseMenu}>
+        <CollapseMenu links={links} />
+      </Box>
     </Box>
   );
 };

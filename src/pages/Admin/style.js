@@ -3,11 +3,16 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
-    maxWidth: "none",
+
+    [theme.breakpoints.up("xs")]: {
+      maxWidth: "none",
+    },
+    [theme.breakpoints.up("xxl")]: {
+      maxWidth: 1024,
+    },
   },
 
   leftPanel: {
-    position: "fixed",
     top: 0,
     left: 0,
     width: 260,
@@ -16,10 +21,14 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 3,
 
     [theme.breakpoints.up("xs")]: {
+      position: "fixed",
       display: "none",
     },
     [theme.breakpoints.up("lg")]: {
       display: "block",
+    },
+    [theme.breakpoints.up("xxl")]: {
+      position: "absolute",
     },
   },
 
@@ -56,32 +65,27 @@ const useStyles = makeStyles((theme) => ({
   },
 
   info: {
-    position: "absolute",
     top: 0,
     right: 0,
 
-    padding: theme.spacing(1, 3),
-
     [theme.breakpoints.up("xs")]: {
+      position: "relative",
       width: "100%",
+      padding: theme.spacing(1, 0),
     },
     [theme.breakpoints.up("lg")]: {
+      position: "absolute",
       width: "calc(100% - 260px)",
+      padding: theme.spacing(1, 3),
     },
   },
 
-  menuButton: {
-    display: "flex",
+  collapseMenu: {
     justifyContent: "flex-end",
     marginTop: theme.spacing(1),
-  },
-
-  icon: {
-    outlineStyle: "none!important",
-    padding: 0,
 
     [theme.breakpoints.up("xs")]: {
-      display: "block",
+      display: "flex",
       marginBottom: theme.spacing(-4.8),
     },
     [theme.breakpoints.up("lg")]: {

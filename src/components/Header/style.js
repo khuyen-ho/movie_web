@@ -28,12 +28,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
   },
 
-  logo: {
-    color: theme.palette.secondary.main,
-    cursor: "pointer",
-    margin: theme.spacing(1.5),
-  },
-
   links: {
     [theme.breakpoints.up("xs")]: {
       display: "none",
@@ -86,9 +80,17 @@ const useStyles = makeStyles((theme) => ({
   search: {
     [theme.breakpoints.up("xs")]: {
       width: "100%",
+      marginLeft: 0,
     },
     [theme.breakpoints.up("md")]: {
       width: "auto",
+      marginLeft: theme.spacing(1),
+    },
+  },
+
+  collapseMenu: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
 }));
