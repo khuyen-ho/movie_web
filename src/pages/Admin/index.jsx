@@ -14,6 +14,7 @@ import PersonalInfo from "../../components/PersonalInfo";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Tag from "../../components/Tag";
 import CollapseMenu from "../../components/CollapseMenu";
+import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 
 const Admin = ({ match }) => {
@@ -158,6 +159,7 @@ const Admin = ({ match }) => {
           />
           <Route path={`${url}/personal-info`} component={PersonalInfo} />
         </Switch>
+        <BackToTop showBelow={300} />
       </Box>
     </Container>
   );

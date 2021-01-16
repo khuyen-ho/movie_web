@@ -3,6 +3,7 @@ import React from "react";
 import BookingNavBar from "../../components/BookingNavBar";
 import PriceInfo from "../../components/PriceInfo";
 import SeatPlan from "../../components/SeatPlan";
+import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 
 const Booking = (props) => {
@@ -23,6 +24,7 @@ const Booking = (props) => {
           </Box>
         </Grid>
       </Grid>
+      <BackToTop showBelow={300} />
     </Container>
   );
 };
