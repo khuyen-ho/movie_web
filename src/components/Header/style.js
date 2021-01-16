@@ -91,6 +91,12 @@ const useStyles = makeStyles((theme) => ({
       width: "auto",
     },
   },
+
+  collapseMenu: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
 }));
 
 export default useStyles;

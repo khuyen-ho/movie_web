@@ -2,8 +2,6 @@ import React from "react";
 import { Link, Route, Switch, Redirect, useLocation } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import { Container, Box, MenuList, MenuItem, Divider } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import GroupIcon from "@material-ui/icons/Group";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -15,6 +13,7 @@ import MovieManagement from "../../components/MovieManagement";
 import PersonalInfo from "../../components/PersonalInfo";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Tag from "../../components/Tag";
+import CollapseMenu from "../../components/CollapseMenu";
 import useStyles from "./style";
 
 const Admin = ({ match }) => {
@@ -22,6 +21,14 @@ const Admin = ({ match }) => {
   const location = useLocation();
   const styles = useStyles();
   const theme = useTheme();
+
+  const links = [
+    { title: "Trang chủ", path: "/home" },
+    { title: "Quản lý người dùng", path: `${url}/user-management` },
+    { title: "Quản lý phim", path: `${url}/movie-management` },
+    { title: "Quản lý lịch chiếu", path: `${url}/showtime-management` },
+    { title: "Đăng xuất", path: "/signin" },
+  ];
 
   return (
     <Container className={styles.root}>
@@ -110,10 +117,8 @@ const Admin = ({ match }) => {
       </Box>
 
       <Box className={styles.info}>
-        <Box className={styles.menuButton}>
-          <IconButton color="inherit" aria-label="menu" className={styles.icon}>
-            <MenuIcon />
-          </IconButton>
+        <Box className={styles.collapseMenu}>
+          <CollapseMenu links={links} />
         </Box>
 
         <Switch>

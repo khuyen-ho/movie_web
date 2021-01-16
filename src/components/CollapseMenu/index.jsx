@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import {
   IconButton,
-  Link,
   List,
-  ListItem,
-  ListItemText,
+  MenuList,
+  MenuItem,
   Drawer,
-  Box,
 } from "@material-ui/core";
+
 import { Menu } from "@material-ui/icons";
 import { useState } from "react";
 import useStyles from "./style";
@@ -24,15 +25,18 @@ const CollapseMenu = ({ links }) => {
         onClick={toggle(anchor, false)}
         onKeyDown={toggle(anchor, false)}
       >
-        <List component="nav">
+        <MenuList>
           {links.map(({ title, path }) => (
-            <Link href={path} key={title} className={styles.linkText}>
-              <ListItem button>
-                <ListItemText primary={title} />
-              </ListItem>
-            </Link>
+            <MenuItem
+              component={Link}
+              key={title}
+              to={path}
+              className={styles.linkText}
+            >
+              {title}
+            </MenuItem>
           ))}
-        </List>
+        </MenuList>
       </div>
     );
   };
@@ -42,7 +46,7 @@ const CollapseMenu = ({ links }) => {
   };
 
   return (
-    <Box className={styles.collapseMenu}>
+    <>
       <IconButton
         edge="end"
         aria-label="menu"
@@ -59,8 +63,21 @@ const CollapseMenu = ({ links }) => {
       >
         {createMenu("right")}
       </Drawer>
-    </Box>
+    </>
   );
+};
+
+CollapseMenu.propTypes = {
+  links: PropTypes.array,
+};
+
+CollapseMenu.defaultProps = {
+  links: [
+    { title: "Menu1", path: "#" },
+    { title: "Menu2", path: "#" },
+    { title: "Menu3", path: "#" },
+    { title: "Menu4", path: "#" },
+  ],
 };
 
 export default CollapseMenu;

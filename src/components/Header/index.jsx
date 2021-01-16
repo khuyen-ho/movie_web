@@ -94,7 +94,9 @@ const Header = (props) => {
         </Box>
       </Box>
 
-      <CollapseMenu links={links} />
+      <Box className={styles.collapseMenu}>
+        <CollapseMenu links={links} />
+      </Box>
     </Box>
   );
 };
