@@ -6,12 +6,45 @@ import { Link, NavLink } from "react-router-dom";
 
 const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
   const styles = useStyles(props);
-// console.log(logo);
+  // console.log(logo);
   return (
     <>
-      <Avatar src={logo} variant="square" className={styles.logo} />
-      {hasInfo && (
+      <div className={styles.smallScreen}>
         <NavLink className={styles.root} to="/cinemaDetail">
+          <Avatar src={logo} variant="square" className={styles.logo} />
+          {hasInfo && (
+            <Box>
+              <Typography
+                variant="subtitle2"
+                component="p"
+                className={`${styles.name} ${styles.ellipsis}`}
+              >
+                {name}
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                component="p"
+                className={`${styles.address} ${styles.ellipsis}`}
+              >
+                {address}
+              </Typography>
+              {props.hasDetailLink && (
+                <Link
+                  to="/cinemaDetail"
+                  className={styles.detail}
+                  variant="body2"
+                >
+                  [chi tiết]
+                </Link>
+              )}
+            </Box>
+          )}
+        </NavLink>
+      </div>
+
+      <div className={styles.bigScreen}>
+        <Avatar src={logo} variant="square" className={styles.logo} />
+        {hasInfo && (
           <Box>
             <Typography
               variant="subtitle2"
@@ -28,17 +61,19 @@ const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
               {address}
             </Typography>
             {props.hasDetailLink && (
-              <Link
-                to="/cinemaDetail"
-                className={styles.detail}
-                variant="body2"
-              >
-                [chi tiết]
-              </Link>
+              <NavLink className={styles.root} to="/cinemaDetail">
+                <Link
+                  to="/cinemaDetail"
+                  className={styles.detail}
+                  variant="body2"
+                >
+                  [chi tiết]
+                </Link>
+              </NavLink>
             )}
           </Box>
-        </NavLink>
-      )}
+        )}
+      </div>
     </>
   );
 };
