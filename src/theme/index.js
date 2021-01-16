@@ -164,7 +164,7 @@ const theme = createMuiTheme({
       md: 768, // tablet
       lg: 992, // laptop
       xl: 1200, // desktop
-      xxl: 1400, // large screen
+      xxl: 1700, // large screen
     },
   },
 });
