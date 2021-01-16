@@ -14,6 +14,13 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     backgroundImage: `linear-gradient(to bottom right ,#181a67,#4c0144,${theme.palette.grey.dark})`,
     zIndex: 3,
+
+    [theme.breakpoints.up("xs")]: {
+      display: "none",
+    },
+    [theme.breakpoints.up("lg")]: {
+      display: "block",
+    },
   },
 
   list: {
@@ -52,8 +59,35 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 0,
     right: 0,
-    width: "calc(100% - 260px)",
+
     padding: theme.spacing(1, 3),
+
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "calc(100% - 260px)",
+    },
+  },
+
+  menuButton: {
+    display: "flex",
+    justifyContent: "flex-end",
+    marginTop: theme.spacing(1),
+  },
+
+  icon: {
+    outlineStyle: "none!important",
+    padding: 0,
+
+    [theme.breakpoints.up("xs")]: {
+      display: "block",
+      marginBottom: theme.spacing(-4.8),
+    },
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+      marginBottom: theme.spacing(0),
+    },
   },
 }));
 

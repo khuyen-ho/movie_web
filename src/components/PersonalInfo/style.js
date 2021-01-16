@@ -14,27 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   info: {
-    [theme.breakpoints.up("xs")]: {
-      display: "flex",
-      flexDirection: "column",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      display: "block",
-    },
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
   },
 
   input: {
     margin: theme.spacing(1, 0),
-    marginRight: theme.spacing(1),
-
-    [theme.breakpoints.up("xs")]: {
-      width: "100%",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      width: "48%",
-    },
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
@@ -55,6 +41,13 @@ const useStyles = makeStyles((theme) => ({
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.primary.main,
       },
+    },
+
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "49.5%",
     },
   },
 

@@ -65,13 +65,13 @@ const ShowTimeTable = (props) => {
       />
       <Collapse in={search} timeout="auto">
         <Grid container spacing={1}>
-          <Grid item xs={4} className={styles.dropDown}>
+          <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown label="Hệ thống rạp" list={cinemaSystemList} />
           </Grid>
-          <Grid item xs={4} className={styles.dropDown}>
+          <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown label="Cụm rạp" list={cinemaList} />
           </Grid>
-          <Grid item xs={4} className={styles.dropDown}>
+          <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown label="Phim" list={movieList} />
           </Grid>
         </Grid>
@@ -81,7 +81,7 @@ const ShowTimeTable = (props) => {
         <Table
           headers={headers}
           rows={tableData}
-          maxWidth={1045}
+          maxWidth={"100%"}
           maxHeight={500}
         />
       </Box>

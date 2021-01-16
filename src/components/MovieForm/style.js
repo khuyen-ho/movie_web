@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary.main,
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(2),
+    margin: theme.spacing(1, 0),
     fontSize: theme.typography.h6.fontSize,
   },
 
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   input: {
-    marginRight: theme.spacing(1),
+    margin: theme.spacing(1, 0),
     width: "100%",
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
@@ -40,39 +39,22 @@ const useStyles = makeStyles((theme) => ({
   },
 
   datePicker: {
-    width: "100%",
+    margin: theme.spacing(1, 0),
+  },
 
-    "& button": {
-      outlineStyle: "none",
-    },
-
-    "& .MuiInputBase-root, & .MuiInputLabel-root": {
-      fontSize: theme.typography.body2.fontSize,
-    },
-
-    "& .MuiInputLabel-root": {
-      color: theme.palette.primary.main,
-    },
-    "& .MuiOutlinedInput-root": {
-      borderRadius: theme.shape.borderRadius,
-
-      "& fieldset": {
-        borderColor: theme.palette.primary.main,
-      },
-      "&:hover fieldset": {
-        borderColor: theme.palette.primary.main,
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: theme.palette.primary.main,
+  desc: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: 0,
+      marginBottom: theme.spacing(1),
+      "& .MuiInputBase-inputMultiline": {
+        height: 130,
       },
     },
-
-    "& .MuiOutlinedInput-adornedEnd": {
-      padding: 0,
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      marginRight: 0,
+    [theme.breakpoints.up("md")]: {
+      margin: theme.spacing(1, 0),
+      "& .MuiInputBase-inputMultiline": {
+        height: "auto",
+      },
     },
   },
 
@@ -86,9 +68,7 @@ const useStyles = makeStyles((theme) => ({
   uploader: {
     "& .fileContainer": {
       border: "1.0px solid red",
-      height: 372,
       justifyContent: "flex-start",
-      margin: 0,
       padding: theme.spacing(1, 0),
       borderColor: theme.palette.primary.main,
       borderRadius: theme.shape.borderRadius,
@@ -111,6 +91,15 @@ const useStyles = makeStyles((theme) => ({
         "& .deleteImage": {
           background: theme.palette.secondary.main,
         },
+      },
+
+      [theme.breakpoints.up("xs")]: {
+        height: 370,
+        margin: 0,
+      },
+      [theme.breakpoints.up("md")]: {
+        height: 389,
+        margin: theme.spacing(1, 0),
       },
     },
   },

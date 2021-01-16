@@ -13,10 +13,14 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
+  info: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+
   input: {
     margin: theme.spacing(1, 0),
-    marginRight: theme.spacing(1),
-    width: "48%",
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
@@ -37,6 +41,13 @@ const useStyles = makeStyles((theme) => ({
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.primary.main,
       },
+    },
+
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "49.5%",
     },
   },
 

@@ -47,7 +47,12 @@ const MovieTable = (props) => {
         <Search />
       </Box>
       <Box className={styles.table}>
-        <Table headers={headers} rows={data} maxWidth={1030} maxHeight={500} />
+        <Table
+          headers={headers}
+          rows={data}
+          maxWidth={"100%"}
+          maxHeight={500}
+        />
       </Box>
     </>
   );

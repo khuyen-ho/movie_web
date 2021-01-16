@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Box, Grid, Typography, TextField, Button } from "@material-ui/core";
 import DropDown from "../DropDown";
@@ -28,7 +28,7 @@ const ShowTimeForm = (props) => {
           </Typography>
 
           <Grid container spacing={1}>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <Box className={styles.info}>
                 <Box className={styles.dropDown}>
                   <DropDown label="Hệ thống rạp" list={cinemaSystemList} />
@@ -42,7 +42,7 @@ const ShowTimeForm = (props) => {
               </Box>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <Box className={styles.info}>
                 <Box className={styles.dropDown}>
                   <DropDown label="Phim" list={movieList} />
@@ -78,7 +78,7 @@ const ShowTimeForm = (props) => {
               </Box>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <Box className={styles.info}>
                 <TextField
                   className={styles.input}

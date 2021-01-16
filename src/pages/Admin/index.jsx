@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import { Container, Box, List, ListItem, Divider } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import GroupIcon from "@material-ui/icons/Group";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -151,6 +153,16 @@ const Admin = () => {
         </Box>
 
         <Box className={styles.info}>
+          <Box className={styles.menuButton}>
+            <IconButton
+              color="inherit"
+              aria-label="menu"
+              className={styles.icon}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
           <Switch>
             <Route exact path="/">
               <Redirect to="/user-management" />

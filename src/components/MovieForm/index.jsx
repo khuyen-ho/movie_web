@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Grid } from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
+import DatePicker from "../DatePicker";
 import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 
 const MovieForm = (props) => {
-  const [startDate, setStartDate] = useState(new Date());
   const [posters, setPosters] = useState([]);
   const styles = useStyles();
 
@@ -27,7 +22,7 @@ const MovieForm = (props) => {
           </Typography>
 
           <Grid container spacing={1}>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <Box className={styles.info}>
                 <TextField
                   className={styles.input}
@@ -74,24 +69,9 @@ const MovieForm = (props) => {
                   defaultValue="https://www.youtube.com/embed/2MxnhBPoIx4"
                 />
 
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <KeyboardDatePicker
-                    disableToolbar
-                    autoOk
-                    variant="inline"
-                    inputVariant="outlined"
-                    size="small"
-                    invalidDateMessage="Ngày không đúng định dạng"
-                    maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-                    minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-                    format="dd/MM/yyyy"
-                    id="start-date"
-                    label="Ngày khởi chiếu"
-                    value={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    className={styles.datePicker}
-                  />
-                </MuiPickersUtilsProvider>
+                <Box className={styles.datePicker}>
+                  <DatePicker label="Ngày khởi chiếu" />
+                </Box>
 
                 <TextField
                   className={styles.input}
@@ -110,19 +90,19 @@ const MovieForm = (props) => {
                 />
               </Box>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <TextField
                 id="outlined-multiline-static"
                 label="Mô tả"
                 multiline
-                className={styles.input}
-                rows={21}
+                classes={{ root: `${styles.input} ${styles.desc}` }}
+                rows={22}
                 defaultValue="Nhập mô tả..."
                 variant="outlined"
               />
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
               <ImageUploader
                 className={styles.uploader}
                 {...props}
