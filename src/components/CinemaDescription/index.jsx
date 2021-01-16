@@ -2,15 +2,15 @@ import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
 
-const MovieDescription = ({ name, address }) => {
+const MovieDescription = ({ tenCumRap, diaChi }) => {
   const styles = useStyles();
   return (
     <Box className={styles.root}>
       <Typography className={styles.name} component="h4" variant="h5">
-        {name}
+        {tenCumRap}
       </Typography>
       <Typography className={styles.address} variant="body1">
-        {address}
+        {diaChi}
       </Typography>
     </Box>
   );

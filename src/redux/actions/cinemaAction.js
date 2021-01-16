@@ -3,15 +3,14 @@ import { cinemaSystemService } from "../../services";
 import { GET_CINEMA_INFO } from "./actionType";
 
 export const getCinemaInfo = (id, logo) => {
-  const refactorData = (list) => {
-    // console.log(logo);
-    return list.map((item) => ({
-      id: item.maCumRap,
-      name: item.tenCumRap,
-      address: item.diaChi,
-      logo,
-    }));
-  };
+  // const refactorData = (list) => {
+  //   return list.map((item) => ({
+  //     id: item.maCumRap,
+  //     name: item.tenCumRap,
+  //     address: item.diaChi,
+  //     logo,
+  //   }));
+  // };
 
  // console.log(id,logo);
   return (dispatch) => {
@@ -19,11 +18,11 @@ export const getCinemaInfo = (id, logo) => {
       .fetchCinemaInfo(id)
       .then((res) => {
         //console.log(res.data);
-        const list = refactorData(res.data);
+        //const list = refactorData(res.data);
          //console.log(list.selectedLogo);
         dispatch({
           type: GET_CINEMA_INFO,
-          payload: list,
+          payload: res.data,
         });
       })
       .catch((err) => console.log(err));
