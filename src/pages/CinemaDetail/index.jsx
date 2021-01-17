@@ -4,10 +4,17 @@ import CinemaBannerDetail from "../../components/CinemaBannerDetail";
 import ScheduleCinemaDetail from "../../components/ScheduleCinemaDetail";
 import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
-
-const CinemaDetail = () => {
+import wrapper from "../../HOCs/Wrapper";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getCurrentWebPage } from "../../redux/actions/pageAction";
+const CinemaDetail = (props) => {
   const styles = useStyles();
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(getCurrentWebPage(props.match.url))
+  },[]);
   return (
     <Box className={styles.root}>
       <CinemaBannerDetail />
@@ -17,4 +24,4 @@ const CinemaDetail = () => {
   );
 };
 
-export default CinemaDetail;
+export default wrapper(CinemaDetail);

@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexWrap: "wrap",
     transition: "all 10s linear",
+    "& a:hover":{
+      textDecoration:"none"
+    }
   },
 }));
 

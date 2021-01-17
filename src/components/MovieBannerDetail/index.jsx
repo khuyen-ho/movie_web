@@ -6,11 +6,22 @@ import useStyles from "./style";
 import Poster from "../Poster";
 import MovieDescription from "../MovieDescription";
 import Trailer from "../Trailer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getMovieDetail } from "../../redux/actions/movieAction";
 
-const MovieBannerDetail = (props) => {
+const MovieBannerDetail = ({props}) => {
   const styles = useStyles();
-  const { movie } = props;
+  // const { movie } = props;
+  const dispatch = useDispatch();
+   console.log(props.match.params.id);
+  useEffect(() => {
+    dispatch(getMovieDetail(props.match.params.id));
+  }, []);
 
+  const movie = useSelector(state => state.movieDetail[0])
+
+  //  console.log(props);
   return (
     <>
       <Container maxWidth="lg" className={styles.detail}>
@@ -33,6 +44,9 @@ const MovieBannerDetail = (props) => {
                 color="secondary"
                 fullWidth
                 className={styles.button}
+                onClick={() => {
+                  alert("Hãy chọn suất chiếu");
+                }}
               >
                 MUA VÉ
               </Button>

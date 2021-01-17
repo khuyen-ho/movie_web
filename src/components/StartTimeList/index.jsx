@@ -3,6 +3,7 @@ import PropsType from "prop-types";
 import { Box } from "@material-ui/core";
 import StartTime from "../StartTime";
 import useStyles from "./style";
+import { Link } from "react-router-dom";
 
 const StarTimeList = ({ list }) => {
   const styles = useStyles();
@@ -10,7 +11,13 @@ const StarTimeList = ({ list }) => {
     <Box className={styles.root}>
       {list.map((time, index) => {
         return (
-          <StartTime start={time.start} duration={time.duration} key={index} />
+          <Link to="/booking" key={index}>
+            <StartTime
+              start={time.start}
+              duration={time.duration}
+              key={index}
+            />
+          </Link>
         );
       })}
     </Box>

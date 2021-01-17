@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    "&:hover": { textDecoration: "none" },
+  },
   logo: {
     width: 50,
     height: 50,

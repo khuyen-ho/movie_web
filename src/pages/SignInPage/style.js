@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     position: "relative",
     height: "100vh",
+    "& a:hover": {
+      textDecoration: "none",
+    },
 
     [theme.breakpoints.down("md")]: {
       background: "rgba(8,22,48)",

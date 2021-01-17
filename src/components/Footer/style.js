@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.white.main,
     overflow: "hidden",
     padding: theme.spacing(3, 0),
+    "& a:hover": {
+      textDecoration: "none",
+    },
   },
 
   title: {

@@ -1,4 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Menu, MenuItem } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     boxShadow: theme.shadows[22],
     opacity: 0.95,
+    "& a:hover": {
+      textDecoration: "none",
+    },
 
     [theme.breakpoints.up("xs")]: {
       padding: theme.spacing(1.5, 1),
@@ -29,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   links: {
+    "& a": {
+      color: theme.palette.grey.dark,
+      "&:hover": {
+        color: theme.palette.secondary.main,
+        transition:"all 0.15s"
+      },
+    },
+
     [theme.breakpoints.up("xs")]: {
       display: "none",
     },
@@ -100,5 +113,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export const CssMenu = withStyles((theme) => ({
+  list: {
+    "& .MuiListItem-root": {
+      color: "black",
+    },
+    "& a": {
+      "&:hover": {
+        textDecoration: "none",
+      },
+    },
+  },
+}))(Menu);
 
 export default useStyles;
