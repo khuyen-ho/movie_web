@@ -2,18 +2,28 @@ import { combineReducers } from "redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import account from "./reducers/account";
-import movies from "./reducers/movie";
+import accounts from "./reducers/accounts";
+import movie from "./reducers/movie";
+import movies from "./reducers/movies";
 import banners from "./reducers/banner";
-import cinemaSystems from "./reducers/cinemaSystem";
-import cinemas from "./reducers/cinema";
-import showTimes from "./reducers/showTime";
+import cinemaSystem from "./reducers/cinemaSystem";
+import cinemaSystems from "./reducers/cinemaSystems";
+import cinema from "./reducers/cinema";
+import cinemas from "./reducers/cinemas";
+import showTime from "./reducers/showTime";
+import showTimes from "./reducers/showTimes";
 
 const RootReducer = combineReducers({
   account,
+  accounts,
   banners,
+  movie,
   movies,
+  cinemaSystem,
   cinemaSystems,
+  cinema,
   cinemas,
+  showTime,
   showTimes,
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

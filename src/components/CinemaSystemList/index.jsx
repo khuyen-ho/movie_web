@@ -9,8 +9,8 @@ import useStyles from "./style";
 
 const CinemaSystemList = ({ showList, ...props }) => {
   const styles = useStyles();
-  const systemList = useSelector((state) => state.cinemaSystems.list);
-  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+  const systemList = useSelector((state) => state.cinemaSystem.list);
+  const selectedSystem = useSelector((state) => state.cinemaSystem.selected);
   const dispatch = useDispatch();
 
   const handleClick = (id) => {

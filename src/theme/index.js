@@ -145,6 +145,16 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiPickersTimePickerToolbar: {
+      hourMinuteLabel: {
+        "& button": {
+          outline: "none",
+          "&:hover": {
+            background: "none",
+          },
+        },
+      },
+    },
   },
   breakpoints: {
     values: {
@@ -154,6 +164,7 @@ const theme = createMuiTheme({
       md: 768, // tablet
       lg: 992, // laptop
       xl: 1200, // desktop
+      xxl: 1700, // large screen
     },
   },
 });

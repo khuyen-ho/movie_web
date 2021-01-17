@@ -4,6 +4,7 @@ import Carousel from "../../components/Carousel";
 import SearchMovie from "../../components/SearchMovie";
 import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
+import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <SearchMovie />
       <MovieList />
       <ScheduleCinema />
+      <BackToTop showBelow={300} />
     </Box>
   );
 };
