@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
     position: "absolute",
     bottom: 0,
+    "&:focus": {
+      outline: "none",
+    },
 
     [theme.breakpoints.down("md")]: {
       display: "none",
