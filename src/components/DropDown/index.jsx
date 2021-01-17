@@ -3,34 +3,42 @@ import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
 
-const DropDown = (props) => {
+const DropDown = ({ list, label, changeAction, ...props }) => {
+  const [value, setValue] = React.useState("");
   const styles = useStyles();
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    console.log(value);
+  };
+
   const CreateList = (list) => {
-    return list.map((item, index) => (
+    return list.map((item) => (
       <MenuItem
         dense
-        key={index}
-        value={index}
+        key={item.id}
+        value={item}
         classes={{ root: styles.menuItem }}
       >
-        {item}
+        {item.name}
       </MenuItem>
     ));
   };
 
   return (
     <FormControl variant="outlined" size="small" className={styles.formControl}>
-      <InputLabel id="select-label">{props.label}</InputLabel>
+      <InputLabel id="select-label">{label}</InputLabel>
       <Select
-        defaultValue={0}
+        defaultValue={""}
+        value={value}
         classes={{
           select: styles.select,
           icon: styles.icon,
         }}
-        label={props.label}
+        label={label}
+        onChange={handleChange}
       >
-        {CreateList(props.list)}
+        {CreateList(list)}
       </Select>
     </FormControl>
   );
@@ -42,7 +50,11 @@ DropDown.propTypes = {
 };
 
 DropDown.defaultProps = {
-  list: ["Choose item", "Item 1", "Item 2", "Item 3"],
+  list: [
+    { id: 1, name: "Item1" },
+    { id: 2, name: "Item2" },
+    { id: 3, name: "Item3" },
+  ],
   label: "Label",
 };
 
