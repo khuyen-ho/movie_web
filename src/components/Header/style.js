@@ -1,5 +1,6 @@
 import { Menu, MenuItem } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { fade } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,17 +29,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  iconButton: {
-    outlineStyle: "none!important",
-    padding: 0,
-  },
-
   links: {
     "& a": {
       color: theme.palette.grey.dark,
       "&:hover": {
         color: theme.palette.secondary.main,
-        transition:"all 0.15s"
+        transition: "all 0.15s",
       },
     },
 
@@ -96,14 +92,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 0,
     },
     [theme.breakpoints.up("md")]: {
-      width: "auto",
+      width: 200,
       marginLeft: theme.spacing(1),
-    },
-  },
-
-  collapseMenu: {
-    [theme.breakpoints.up("md")]: {
-      display: "none",
     },
   },
 
