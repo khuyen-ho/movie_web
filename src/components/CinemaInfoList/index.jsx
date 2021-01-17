@@ -8,8 +8,8 @@ import CinemaInfo from "../CinemaInfo";
 import useStyles from "./style";
 
 const CinemaInfoList = (props) => {
-  const cinemaList = useSelector((state) => state.cinemas.list);
-  const selectedCinema = useSelector((state) => state.cinemas.selected);
+  const cinemaList = useSelector((state) => state.cinema.list);
+  const selectedCinema = useSelector((state) => state.cinema.selected);
   const dispatch = useDispatch();
   const styles = useStyles(props);
 

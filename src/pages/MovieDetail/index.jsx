@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@material-ui/core";
 import ScheduleMovieDetail from "../../components/ScheduleMovieDetail";
 import MovieBannerDetail from "../../components/MovieBannerDetail";
+import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
 import { useEffect } from "react";
@@ -20,6 +21,7 @@ const MovieDetail = (props) => {
     <Box className={styles.root}>
       <MovieBannerDetail props={props}/>
       <ScheduleMovieDetail />
+      <BackToTop showBelow={300} />
     </Box>
   );
 };

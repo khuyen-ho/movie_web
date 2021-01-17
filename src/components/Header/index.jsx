@@ -21,13 +21,13 @@ const Header = (props) => {
   const dispatch = useDispatch();
 
   const links = [
-    { title: "Lịch Chiếu", path: "#movieList" },
-    { title: "Cụm Rạp", path: "#scheduleCinema" },
+    { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
+    { title: "Cụm Rạp", path: "#scheduleCinema", target: "_self" },
   ];
   if (!userLogin) {
     links.push(
-      { title: "Đăng Nhập", path: "/signin" },
-      { title: "Đăng Ký", path: "/signup" }
+      { title: "Đăng Nhập", path: "/signin", target: "_self" },
+      { title: "Đăng Ký", path: "/signup", target: "_self" }
     );
   }
 
@@ -137,7 +137,9 @@ const Header = (props) => {
         </Box>
       </Box>
 
-      <CollapseMenu links={links} />
+      <Box className={styles.collapseMenu}>
+        <CollapseMenu links={links} />
+      </Box>
     </Box>
   );
 };

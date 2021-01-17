@@ -8,7 +8,7 @@ import useStyles from "./style";
 
 const CinemaShowTimeList = ({ info, ...props }) => {
   const styles = useStyles();
-  const showTimeList = useSelector((state) => state.showTimes);
+  const showTimeList = useSelector((state) => state.showTime);
 
   return showTimeList.map((showTime, index) => (
     <ListItem className={styles.listItem} key={index}>
