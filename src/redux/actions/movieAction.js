@@ -1,14 +1,14 @@
 /* eslint-disable no-lone-blocks */
 import {
   GET_CINEMA_LIST,
-  GET_MOVIE_LIST,
+  GET_MOVIE_LIST_PAGINATION,
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
   GET_MOVIE_SHOW_TIME,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
-export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
+export const getMovieListPagination = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
       //call api
@@ -20,7 +20,7 @@ export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
       })
         .then(function thanhCong(res) {
           dispatch({
-            type: GET_MOVIE_LIST,
+            type: GET_MOVIE_LIST_PAGINATION,
             payload: res.data,
           });
         })

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { IconButton, TextField } from "@material-ui/core";
@@ -10,27 +10,24 @@ const Search = ({
   autoList,
   placeholder,
   dispatchType,
+  result,
   searchAction,
   ...props
 }) => {
-  const [value, setValue] = useState(null);
-  const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
   const styles = useStyles();
 
   const handleChange = (newValue) => {
-    setValue(newValue);
     dispatch({
       type: dispatchType,
-      payload: value,
+      payload: newValue,
     });
   };
 
   const handleInputChange = (newInputValue) => {
-    setInputValue(newInputValue);
     dispatch({
       type: dispatchType,
-      payload: inputValue,
+      payload: newInputValue,
     });
   };
 
@@ -42,9 +39,9 @@ const Search = ({
         disableClearable
         options={autoList}
         className={styles.root}
-        value={value}
+        value={result}
         onChange={(event, newValue) => handleChange(newValue)}
-        inputValue={inputValue}
+        inputValue={result}
         onInputChange={(event, newInputValue) =>
           handleInputChange(newInputValue)
         }

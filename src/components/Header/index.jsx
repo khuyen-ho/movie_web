@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { Box, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
@@ -8,12 +8,13 @@ import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
 import useStyles, { CssMenu } from "./style";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   REMOVE_CREDENTIALS,
-  GET_SEARCH_MOVIE,
+  GET_MOVIE_DETAIL,
 } from "../../redux/actions/actionType";
+import { getMovieDetail } from "../../redux/actions/movieAction";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -24,8 +25,13 @@ const Header = (props) => {
   const movieList = useSelector((state) => state.movies).map(
     (movie) => movie.tenPhim
   );
-  const searchMovie = useSelector((state) => state.searchMovie);
+  const searchMovie = useSelector((state) => state.searchMovie.quickSearch);
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    dispatch(getMovieDetail());
+  }, [dispatch]);
 
   const links = [
     { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
@@ -144,7 +150,8 @@ const Header = (props) => {
             placeholder="Nhập tên phim..."
             autoList={movieList}
             dispatchType="GET_SEARCH_MOVIE"
-            searchAction={() => console.log(searchMovie)}
+            result={searchMovie}
+            searchAction={() => history.push(`/movieDetail/${searchMovie}`)}
           />
         </Box>
       </Box>

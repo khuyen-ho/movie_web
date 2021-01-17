@@ -1,4 +1,4 @@
-import { GET_MOVIE_LIST } from "../actions/actionType";
+import { GET_MOVIE_LIST_PAGINATION } from "../actions/actionType";
 
 let initialState = {
   items: [],
@@ -7,7 +7,7 @@ let initialState = {
 
 const movies = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MOVIE_LIST: {
+    case GET_MOVIE_LIST_PAGINATION: {
       state.items = action.payload.items;
       state.pageCount = action.payload.totalPages;
       return { ...state };
