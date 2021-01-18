@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@material-ui/core";
 import Show from "../Show";
@@ -15,15 +15,13 @@ const MovieShowTimeList = ({ info, ...props }) => {
     )
   );
 
-  const chosenMovie = useSelector(state => state.movieDetail)
-  const dispatch = useDispatch()
+  const chosenMovie = useSelector((state) => state.movieDetail);
+  const dispatch = useDispatch();
 
-  const cinemaSystems = useSelector(state => state.cinemaSystems)
   useEffect(() => {
-    dispatch(getMovieDetailSchedule(chosenMovie[0].maPhim))
-  }, [chosenMovie])
+    dispatch(getMovieDetailSchedule(chosenMovie[0].maPhim));
+  }, [chosenMovie]);
 
-  //console.log("movieshowtime", cinemaList.cumRapChieu);
   if (cinemaList && cinemaList.cumRapChieu.length !== 0) {
     return cinemaList.cumRapChieu.map((cinema, index) => (
       <ListItem className={styles.listItem} key={index}>
