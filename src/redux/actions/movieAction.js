@@ -101,9 +101,9 @@ export const getMovieDetailSchedule = (movieId) => {
   //console.log(idCinema);
   return (dispatch) => {
     movieService
-      .getMovieDetail(movieId)
+      .getMovieDetailSchedule(movieId)
       .then((res) => {
-        // console.log(res);
+        //console.log(res);
         dispatch({
           type: GET_MOVIE_DETAIL_SCHEDULE,
           payload: res.data,

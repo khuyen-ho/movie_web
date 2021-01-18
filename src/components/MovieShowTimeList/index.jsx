@@ -15,12 +15,12 @@ const MovieShowTimeList = ({ info, ...props }) => {
     )
   );
 
-  const chosenMovie = useSelector(state => state.chosenMovie)
+  const chosenMovie = useSelector(state => state.movieDetail)
   const dispatch = useDispatch()
 
   const cinemaSystems = useSelector(state => state.cinemaSystems)
   useEffect(() => {
-    //dispatch(getMovieDetailSchedule(chosenMovie.maPhim))
+    dispatch(getMovieDetailSchedule(chosenMovie[0].maPhim))
   }, [chosenMovie])
 
   //console.log("movieshowtime", cinemaList.cumRapChieu);
