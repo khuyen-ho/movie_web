@@ -14,7 +14,7 @@ const MovieBannerDetail = ({props}) => {
   const styles = useStyles();
   // const { movie } = props;
   const dispatch = useDispatch();
-   console.log(props.match.params.id);
+   //console.log(props.match.params.id);
   useEffect(() => {
     dispatch(getMovieDetail(props.match.params.id));
   }, []);

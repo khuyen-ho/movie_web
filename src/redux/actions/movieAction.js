@@ -4,6 +4,7 @@ import {
   GET_MOVIE_LIST,
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
+  GET_MOVIE_DETAIL_SCHEDULE,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
@@ -80,15 +81,31 @@ export const getCinemaDetailList = (idCinema) => {
   };
 };
 
-export const getMovieDetail = (movieTitle) => {
+export const getMovieDetail = (movieId) => {
   //console.log(idCinema);
   return (dispatch) => {
     movieService
-      .fetchMovieDetail(movieTitle)
+      .getMovieDetail(movieId)
+      .then((res) => {
+         //console.log('movieaction',res);
+        dispatch({
+          type: GET_MOVIE_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log('error',err));
+  };
+};
+
+export const getMovieDetailSchedule = (movieId) => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    movieService
+      .getMovieDetail(movieId)
       .then((res) => {
         // console.log(res);
         dispatch({
-          type: GET_MOVIE_DETAIL,
+          type: GET_MOVIE_DETAIL_SCHEDULE,
           payload: res.data,
         });
       })
