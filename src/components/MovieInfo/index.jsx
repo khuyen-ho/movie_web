@@ -5,7 +5,7 @@ import useStyles from "./style";
 
 const MovieInfo = ({hasInfo , movie}) => {
   const styles = useStyles();
-   console.log(movie);
+  // console.log(movie);
   return (
     <>
       <Avatar src={movie.hinhAnh} variant="square" className={styles.logo} />

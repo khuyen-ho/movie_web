@@ -11,7 +11,7 @@ const StarTimeList = ({ list }) => {
   const currentDate = useSelector((state) => state.showTimes.selected);
 
   useEffect(() => {
-  console.log(currentDate);
+  //console.log(currentDate);
   }, [currentDate]);
   // console.log(list);
 

@@ -155,7 +155,7 @@ let initialState = {
 const chosenMovie = (state = initialState, action) => {
   switch (action.type) {
   case GET_MOVIE_DETAIL_SCHEDULE:{
-    console.log(action.payload);
+   // console.log(action.payload);
     return action.payload
   }
     default:
