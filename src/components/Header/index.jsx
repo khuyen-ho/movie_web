@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   REMOVE_CREDENTIALS,
   GET_MOVIE_DETAIL,
+  GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
 import { getMovieDetail } from "../../redux/actions/movieAction";
 
@@ -149,7 +150,7 @@ const Header = (props) => {
           <Search
             placeholder="Nhập tên phim..."
             autoList={movieList}
-            dispatchType="GET_SEARCH_MOVIE"
+            dispatchType={GET_QUICK_SEARCH_MOVIE}
             result={searchMovie}
             searchAction={() => history.push(`/movieDetail/${searchMovie}`)}
           />

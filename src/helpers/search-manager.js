@@ -3,55 +3,70 @@ export const flatArray = (array) => {
   return (array = [].concat.apply([], array));
 };
 
+export const getMovieId = (data, movieName) => {
+  if (data) {
+    return data
+      .filter((movie) => movie.tenPhim === movieName)
+      .map((movie) => movie.maPhim);
+  }
+  return "";
+};
+
 export const getCinemaSystems = (data) => {
-  return data.heThongRapChieu.map((cinemaSystem) => cinemaSystem.tenHeThongRap);
+  if (data.heThongRapChieu) {
+    return data.heThongRapChieu.map(
+      (cinemaSystem) => cinemaSystem.tenHeThongRap
+    );
+  }
+  return [];
 };
 
 export const getCinemas = (data) => {
-  let mapData = data.heThongRapChieu.map((system) =>
-    system.cumRapChieu.map((cinema) => ({
-      id: cinema.maCumRap,
-      name: cinema.tenCumRap,
-    }))
-  );
-
-  return flatArray(mapData);
+  let mapData = [];
+  if (data.heThongRapChieu) {
+    mapData = data.heThongRapChieu.map((system) =>
+      system.cumRapChieu.map((cinema) => cinema.tenCumRap)
+    );
+    return flatArray(mapData);
+  }
+  return mapData;
 };
 
-export const getShowTimeDate = (data, cinemaId) => {
-  let mapData = data.heThongRapChieu.map((system) =>
-    system.cumRapChieu
-      .filter((cinema) => cinema.maCumRap === cinemaId)
-      .map((cinema) =>
-        cinema.lichChieuPhim.map((showTimes) =>
-          getFullDate(showTimes.ngayChieuGioChieu)
-        )
-      )
-  );
-
-  let flatArr = flatArray(flatArray(mapData));
-
-  return Array.from(new Set(flatArr)).map((item, index) => ({
-    id: index,
-    name: item,
-  }));
-};
-
-export const getShowTimes = (data, cinemaId, date) => {
-  let mapData = data.heThongRapChieu.map((system) =>
-    system.cumRapChieu
-      .filter((cinema) => cinema.maCumRap === cinemaId)
-      .map((cinema) =>
-        cinema.lichChieuPhim
-          .filter(
-            (showTime) => getFullDate(showTime.ngayChieuGioChieu) === date
+export const getShowTimeDate = (data, cinemaName) => {
+  let mapData = [];
+  if (data.heThongRapChieu) {
+    mapData = data.heThongRapChieu.map((system) =>
+      system.cumRapChieu
+        .filter((cinema) => cinema.tenCumRap === cinemaName)
+        .map((cinema) =>
+          cinema.lichChieuPhim.map((showTimes) =>
+            getFullDate(showTimes.ngayChieuGioChieu)
           )
-          .map((showTime) => ({
-            id: cinema.maCumRap,
-            name: getTime(showTime.ngayChieuGioChieu),
-          }))
-      )
-  );
+        )
+    );
 
-  return flatArray(flatArray(mapData));
+    let flatArr = flatArray(flatArray(mapData));
+    return Array.from(new Set(flatArr));
+  }
+  return mapData;
+};
+
+export const getShowTimes = (data, cinemaName, date) => {
+  let mapData = [];
+  if (data.heThongRapChieu) {
+    mapData = data.heThongRapChieu.map((system) =>
+      system.cumRapChieu
+        .filter((cinema) => cinema.tenCumRap === cinemaName)
+        .map((cinema) =>
+          cinema.lichChieuPhim
+            .filter(
+              (showTime) => getFullDate(showTime.ngayChieuGioChieu) === date
+            )
+            .map((showTime) => getTime(showTime.ngayChieuGioChieu))
+        )
+    );
+
+    return flatArray(flatArray(mapData));
+  }
+  return mapData;
 };

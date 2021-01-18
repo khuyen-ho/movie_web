@@ -1,26 +1,36 @@
 import { FormControl, MenuItem, Select, InputLabel } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
 
-const DropDown = ({ list, label, changeAction, ...props }) => {
-  const [value, setValue] = React.useState("");
+const DropDown = ({
+  list,
+  label,
+  state,
+  dispatchType,
+  placeHolder,
+  ...props
+}) => {
+  const dispatch = useDispatch();
   const styles = useStyles();
 
   const handleChange = (event) => {
-    setValue(event.target.value);
-    console.log(value);
+    dispatch({
+      type: dispatchType,
+      payload: event.target.value,
+    });
   };
 
   const CreateList = (list) => {
-    return list.map((item) => (
+    return list.map((item, index) => (
       <MenuItem
         dense
-        key={item.id}
+        key={index}
         value={item}
         classes={{ root: styles.menuItem }}
       >
-        {item.name}
+        {item}
       </MenuItem>
     ));
   };
@@ -30,7 +40,7 @@ const DropDown = ({ list, label, changeAction, ...props }) => {
       <InputLabel id="select-label">{label}</InputLabel>
       <Select
         defaultValue={""}
-        value={value}
+        value={state}
         classes={{
           select: styles.select,
           icon: styles.icon,
@@ -38,6 +48,11 @@ const DropDown = ({ list, label, changeAction, ...props }) => {
         label={label}
         onChange={handleChange}
       >
+        {placeHolder && !list.length && (
+          <MenuItem value="" classes={{ root: styles.menuItem }}>
+            <em>{placeHolder}</em>
+          </MenuItem>
+        )}
         {CreateList(list)}
       </Select>
     </FormControl>
@@ -47,15 +62,15 @@ const DropDown = ({ list, label, changeAction, ...props }) => {
 DropDown.propTypes = {
   list: PropTypes.array,
   label: PropTypes.string,
+  dispatchType: PropTypes.string,
+  placeHolder: PropTypes.string,
 };
 
 DropDown.defaultProps = {
-  list: [
-    { id: 1, name: "Item1" },
-    { id: 2, name: "Item2" },
-    { id: 3, name: "Item3" },
-  ],
+  list: ["Item1", "Item2", "Item3"],
   label: "Label",
+  dispatchType: "",
+  placeHolder: "Vui lòng chọn",
 };
 
 export default DropDown;
