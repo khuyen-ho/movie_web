@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Grid, Box } from "@material-ui/core";
 import useStyle from "./style";
@@ -10,6 +9,7 @@ import {
   GET_SEARCH_CINEMA,
   GET_SEARCH_DATE,
   GET_SEARCH_SHOW_TIME,
+  RESET_STORE,
 } from "../../redux/actions/actionType";
 import {
   getMovieId,
@@ -21,7 +21,6 @@ import {
 const SearchMovie = (props) => {
   const styles = useStyle();
   const dispatch = useDispatch();
-  const history = useHistory();
   const movies = useSelector((state) => state.movies);
   const movieNames = useSelector((state) => state.movies).map(
     (movie) => movie.tenPhim
@@ -41,6 +40,12 @@ const SearchMovie = (props) => {
   useEffect(() => {
     dispatch(getShowTimeDetail(getMovieId(movies, movie)));
   }, [dispatch, movie, movies]);
+
+  const reset = () => {
+    dispatch({
+      type: RESET_STORE,
+    });
+  };
 
   return (
     <Container maxWidth="lg">
@@ -103,7 +108,8 @@ const SearchMovie = (props) => {
               variant="contained"
               color="secondary"
               classes={{ root: styles.button }}
-              onClick={() => history.push(`/booking`)}
+              // onClick={() => window.open("/booking", "_blank")}
+              onClick={reset}
             >
               MUA VÉ NGAY
             </Button>

@@ -2,12 +2,15 @@ import Axios from "axios";
 
 class MovieService {
   fetchMovieDetail(movieTitle) {
-    let url = movieTitle
-      ? `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00&tenPhim=${movieTitle}`
-      : `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00`;
     return Axios({
       method: "GET",
-      url: url,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00&tenPhim=${movieTitle}`,
+    });
+  }
+  fetchAllMovie() {
+    return Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00`,
     });
   }
   fetchMovieShowTimes(movieId) {

@@ -10,19 +10,12 @@ const Search = ({
   autoList,
   placeholder,
   dispatchType,
-  result,
   searchAction,
+  state,
   ...props
 }) => {
   const dispatch = useDispatch();
   const styles = useStyles();
-
-  const handleChange = (newValue) => {
-    dispatch({
-      type: dispatchType,
-      payload: newValue,
-    });
-  };
 
   const handleInputChange = (newInputValue) => {
     dispatch({
@@ -39,9 +32,7 @@ const Search = ({
         disableClearable
         options={autoList}
         className={styles.root}
-        value={result}
-        onChange={(event, newValue) => handleChange(newValue)}
-        inputValue={result}
+        inputValue={state}
         onInputChange={(event, newInputValue) =>
           handleInputChange(newInputValue)
         }

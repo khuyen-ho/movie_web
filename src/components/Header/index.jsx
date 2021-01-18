@@ -8,14 +8,13 @@ import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
 import useStyles, { CssMenu } from "./style";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   REMOVE_CREDENTIALS,
-  GET_MOVIE_DETAIL,
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
-import { getMovieDetail } from "../../redux/actions/movieAction";
+import { getAllMovie } from "../../redux/actions/movieAction";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -28,10 +27,9 @@ const Header = (props) => {
   );
   const searchMovie = useSelector((state) => state.searchMovie.quickSearch);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect(() => {
-    dispatch(getMovieDetail());
+    dispatch(getAllMovie());
   }, [dispatch]);
 
   const links = [
@@ -92,6 +90,14 @@ const Header = (props) => {
     handleClose();
   };
 
+  const handleSearch = () => {
+    movieList.includes(searchMovie)
+      ? window.open(`/movieDetail/${searchMovie}`)
+      : searchMovie
+      ? alert(`Không tìm thấy phim có tên ${searchMovie}`)
+      : alert(`Vui lòng nhập tên phim`);
+  };
+
   return (
     <Box className={styles.root}>
       <Box>
@@ -150,9 +156,9 @@ const Header = (props) => {
           <Search
             placeholder="Nhập tên phim..."
             autoList={movieList}
+            state={searchMovie}
             dispatchType={GET_QUICK_SEARCH_MOVIE}
-            result={searchMovie}
-            searchAction={() => history.push(`/movieDetail/${searchMovie}`)}
+            searchAction={handleSearch}
           />
         </Box>
       </Box>

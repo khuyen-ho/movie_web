@@ -5,6 +5,7 @@ import {
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
   GET_MOVIE_SHOW_TIME,
+  GET_ALL_MOVIE,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
@@ -90,6 +91,22 @@ export const getMovieDetail = (movieTitle) => {
         // console.log(res);
         dispatch({
           type: GET_MOVIE_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getAllMovie = () => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    movieService
+      .fetchAllMovie()
+      .then((res) => {
+        // console.log(res);
+        dispatch({
+          type: GET_ALL_MOVIE,
           payload: res.data,
         });
       })

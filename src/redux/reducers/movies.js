@@ -1,10 +1,10 @@
-import { GET_MOVIE_DETAIL } from "../actions/actionType";
+import { GET_ALL_MOVIE } from "../actions/actionType";
 
 let initialState = [];
 
 const movies = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MOVIE_DETAIL: {
+    case GET_ALL_MOVIE: {
       state = action.payload;
       return [...state];
     }
