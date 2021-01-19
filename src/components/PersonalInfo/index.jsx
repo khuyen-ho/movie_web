@@ -26,7 +26,7 @@ const PersonalInfo = (props) => {
   const userLogin = useSelector((state) => state.userLogin);
 
   //Truyền vào biến data để lưu dữ liệu khi gọi api
-  let data = { taiKhoan: "123" };
+  let data = { taiKhoan: userLogin.taiKhoan };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAccountInfo(userLogin, data));
@@ -91,6 +91,7 @@ const PersonalInfo = (props) => {
     true,
     validate
   );
+  // console.log(values);
 
   return (
     <>
@@ -108,7 +109,7 @@ const PersonalInfo = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              value={values.taiKhoan}
+              value={account.taiKhoan}
               onChange={handleChange}
               {...(errors.taiKhoan && {
                 error: true,
@@ -123,7 +124,7 @@ const PersonalInfo = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              value={values.hoTen}
+              value={account.hoTen}
               onChange={handleChange}
               {...(errors.hoTen && {
                 error: true,
@@ -138,7 +139,7 @@ const PersonalInfo = (props) => {
               variant="outlined"
               type="email"
               size="small"
-              value={values.email}
+              value={account.email}
               onChange={handleChange}
               {...(errors.email && {
                 error: true,
@@ -153,7 +154,7 @@ const PersonalInfo = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              value={values.soDT}
+              value={account.soDT}
               onChange={handleChange}
               {...(errors.soDT && {
                 error: true,

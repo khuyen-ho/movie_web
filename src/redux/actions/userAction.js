@@ -26,9 +26,9 @@ export const login = (user) => {
 export const getAccountInfo = (user, data) => {
   return (dispatch) => {
     userService
-      .fetchAccountInfo(user.accessToken,data)
+      .fetchAccountInfo(user.accessToken, data)
       .then((res) => {
-         console.log(res.data);
+        //console.log(res.data);
         dispatch({
           type: GET_ACCOUNT_INFO,
           payload: res.data,
