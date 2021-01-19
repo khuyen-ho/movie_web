@@ -20,7 +20,7 @@ let initialState = {
       loaiGhe: "Thuong",
       stt: "01",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: "quang123",
     },
     {
@@ -30,7 +30,7 @@ let initialState = {
       loaiGhe: "Thuong",
       stt: "02",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: "123",
     },
 
@@ -41,7 +41,7 @@ let initialState = {
       loaiGhe: "Thuong",
       stt: "156",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: "nguyendp",
     },
     {
@@ -51,7 +51,7 @@ let initialState = {
       loaiGhe: "Thuong",
       stt: "157",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: "thangtrum15",
     },
     {
@@ -61,7 +61,7 @@ let initialState = {
       loaiGhe: "Thuong",
       stt: "158",
       giaVe: 75000,
-      daDat: true,
+      daDat: false,
       taiKhoanNguoiDat: "123@admin",
     },
     {
@@ -90,7 +90,7 @@ let initialState = {
 const bookingList = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKING_LIST: {
-      console.log(action.payload);
+     // console.log(action.payload);
       return action.payload;
     }
     default:

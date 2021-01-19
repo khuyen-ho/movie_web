@@ -18,3 +18,4 @@ export const SET_DATE = "SET_DATE";
 export const GET_MOVIE_DETAIL_SCHEDULE = "GET_MOVIE_DETAIL_SCHEDULE";
 export const GET_BOOKING_LIST = "GET_BOOKING_LIST";
 export const CHOOSE_SEAT = "CHOOSE_SEAT";
+export const CLEAR_SEAT = "CLEAR_SEAT";

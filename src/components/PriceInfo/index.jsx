@@ -2,24 +2,45 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { CLEAR_SEAT } from "../../redux/actions/actionType";
 
 const PriceInfo = ({ showTimeInfo, userInfo }) => {
   const styles = useStyles();
+  const seatList = useSelector((state) => state.chosenSeat);
+  const chosenMovie = useSelector((state) => state.booking.thongTinPhim);
+  const renderSeatName = (list) => {
+    if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
+  };
+
+  let money = (seatList) => {
+    let total = 0;
+    for (let i = 0; i < seatList.length; i++) {
+      total += seatList[i].giaVe;
+    }
+    return total;
+  };
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({type:CLEAR_SEAT})
+  }, [])
 
   return (
     <Box className={styles.root}>
       <Box className={`${styles.totalPrice} ${styles.dashedBoder}`}>
         <Typography variant="h4" className={`${styles.price} ${styles.center}`}>
-          0 VND
+          {money(seatList)}đ
         </Typography>
       </Box>
 
       <Box className={`${styles.showTimeInfo} ${styles.dashedBoder}`}>
         <Typography variant="subtitle1">
-          Tên phim: {showTimeInfo.movieName}
+          Tên phim: {chosenMovie.tenPhim}
         </Typography>
-        <Typography variant="body2">{`Rạp: ${showTimeInfo.cinema} - ${showTimeInfo.cinemaNumber}`}</Typography>
-        <Typography variant="body2">{`Suất chiếu: ${showTimeInfo.showTime} - ${showTimeInfo.showTimeDate}`}</Typography>
+        <Typography variant="body2">{`Rạp: ${chosenMovie.diaChi} - ${showTimeInfo.cinemaNumber}`}</Typography>
+        <Typography variant="body2">{`Suất chiếu: ${chosenMovie.gioChieu} - ${chosenMovie.ngayChieu}`}</Typography>
       </Box>
       <Grid container className={`${styles.seats} ${styles.dashedBoder}`}>
         <Grid item xs={7}>
@@ -35,12 +56,14 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
             color="textSecondary"
             component="span"
           >
-            01, 02, 03, 04
+            {/* 01, 02, 03, 04 */}
+            {/* {console.log(seatList)} */}
+            {renderSeatName(seatList)}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography className={`${styles.price} ${styles.right}`}>
-            0 VND
+            {money(seatList)}
           </Typography>
         </Grid>
       </Grid>
