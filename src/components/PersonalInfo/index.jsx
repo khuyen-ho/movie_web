@@ -12,7 +12,8 @@ import {
 // import { UPDATE_ACCOUNT_INFO } from "../actions/actionType";
 import useForm from "./useForm";
 import useStyles from "./style";
-
+import { userService } from "../../services";
+import { getAccountInfo } from "../../redux/actions/userAction";
 const PersonalInfo = (props) => {
   const [changePass, setChangePass] = useState(false);
   const [oldPass, setOldPass] = useState("");
@@ -22,6 +23,12 @@ const PersonalInfo = (props) => {
   const [confirmPassError, setConfirmPassError] = useState(false);
   const account = useSelector((state) => state.account);
   const styles = useStyles();
+  const userLogin = useSelector((state) => state.userLogin);
+ 
+ //Truyền vào biến data để lưu dữ liệu khi gọi api
+  let data = { taiKhoan: "" };
+  const dispatch = useDispatch();
+  dispatch(getAccountInfo(userLogin, data));
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };

@@ -26,11 +26,15 @@ class UserService {
       data,
     });
   }
-  fetchAccountInfo() {
+  fetchAccountInfo(token, data) {
     return Axios({
       method: "POST",
       url:
         "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+      data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
   }
 }
