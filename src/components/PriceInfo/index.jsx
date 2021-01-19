@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { CLEAR_SEAT } from "../../redux/actions/actionType";
 import { bookTicket } from "../../redux/actions/bookingAction";
 
-const PriceInfo = ({ showTimeInfo, userInfo }) => {
+const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
   const styles = useStyles();
   const seatList = useSelector((state) => state.chosenSeat);
   const user = useSelector((state) => state.userLogin);
@@ -17,11 +17,11 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
     danhSachVe: seatList.map((item) => ({
       maGhe: item.maGhe,
       giaVe: item.giaVe,
-    }),),
-    taiKhoanNguoiDung: user.taiKhoan
+    })),
+    taiKhoanNguoiDung: user.taiKhoan,
   };
   let disable = true;
-  dataBookTicket.danhSachVe.length===0? disable = true : disable = false;
+  dataBookTicket.danhSachVe.length === 0 ? (disable = true) : (disable = false);
   const renderSeatName = (list) => {
     if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
   };
@@ -34,6 +34,13 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
     return total;
   };
   const dispatch = useDispatch();
+
+  const handleClick = () => {
+    //console.log(props);
+    //console.log(bookTicket(dataBookTicket, user.accessToken));
+    dispatch(bookTicket(dataBookTicket, user.accessToken));
+    props.history.replace("/home");
+  };
 
   useEffect(() => {
     dispatch({ type: CLEAR_SEAT });
@@ -100,8 +107,8 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
         variant="contained"
         color="secondary"
         className={styles.button}
-        onClick={bookTicket(dataBookTicket,user.accessToken)}
-        disabled = {disable}
+        onClick={()=>handleClick()}
+        disabled={disable}
       >
         ĐẶT VÉ
       </Button>
