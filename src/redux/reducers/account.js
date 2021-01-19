@@ -4540,7 +4540,7 @@ const account = (state = initialState, action) => {
   switch (action.type) {
     case GET_ACCOUNT_INFO: {
       state = action.payload;
-      return [...state];
+      return {...state};
     }
     case UPDATE_ACCOUNT_INFO: {
       state.taiKhoan = action.payload.taiKhoan

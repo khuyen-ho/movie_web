@@ -29,10 +29,10 @@ export const getAccountInfo = (user, data) => {
       .fetchAccountInfo(user.accessToken,data)
       .then((res) => {
          console.log(res.data);
-        // dispatch({
-        //   type: GET_ACCOUNT_INFO,
-        //   payload: res.data,
-        // });
+        dispatch({
+          type: GET_ACCOUNT_INFO,
+          payload: res.data,
+        });
       })
       .catch((err) => console.log(err));
   };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -24,11 +24,13 @@ const PersonalInfo = (props) => {
   const account = useSelector((state) => state.account);
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
- 
- //Truyền vào biến data để lưu dữ liệu khi gọi api
-  let data = { taiKhoan: "" };
+
+  //Truyền vào biến data để lưu dữ liệu khi gọi api
+  let data = { taiKhoan: "123" };
   const dispatch = useDispatch();
-  dispatch(getAccountInfo(userLogin, data));
+  useEffect(() => {
+    dispatch(getAccountInfo(userLogin, data));
+  }, []);
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
