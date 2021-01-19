@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./style";
-import { getAccounts } from "../../redux/actions/accountAction";
+import { getAccounts } from "../../redux/actions/adminAction";
 const AccountTable = (props) => {
   const accounts = useSelector((state) => state.accounts);
   const styles = useStyles();
