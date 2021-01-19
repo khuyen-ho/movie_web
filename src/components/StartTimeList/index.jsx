@@ -82,7 +82,6 @@ const StarTimeList = ({ list, ...props }) => {
   const styles = useStyles();
   const currentDate = useSelector((state) => state.showTimes.selected);
 
-
   const url = useSelector((state) => state.currentPage.url);
   if (url === "/" || url === "/home")
     return (
@@ -92,7 +91,7 @@ const StarTimeList = ({ list, ...props }) => {
             return (
               <Link to={`/booking/${time.maLichChieu}`} key={index}>
                 <StartTime
-                showtimeId = {time.maLichChieu}
+                  showtimeId={time.maLichChieu}
                   start={time.ngayChieuGioChieu}
                   duration={time.duration}
                   key={index}
@@ -111,8 +110,9 @@ const StarTimeList = ({ list, ...props }) => {
       )
       .map((time, index) => {
         return (
-          <Link to="/booking" key={index}>
+          <Link to={`/booking/${time.maLichChieu}`} key={index}>
             <StartTime
+              showtimeId={time.maLichChieu}
               start={time.ngayChieuGioChieu}
               duration={time.duration}
               key={index}
