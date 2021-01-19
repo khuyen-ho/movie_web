@@ -2,10 +2,11 @@ import React from "react";
 import { Box, Typography, TextField, Button } from "@material-ui/core";
 import DropDown from "../DropDown";
 import useStyles from "./style";
+import { useSelector } from "react-redux";
 
 const AccountForm = (props) => {
   const styles = useStyles();
-
+  const userLogin = useSelector(state =>state.userLogin);
   return (
     <>
       <form noValidate autoComplete="off">
@@ -21,7 +22,7 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="ctlong"
+              defaultValue={userLogin.taiKhoan}
             />
 
             <TextField
@@ -30,7 +31,7 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="Cao Thanh Long"
+              defaultValue={userLogin.hoTen}
             />
 
             <Box className={styles.input} display="inline-block">
@@ -46,7 +47,7 @@ const AccountForm = (props) => {
               variant="outlined"
               type="password"
               size="small"
-              defaultValue="123"
+              defaultValue={userLogin.matKhau}
             />
 
             <TextField
@@ -55,7 +56,7 @@ const AccountForm = (props) => {
               variant="outlined"
               type="email"
               size="small"
-              defaultValue="long@gmail.com"
+              defaultValue={userLogin.email}
             />
 
             <TextField
@@ -64,7 +65,7 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="0123456789"
+              defaultValue={userLogin.soDT}
             />
           </Box>
         </Box>

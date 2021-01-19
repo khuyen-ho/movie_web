@@ -16,12 +16,14 @@ import Tag from "../../components/Tag";
 import CollapseMenu from "../../components/CollapseMenu";
 import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
+import { useSelector } from "react-redux";
 
 const Admin = ({ match }) => {
   const { url } = match;
   const location = useLocation();
   const styles = useStyles();
   const theme = useTheme();
+
 
   const links = [
     { title: "Trang chủ", path: "/home", target: "_blank" },
