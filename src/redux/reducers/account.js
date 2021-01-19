@@ -1,3 +1,5 @@
+import { GET_ACCOUNT_INFO, UPDATE_ACCOUNT_INFO } from "../actions/actionType";
+
 let initialState = {
   taiKhoan: "string",
   matKhau: "string",
@@ -4536,6 +4538,17 @@ let initialState = {
 
 const account = (state = initialState, action) => {
   switch (action.type) {
+    case GET_ACCOUNT_INFO: {
+      state = action.payload;
+      return [...state];
+    }
+    case UPDATE_ACCOUNT_INFO: {
+      state.taiKhoan = action.payload.taiKhoan
+      state.hoten = action.payload.hoten
+      state.email = action.payload.hoten
+      state.soDT = action.payload.soDT
+      return [...state];
+    }
     default:
       return state;
   }

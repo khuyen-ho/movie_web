@@ -26,6 +26,13 @@ class UserService {
       data,
     });
   }
+  fetchAccountInfo() {
+    return Axios({
+      method: "POST",
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+    });
+  }
 }
 
 export default UserService;

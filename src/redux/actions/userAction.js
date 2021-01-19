@@ -1,7 +1,11 @@
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import { userService } from "../../services";
-import { FETCH_CREDENTIALS, REMOVE_CREDENTIALS } from "./actionType";
+import {
+  FETCH_CREDENTIALS,
+  GET_ACCOUNT_INFO,
+  REMOVE_CREDENTIALS,
+} from "./actionType";
 
 export const login = (user) => {
   return (dispatch) => {
@@ -19,3 +23,17 @@ export const login = (user) => {
   };
 };
 
+export const getAccountInfo = (user) => {
+  return (dispatch) => {
+    userService
+      .fetchAccountInfo(user)
+      .then((res) => {
+        // console.log(res.data);
+        dispatch({
+          type: GET_ACCOUNT_INFO,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
