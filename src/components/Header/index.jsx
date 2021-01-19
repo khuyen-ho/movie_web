@@ -123,7 +123,7 @@ const Header = (props) => {
                 iconElement={<AccountCircleIcon fontSize="large" />}
                 color={theme.palette.grey.main}
                 hoverColor={theme.palette.secondary.main}
-                title="ctlong"
+                title={userLogin.hoTen}
               />
             </Box>
             <CssMenu
