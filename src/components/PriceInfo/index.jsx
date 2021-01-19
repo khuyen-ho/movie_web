@@ -5,12 +5,22 @@ import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { CLEAR_SEAT } from "../../redux/actions/actionType";
+import { bookTicket } from "../../redux/actions/bookingAction";
 
 const PriceInfo = ({ showTimeInfo, userInfo }) => {
   const styles = useStyles();
   const seatList = useSelector((state) => state.chosenSeat);
-  const user = useSelector((state)=>state.userLogin)
+  const user = useSelector((state) => state.userLogin);
   const chosenMovie = useSelector((state) => state.booking.thongTinPhim);
+  let dataBookTicket = {
+    maLichChieu: chosenMovie.maLichChieu,
+    danhSachVe: seatList.map((item) => ({
+      maGhe: item.maGhe,
+      giaVe: item.giaVe,
+    })),
+
+    taiKhoanNguoiDung: user.accessToken
+  };
   const renderSeatName = (list) => {
     if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
   };
@@ -22,11 +32,11 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
     }
     return total;
   };
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({type:CLEAR_SEAT})
-  }, [])
+    dispatch({ type: CLEAR_SEAT });
+  }, []);
 
   return (
     <Box className={styles.root}>
@@ -70,7 +80,12 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
       </Grid>
 
       <Box className={styles.userInfo}>
-        <TextField className={styles.input} label="Email" variant="outlined" defaultValue={user.email} />
+        <TextField
+          className={styles.input}
+          label="Email"
+          variant="outlined"
+          defaultValue={user.email}
+        />
         <TextField
           className={styles.input}
           label="Số điện thoại"
@@ -80,7 +95,12 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
         />
       </Box>
 
-      <Button variant="contained" color="secondary" className={styles.button}>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={styles.button}
+        onClick={bookTicket(dataBookTicket)}
+      >
         ĐẶT VÉ
       </Button>
     </Box>

@@ -8,6 +8,14 @@ class BookingService{
             url:`https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${idShowtime}`
         })
     }
+    bookTicket(data){
+        // console.log(idShowtime);
+        return Axios({
+            method:"POST",
+            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,
+            data
+        })
+    }
     
 }
 

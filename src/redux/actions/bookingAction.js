@@ -25,3 +25,16 @@ export const chooseSeat = (seat) => {
     dispatch({ type: CHOOSE_SEAT, payload: seat });
   };
 };
+
+export const bookTicket = (data) => {
+  return (dispatch) => {
+    console.log("data",data);
+    bookingService
+      .bookTicket(data)
+      .then((res) => {
+        alert("Đặt vé thành công")
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+};
