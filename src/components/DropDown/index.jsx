@@ -1,17 +1,33 @@
 import { FormControl, MenuItem, Select, InputLabel } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
 
-const DropDown = (props) => {
+const DropDown = ({
+  list,
+  label,
+  state,
+  dispatchType,
+  placeHolder,
+  ...props
+}) => {
+  const dispatch = useDispatch();
   const styles = useStyles();
+
+  const handleChange = (event) => {
+    dispatch({
+      type: dispatchType,
+      payload: event.target.value,
+    });
+  };
 
   const CreateList = (list) => {
     return list.map((item, index) => (
       <MenuItem
         dense
         key={index}
-        value={index}
+        value={item}
         classes={{ root: styles.menuItem }}
       >
         {item}
@@ -21,16 +37,23 @@ const DropDown = (props) => {
 
   return (
     <FormControl variant="outlined" size="small" className={styles.formControl}>
-      <InputLabel id="select-label">{props.label}</InputLabel>
+      <InputLabel id="select-label">{label}</InputLabel>
       <Select
-        defaultValue={0}
+        defaultValue={""}
+        value={state}
         classes={{
           select: styles.select,
           icon: styles.icon,
         }}
-        label={props.label}
+        label={label}
+        onChange={handleChange}
       >
-        {CreateList(props.list)}
+        {placeHolder && !list.length && (
+          <MenuItem value="" classes={{ root: styles.menuItem }}>
+            <em>{placeHolder}</em>
+          </MenuItem>
+        )}
+        {CreateList(list)}
       </Select>
     </FormControl>
   );
@@ -39,11 +62,15 @@ const DropDown = (props) => {
 DropDown.propTypes = {
   list: PropTypes.array,
   label: PropTypes.string,
+  dispatchType: PropTypes.string,
+  placeHolder: PropTypes.string,
 };
 
 DropDown.defaultProps = {
-  list: ["Choose item", "Item 1", "Item 2", "Item 3"],
+  list: ["Item1", "Item2", "Item3"],
   label: "Label",
+  dispatchType: "",
+  placeHolder: "Vui lòng chọn",
 };
 
 export default DropDown;

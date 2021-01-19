@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { Box, Link, Menu, MenuItem } from "@material-ui/core";
+import { Box, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -10,7 +10,11 @@ import Search from "../Search";
 import useStyles, { CssMenu } from "./style";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_CREDENTIALS } from "../../redux/actions/actionType";
+import {
+  REMOVE_CREDENTIALS,
+  GET_QUICK_SEARCH_MOVIE,
+} from "../../redux/actions/actionType";
+import { getAllMovie } from "../../redux/actions/movieAction";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -18,7 +22,15 @@ const Header = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
   const { url } = useSelector((state) => state.currentPage);
+  const movieList = useSelector((state) => state.movies).map(
+    (movie) => movie.tenPhim
+  );
+  const searchMovie = useSelector((state) => state.searchMovie.quickSearch);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllMovie());
+  }, [dispatch]);
 
   const links = [
     { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
@@ -78,9 +90,17 @@ const Header = (props) => {
     handleClose();
   };
 
+  const handleSearch = () => {
+    movieList.includes(searchMovie)
+      ? window.open(`/movieDetail/${searchMovie}`)
+      : searchMovie
+      ? alert(`Không tìm thấy phim có tên ${searchMovie}`)
+      : alert(`Vui lòng nhập tên phim`);
+  };
+
   return (
     <Box className={styles.root}>
-      <Box marginRight={1}>
+      <Box>
         <NavLink to="/home">
           <Tag
             iconElement={<MovieRoundedIcon fontSize="large" />}
@@ -133,7 +153,13 @@ const Header = (props) => {
         )}
 
         <Box className={styles.search}>
-          <Search placeholder="Nhập tên phim..." />
+          <Search
+            placeholder="Nhập tên phim..."
+            autoList={movieList}
+            state={searchMovie}
+            dispatchType={GET_QUICK_SEARCH_MOVIE}
+            searchAction={handleSearch}
+          />
         </Box>
       </Box>
 

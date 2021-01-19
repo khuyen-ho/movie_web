@@ -15,6 +15,7 @@ import cinema from "./reducers/cinema";
 import cinemas from "./reducers/cinemas";
 import showTime from "./reducers/showTime";
 import showTimes from "./reducers/showTimes";
+import searchMovie from "./reducers/searchMovie";
 
 const RootReducer = combineReducers({
   account,
@@ -30,7 +31,8 @@ const RootReducer = combineReducers({
   showTimes,
   userLogin: user,
   currentPage,
-  movieDetail
+  movieDetail,
+  searchMovie,
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -1,13 +1,15 @@
 /* eslint-disable no-lone-blocks */
 import {
   GET_CINEMA_LIST,
-  GET_MOVIE_LIST,
+  GET_MOVIE_LIST_PAGINATION,
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
+  GET_MOVIE_SHOW_TIME,
+  GET_ALL_MOVIE,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
-export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
+export const getMovieListPagination = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
       //call api
@@ -19,7 +21,7 @@ export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
       })
         .then(function thanhCong(res) {
           dispatch({
-            type: GET_MOVIE_LIST,
+            type: GET_MOVIE_LIST_PAGINATION,
             payload: res.data,
           });
         })
@@ -89,6 +91,37 @@ export const getMovieDetail = (movieTitle) => {
         // console.log(res);
         dispatch({
           type: GET_MOVIE_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getAllMovie = () => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    movieService
+      .fetchAllMovie()
+      .then((res) => {
+        // console.log(res);
+        dispatch({
+          type: GET_ALL_MOVIE,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getShowTimeDetail = (movieId) => {
+  return (dispatch) => {
+    movieService
+      .fetchMovieShowTimes(movieId)
+      .then((res) => {
+        // console.log(res);
+        dispatch({
+          type: GET_MOVIE_SHOW_TIME,
           payload: res.data,
         });
       })
