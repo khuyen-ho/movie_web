@@ -108,8 +108,7 @@ const SearchMovie = (props) => {
               variant="contained"
               color="secondary"
               classes={{ root: styles.button }}
-              // onClick={() => window.open("/booking", "_blank")}
-              onClick={reset}
+              onClick={() => window.open("/booking", "_blank")}
             >
               MUA VÉ NGAY
             </Button>
