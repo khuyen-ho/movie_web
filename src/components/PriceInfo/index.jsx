@@ -17,10 +17,11 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
     danhSachVe: seatList.map((item) => ({
       maGhe: item.maGhe,
       giaVe: item.giaVe,
-    })),
-
-    taiKhoanNguoiDung: user.accessToken
+    }),),
+    taiKhoanNguoiDung: user.taiKhoan
   };
+  let disable = true;
+  dataBookTicket.danhSachVe.length===0? disable = true : disable = false;
   const renderSeatName = (list) => {
     if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
   };
@@ -99,7 +100,8 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
         variant="contained"
         color="secondary"
         className={styles.button}
-        onClick={bookTicket(dataBookTicket)}
+        onClick={bookTicket(dataBookTicket,user.accessToken)}
+        disabled = {disable}
       >
         ĐẶT VÉ
       </Button>

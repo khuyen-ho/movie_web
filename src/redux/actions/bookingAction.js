@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { bookingService } from "../../services";
 import {
   CHOOSE_SEAT,
@@ -10,7 +10,7 @@ import {
 
 export const getBookingList = (id) => {
   return (dispatch) => {
-    //   console.log(id);
+      //console.log(id);
     bookingService
       .fetchBooking(id)
       .then((res) => {
@@ -26,15 +26,19 @@ export const chooseSeat = (seat) => {
   };
 };
 
-export const bookTicket = (data) => {
+export const bookTicket = (data, token) => {
   return (dispatch) => {
-    console.log("data",data);
+    //console.log( data);
     bookingService
-      .bookTicket(data)
+      .bookTicket(data, token)
       .then((res) => {
-        alert("Đặt vé thành công")
-        console.log(res);
+        alert("Đặt vé thành công");
+       // console.log(res.maLichChieu);
+        getBookingList(res.maLichChieu)
+        //reload về home
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };
