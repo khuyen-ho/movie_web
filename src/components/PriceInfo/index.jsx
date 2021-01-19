@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
@@ -9,6 +9,7 @@ import { CLEAR_SEAT } from "../../redux/actions/actionType";
 const PriceInfo = ({ showTimeInfo, userInfo }) => {
   const styles = useStyles();
   const seatList = useSelector((state) => state.chosenSeat);
+  const user = useSelector((state)=>state.userLogin)
   const chosenMovie = useSelector((state) => state.booking.thongTinPhim);
   const renderSeatName = (list) => {
     if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
@@ -69,12 +70,13 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
       </Grid>
 
       <Box className={styles.userInfo}>
-        <TextField className={styles.input} label="Email" variant="outlined" />
+        <TextField className={styles.input} label="Email" variant="outlined" defaultValue={user.email} />
         <TextField
           className={styles.input}
           label="Số điện thoại"
           variant="outlined"
           type="text"
+          defaultValue={user.soDT}
         />
       </Box>
 
