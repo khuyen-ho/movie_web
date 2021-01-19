@@ -278,6 +278,7 @@ let initialState = {
     },
   ],
   selected: "2019-01-01T10:10:00",
+  selectedShowtimeId:15235
 };
 
 const showTimes = (state = initialState, action) => {

@@ -6,19 +6,21 @@ import MovieInfo from "../MovieInfo";
 import CinemaInfo from "../CinemaInfo";
 import Tag from "../Tag";
 import useStyles from "./style";
+import { useSelector } from "react-redux";
 
 const BookingNavBar = ({ movieInfo, cinemaInfo }) => {
   const styles = useStyles();
   const theme = useTheme();
-console.log(movieInfo);
+  const bookingInfo = useSelector(state => state.booking)
+// console.log(bookingInfo);
   return (
     <AppBar className={styles.root}>
       <Toolbar className={`${styles.toolBar} ${styles.largeBar}`}>
         <Box className={styles.info}>
-          <MovieInfo movie = {movieInfo} hasInfo />
+          <MovieInfo movie = {bookingInfo.thongTinPhim} hasInfo />
         </Box>
         <Box className={styles.info}>
-          <CinemaInfo {...cinemaInfo} hasInfo />
+          <CinemaInfo {...bookingInfo.thongTinPhim} hasInfo />
         </Box>
         <Typography
           color="secondary"

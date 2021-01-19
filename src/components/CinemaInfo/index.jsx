@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
   const styles = useStyles(props);
   const cinemaSystem = useSelector((state) => state.cinemaSystems);
-    //console.log(props);
+    // console.log(props.tenCumRap);
   return (
     <>
       <div className={styles.smallScreen}>

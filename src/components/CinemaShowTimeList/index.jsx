@@ -19,7 +19,6 @@ const CinemaShowTimeList = ({ info, ...props }) => {
   }, [cinema]);
 
   if (showTimeList.length !== 0) {
-    //const cinemaList = showTimeList[0].lstCumRap
     const chosenCinema = showTimeList[0].lstCumRap.find(
       (item) => item.maCumRap === cinema.selected
     );
@@ -28,7 +27,6 @@ const CinemaShowTimeList = ({ info, ...props }) => {
 
       return movieList.map((movie, index) => (
         <ListItem className={styles.listItem} key={index}>
-          {/* {console.log(movie)} */}
           <Show
             opened
             info={<MovieInfo movie={movie} hasInfo />}
