@@ -7,7 +7,7 @@ const AccountManagement = (props) => {
   return (
     <>
       <AccountForm />
-      <AccountTable {...props}/>
+      <AccountTable/>
     </>
   );
 };

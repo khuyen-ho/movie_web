@@ -4,7 +4,7 @@ class AccountService {
   fetchAccounts() {
     return Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00
       `,
     });
   }
@@ -38,6 +38,17 @@ class AccountService {
       },
     });
   }
+  editMovie(data, token) {
+    return Axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhim`,
+      data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  
   addMovie(data, token) {
     return Axios({
       method: "POST",

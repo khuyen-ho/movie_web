@@ -1,6 +1,6 @@
 import Axios from "axios";
 import { accountService } from "../../services";
-import { CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
+import { CHANGE_MOVIE, CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
 
 export const getAccounts = () => {
   return (dispatch) => {
@@ -33,14 +33,14 @@ export const addUser = (data, token) => {
   };
 };
 
-export const deleteUser = (idUser, token, props) => {
+export const deleteUser = (idUser, token) => {
   return (dispatch) => {
     accountService
       .deleteUser(idUser, token)
       .then((res) => {
         alert("Xoá người dùng thành công");
         console.log(res.data);
-        props.history.replace("/admin");
+        window.location.reload(false);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
@@ -59,7 +59,8 @@ export const editUser = (data, token) => {
       .editUser(data, token)
       .then((res) => {
         alert("Chỉnh sửa người dùng thành công");
-        console.log(res.data);
+        window.location.reload(false);
+        //console.log(res.data);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
@@ -106,7 +107,7 @@ export const chooseMovie = (movie) => {
   return (dispatch) => {
     console.log(movie);
     dispatch({
-      type: CHANGE_USER,
+      type: CHANGE_MOVIE,
       payload: movie,
     });
   };
@@ -129,6 +130,26 @@ export const addMovie = (data, token) => {
       .catch((err) => {
         alert(err.response.data);
         console.log(err.response);
+      });
+  };
+};
+
+export const editMovie = (data, token) => {
+  return (dispatch) => {
+    accountService
+      .editMovie(data, token)
+      .then((res) => {
+        alert("Chỉnh sửa phim thành công");
+        window.location.reload(false);
+        //console.log(res.data);
+        // dispatch({
+        //   type: FETCH_ACCOUNTS,
+        //   payload: res.data,
+        // });
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.response.data);
       });
   };
 };
