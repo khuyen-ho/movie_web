@@ -1,6 +1,6 @@
 import Axios from "axios";
 import { accountService } from "../../services";
-import { FETCH_ACCOUNTS } from "./actionType";
+import { CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
 
 export const getAccounts = () => {
   return (dispatch) => {
@@ -22,8 +22,8 @@ export const addUser = (data, token) => {
     accountService
       .addUser(data, token)
       .then((res) => {
-        alert("Thêm người dùng thành công")
-         console.log(res.data);
+        alert("Thêm người dùng thành công");
+        console.log(res.data);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
@@ -38,8 +38,8 @@ export const deleteUser = (idUser, token) => {
     accountService
       .deleteUser(idUser, token)
       .then((res) => {
-        alert("Xoá người dùng thành công")
-         console.log(res.data);
+        alert("Xoá người dùng thành công");
+        console.log(res.data);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
@@ -54,13 +54,23 @@ export const editUser = (data, token) => {
     accountService
       .editUser(data, token)
       .then((res) => {
-        alert("Chỉnh sửa người dùng thành công")
-         console.log(res.data);
+        alert("Chỉnh sửa người dùng thành công");
+        console.log(res.data);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
         // });
       })
       .catch((err) => console.log(err));
+  };
+};
+
+export const chooseUser = (user) => {
+  return (dispatch) => {
+    console.log(user);
+    dispatch({
+      type: CHANGE_USER,
+      payload: user,
+    });
   };
 };
