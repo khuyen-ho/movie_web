@@ -31,21 +31,21 @@ const PersonalInfo = (props) => {
   //Truyền vào biến data để lưu dữ liệu khi gọi api
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAccountInfo(userLogin, {taiKhoan:userLogin.taiKhoan}));
-    dispatch(
-      chooseUser({
-        taiKhoan: userLogin.taiKhoan,
-        matKhau: account.matKhau,
-        email: userLogin.email,
-        soDt: userLogin.soDT,
-        maNhom: userLogin.maNhom,
-        maLoaiNguoiDung: userLogin.maLoaiNguoiDung,
-        hoTen: userLogin.hoTen,
-      })
-    );
+    dispatch(getAccountInfo(userLogin, { taiKhoan: userLogin.taiKhoan }));
+    // dispatch(
+    //   chooseUser({
+    //     taiKhoan: userLogin.taiKhoan,
+    //     matKhau: account.matKhau,
+    //     email: userLogin.email,
+    //     soDt: userLogin.soDT,
+    //     maNhom: userLogin.maNhom,
+    //     maLoaiNguoiDung: userLogin.maLoaiNguoiDung,
+    //     hoTen: userLogin.hoTen,
+    //   })
+    // );
   }, []);
 
-  const chosenUser = useSelector((state) => state.changeUser);
+  //const chosenUser = useSelector((state) => state.changeUser);
 
   // const validate = (fieldValues = values) => {
   //   let temp = { ...errors };
@@ -116,7 +116,6 @@ const PersonalInfo = (props) => {
     console.log(data);
     dispatch(editUser(data, userLogin.accessToken));
   };
-
 
   return (
     <>
