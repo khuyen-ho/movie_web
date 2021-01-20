@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { accountService } from "../../services";
 import { CHANGE_MOVIE, CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
+import { getAccountInfo } from "./userAction";
 
 export const getAccounts = () => {
   return (dispatch) => {
@@ -73,7 +74,7 @@ export const editUser = (data, token) => {
 //for edit
 export const chooseUser = (user) => {
   return (dispatch) => {
-    console.log(user);
+    //console.log(user);
     dispatch({
       type: CHANGE_USER,
       payload: user,

@@ -19,10 +19,12 @@ export const login = (user) => {
         });
         localStorage.setItem("userLogin", JSON.stringify(res.data));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("Đăng nhập thất bại");
+        console.log(err);
+      });
   };
 };
-
 
 export const getAccountInfo = (user, data) => {
   return (dispatch) => {
