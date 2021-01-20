@@ -6,25 +6,30 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import { signUpSchema } from "../../services/user";
 import { userService } from "../../services";
+import { useDispatch } from "react-redux";
 
-const SignUp = ({ props }) => {
+const SignUp = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
   const handleSubmit = (user) => {
-    console.log(props);
+    // console.log(props);
     // Axios({
     //   method: "POST",
     //   url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
     //   data: user,
     // })
-    userService.signUp
-      .then((res) => {
-        console.log(res);
-        props.history.replace("/home");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Đăng kí thất bại");
-      });
+    dispatch(
+      userService.signUp(user)
+        .then((res) => {
+          //console.log(res);
+          alert("Đăng kí thành công");
+          props.history.replace("signin");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("Đăng kí thất bại");
+        })
+    );
   };
   return (
     <Formik
