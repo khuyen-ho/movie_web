@@ -33,19 +33,23 @@ export const addUser = (data, token) => {
   };
 };
 
-export const deleteUser = (idUser, token) => {
+export const deleteUser = (idUser, token, props) => {
   return (dispatch) => {
     accountService
       .deleteUser(idUser, token)
       .then((res) => {
         alert("Xoá người dùng thành công");
         console.log(res.data);
+        props.history.replace("/admin");
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
         // });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response);
+        alert(err.response.data);
+      });
   };
 };
 

@@ -34,7 +34,7 @@ const AccountTable = (props) => {
 
   const handleDelete = (user) => {
     console.log(user);
-    dispatch(deleteUser(user.taiKhoan,userLogin.accessToken));
+    dispatch(deleteUser(user.taiKhoan,userLogin.accessToken,props));
   };
 
   let data = accounts.map((account) => ({

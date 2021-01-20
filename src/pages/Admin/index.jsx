@@ -16,7 +16,9 @@ import Tag from "../../components/Tag";
 import CollapseMenu from "../../components/CollapseMenu";
 import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllMovie } from "../../redux/actions/movieAction";
+import { useEffect } from "react";
 
 const Admin = ({ match }) => {
   const { url } = match;
@@ -45,6 +47,10 @@ const Admin = ({ match }) => {
     },
     { title: "Đăng xuất", path: "/signin", target: "_self" },
   ];
+  const dispatch = useDispatch()
+  useEffect(() => {
+   dispatch(getAllMovie())
+  }, [])
 
   return (
     <Container className={styles.root}>
