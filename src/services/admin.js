@@ -38,5 +38,25 @@ class AccountService {
       },
     });
   }
+  addMovie(data, token) {
+    return Axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim`,
+      data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  deleteMovie(idMovie, token) {
+    return Axios({
+      method: "DELETE",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${idMovie}
+      `,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }
 export default AccountService;

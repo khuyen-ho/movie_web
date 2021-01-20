@@ -10,7 +10,6 @@ import useStyles from "./style";
 const DatePicker = (props) => {
   const [date, setDate] = useState(new Date());
   const styles = useStyles();
-
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDatePicker
