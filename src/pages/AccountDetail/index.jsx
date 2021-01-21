@@ -8,6 +8,8 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { useEffect } from "react";
+import { Container } from "@material-ui/core";
+import BackToTop from "../../components/BackToTop";
 
 const Home = (props) => {
   const styles = useStyles();
@@ -16,14 +18,15 @@ const Home = (props) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getCurrentWebPage(props.match.url))
-  },[]);
+  },[dispatch, props.match.url]);
 
   if (userLogin) {
     return (
-      <Box className={styles.root}>
+      <Container maxWidth="lg" className={styles.root}>
         <PersonalInfo />
         <BookingInfo />
-      </Box>
+        <BackToTop showBelow={300} />
+        </Container> 
     );
   } else {
     return <Redirect to="/signin" />;
