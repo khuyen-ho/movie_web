@@ -11,7 +11,7 @@ import useStyles from "./style";
 import { chooseMovie, deleteMovie } from "../../redux/actions/adminAction";
 
 const MovieTable = (props) => {
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies_);
   const userLogin = useSelector((state) => state.userLogin);
   const styles = useStyles();
 

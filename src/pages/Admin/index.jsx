@@ -93,7 +93,14 @@
 // }
 // export default AdminPage;
 import React from "react";
-import { Link, Route, Switch, Redirect, useLocation } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Router,
+  Switch,
+  Redirect,
+  useLocation,
+} from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import { Container, Box, MenuList, MenuItem, Divider } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";

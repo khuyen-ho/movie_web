@@ -10,16 +10,20 @@ import showTimes from "./reducers/showTime";
 import user from "./reducers/user";
 import currentPage from "./reducers/page";
 import movieDetail from "./reducers/movieDetail";
-import chosenMovie from './reducers/chosenMovie'
-import booking from './reducers/booking'
-import chosenSeat from './reducers/chosenSeat'
+import chosenMovie from "./reducers/chosenMovie";
+import booking from "./reducers/booking";
+import chosenSeat from "./reducers/chosenSeat";
 import searchMovie from "./reducers/searchMovie";
-import changeUser from './reducers/changeUser'
-import changeMovie from './reducers/changeMovie'
+import changeUser from "./reducers/changeUser";
+import changeMovie from "./reducers/changeMovie";
 import movies_ from "./reducers/movies";
-
+import accounts from "./reducers/accounts";
+import showTimes_ from "./reducers/showTimes";
+import cinemaSystems_ from "./reducers/cinemaSystems";
+import cinemas_ from "./reducers/cinemas";
 const RootReducer = combineReducers({
   account,
+  accounts,
   banners,
   movies,
   cinemaSystems,
@@ -36,7 +40,10 @@ const RootReducer = combineReducers({
   searchMovie,
   changeUser,
   changeMovie,
-  movies_
+  movies_,
+  showTimes_,
+  cinemaSystems_,
+  cinemas_
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

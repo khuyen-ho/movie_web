@@ -7,9 +7,9 @@ import TimePicker from "../TimePicker";
 import useStyles from "./style";
 
 const ShowTimeForm = (props) => {
-  const cinemaSystems = useSelector((state) => state.cinemaSystems);
-  const cinemas = useSelector((state) => state.cinemas);
-  const movies = useSelector((state) => state.movies);
+  const cinemaSystems = useSelector((state) => state.cinemaSystems_);
+  const cinemas = useSelector((state) => state.cinemas_);
+  const movies = useSelector((state) => state.movies_);
   const styles = useStyles();
 
   let cinemaSystemList = cinemaSystems.map((system) => system.tenHeThongRap);
