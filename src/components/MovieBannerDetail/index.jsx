@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getMovieDetail } from "../../redux/actions/movieAction";
 
-const MovieBannerDetail = ({props}) => {
+const MovieBannerDetail = (props) => {
   const styles = useStyles();
   // const { movie } = props;
   const dispatch = useDispatch();

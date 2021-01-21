@@ -281,7 +281,7 @@ let initialState = {
   selectedShowtimeId:15235
 };
 
-const showTimes = (state = initialState, action) => {
+const showTime = (state = initialState, action) => {
   switch (action.type) {
     case GET_CINEMA_TIME: {
       state.list = action.payload;
@@ -295,4 +295,4 @@ const showTimes = (state = initialState, action) => {
   }
 };
 
-export default showTimes;
+export default showTime;

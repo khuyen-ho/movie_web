@@ -3,6 +3,8 @@ import { fade } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: "100%",
+    height: 40,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -13,18 +15,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: fade(theme.palette.grey.dark, 0.15),
     "&:hover": {
       backgroundColor: fade(theme.palette.grey.dark, 0.25),
-    },
-
-    [theme.breakpoints.up("xs")]: {
-      marginLeft: theme.spacing(0),
-      width: "100%",
-    },
-    [theme.breakpoints.up("md")]: {
-      marginLeft: theme.spacing(2),
-      width: "auto",
-    },
-    [theme.breakpoints.up("xl")]: {
-      marginRight: theme.spacing(1.5),
     },
   },
 
@@ -45,10 +35,26 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
   },
 
-  inputInput: {
-    color: theme.palette.text.primary,
-    fontSize: theme.typography.subtitle2.fontSize,
-    padding: theme.spacing(1),
+  input: {
+    "&:hover": {
+      border: "none",
+    },
+
+    "& .MuiInputBase-root": {
+      color: theme.palette.text.primary,
+      fontSize: theme.typography.subtitle2.fontSize,
+      padding: theme.spacing(1),
+
+      "&::before, &::after": {
+        border: "none",
+      },
+    },
+
+    "& .MuiInput-underline": {
+      "&:hover:before": {
+        border: "none",
+      },
+    },
   },
 }));
 

@@ -31,7 +31,7 @@ const SignUpPage = (props) => {
         </Box> */}
 
         <Box className={styles.center}>
-          <SignUp props={props} />
+          <SignUp {...props} />
         </Box>
       </Box>
     );

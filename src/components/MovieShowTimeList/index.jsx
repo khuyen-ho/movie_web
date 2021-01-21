@@ -9,11 +9,13 @@ import { getMovieDetailSchedule } from "../../redux/actions/movieAction";
 
 const MovieShowTimeList = ({ info, ...props }) => {
   const styles = useStyles();
+
   const cinemaList = useSelector((state) =>
     state.chosenMovie.heThongRapChieu.find(
       (item) => item.maHeThongRap === state.cinemaSystems.selected
     )
   );
+
 
   const chosenMovie = useSelector((state) => state.movieDetail);
   const dispatch = useDispatch();

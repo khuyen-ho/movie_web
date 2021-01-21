@@ -37,7 +37,7 @@ let initialState = {
   selectedLogo:"http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"
 };
 
-const cinemaSystems = (state = initialState, action) => {
+const cinemaSystem = (state = initialState, action) => {
   switch (action.type) {
     case GET_ID_CINEMA_SYSTEM: {
       state.selected = action.payload;
@@ -49,4 +49,4 @@ const cinemaSystems = (state = initialState, action) => {
   }
 };
 
-export default cinemaSystems;
+export default cinemaSystem;

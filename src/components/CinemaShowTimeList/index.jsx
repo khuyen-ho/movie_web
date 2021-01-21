@@ -9,10 +9,12 @@ import { getCinemaTime } from "../../redux/actions/cinemaAction";
 
 const CinemaShowTimeList = ({ info, ...props }) => {
   const styles = useStyles();
+
   const showTimeList = useSelector((state) => state.showTimes.list);
   const dispatch = useDispatch();
   const cinemaSystem = useSelector((state) => state.cinemaSystems);
   const cinema = useSelector((state) => state.cinemas);
+
 
   useEffect(() => {
     dispatch(getCinemaTime(cinemaSystem.selected));
