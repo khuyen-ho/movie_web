@@ -9,6 +9,9 @@ import Admin from "./pages/Admin";
 import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
+import AccountManagement from "./components/AccountManagement";
+import MovieManagement from "./components/MovieManagement";
+import ShowTimeManagement from "./components/ShowTimeManagement";
 
 const App = () => {
   return (
@@ -20,10 +23,12 @@ const App = () => {
         <Route exact path="/cinemaDetail" component={CinemaDetail} />
         <Route exact path="/movieDetail/:id" component={MovieDetail} />
         <Route exact path="/accountDetail" component={AccountDetail} />
-        <Route exact path="/admin" component={Admin} />
+        <Route path="/admin" component={Admin} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
-        <Route path="*" component={Page404} />
+        <Route path="/admin/user-management" component={AccountManagement} />
+        <Route path="/admin/movie-management" component={MovieManagement} />
+        <Route path="/admin/showtime-management" component={ShowTimeManagement} />
       </Switch>
     </BrowserRouter>
   );
