@@ -4,6 +4,7 @@ import Carousel from "../../components/Carousel";
 import SearchMovie from "../../components/SearchMovie";
 import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
+import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
 import { useEffect } from "react";
@@ -26,6 +27,7 @@ const Home = (props) => {
       <div id="scheduleCinema">
         <ScheduleCinema />
       </div>
+        <BackToTop showBelow={300} />
     </Box>
   );
 };

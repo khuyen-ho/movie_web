@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import CinemaDetail from "./pages/CinemaDetail";
 import MovieDetail from "./pages/MovieDetail";
 import AccountDetail from "./pages/AccountDetail";
-import Admin from "./pages/Admin";
 import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
@@ -13,6 +13,7 @@ import Page404 from "./pages/Page404";
 //before merge
 const App = () => {
   return (
+
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="*" component={Page404} />
       </Switch>
     </BrowserRouter>
+
   );
 };
 

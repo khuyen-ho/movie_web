@@ -5,7 +5,7 @@ let initialState = {
   selected: "bhd-star-cineplex-3-2",
 };
 
-const cinemas = (state = initialState, action) => {
+const cinema = (state = initialState, action) => {
   switch (action.type) {
     case GET_ID_CINEMA: {
       state.selected = action.payload;
@@ -22,4 +22,4 @@ const cinemas = (state = initialState, action) => {
   }
 };
 
-export default cinemas;
+export default cinema;

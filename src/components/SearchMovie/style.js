@@ -10,6 +10,15 @@ const useStyle = makeStyles((theme) => ({
     boxShadow: "0 0 10px rgba(0,0,0,.3)",
   },
 
+  dropDown: {
+    [theme.breakpoints.up("xs")]: {
+      margin: theme.spacing(0.5, 0),
+    },
+    [theme.breakpoints.up("lg")]: {
+      margin: 0,
+    },
+  },
+
   button: {
     outline: "none",
     color: theme.palette.white,
@@ -18,12 +27,6 @@ const useStyle = makeStyles((theme) => ({
     width: "100%",
     "&:focus": {
       outline: "none",
-    },
-    [theme.breakpoints.up("xs")]: {
-      marginTop: theme.spacing(1),
-    },
-    [theme.breakpoints.up("lg")]: {
-      marginTop: theme.spacing(0),
     },
   },
 }));

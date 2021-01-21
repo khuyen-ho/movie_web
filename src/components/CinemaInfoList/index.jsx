@@ -9,8 +9,10 @@ import useStyles from "./style";
 import { getCinemaInfo } from "../../redux/actions/cinemaAction";
 
 const CinemaInfoList = (props) => {
+
   const selectedCinema = useSelector((state) => state.cinemas.selected);
   const selectedCinemaSystem = useSelector((state) => state.cinemaSystems);
+
   const dispatch = useDispatch();
   const styles = useStyles(props);
 
