@@ -9,7 +9,7 @@ import useStyles from "./style";
 const BookingInfo = (props) => {
   const account = useSelector((state) => state.account);
   const styles = useStyles();
-
+console.log(account);
   let headers = [
     "Ngày đặt",
     "Mã vé",

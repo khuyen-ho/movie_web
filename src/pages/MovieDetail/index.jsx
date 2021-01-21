@@ -19,7 +19,7 @@ const MovieDetail = (props) => {
   // console.log(props);
   return (
     <Box className={styles.root}>
-      <MovieBannerDetail props={props}/>
+      <MovieBannerDetail {...props}/>
       <ScheduleMovieDetail />
       <BackToTop showBelow={300} />
     </Box>

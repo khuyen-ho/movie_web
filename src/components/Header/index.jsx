@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { Box, Link, MenuItem } from "@material-ui/core";
+import { Box, Button, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -15,6 +15,7 @@ import {
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
 import { getAllMovie } from "../../redux/actions/movieAction";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -114,6 +115,19 @@ const Header = (props) => {
       <Box className={styles.right}>
         {userLogin ? (
           <>
+            {userLogin.maLoaiNguoiDung === "QuanTri" ? (
+              <NavLink to="/admin">
+                <Tag
+                  iconElement={<SupervisorAccountIcon fontSize="large" />}
+                  color={theme.palette.yellow.dark}
+                  hoverColor={theme.palette.yellow.main}
+                  title="Admin"
+                />
+              </NavLink>
+            ) : (
+              <></>
+            )}
+
             <Box
               className={styles.signInUp}
               aria-haspopup="true"
@@ -123,7 +137,7 @@ const Header = (props) => {
                 iconElement={<AccountCircleIcon fontSize="large" />}
                 color={theme.palette.grey.main}
                 hoverColor={theme.palette.secondary.main}
-                title="ctlong"
+                title={userLogin.hoTen}
               />
             </Box>
             <CssMenu

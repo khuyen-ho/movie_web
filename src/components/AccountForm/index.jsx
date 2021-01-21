@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, Button } from "@material-ui/core";
 import DropDown from "../DropDown";
 import useStyles from "./style";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, chooseUser, editUser } from "../../redux/actions/adminAction";
+import { Form, Formik } from "formik";
+import AddForm from "../AddForm";
 const AccountForm = (props) => {
   const styles = useStyles();
+  const userLogin = useSelector((state) => state.userLogin);
+  
+  const chosenUser = useSelector((state) => state.changeUser);
+  const dispatch = useDispatch();
+ 
 
-  return (
-    <>
-      <form noValidate autoComplete="off">
+  const handleEdit = (data) => {
+    dispatch(editUser(data, userLogin.accessToken));
+  };
+//   useEffect(() => {
+// console.log("render", renderEditForm());
+   
+//   }, [chosenUser])
+
+  const renderEditForm = ()=>(  <Formik
+    onSubmit={handleEdit}
+    initialValues={chosenUser}
+    render={(formikProps) => (
+      <Form noValidate autoComplete="off">
         <Box className={styles.content}>
-          <Typography className={styles.title} component="h1" variant="h5">
+          <Typography
+            className={styles.title}
+            component="h1"
+            variant="h5"
+          >
             Quản lý người dùng
           </Typography>
 
@@ -21,7 +43,9 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="ctlong"
+              name="taiKhoan"
+              defaultValue={chosenUser.taiKhoan}
+              disabled
             />
 
             <TextField
@@ -30,15 +54,25 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="Cao Thanh Long"
+              name="hoTen"
+              defaultValue={chosenUser.hoTen}
+              onChange={formikProps.handleChange}
             />
 
-            <Box className={styles.input} display="inline-block">
-              <DropDown
-                label="Loại người dùng"
-                list={["Quản trị", "Người dùng"]}
-              />
-            </Box>
+            {/* <Box className={styles.input} display="inline-block">
+              <DropDown label="Loại người dùng" list={["Người dùng"]} />
+            </Box> */}
+            <TextField
+              className={styles.input}
+              label="Người dùng"
+              variant="outlined"
+              type="text"
+              size="small"
+              name="maLoaiNguoiDung"
+              defaultValue={chosenUser.maLoaiNguoiDung}
+              //onChange={formikProps.handleChange}
+              disabled
+            />
 
             <TextField
               className={styles.input}
@@ -46,7 +80,9 @@ const AccountForm = (props) => {
               variant="outlined"
               type="password"
               size="small"
-              defaultValue="123"
+              name="matKhau"
+              defaultValue={chosenUser.matKhau}
+              onChange={formikProps.handleChange}
             />
 
             <TextField
@@ -55,7 +91,9 @@ const AccountForm = (props) => {
               variant="outlined"
               type="email"
               size="small"
-              defaultValue="long@gmail.com"
+              name="email"
+              defaultValue={chosenUser.email}
+              onChange={formikProps.handleChange}
             />
 
             <TextField
@@ -64,17 +102,35 @@ const AccountForm = (props) => {
               variant="outlined"
               type="text"
               size="small"
-              defaultValue="0123456789"
+              name="soDT"
+              defaultValue={chosenUser.soDt}
+              onChange={formikProps.handleChange}
             />
           </Box>
         </Box>
 
-        <Button variant="contained" color="secondary" className={styles.button}>
-          Thêm
+        <Button
+          variant="contained"
+          color="secondary"
+          className={styles.button}
+          // onClick={handleClick}
+          type="submit"
+        >
+          Lưu lại
         </Button>
-      </form>
-    </>
-  );
+      </Form>
+    )}
+  />)
+
+  if (!chosenUser) return <AddForm />;
+  else {
+    //console.log(chosenUser);
+    return (
+      <>
+      {renderEditForm()}
+      </>
+    );
+  }
 };
 
 export default AccountForm;
