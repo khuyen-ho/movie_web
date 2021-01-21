@@ -13,8 +13,8 @@ const CinemaSystemList = ({ showList, ...props }) => {
   const selectedSystem = useSelector((state) => state.cinemaSystem.selected);
   const dispatch = useDispatch();
 
-  const handleClick = (id) => {
-    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id });
+  const handleClick = (id, logo) => {
+    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id,logo });
   };
 
   return systemList.map((system) => (
@@ -23,7 +23,7 @@ const CinemaSystemList = ({ showList, ...props }) => {
       classes={{ selected: styles.selected }}
       button
       selected={selectedSystem === system.id}
-      onClick={() => handleClick(system.id)}
+      onClick={() => handleClick(system.id, system.logo)}
       key={system.id}
     >
       <Show

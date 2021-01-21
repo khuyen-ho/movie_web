@@ -6,19 +6,21 @@ import MovieInfo from "../MovieInfo";
 import CinemaInfo from "../CinemaInfo";
 import Tag from "../Tag";
 import useStyles from "./style";
+import { useSelector } from "react-redux";
 
 const BookingNavBar = ({ movieInfo, cinemaInfo }) => {
   const styles = useStyles();
   const theme = useTheme();
-
+  const bookingInfo = useSelector(state => state.booking)
+// console.log(bookingInfo);
   return (
     <AppBar className={styles.root}>
       <Toolbar className={`${styles.toolBar} ${styles.largeBar}`}>
         <Box className={styles.info}>
-          <MovieInfo {...movieInfo} hasInfo />
+          <MovieInfo movie = {bookingInfo.thongTinPhim} hasInfo />
         </Box>
         <Box className={styles.info}>
-          <CinemaInfo {...cinemaInfo} hasInfo />
+          <CinemaInfo {...bookingInfo.thongTinPhim} hasInfo />
         </Box>
         <Typography
           color="secondary"
@@ -49,16 +51,16 @@ BookingNavBar.propTypes = {
 BookingNavBar.defaultProps = {
   movieInfo: {
     id: 1283,
-    logo: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
-    name: "Trainwreck",
+    hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
+    tenPhim: "Trainwreck",
     duration: 100,
     score: 5.2,
   },
   cinemaInfo: {
-    id: "bhd-star-cineplex-3-2 ",
+    maCumRap: "bhd-star-cineplex-3-2 ",
     logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
-    name: "BHD Star Cineplex - 3/2",
-    address: "L5-Vincom 3/2, 3C Đường 3/2, Q.10",
+    tenCumRap: "BHD Star Cineplex - 3/2",
+    diaChi: "L5-Vincom 3/2, 3C Đường 3/2, Q.10",
   },
 };
 

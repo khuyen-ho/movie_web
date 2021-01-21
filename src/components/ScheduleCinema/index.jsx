@@ -29,7 +29,8 @@ const ScheduleCinema = (props) => {
               ${styles.noTopLeftRadius} 
               ${styles.noBottomLeftRadius}
               ${styles.noTopRightRadius} 
-              ${styles.noBottomRightRadius}`}
+              ${styles.noBottomRightRadius}
+              ${styles.verticalScroll}`}
             >
               <CinemaInfoList hasEllipsis hasDetailLink />
             </List>

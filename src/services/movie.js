@@ -1,13 +1,29 @@
 import Axios from "axios";
 
 class MovieService {
+
+  getMovieDetail(movieTitle) {
+    return Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00&tenPhim=${movieTitle}`,
+    });
+  }
+  
   fetchMovieDetail(movieTitle) {
     return Axios({
       method: "GET",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00&tenPhim=${movieTitle}`,
     });
   }
-  fetchAllMovie() {
+
+  getMovieDetailSchedule(movieId) {
+    return Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00`,
+    });
+  }
+  
+fetchAllMovie() {
     return Axios({
       method: "GET",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP00`,

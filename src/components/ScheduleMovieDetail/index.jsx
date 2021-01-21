@@ -7,6 +7,7 @@ import useStyles from "./style";
 
 const ScheduleMovieDetail = (props) => {
   const styles = useStyles();
+  
   return (
     <Container maxWidth="lg" className={styles.container}>
       <Grid container className={styles.largeScreen}>

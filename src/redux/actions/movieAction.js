@@ -4,8 +4,10 @@ import {
   GET_MOVIE_LIST_PAGINATION,
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
+  GET_MOVIE_DETAIL_SCHEDULE,
   GET_MOVIE_SHOW_TIME,
   GET_ALL_MOVIE,
+
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
@@ -82,15 +84,31 @@ export const getCinemaDetailList = (idCinema) => {
   };
 };
 
-export const getMovieDetail = (movieTitle) => {
+export const getMovieDetail = (movieId) => {
   //console.log(idCinema);
   return (dispatch) => {
     movieService
-      .fetchMovieDetail(movieTitle)
+      .getMovieDetail(movieId)
       .then((res) => {
-        // console.log(res);
+         //console.log('movieaction',res);
         dispatch({
           type: GET_MOVIE_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log('error',err));
+  };
+};
+
+export const getMovieDetailSchedule = (movieId) => {
+  //console.log(idCinema);
+  return (dispatch) => {
+    movieService
+      .getMovieDetailSchedule(movieId)
+      .then((res) => {
+        //console.log(res);
+        dispatch({
+          type: GET_MOVIE_DETAIL_SCHEDULE,
           payload: res.data,
         });
       })
