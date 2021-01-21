@@ -25,12 +25,15 @@ export const addUser = (data, token) => {
       .then((res) => {
         alert("Thêm người dùng thành công");
         console.log(res.data);
+        window.location.reload(false);
         // dispatch({
         //   type: FETCH_ACCOUNTS,
         //   payload: res.data,
         // });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert(err.response.data)
+        console.log(err.response)});
   };
 };
 
@@ -129,7 +132,7 @@ export const addMovie = (data, token) => {
         // });
       })
       .catch((err) => {
-        alert(err.response.data);
+        //alert(err.response.data);
         console.log(err.response);
       });
   };

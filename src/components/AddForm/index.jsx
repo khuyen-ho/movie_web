@@ -4,7 +4,7 @@ import DatePicker from "../DatePicker";
 import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 import { Form, Formik } from "formik";
-import { addMovie, chooseMovie } from "../../redux/actions/adminAction";
+import { addMovie, addUser, chooseMovie } from "../../redux/actions/adminAction";
 import { useDispatch, useSelector } from "react-redux";
 import AddMovieForm from "../AddMovieForm";
 const MovieForm = (props) => {
@@ -19,7 +19,7 @@ const MovieForm = (props) => {
   };
   const handleAdd = (data) => {
     console.log(data);
-    dispatch(addMovie(data, userLogin.accessToken, props));
+    dispatch(addUser(data, userLogin.accessToken, props));
   };
 
   return (
@@ -27,12 +27,12 @@ const MovieForm = (props) => {
       onSubmit={handleAdd}
       initialValues={{
         taiKhoan: "",
-        hoTen: "",
+        matKhau: "",
         email: "",
         soDt: "",
-        matKhau: "",
-        maLoaiNguoiDung: "",
-        changeMovie: "",
+        maNhom: "GP00",
+        maLoaiNguoiDung: "KhachHang",
+        hoTen: "",
       }}
       render={(formikProps) => (
         <Form noValidate autoComplete="off">
@@ -74,7 +74,7 @@ const MovieForm = (props) => {
                 type="text"
                 size="small"
                 name="maLoaiNguoiDung"
-                // defaultValue={chosenUser.maLoaiNguoiDung}
+                value="KhachHang"
                 onChange={formikProps.handleChange}
               />
 
@@ -106,7 +106,7 @@ const MovieForm = (props) => {
                 variant="outlined"
                 type="text"
                 size="small"
-                name="soDT"
+                name="soDt"
                 // defaultValue={chosenUser.soDt}
                 onChange={formikProps.handleChange}
               />
@@ -120,7 +120,7 @@ const MovieForm = (props) => {
             // onClick={handleClick}
             type="submit"
           >
-            Lưu lại
+            Thêm
           </Button>
         </Form>
       )}
