@@ -10,7 +10,7 @@ import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
 
-//before merge
+//new branch
 const App = () => {
   return (
 
