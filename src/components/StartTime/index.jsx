@@ -3,18 +3,11 @@ import PropTypes from "prop-types";
 import { Button, Typography } from "@material-ui/core";
 import { getTime } from "../../helpers/time-manager";
 import useStyles from "./style";
-import { getBookingList } from "../../redux/actions/bookingAction";
-import { useDispatch } from "react-redux";
 
-const StartTime = ({ start, duration,showtimeId }) => {
+const StartTime = ({ start, duration }) => {
   const styles = useStyles();
-  const dispatch = useDispatch()
-  const handleClick = ()=>{
-   dispatch(getBookingList(showtimeId));
-    
-  }
   return (
-    <Button className={styles.root} onClick={()=>handleClick()}>
+    <Button className={styles.root}>
       <Typography
         variant="subtitle1"
         component="span"

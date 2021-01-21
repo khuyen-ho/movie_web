@@ -2,28 +2,18 @@ import React, { useState } from "react";
 import { Tab, Tabs } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Date from "../Date";
-import {
-  getDateList,
-  getDay,
-  getDate,
-  getFullDate,
-} from "../../helpers/time-manager";
+import { getDateList, getDay, getDate } from "../../helpers/time-manager";
 import useStyles from "./style";
-import { setCurrentTime } from "../../redux/actions/cinemaAction";
-import { useDispatch } from "react-redux";
 
 const DaysOfWeek = ({ startDate }) => {
   const styles = useStyles();
   const dateList = getDateList(startDate, 14);
-  const dispatch = useDispatch();
+
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  //  console.log(dateList[newValue].format());
-    dispatch(setCurrentTime(dateList[newValue].format()));
   };
-
 
   return (
     <Tabs
@@ -51,7 +41,7 @@ DaysOfWeek.propTypes = {
 };
 
 DaysOfWeek.defaultProps = {
-  startDate: "2019-01-01T00:00:00",
+  startDate: "2019-01-09T00:00:00",
 };
 
 export default DaysOfWeek;

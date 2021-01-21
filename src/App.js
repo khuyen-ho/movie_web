@@ -10,25 +10,22 @@ import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
 
-//new branch
 const App = () => {
   return (
-
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/booking/:showtimeId" component={Booking} />
-        <Route exact path="/cinemaDetail" component={CinemaDetail} />
-        <Route exact path="/movieDetail/:id" component={MovieDetail} />
-        <Route exact path="/accountDetail" component={AccountDetail} />
-        <Route exact path="/admin" component={Admin} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route path="*" component={Page404} />
-      </Switch>
-    </BrowserRouter>
-
+    <Switch>
+      <Route exact path="/">
+        <Redirect to="/home" />
+      </Route>
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/booking" component={Booking} />
+      <Route exact path="/cinemaDetail" component={CinemaDetail} />
+      <Route exact path="/movieDetail/:id" component={MovieDetail} />
+      <Route exact path="/accountDetail" component={AccountDetail} />
+      <Route path="/admin" component={Admin} />
+      <Route exact path="/signin" component={SignIn} />
+      <Route exact path="/signup" component={SignUp} />
+      <Route path="*" component={Page404} />
+    </Switch>
   );
 };
 

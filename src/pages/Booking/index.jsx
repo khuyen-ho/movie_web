@@ -30,7 +30,7 @@ const Booking = (props) => {
           </Grid>
           <Grid item xs={12} xl={4}>
             <Box className={styles.priceInfo}>
-              <PriceInfo {...props} />
+              <PriceInfo />
             </Box>
           </Grid>
         </Grid>

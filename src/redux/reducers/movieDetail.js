@@ -16,7 +16,6 @@ let initialState = [{
 const movieDetail = (state = initialState, action) => {
   switch (action.type) {
     case GET_MOVIE_DETAIL: {
-      //console.log('detail',action.payload);
       return action.payload;
     }
     default:
