@@ -26,160 +26,101 @@ const MovieForm = (props) => {
     <Formik
       onSubmit={handleAdd}
       initialValues={{
-        maPhim: "",
-        tenPhim: "",
-        biDanh: "",
-        trailer: "",
-        hinhAnh: "",
-        moTa: "",
-        maNhom: "GP00",
-        ngayKhoiChieu: "",
-        danhGia: "",
+        taiKhoan: "",
+        hoTen: "",
+        email: "",
+        soDt: "",
+        matKhau: "",
+        maLoaiNguoiDung: "",
+        changeMovie: "",
       }}
       render={(formikProps) => (
         <Form noValidate autoComplete="off">
           <Box className={styles.content}>
             <Typography className={styles.title} component="h1" variant="h5">
-              Quản lý phim
+              Quản lý người dùng
             </Typography>
 
-            <Grid container spacing={1}>
-              <Grid item xs={12} md={4}>
-                <Box className={styles.info}>
-                  <TextField
-                    className={styles.input}
-                    label="Mã nhóm"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                  />
+            <Box className={styles.info}>
+              <TextField
+                className={styles.input}
+                label="Tên tài khoản"
+                variant="outlined"
+                type="text"
+                size="small"
+                name="taiKhoan"
+                // defaultValue={chosenUser.taiKhoan}
+                onChange={formikProps.handleChange}
+              />
 
-                  <TextField
-                    className={styles.input}
-                    label="Mã phim"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                    name="maPhim"
-                    //defaultValue={chosenMovie.maPhim}
-                    onChange={formikProps.handleChange}
-                  />
+              <TextField
+                className={styles.input}
+                label="Họ và tên"
+                variant="outlined"
+                type="text"
+                size="small"
+                name="hoTen"
+                //defaultValue={chosenUser.hoTen}
+                onChange={formikProps.handleChange}
+              />
 
-                  <TextField
-                    className={styles.input}
-                    label="Tên phim"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                    name="tenPhim"
-                    onChange={formikProps.handleChange}
-                  />
+              {/* <Box className={styles.input} display="inline-block">
+                 <DropDown label="Loại người dùng" list={["Người dùng"]} />
+               </Box> */}
+              <TextField
+                className={styles.input}
+                label="Người dùng"
+                variant="outlined"
+                type="text"
+                size="small"
+                name="maLoaiNguoiDung"
+                // defaultValue={chosenUser.maLoaiNguoiDung}
+                onChange={formikProps.handleChange}
+              />
 
-                  <TextField
-                    className={styles.input}
-                    label="Bí danh"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                    name="biDanh"
-                    onChange={formikProps.handleChange}
-                  />
+              <TextField
+                className={styles.input}
+                label="Mật khẩu"
+                variant="outlined"
+                type="password"
+                size="small"
+                name="matKhau"
+                // defaultValue={chosenUser.matKhau}
+                onChange={formikProps.handleChange}
+              />
 
-                  <TextField
-                    className={styles.input}
-                    label="Trailer"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                    name="trailer"
-                    onChange={formikProps.handleChange}
-                  />
+              <TextField
+                className={styles.input}
+                label="Email"
+                variant="outlined"
+                type="email"
+                size="small"
+                name="email"
+                //defaultValue={chosenUser.email}
+                onChange={formikProps.handleChange}
+              />
 
-                  {/* <Box className={styles.datePicker}>
-
-                <DatePicker
-                  label="Ngày khởi chiếu"
-                  name="ngayKhoiChieu"
-                  onChange={formikProps.handleChange}
-                />
-              </Box> */}
-                  <TextField
-                    className={styles.input}
-                    label="Ngày khởi chiếu"
-                    variant="outlined"
-                    type="text"
-                    size="small"
-                    name="ngayKhoiChieu"
-                    onChange={formikProps.handleChange}
-                  />
-
-                  <TextField
-                    className={styles.input}
-                    label="Đánh giá"
-                    variant="outlined"
-                    type="number"
-                    InputProps={{
-                      inputProps: {
-                        max: 10,
-                        min: 0,
-                        step: 0.1,
-                      },
-                    }}
-                    size="small"
-                    name="danhGia"
-                    onChange={formikProps.handleChange}
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <TextField
-                  id="outlined-multiline-static"
-                  label="Mô tả"
-                  multiline
-                  classes={{ root: `${styles.input} ${styles.desc}` }}
-                  rows={22}
-                  //defaultValue="Nhập mô tả..."
-                  variant="outlined"
-                  name="moTa"
-                  onChange={formikProps.handleChange}
-                />
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                {/* <ImageUploader
-              className={styles.uploader}
-              {...props}
-              buttonText="Tải poster phim"
-              label="Dung lượng file tối đa: 5MB"
-              fileSizeError="Dung lượng file quá lớn"
-              fileTypeError="Định dạng file không được hỗ trợ"
-              withIcon={true}
-              withPreview
-              singleImage
-              onChange={onDrop}
-              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-              maxFileSize={5242880}
-            /> */}
-                <TextField
-                  className={styles.input}
-                  label="Hình ảnh"
-                  variant="outlined"
-                  type="text"
-                  size="small"
-                  name="hinhAnh"
-                  onChange={formikProps.handleChange}
-                />
-              </Grid>
-            </Grid>
+              <TextField
+                className={styles.input}
+                label="Số điện thoại"
+                variant="outlined"
+                type="text"
+                size="small"
+                name="soDT"
+                // defaultValue={chosenUser.soDt}
+                onChange={formikProps.handleChange}
+              />
+            </Box>
           </Box>
 
           <Button
             variant="contained"
             color="secondary"
             className={styles.button}
+            // onClick={handleClick}
             type="submit"
           >
-            Thêm
+            Lưu lại
           </Button>
         </Form>
       )}

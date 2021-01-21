@@ -4,6 +4,7 @@ import DatePicker from "../DatePicker";
 import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 import { Form, Formik } from "formik";
+import AddForm from "../AddForm";
 import {
   addMovie,
   chooseMovie,
@@ -32,7 +33,7 @@ const MovieForm = (props) => {
     dispatch(editMovie(data, userLogin.accessToken));
   };
 
-  if (!chosenMovie) return <AddMovieForm />;
+  if (!chosenMovie) return <AddMovieForm/>;
   else
     return (
       <Formik
