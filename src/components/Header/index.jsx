@@ -95,7 +95,7 @@ const Header = (props) => {
     movieList.includes(searchMovie)
       ? window.open(`/movieDetail/${searchMovie}`)
       : searchMovie
-      ? alert(`Không tìm thấy phim có tên ${searchMovie}`)
+      ? alert(`Không tìm thấy phim có tên "${searchMovie}"`)
       : alert(`Vui lòng nhập tên phim`);
   };
 
