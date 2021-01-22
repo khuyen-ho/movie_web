@@ -135,7 +135,7 @@ const Header = (props) => {
             >
               <Tag
                 iconElement={<AccountCircleIcon fontSize="large" />}
-                color={theme.palette.grey.main}
+                color={theme.palette.secondary.main}
                 hoverColor={theme.palette.secondary.main}
                 title={userLogin.hoTen}
               />
@@ -155,12 +155,12 @@ const Header = (props) => {
           </>
         ) : (
           <Box className={styles.signInUp}>
-            <NavLink to={links[3].path}>
+            <NavLink to={links[2].path}>
               <Tag
-                iconElement={<PersonAddIcon fontSize="large" />}
+                iconElement={<AccountCircleIcon fontSize="large" />}
                 color={theme.palette.grey.main}
                 hoverColor={theme.palette.secondary.main}
-                title={links[3].title}
+                title={links[2].title}
               />
             </NavLink>
           </Box>
