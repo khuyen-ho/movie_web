@@ -9,7 +9,7 @@ import {
   GET_SEARCH_CINEMA,
   GET_SEARCH_DATE,
   GET_SEARCH_SHOW_TIME,
-  RESET_STORE,
+  RESET_STATE,
 } from "../../redux/actions/actionType";
 import {
   getMovieId,
@@ -46,9 +46,18 @@ const SearchMovie = (props) => {
     dispatch(getShowTimeDetail(getMovieId(movies, selectedMovie)));
   }, [dispatch, selectedMovie, movies]);
 
-  const reset = () => {
+  const handleGo = () => {
+    window.open(
+      `/booking/${getSelectedShowTimeId(
+        result,
+        selectedCinema,
+        selectedDate,
+        selectedTime
+      )}`,
+      "_blank"
+    );
     dispatch({
-      type: RESET_STORE,
+      type: RESET_STATE,
     });
   };
 
@@ -113,17 +122,7 @@ const SearchMovie = (props) => {
               variant="contained"
               color="secondary"
               classes={{ root: styles.button }}
-              onClick={() =>
-                window.open(
-                  `/booking/${getSelectedShowTimeId(
-                    result,
-                    selectedCinema,
-                    selectedDate,
-                    selectedTime
-                  )}`,
-                  "_blank"
-                )
-              }
+              onClick={() => handleGo()}
             >
               MUA VÉ NGAY
             </Button>
