@@ -7,7 +7,7 @@ import { getMovieList } from "../../redux/actions/movieAction";
 import Pagination from "@material-ui/lab/Pagination";
 
 const MovieList = () => {
-  const movies = useSelector((state) => state.movies.items);
+  const movies = useSelector((state) => state.moviePage.items);
   const totalPages = useSelector((state) => state.movies.pageCount);
   const dispatch = useDispatch();
   const style = useStyles();

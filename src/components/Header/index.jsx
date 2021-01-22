@@ -23,7 +23,7 @@ const Header = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
   const { url } = useSelector((state) => state.currentPage);
-  const movieList = useSelector((state) => state.movies_).map(
+  const movieList = useSelector((state) => state.movies).map(
     (movie) => movie.tenPhim
   );
   const searchMovie = useSelector((state) => state.searchMovie.quickSearch);

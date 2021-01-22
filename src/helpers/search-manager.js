@@ -32,7 +32,7 @@ export const getCinemas = (data) => {
   return mapData;
 };
 
-export const getShowTimeDate = (data, cinemaName) => {
+export const getShowTimeDates = (data, cinemaName) => {
   let mapData = [];
   if (data.heThongRapChieu) {
     mapData = data.heThongRapChieu.map((system) =>
@@ -69,4 +69,23 @@ export const getShowTimes = (data, cinemaName, date) => {
     return flatArray(flatArray(mapData));
   }
   return mapData;
+};
+
+export const getSelectedShowTimeId = (data, cinemaName, date, time) => {
+  if (data.heThongRapChieu) {
+    let mapData = [];
+    mapData = data.heThongRapChieu.map((system) =>
+      system.cumRapChieu
+        .filter((cinema) => cinema.tenCumRap === cinemaName)
+        .map((cinema) =>
+          cinema.lichChieuPhim.filter(
+            (showTime) =>
+              getFullDate(showTime.ngayChieuGioChieu) === date &&
+              getTime(showTime.ngayChieuGioChieu) === time
+          )
+        )
+    );
+
+    return flatArray(flatArray(mapData))[0].maLichChieu;
+  }
 };
