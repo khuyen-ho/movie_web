@@ -10,26 +10,14 @@ import { getCinemaInfo } from "../../redux/actions/cinemaAction";
 
 const CinemaInfoList = (props) => {
   const selectedCinema = useSelector((state) => state.cinemas.selected);
-  const selectedCinemaSystem = useSelector((state) => state.cinemaSystems);
   const dispatch = useDispatch();
   const styles = useStyles(props);
 
-  useEffect(() => {
-      //  console.log(selectedCinemaSystem.selectedLogo);
-    dispatch(getCinemaInfo(selectedCinemaSystem.selected,selectedCinemaSystem.selectedLogo));
-  }, [selectedCinemaSystem]);
-
-  const cinemaList = useSelector((state) => state.cinemas.list);
-
   const handleClick = (id) => {
-    //console.log(id);
     dispatch({ type: GET_ID_CINEMA, payload: id });
   };
 
-  //  console.log(cinemaList);
-
-
-  return cinemaList.map((cinema) => (
+  return props.list.map((cinema) => (
     <ListItem
       className={styles.listItem}
       classes={{ selected: styles.selected }}
@@ -41,7 +29,7 @@ const CinemaInfoList = (props) => {
       <Show
         info={
           <CinemaInfo
-            {...cinema}
+            info={cinema}
             hasEllipsis={props.hasEllipsis}
             hasDetailLink={props.hasDetailLink}
             hasInfo

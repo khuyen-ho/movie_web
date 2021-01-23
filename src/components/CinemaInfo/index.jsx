@@ -5,19 +5,17 @@ import useStyles from "./style";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
+const CinemaInfo = (props) => {
   const styles = useStyles(props);
+  const logo = useSelector((state) => state.cinemaSystems.selectedLogo);
   const cinemaSystem = useSelector((state) => state.cinemaSystems);
-    // console.log(props.tenCumRap);
+  const { info, hasInfo, hasDetailLink } = props;
+
   return (
     <>
       <div className={styles.smallScreen}>
         <NavLink className={styles.root} to="/cinemaDetail">
-          <Avatar
-            src={cinemaSystem.selectedLogo}
-            variant="square"
-            className={styles.logo}
-          />
+          <Avatar src={logo} variant="square" className={styles.logo} />
           {hasInfo && (
             <Box>
               <Typography
@@ -25,18 +23,16 @@ const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
                 component="p"
                 className={`${styles.name} ${styles.ellipsis}`}
               >
-                {/* {name} */}
-                {props.tenCumRap}
+                {info.name}
               </Typography>
               <Typography
                 variant="subtitle2"
                 component="p"
                 className={`${styles.address} ${styles.ellipsis}`}
               >
-                {/* {address} */}
-                {props.diaChi}
+                {info.address}
               </Typography>
-              {props.hasDetailLink && (
+              {hasDetailLink && (
                 <Link
                   to="/cinemaDetail"
                   className={styles.detail}
@@ -63,18 +59,16 @@ const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
               component="p"
               className={`${styles.name} ${styles.ellipsis}`}
             >
-              {/* {name} */}
-              {props.tenCumRap}
+              {info.name}
             </Typography>
             <Typography
               variant="subtitle2"
               component="p"
               className={`${styles.address} ${styles.ellipsis}`}
             >
-              {/* {address} */}
-              {props.diaChi}
+              {info.address}
             </Typography>
-            {props.hasDetailLink && (
+            {hasDetailLink && (
               <NavLink className={styles.root} to="/cinemaDetail">
                 <Link
                   to="/cinemaDetail"
@@ -93,10 +87,7 @@ const CinemaInfo = ({ id, logo, name, address, hasInfo, ...props }) => {
 };
 
 CinemaInfo.propTypes = {
-  id: PropTypes.string,
-  logo: PropTypes.string,
-  name: PropTypes.string,
-  address: PropTypes.string,
+  info: PropTypes.object,
   hasEllipsis: PropTypes.bool,
   hasDetailLink: PropTypes.bool,
   hasInfo: PropTypes.bool,

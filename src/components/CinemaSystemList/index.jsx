@@ -7,14 +7,14 @@ import Show from "../Show";
 import CinemaSystem from "../CinemaSystem";
 import useStyles from "./style";
 
-const CinemaSystemList = ({ showList, ...props }) => {
+const CinemaSystemList = ({ systemList, showList, ...props }) => {
   const styles = useStyles();
-  const systemList = useSelector((state) => state.cinemaSystems.list);
-  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const dispatch = useDispatch();
 
+  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+
   const handleClick = (id, logo) => {
-    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id,logo });
+    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id, logo });
   };
 
   return systemList.map((system) => (
@@ -36,7 +36,12 @@ const CinemaSystemList = ({ showList, ...props }) => {
 };
 
 CinemaSystemList.propTypes = {
+  systemList: PropTypes.array,
   showList: PropTypes.element,
+};
+
+CinemaSystemList.defaultProps = {
+  systemList: [],
 };
 
 export default CinemaSystemList;

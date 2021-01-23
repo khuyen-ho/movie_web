@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, Grid, List, Box } from "@material-ui/core";
 import CinemaSystemList from "../CinemaSystemList";
 import CinemaInfoList from "../CinemaInfoList";
 import CinemaShowTimeList from "../CinemaShowTimeList";
 import useStyles from "./style";
+import {
+  getCinemaSystems,
+  getCinemas,
+} from "../../helpers/schedule-cinema-manager";
+import { getAllCinemaShowTimes } from "../../redux/actions/showTimeAction";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.showTimes);
+  const systems = getCinemaSystems(data);
+  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+
+  const cinemas = getCinemas(data, selectedSystem);
+
+  // console.log(cinemas);
+
+  useEffect(() => {
+    dispatch(getAllCinemaShowTimes());
+  }, [dispatch]);
+
   return (
     <Container maxWidth="lg" className={styles.container}>
       <Box className={styles.root}>
@@ -19,7 +39,7 @@ const ScheduleCinema = (props) => {
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
             >
-              <CinemaSystemList />
+              <CinemaSystemList systemList={systems} />
             </List>
           </Grid>
           <Grid item xs={4}>
@@ -32,7 +52,7 @@ const ScheduleCinema = (props) => {
               ${styles.noBottomRightRadius}
               ${styles.verticalScroll}`}
             >
-              <CinemaInfoList hasEllipsis hasDetailLink />
+              <CinemaInfoList list={cinemas} hasEllipsis hasDetailLink />
             </List>
           </Grid>
           <Grid item xs={7}>

@@ -7,9 +7,11 @@ import {
   GET_MOVIE_DETAIL_SCHEDULE,
   GET_MOVIE_SHOW_TIME,
   GET_ALL_MOVIE,
+  GET_ALL_CINEMA_SHOW_TIMES,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
+
 export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
@@ -89,13 +91,13 @@ export const getMovieDetail = (movieId) => {
     movieService
       .getMovieDetail(movieId)
       .then((res) => {
-         //console.log('movieaction',res);
+        //console.log('movieaction',res);
         dispatch({
           type: GET_MOVIE_DETAIL,
           payload: res.data,
         });
       })
-      .catch((err) => console.log('error',err));
+      .catch((err) => console.log("error", err));
   };
 };
 

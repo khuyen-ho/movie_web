@@ -1,7 +1,5 @@
 import { getFullDate, getTime } from "./time-manager";
-export const flatArray = (array) => {
-  return (array = [].concat.apply([], array));
-};
+import { flatArray } from "./array-manager";
 
 export const getMovieId = (data, movieName) => {
   if (data) {

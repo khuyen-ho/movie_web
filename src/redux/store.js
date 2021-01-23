@@ -6,7 +6,8 @@ import moviePage from "./reducers/movie";
 import banners from "./reducers/banner";
 import cinemaSystems from "./reducers/cinemaSystem";
 import cinemas from "./reducers/cinema";
-import showTimes from "./reducers/showTime";
+import showTime from "./reducers/showTime";
+import showTimes from "./reducers/showTimes";
 import user from "./reducers/user";
 import currentPage from "./reducers/page";
 import movieDetail from "./reducers/movieDetail";
@@ -37,6 +38,7 @@ const RootReducer = combineReducers({
   changeUser,
   changeMovie,
   movies,
+  showTime,
   showTimes,
   cinemaSystems_,
   cinemas_,
