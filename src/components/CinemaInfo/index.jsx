@@ -13,7 +13,7 @@ const CinemaInfo = (props) => {
 
   return (
     <>
-      <div className={styles.smallScreen}>
+      <Box className={styles.smallScreen}>
         <NavLink className={styles.root} to="/cinemaDetail">
           <Avatar src={logo} variant="square" className={styles.logo} />
           {hasInfo && (
@@ -44,9 +44,9 @@ const CinemaInfo = (props) => {
             </Box>
           )}
         </NavLink>
-      </div>
+      </Box>
 
-      <div className={styles.bigScreen}>
+      <Box className={styles.bigScreen}>
         <Avatar
           src={cinemaSystem.selectedLogo}
           variant="square"
@@ -81,7 +81,7 @@ const CinemaInfo = (props) => {
             )}
           </Box>
         )}
-      </div>
+      </Box>
     </>
   );
 };

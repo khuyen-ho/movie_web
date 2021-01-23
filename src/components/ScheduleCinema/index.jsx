@@ -84,7 +84,9 @@ const ScheduleCinema = (props) => {
             <List className={styles.list}>
               <CinemaSystemList
                 hasName
-                showList={<CinemaInfoList noBorder={true} />}
+                defaultCinema={cinemas[0]}
+                systemList={systems}
+                showList={<CinemaInfoList list={cinemas} noBorder={true} />}
               />
             </List>
           </Grid>

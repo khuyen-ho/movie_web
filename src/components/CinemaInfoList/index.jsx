@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { ListItem } from "@material-ui/core";
@@ -6,7 +6,6 @@ import { GET_ID_CINEMA } from "../../redux/actions/actionType";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import useStyles from "./style";
-import { getCinemaInfo } from "../../redux/actions/cinemaAction";
 
 const CinemaInfoList = (props) => {
   const selectedCinema = useSelector((state) => state.cinemas.selected);
