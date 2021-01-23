@@ -2,22 +2,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "&:hover": { textDecoration: "none" },
-  },
-  bigScreen: {
-    display:"flex",
-    flexDirection:"row",
-    alignItems:"center",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
-  smallScreen: {
-    display: "none",
-    [theme.breakpoints.down("md")]: {
-      display: "block",
-    },
-  },
+
   logo: {
     width: 50,
     height: 50,

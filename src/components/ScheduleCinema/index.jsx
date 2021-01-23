@@ -79,18 +79,6 @@ const ScheduleCinema = (props) => {
             </List>
           </Grid>
         </Grid>
-        <Grid className={styles.smallScreen} container>
-          <Grid item xs={12}>
-            <List className={styles.list}>
-              <CinemaSystemList
-                hasName
-                defaultCinema={cinemas[0]}
-                systemList={systems}
-                showList={<CinemaInfoList list={cinemas} noBorder={true} />}
-              />
-            </List>
-          </Grid>
-        </Grid>
       </Box>
     </Container>
   );

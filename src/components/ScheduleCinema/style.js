@@ -56,13 +56,6 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
-
-  smallScreen: {
-    display: "none",
-    [theme.breakpoints.down("md")]: {
-      display: "block",
-    },
-  },
 }));
 
 export default useStyles;
