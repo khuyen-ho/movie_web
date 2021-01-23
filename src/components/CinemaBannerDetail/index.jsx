@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const CinemaBannerDetail = (props) => {
   const styles = useStyles();
   const cinemaDetail = useSelector((state) => state.cinemas);
-  const cinemaSystem = useSelector((state)=>state.cinemaSystems)
+  const cinemaSystem = useSelector((state) => state.cinemaSystems);
   let cinema = cinemaDetail.list.find(
     (item) => cinemaDetail.selected === item.maCumRap
   );
@@ -19,14 +19,17 @@ const CinemaBannerDetail = (props) => {
     cinema = cinemaDetail.list.find(
       (item) => cinemaDetail.selected === item.maCumRap
     );
-    // console.log(cinema);
   }, [cinemaDetail]);
 
   return (
     <>
       <Container maxWidth="lg">
         <Box className={styles.root}>
-          <img src={cinemaSystem.selectedLogo} alt="img" className={styles.image} />
+          <img
+            src={cinemaSystem.selectedLogo}
+            alt="img"
+            className={styles.image}
+          />
           <Box className={styles.descWrapper}>
             <CinemaDescription {...cinema} />
             {/* {console.log(cinema)} */}

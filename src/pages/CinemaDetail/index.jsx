@@ -7,16 +7,25 @@ import wrapper from "../../HOCs/Wrapper";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
+import { getCinemaInfo } from "../../redux/actions/cinemaAction";
+
 const CinemaDetail = (props) => {
   const styles = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const id = props.match.params.id;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getCurrentWebPage(props.match.url))
-  },[]);
+    dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
+
+  useEffect(() => {
+    dispatch(getCinemaInfo(id, ""));
+  }, [dispatch, id]);
+
   return (
     <Box className={styles.root}>
-      <CinemaBannerDetail />
+      {/* <CinemaBannerDetail /> */}
       <ScheduleCinemaDetail />
     </Box>
   );

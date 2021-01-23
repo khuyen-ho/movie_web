@@ -1,4 +1,8 @@
-import { GET_CINEMA_INFO, GET_ID_CINEMA } from "../actions/actionType";
+import {
+  GET_CINEMA_INFO,
+  GET_ID_CINEMA,
+  RESET_STATE,
+} from "../actions/actionType";
 
 let initialState = {
   list: [],
@@ -13,7 +17,14 @@ const cinemas = (state = initialState, action) => {
     }
     case GET_CINEMA_INFO: {
       state.list = action.payload;
-      state.selected = action.payload[0].maCumRap;
+      // state.selected = action.payload[0].maCumRap;
+      return { ...state };
+    }
+    case RESET_STATE: {
+      state = {
+        list: [],
+        selected: "",
+      };
       return { ...state };
     }
     default:
