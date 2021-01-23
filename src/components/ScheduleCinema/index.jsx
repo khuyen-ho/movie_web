@@ -30,8 +30,6 @@ const ScheduleCinema = (props) => {
     selectedDate
   );
 
-  console.log(movies);
-
   useEffect(() => {
     dispatch(getAllCinemaShowTimes());
   }, [dispatch]);

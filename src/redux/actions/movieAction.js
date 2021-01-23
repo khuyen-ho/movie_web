@@ -7,7 +7,7 @@ import {
   GET_MOVIE_DETAIL_SCHEDULE,
   GET_MOVIE_SHOW_TIME,
   GET_ALL_MOVIE,
-  GET_ALL_CINEMA_SHOW_TIMES,
+  GET_ALL_CINEMA_SHOW_TIME,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
@@ -126,21 +126,6 @@ export const getAllMovie = () => {
         // console.log(res);
         dispatch({
           type: GET_ALL_MOVIE,
-          payload: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
-  };
-};
-
-export const getShowTimeDetail = (movieId) => {
-  return (dispatch) => {
-    movieService
-      .fetchMovieShowTimes(movieId)
-      .then((res) => {
-        // console.log(res);
-        dispatch({
-          type: GET_MOVIE_SHOW_TIME,
           payload: res.data,
         });
       })

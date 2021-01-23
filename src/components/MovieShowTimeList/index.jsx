@@ -1,38 +1,35 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import PropTypes from "prop-types";
 import { ListItem } from "@material-ui/core";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import StartTimeList from "../StartTimeList";
 import useStyles from "./style";
-import { getMovieDetailSchedule } from "../../redux/actions/movieAction";
+import { getFullDate } from "../../helpers/time-manager";
+import { getShowTimeOnDate } from "../../helpers/movie-detail-manager";
 
-const MovieShowTimeList = ({ info, ...props }) => {
+const MovieShowTimeList = ({ cinemas, date, ...props }) => {
   const styles = useStyles();
-  const cinemaList = useSelector((state) =>
-    state.chosenMovie.heThongRapChieu.find(
-      (item) => item.maHeThongRap === state.cinemaSystems.selected
-    )
-  );
 
-  const chosenMovie = useSelector((state) => state.movieDetail);
-  const dispatch = useDispatch();
+  return cinemas.map((cinema, index) => (
+    <ListItem className={styles.listItem} key={index}>
+      <Show
+        opened
+        info={<CinemaInfo info={cinema} hasInfo />}
+        showList={<StartTimeList list={getShowTimeOnDate(cinema, date)} />}
+      />
+    </ListItem>
+  ));
+};
 
-  useEffect(() => {
-    dispatch(getMovieDetailSchedule(chosenMovie[0].maPhim));
-  }, [chosenMovie]);
+MovieShowTimeList.propTypes = {
+  cinemas: PropTypes.array,
+  date: PropTypes.string,
+};
 
-  if (cinemaList && cinemaList.cumRapChieu.length !== 0) {
-    return cinemaList.cumRapChieu.map((cinema, index) => (
-      <ListItem className={styles.listItem} key={index}>
-        <Show
-          opened
-          info={<CinemaInfo {...cinema} hasInfo />}
-          showList={<StartTimeList list={cinema.lichChieuPhim} />}
-        />
-      </ListItem>
-    ));
-  } else return null;
+MovieShowTimeList.defaultProps = {
+  cinemas: [],
+  date: getFullDate(new Date()),
 };
 
 export default MovieShowTimeList;

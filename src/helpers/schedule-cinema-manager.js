@@ -15,8 +15,7 @@ export const getCinemaSystems = (data) => {
 
 export const getCinemas = (data, systemId) => {
   if (data) {
-    let mapData = [];
-    mapData = data
+    let mapData = data
       .filter((system) => system.maHeThongRap === systemId)
       .map((system) =>
         system.lstCumRap.map((cinema) => ({

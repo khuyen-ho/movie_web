@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Grid, Box } from "@material-ui/core";
 import useStyle from "./style";
 import DropDown from "../DropDown";
-import { getShowTimeDetail } from "../../redux/actions/movieAction";
+import { getMovieShowTimes } from "../../redux/actions/showTimeAction";
 import {
   GET_SEARCH_MOVIE,
   GET_SEARCH_CINEMA,
@@ -43,7 +43,7 @@ const SearchMovie = (props) => {
   );
 
   useEffect(() => {
-    dispatch(getShowTimeDetail(getMovieId(movies, selectedMovie)));
+    dispatch(getMovieShowTimes(getMovieId(movies, selectedMovie)));
   }, [dispatch, selectedMovie, movies]);
 
   const handleGo = () => {

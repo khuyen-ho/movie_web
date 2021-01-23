@@ -5,7 +5,7 @@ import StartTime from "../StartTime";
 import useStyles from "./style";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import moment from "moment";
+
 const StarTimeList = ({ list, ...props }) => {
   const styles = useStyles();
   const currentDate = useSelector((state) => state.showTimes.selected);
@@ -18,7 +18,7 @@ const StarTimeList = ({ list, ...props }) => {
           <StartTime
             showtimeId={showTime.maLichChieu}
             start={showTime.ngayChieuGioChieu}
-            duration={120}
+            duration={showTime.thoiLuong}
             key={index}
           />
         </Link>

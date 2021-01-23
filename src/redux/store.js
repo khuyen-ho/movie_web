@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import date from "./reducers/date";
 import account from "./reducers/account";
-import moviePage from "./reducers/movie";
+import moviePage from "./reducers/moviePage";
 import banners from "./reducers/banner";
 import cinemaSystems from "./reducers/cinemaSystem";
 import cinemas from "./reducers/cinema";

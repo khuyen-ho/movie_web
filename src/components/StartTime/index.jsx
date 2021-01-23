@@ -6,15 +6,14 @@ import useStyles from "./style";
 import { getBookingList } from "../../redux/actions/bookingAction";
 import { useDispatch } from "react-redux";
 
-const StartTime = ({ start, duration,showtimeId }) => {
+const StartTime = ({ start, duration, showtimeId }) => {
   const styles = useStyles();
-  const dispatch = useDispatch()
-  const handleClick = ()=>{
-   dispatch(getBookingList(showtimeId));
-    
-  }
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(getBookingList(showtimeId));
+  };
   return (
-    <Button className={styles.root} onClick={()=>handleClick()}>
+    <Button className={styles.root} onClick={() => handleClick()}>
       <Typography
         variant="subtitle1"
         component="span"
@@ -36,6 +35,10 @@ const StartTime = ({ start, duration,showtimeId }) => {
 StartTime.propTypes = {
   start: PropTypes.string,
   duration: PropTypes.number,
+};
+
+StartTime.defaultProps = {
+  duration: 120,
 };
 
 export default StartTime;

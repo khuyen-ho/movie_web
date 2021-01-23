@@ -4,10 +4,18 @@ import useStyles from "./style";
 import Poster from "../Poster";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
+const MovieItem = ({
+  maPhim,
+  hinhAnh,
+  tenPhim,
+  danhGia,
+  ngayKhoiChieu,
+  trailer,
+}) => {
   const styles = useStyles();
+  console.log(maPhim);
   return (
     <Box className={styles.root}>
       <Poster image={hinhAnh} trailer={trailer} />
@@ -17,16 +25,16 @@ const MovieItem = ({ hinhAnh, tenPhim, danhGia, ngayKhoiChieu, trailer }) => {
       <Typography variant="subtitle2" className={styles.openingDay}>
         {getFullDate(ngayKhoiChieu)}
       </Typography>
-      <NavLink to={`/movieDetail/${tenPhim}`}>
-      <Button
-        variant="contained"
-        color="secondary"
-        fullWidth
-        className={styles.button}
-      >
-        MUA VÉ
-      </Button>
-      </NavLink>
+      <Link to={`/movie-detail/${maPhim}`}>
+        <Button
+          variant="contained"
+          color="secondary"
+          fullWidth
+          className={styles.button}
+        >
+          MUA VÉ
+        </Button>
+      </Link>
       <Box className={styles.rating}>
         <Rating score={danhGia} type="mini" />
       </Box>

@@ -1,10 +1,10 @@
-import { GET_ALL_CINEMA_SHOW_TIMES, RESET_STATE } from "../actions/actionType";
+import { GET_ALL_CINEMA_SHOW_TIME, RESET_STATE } from "../actions/actionType";
 
 let initialState = [];
 
 const showTimes = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_CINEMA_SHOW_TIMES: {
+    case GET_ALL_CINEMA_SHOW_TIME: {
       state = action.payload;
       return [...state];
     }
