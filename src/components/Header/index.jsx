@@ -33,8 +33,8 @@ const Header = (props) => {
   }, [dispatch]);
 
   const links = [
-    { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
-    { title: "Cụm Rạp", path: "#scheduleCinema", target: "_self" },
+    { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },
+    { title: "Cụm Rạp", path: "/home#scheduleCinema", target: "_self" },
   ];
   if (!userLogin) {
     links.push(
