@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const CinemaInfo = (props) => {
@@ -14,7 +14,7 @@ const CinemaInfo = (props) => {
   return (
     <>
       <Box className={styles.smallScreen}>
-        <NavLink className={styles.root} to="/cinemaDetail">
+        <Link className={styles.root} to={`/cinema-detail/${info.id}`}>
           <Avatar src={logo} variant="square" className={styles.logo} />
           {hasInfo && (
             <Box>
@@ -34,7 +34,7 @@ const CinemaInfo = (props) => {
               </Typography>
               {hasDetailLink && (
                 <Link
-                  to="/cinemaDetail"
+                  to={`/cinema-detail/${info.id}`}
                   className={styles.detail}
                   variant="body2"
                 >
@@ -43,7 +43,7 @@ const CinemaInfo = (props) => {
               )}
             </Box>
           )}
-        </NavLink>
+        </Link>
       </Box>
 
       <Box className={styles.bigScreen}>
@@ -69,15 +69,13 @@ const CinemaInfo = (props) => {
               {info.address}
             </Typography>
             {hasDetailLink && (
-              <NavLink className={styles.root} to="/cinemaDetail">
-                <Link
-                  to="/cinemaDetail"
-                  className={styles.detail}
-                  variant="body2"
-                >
-                  [chi tiết]
-                </Link>
-              </NavLink>
+              <Link
+                to={`/cinema-detail/${info.id}`}
+                className={styles.detail}
+                variant="body2"
+              >
+                [chi tiết]
+              </Link>
             )}
           </Box>
         )}

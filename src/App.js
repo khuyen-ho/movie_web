@@ -20,7 +20,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/booking/:showtimeId" component={Booking} />
-        <Route exact path="/cinemaDetail" component={CinemaDetail} />
+        <Route exact path="/cinema-detail/:id" component={CinemaDetail} />
         <Route exact path="/movieDetail/:id" component={MovieDetail} />
         <Route exact path="/accountDetail" component={AccountDetail} />
         <Route path="/admin" component={Admin} />
@@ -28,7 +28,10 @@ const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route path="/admin/user-management" component={AccountManagement} />
         <Route path="/admin/movie-management" component={MovieManagement} />
-        <Route path="/admin/showtime-management" component={ShowTimeManagement} />
+        <Route
+          path="/admin/showtime-management"
+          component={ShowTimeManagement}
+        />
       </Switch>
     </BrowserRouter>
   );
