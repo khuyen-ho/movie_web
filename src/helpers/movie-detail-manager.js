@@ -23,7 +23,6 @@ export const getCinemaOnDate = (data, systemId, date) => {
             showTimes: cinema.lichChieuPhim,
             id: cinema.maCumRap,
             name: cinema.tenCumRap,
-            address: cinema.diaChi,
           }))
         )
     );
@@ -51,6 +50,23 @@ export const getShowTimeOnDate = (cinema, date) => {
     return cinema.showTimes.filter(
       (showTime) => getFullDate(showTime.ngayChieuGioChieu) === date
     );
+  }
+
+  return [];
+};
+
+export const getShowTimeDates = (data) => {
+  if (data.heThongRapChieu) {
+    let mapData = data.heThongRapChieu.map((system) =>
+      system.cumRapChieu.map((cinema) =>
+        cinema.lichChieuPhim.map((showTimes) =>
+          getFullDate(showTimes.ngayChieuGioChieu)
+        )
+      )
+    );
+
+    let flatArr = flatArray(flatArray(mapData));
+    return Array.from(new Set(flatArr));
   }
 
   return [];

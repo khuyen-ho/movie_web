@@ -3,27 +3,24 @@ import { Tab, Tabs } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Date from "../Date";
 import {
-  getDateList,
+  // getDateList,
   getDay,
-  getDate,
+  // getDate,
   getFullDate,
 } from "../../helpers/time-manager";
 import useStyles from "./style";
-import { setCurrentTime } from "../../redux/actions/cinemaAction";
-import { useDispatch } from "react-redux";
+// import { setCurrentTime } from "../../redux/actions/cinemaAction";
+// import { useDispatch } from "react-redux";
 
-const DaysOfWeek = ({ startDate }) => {
+const DaysOfWeek = ({ list }) => {
   const styles = useStyles();
-  const dateList = getDateList(startDate, 14);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  //  console.log(dateList[newValue].format());
-    dispatch(setCurrentTime(dateList[newValue].format()));
+    // dispatch(setCurrentTime(dateList[newValue].format()));
   };
-
 
   return (
     <Tabs
@@ -35,10 +32,10 @@ const DaysOfWeek = ({ startDate }) => {
       textColor="secondary"
       onChange={handleChange}
     >
-      {dateList.map((date, index) => (
+      {list.map((date, index) => (
         <Tab
           classes={{ root: styles.tabRoot, selected: styles.selected }}
-          label={<Date day={getDay(date)} date={getDate(date)} />}
+          label={<Date date={date} />}
           key={index}
         />
       ))}
@@ -47,11 +44,11 @@ const DaysOfWeek = ({ startDate }) => {
 };
 
 DaysOfWeek.propTypes = {
-  startDate: PropTypes.string,
+  list: PropTypes.array,
 };
 
 DaysOfWeek.defaultProps = {
-  startDate: "2019-01-01T00:00:00",
+  list: [],
 };
 
 export default DaysOfWeek;

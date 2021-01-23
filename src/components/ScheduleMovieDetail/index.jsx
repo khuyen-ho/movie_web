@@ -8,6 +8,7 @@ import useStyles from "./style";
 import {
   getCinemaSystems,
   getCinemaOnDate,
+  getShowTimeDates,
 } from "../../helpers/movie-detail-manager";
 
 const ScheduleMovieDetail = (props) => {
@@ -18,6 +19,9 @@ const ScheduleMovieDetail = (props) => {
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const selectedDate = useSelector((state) => state.date.selected);
   const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);
+  const dates = getShowTimeDates(data);
+
+  console.log(dates);
 
   return (
     <Container maxWidth="lg" className={styles.container}>
@@ -34,7 +38,7 @@ const ScheduleMovieDetail = (props) => {
         </Grid>
         <Grid item xs={9}>
           <Box height={99}>
-            <DaysOfWeek />
+            <DaysOfWeek list={dates} />
           </Box>
           <List
             style={{ height: 601, borderTop: "none" }}
