@@ -2,7 +2,7 @@ import { GET_CINEMA_INFO, GET_ID_CINEMA } from "../actions/actionType";
 
 let initialState = {
   list: [],
-  selected: "bhd-star-cineplex-3-2",
+  selected: "",
 };
 
 const cinemas = (state = initialState, action) => {
@@ -12,9 +12,8 @@ const cinemas = (state = initialState, action) => {
       return { ...state };
     }
     case GET_CINEMA_INFO: {
-      //console.log(action.payload);
       state.list = action.payload;
-      state.selected = action.payload[0].maCumRap
+      state.selected = action.payload[0].maCumRap;
       return { ...state };
     }
     default:

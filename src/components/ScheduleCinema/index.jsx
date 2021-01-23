@@ -8,6 +8,7 @@ import useStyles from "./style";
 import {
   getCinemaSystems,
   getCinemas,
+  getMovieOnDate,
 } from "../../helpers/schedule-cinema-manager";
 import { getAllCinemaShowTimes } from "../../redux/actions/showTimeAction";
 
@@ -18,10 +19,18 @@ const ScheduleCinema = (props) => {
   const data = useSelector((state) => state.showTimes);
   const systems = getCinemaSystems(data);
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+  const selectedCinema = useSelector((state) => state.cinemas.selected);
+  const selectedDate = useSelector((state) => state.date.selected);
 
   const cinemas = getCinemas(data, selectedSystem);
+  const movies = getMovieOnDate(
+    data,
+    selectedSystem,
+    selectedCinema,
+    selectedDate
+  );
 
-  // console.log(cinemas);
+  console.log(movies);
 
   useEffect(() => {
     dispatch(getAllCinemaShowTimes());
@@ -39,7 +48,10 @@ const ScheduleCinema = (props) => {
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
             >
-              <CinemaSystemList systemList={systems} />
+              <CinemaSystemList
+                defaultCinema={cinemas[0]}
+                systemList={systems}
+              />
             </List>
           </Grid>
           <Grid item xs={4}>
@@ -63,7 +75,7 @@ const ScheduleCinema = (props) => {
               ${styles.noBottomLeftRadius} 
               ${styles.verticalScroll}`}
             >
-              <CinemaShowTimeList />
+              <CinemaShowTimeList movies={movies} date={selectedDate} />
             </List>
           </Grid>
         </Grid>

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@material-ui/core";
 import Show from "../Show";
@@ -6,36 +7,38 @@ import MovieInfo from "../MovieInfo";
 import StartTimeList from "../StartTimeList";
 import useStyles from "./style";
 import { getCinemaTime } from "../../redux/actions/cinemaAction";
+import { getShowTimeOnDate } from "../../helpers/schedule-cinema-manager";
+import { getFullDate } from "../../helpers/time-manager";
 
-const CinemaShowTimeList = ({ info, ...props }) => {
+const CinemaShowTimeList = ({ movies, date, ...props }) => {
   const styles = useStyles();
-  const showTimeList = useSelector((state) => state.showTime.list);
   const dispatch = useDispatch();
   const cinemaSystem = useSelector((state) => state.cinemaSystems);
   const cinema = useSelector((state) => state.cinemas);
 
   useEffect(() => {
     dispatch(getCinemaTime(cinemaSystem.selected));
-  }, [cinema]);
+  }, [cinema, cinemaSystem.selected, dispatch]);
 
-  if (showTimeList.length !== 0) {
-    const chosenCinema = showTimeList[0].lstCumRap.find(
-      (item) => item.maCumRap === cinema.selected
-    );
-    if (chosenCinema) {
-      const movieList = chosenCinema.danhSachPhim;
+  return movies.map((movie, index) => (
+    <ListItem className={styles.listItem} key={index}>
+      <Show
+        opened
+        info={<MovieInfo movie={movie} hasInfo />}
+        showList={<StartTimeList list={getShowTimeOnDate(movie, date)} />}
+      />
+    </ListItem>
+  ));
+};
 
-      return movieList.map((movie, index) => (
-        <ListItem className={styles.listItem} key={index}>
-          <Show
-            opened
-            info={<MovieInfo movie={movie} hasInfo />}
-            showList={<StartTimeList list={movie.lstLichChieuTheoPhim} />}
-          />
-        </ListItem>
-      ));
-    } else return null;
-  } else return null;
+CinemaShowTimeList.propTypes = {
+  movies: PropTypes.array,
+  date: PropTypes.string,
+};
+
+CinemaShowTimeList.defaultProps = {
+  movies: [],
+  date: getFullDate(new Date()),
 };
 
 export default CinemaShowTimeList;

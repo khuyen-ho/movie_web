@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { GET_ID_CINEMA_SYSTEM } from "../../redux/actions/actionType";
+import {
+  GET_ID_CINEMA_SYSTEM,
+  GET_ID_CINEMA,
+} from "../../redux/actions/actionType";
 import { ListItem } from "@material-ui/core";
 import Show from "../Show";
 import CinemaSystem from "../CinemaSystem";
 import useStyles from "./style";
 
-const CinemaSystemList = ({ systemList, showList, ...props }) => {
+const CinemaSystemList = ({
+  systemList,
+  defaultCinema,
+  showList,
+  ...props
+}) => {
   const styles = useStyles();
   const dispatch = useDispatch();
 
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+
+  useEffect(() => {
+    dispatch({ type: GET_ID_CINEMA, payload: defaultCinema.id });
+  }, [defaultCinema.id, dispatch]);
 
   const handleClick = (id, logo) => {
     dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id, logo });
@@ -37,10 +49,12 @@ const CinemaSystemList = ({ systemList, showList, ...props }) => {
 
 CinemaSystemList.propTypes = {
   systemList: PropTypes.array,
+  defaultCinema: PropTypes.string,
   showList: PropTypes.element,
 };
 
 CinemaSystemList.defaultProps = {
+  defaultCinema: "",
   systemList: [],
 };
 

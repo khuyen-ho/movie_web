@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import date from "./reducers/date";
 import account from "./reducers/account";
 import moviePage from "./reducers/movie";
 import banners from "./reducers/banner";
@@ -22,6 +23,7 @@ import accounts from "./reducers/accounts";
 import cinemaSystems_ from "./reducers/cinemaSystems";
 import cinemas_ from "./reducers/cinemas";
 const RootReducer = combineReducers({
+  date,
   account,
   accounts,
   banners,
