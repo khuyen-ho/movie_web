@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
-import CinemaDetail from "./pages/CinemaDetail";
 import MovieDetail from "./pages/MovieDetail";
 import AccountDetail from "./pages/AccountDetail";
 import Admin from "./pages/Admin";
@@ -31,6 +30,7 @@ const App = () => {
           path="/admin/showtime-management"
           component={ShowTimeManagement}
         />
+        <Route path="*" component={Page404} />
       </Switch>
     </BrowserRouter>
   );

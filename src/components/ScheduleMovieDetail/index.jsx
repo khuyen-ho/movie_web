@@ -23,7 +23,6 @@ const ScheduleMovieDetail = (props) => {
   const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);
 
   useEffect(() => {
-    console.log("do");
     dispatch({ type: GET_DATE_LIST, payload: getShowTimeDates(data) });
   }, [data, dispatch]);
 

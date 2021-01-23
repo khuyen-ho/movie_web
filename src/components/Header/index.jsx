@@ -3,7 +3,6 @@ import { useTheme } from "@material-ui/core/styles";
 import { Box, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";

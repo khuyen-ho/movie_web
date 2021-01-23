@@ -1,10 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Typography, Button, Box } from "@material-ui/core";
 import useStyles from "./style";
 import Poster from "../Poster";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
 import { Link } from "react-router-dom";
+import { RESET_STATE } from "../../redux/actions/actionType";
 
 const MovieItem = ({
   maPhim,
@@ -15,7 +17,15 @@ const MovieItem = ({
   trailer,
 }) => {
   const styles = useStyles();
-  console.log(maPhim);
+  const dispatch = useDispatch();
+
+  const handleGo = () => {
+    console.log("reset");
+    dispatch({
+      type: RESET_STATE,
+    });
+  };
+
   return (
     <Box className={styles.root}>
       <Poster image={hinhAnh} trailer={trailer} />
@@ -25,7 +35,7 @@ const MovieItem = ({
       <Typography variant="subtitle2" className={styles.openingDay}>
         {getFullDate(ngayKhoiChieu)}
       </Typography>
-      <Link to={`/movie-detail/${maPhim}`}>
+      <Link to={`/movie-detail/${maPhim}`} onClick={() => handleGo()}>
         <Button
           variant="contained"
           color="secondary"

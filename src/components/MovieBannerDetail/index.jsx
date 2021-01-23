@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Box, Button, Container, Grid } from "@material-ui/core";
 import Rating from "../Rating";
 import useStyles from "./style";
@@ -35,7 +34,7 @@ const MovieBannerDetail = (props) => {
                 fullWidth
                 className={styles.button}
                 onClick={() => {
-                  alert("Hãy chọn suất chiếu");
+                  alert("Hãy chọn suất chiếu bên dưới");
                 }}
               >
                 MUA VÉ
