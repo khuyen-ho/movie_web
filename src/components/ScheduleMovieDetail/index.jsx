@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Box, Container, Grid, List } from "@material-ui/core";
 import CinemaSystemList from "../CinemaSystemList";
 import MovieShowTimeList from "../MovieShowTimeList";
@@ -10,18 +10,22 @@ import {
   getCinemaOnDate,
   getShowTimeDates,
 } from "../../helpers/movie-detail-manager";
+import { GET_DATE_LIST } from "../../redux/actions/actionType";
 
 const ScheduleMovieDetail = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.movieDetail);
 
   const systems = getCinemaSystems(data);
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const selectedDate = useSelector((state) => state.date.selected);
   const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);
-  const dates = getShowTimeDates(data);
 
-  console.log(dates);
+  useEffect(() => {
+    console.log("do");
+    dispatch({ type: GET_DATE_LIST, payload: getShowTimeDates(data) });
+  }, [data, dispatch]);
 
   return (
     <Container maxWidth="lg" className={styles.container}>
@@ -38,7 +42,7 @@ const ScheduleMovieDetail = (props) => {
         </Grid>
         <Grid item xs={9}>
           <Box height={99}>
-            <DaysOfWeek list={dates} />
+            <DaysOfWeek />
           </Box>
           <List
             style={{ height: 601, borderTop: "none" }}
@@ -66,7 +70,13 @@ const ScheduleMovieDetail = (props) => {
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}`}
           >
-            {/* <CinemaSystemList hasName showList={<MovieShowTimeList />} /> */}
+            <CinemaSystemList
+              hasName
+              systemList={systems}
+              showList={
+                <MovieShowTimeList cinemas={cinemas} date={selectedDate} />
+              }
+            />
           </List>
         </Grid>
       </Grid>

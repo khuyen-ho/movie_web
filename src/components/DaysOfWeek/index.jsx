@@ -1,30 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Date from "../Date";
-import {
-  // getDateList,
-  getDay,
-  // getDate,
-  getFullDate,
-} from "../../helpers/time-manager";
 import useStyles from "./style";
-// import { setCurrentTime } from "../../redux/actions/cinemaAction";
-// import { useDispatch } from "react-redux";
+import { GET_SELECTED_DATE } from "../../redux/actions/actionType";
 
-const DaysOfWeek = ({ list }) => {
+const DaysOfWeek = (props) => {
   const styles = useStyles();
-  // const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
+  const dispatch = useDispatch();
+  const list = useSelector((state) => state.date.list);
+  const selected = useSelector((state) => state.date.selected);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-    // dispatch(setCurrentTime(dateList[newValue].format()));
+    dispatch({ type: GET_SELECTED_DATE, payload: list[newValue] });
   };
 
   return (
     <Tabs
-      value={value}
+      value={list.indexOf(selected)}
       className={styles.tabs}
       variant="scrollable"
       scrollButtons="on"
