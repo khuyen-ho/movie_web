@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Typography, Button, Box } from "@material-ui/core";
 import useStyles from "./style";
@@ -17,10 +18,11 @@ const MovieItem = ({
   trailer,
 }) => {
   const styles = useStyles();
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleGo = () => {
-    console.log("reset");
+    history.push(`/movie-detail/${maPhim}`);
     dispatch({
       type: RESET_STATE,
     });
@@ -28,25 +30,39 @@ const MovieItem = ({
 
   return (
     <Box className={styles.root}>
-      <Poster image={hinhAnh} trailer={trailer} />
-      <Typography variant="h6" className={styles.title}>
-        {tenPhim}
-      </Typography>
-      <Typography variant="subtitle2" className={styles.openingDay}>
-        {getFullDate(ngayKhoiChieu)}
-      </Typography>
-      <Link to={`/movie-detail/${maPhim}`} onClick={() => handleGo()}>
+      <Box className={styles.largeScreen}>
+        <Poster image={hinhAnh} trailer={trailer} />
+        <Typography variant="h6" className={styles.title}>
+          {tenPhim}
+        </Typography>
+        <Typography variant="subtitle2" className={styles.openingDay}>
+          {getFullDate(ngayKhoiChieu)}
+        </Typography>
         <Button
           variant="contained"
           color="secondary"
           fullWidth
           className={styles.button}
+          onClick={() => handleGo()}
         >
           MUA VÉ
         </Button>
-      </Link>
-      <Box className={styles.rating}>
-        <Rating score={danhGia} type="mini" />
+        <Box className={styles.rating}>
+          <Rating score={danhGia} type="mini" />
+        </Box>
+      </Box>
+
+      <Box className={styles.smallScreen} onClick={() => handleGo()}>
+        <Poster image={hinhAnh} trailer={trailer} />
+        <Typography variant="h6" className={styles.title}>
+          {tenPhim}
+        </Typography>
+        <Typography variant="subtitle2" className={styles.openingDay}>
+          {getFullDate(ngayKhoiChieu)}
+        </Typography>
+        <Box className={styles.rating}>
+          <Rating score={danhGia} type="mini" />
+        </Box>
       </Box>
     </Box>
   );
