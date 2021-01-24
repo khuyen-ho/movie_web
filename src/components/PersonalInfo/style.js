@@ -1,8 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
-
   title: {
     color: theme.palette.secondary.main,
     margin: theme.spacing(1.5, 0),
@@ -16,13 +14,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  info: {
+  content: {
     display: "flex",
     flexDirection: "column",
   },
 
+  info: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+
   input: {
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(1, 0),
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
@@ -42,14 +50,10 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("xs")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body2.fontSize,
-      },
+      width: "100%",
     },
-    [theme.breakpoints.up("xsm")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body1.fontSize,
-      },
+    [theme.breakpoints.up("sm")]: {
+      width: "49.5%",
     },
   },
 

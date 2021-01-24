@@ -167,7 +167,7 @@ import useStyles from "./style";
 const BookingInfo = (props) => {
   const account = useSelector((state) => state.account);
   const styles = useStyles();
-console.log(account);
+  console.log(account);
   let headers = [
     "Ngày đặt",
     "Mã vé",
@@ -212,7 +212,12 @@ console.log(account);
       </Box>
 
       <Box className={styles.table}>
-        <Table headers={headers} rows={data} maxWidth={920} maxHeight={500} />
+        <Table
+          headers={headers}
+          rows={data}
+          maxWidth={"100%"}
+          maxHeight={500}
+        />
       </Box>
     </>
   );

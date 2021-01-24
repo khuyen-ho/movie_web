@@ -146,7 +146,7 @@ const Header = (props) => {
               open={Boolean(accountAnchor)}
               onClose={handleClose}
             >
-              <NavLink to="/accountDetail">
+              <NavLink to="/account-detail">
                 <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
               </NavLink>
               <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "@material-ui/core";
 import PersonalInfo from "../../components/PersonalInfo";
 import BookingInfo from "../../components/BookingInfo";
 import useStyles from "./style";
@@ -15,10 +14,10 @@ const Home = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCurrentWebPage(props.match.url))
-  },[dispatch, props.match.url]);
+    dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
 
   if (userLogin) {
     return (
@@ -26,7 +25,7 @@ const Home = (props) => {
         <PersonalInfo />
         <BookingInfo />
         <BackToTop showBelow={300} />
-        </Container> 
+      </Container>
     );
   } else {
     return <Redirect to="/signin" />;

@@ -28,10 +28,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       flexDirection: "column",
     },
-    [theme.breakpoints.up("xsm")]: {
-      width: "70%",
-      flexDirection: "column",
-    },
     [theme.breakpoints.up("md")]: {
       width: "auto",
       flexDirection: "row",
@@ -40,10 +36,14 @@ const useStyles = makeStyles((theme) => ({
 
   datePicker: {
     margin: theme.spacing(1.5, 0),
-    marginRight: theme.spacing(3),
+    marginRight: theme.spacing(1),
 
     "& button": {
       outlineStyle: "none",
+    },
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
     },
 
     "& .MuiInputLabel-root": {
@@ -66,25 +66,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
     },
-
-    [theme.breakpoints.up("xs")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body2.fontSize,
-      },
-    },
-    [theme.breakpoints.up("xsm")]: {
-      "& .MuiInputBase-root, & .MuiInputLabel-root": {
-        fontSize: theme.typography.body1.fontSize,
-      },
-    },
   },
 
   table: {
     margin: theme.spacing(1.5, 0),
-    border: `1.0px solid ${theme.palette.grey.dark}`,
     borderRadius: theme.shape.borderRadius,
-    maxHeight: 600,
-    maxWidth: 932,
   },
 
   darkRow: {
