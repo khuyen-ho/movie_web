@@ -6,6 +6,7 @@ import MovieList from "../../components/MovieList";
 import ScheduleCinema from "../../components/ScheduleCinema";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
+import BackToTop from "../../components/BackToTop";
 import { useEffect } from "react";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { useDispatch } from "react-redux";
@@ -29,6 +30,7 @@ const Home = (props) => {
       <div id="scheduleCinema">
         <ScheduleCinema />
       </div>
+      <BackToTop showBelow={300} />
     </Box>
   );
 };

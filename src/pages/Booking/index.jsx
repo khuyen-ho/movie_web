@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import BookingNavBar from "../../components/BookingNavBar";
 import PriceInfo from "../../components/PriceInfo";
 import SeatPlan from "../../components/SeatPlan";
+import BackToTop from "../../components/BackToTop";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { getSeatList } from "../../redux/actions/bookingAction";
 import useStyles from "./style";
@@ -38,6 +39,7 @@ const Booking = (props) => {
             </Box>
           </Grid>
         </Grid>
+        <BackToTop showBelow={300} />
       </Container>
     );
   } else {

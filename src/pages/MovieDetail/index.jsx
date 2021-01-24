@@ -4,6 +4,7 @@ import ScheduleMovieDetail from "../../components/ScheduleMovieDetail";
 import MovieBannerDetail from "../../components/MovieBannerDetail";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
+import BackToTop from "../../components/BackToTop";
 import { useEffect } from "react";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { getMovieShowTimes } from "../../redux/actions/showTimeAction";
@@ -23,6 +24,7 @@ const MovieDetail = (props) => {
     <Box className={styles.root}>
       <MovieBannerDetail />
       <ScheduleMovieDetail />
+      <BackToTop showBelow={300} />
     </Box>
   );
 };

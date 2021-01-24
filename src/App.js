@@ -8,9 +8,6 @@ import Admin from "./pages/Admin";
 import SignIn from "./pages/SignInPage";
 import SignUp from "./pages/SignUpPage";
 import Page404 from "./pages/Page404";
-import AccountManagement from "./components/AccountManagement";
-import MovieManagement from "./components/MovieManagement";
-import ShowTimeManagement from "./components/ShowTimeManagement";
 
 const App = () => {
   return (
@@ -23,16 +20,10 @@ const App = () => {
         <Route exact path="/home" component={Home} />
         <Route exact path="/booking/:id" component={Booking} />
         <Route exact path="/movie-detail/:id" component={MovieDetail} />
-        <Route exact path="/accountDetail" component={AccountDetail} />
+        <Route exact path="/account-detail" component={AccountDetail} />
         <Route path="/admin" component={Admin} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
-        <Route path="/admin/user-management" component={AccountManagement} />
-        <Route path="/admin/movie-management" component={MovieManagement} />
-        <Route
-          path="/admin/showtime-management"
-          component={ShowTimeManagement}
-        />
         <Route path="*" component={Page404} />
       </Switch>
     </BrowserRouter>

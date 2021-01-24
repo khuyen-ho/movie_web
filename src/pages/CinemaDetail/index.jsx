@@ -4,6 +4,7 @@ import CinemaBannerDetail from "../../components/CinemaBannerDetail";
 import ScheduleCinemaDetail from "../../components/ScheduleCinemaDetail";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
+import BackToTop from "../../components/BackToTop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
@@ -27,6 +28,7 @@ const CinemaDetail = (props) => {
     <Box className={styles.root}>
       {/* <CinemaBannerDetail /> */}
       <ScheduleCinemaDetail />
+      <BackToTop showBelow={300} />
     </Box>
   );
 };
