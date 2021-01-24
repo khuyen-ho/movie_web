@@ -3,6 +3,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { Box, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
@@ -14,7 +15,7 @@ import {
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
 import { getAllMovie } from "../../redux/actions/movieAction";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
+import { getMovieId } from "../../helpers/search-manager";
 
 const Header = (props) => {
   const theme = useTheme();
@@ -22,9 +23,8 @@ const Header = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
   const { url } = useSelector((state) => state.currentPage);
-  const movieList = useSelector((state) => state.movies).map(
-    (movie) => movie.tenPhim
-  );
+  const movies = useSelector((state) => state.movies);
+  const movieList = movies.map((movie) => movie.tenPhim);
   const searchMovie = useSelector((state) => state.searchMovie.quickSearch);
   const dispatch = useDispatch();
 
@@ -92,7 +92,7 @@ const Header = (props) => {
 
   const handleSearch = () => {
     movieList.includes(searchMovie)
-      ? window.open(`/movieDetail/${searchMovie}`)
+      ? window.open(`/movie-detail/${getMovieId(movies, searchMovie)}`)
       : searchMovie
       ? alert(`Không tìm thấy phim có tên "${searchMovie}"`)
       : alert(`Vui lòng nhập tên phim`);
