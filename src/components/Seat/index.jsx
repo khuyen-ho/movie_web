@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import { IconButton, Typography } from "@material-ui/core";
 import WeekendIcon from "@material-ui/icons/Weekend";
 import useStyles from "./style";
-import { chooseSeat } from "../../redux/actions/bookingAction";
-import { useDispatch } from "react-redux";
+import { CHOOSE_SEAT } from "../../redux/actions/actionType";
 
 const Seat = (props) => {
-  const [pick, setPick] = useState(false);
-  const { seatNumber, reserved } = props;
   const styles = useStyles(props);
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [pick, setPick] = useState(false);
+  const { seat, seatNumber, reserved } = props;
+
+  const handleClick = () => {
+    setPick(!pick);
+    dispatch({ type: CHOOSE_SEAT, payload: seat });
+  };
+
   return (
-    <IconButton className={styles.root} onClick={() => {setPick(!pick)
-     dispatch(chooseSeat(props.seat))
-    }}>
+    <IconButton
+      className={styles.root}
+      disabled={reserved}
+      onClick={() => handleClick()}
+    >
       <WeekendIcon
         fontSize="large"
         className={

@@ -1,32 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
-import { useEffect } from "react";
-import { CLEAR_SEAT } from "../../redux/actions/actionType";
 import { bookTicket } from "../../redux/actions/bookingAction";
+import { RESET_STATE } from "../../redux/actions/actionType";
 
 const PriceInfo = ({ info }) => {
   const styles = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const seatList = useSelector((state) => state.chosenSeat);
   const user = useSelector((state) => state.userLogin);
 
-  let dataBookTicket = {
+  let ticketData = {
     maLichChieu: info.maLichChieu,
-    danhSachVe: seatList.map((item) => ({
-      maGhe: item.maGhe,
-      giaVe: item.giaVe,
+    danhSachVe: seatList.map((seat) => ({
+      maGhe: seat.maGhe,
+      giaVe: seat.giaVe,
     })),
     taiKhoanNguoiDung: user.taiKhoan,
   };
 
-  let disable = true;
-  dataBookTicket.danhSachVe.length === 0 ? (disable = true) : (disable = false);
+  const renderChosenSeats = (list) => {
+    let seats = [];
+    if (list.length) {
+      seats.push(<span>{list[0].tenGhe}</span>);
 
-  const renderSeatName = (list) => {
-    if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
+      for (let i = 1; i < list.length; i++) {
+        seats.push(<span>-{list[i].tenGhe}</span>);
+      }
+    }
+
+    return seats;
   };
 
   let money = (seatList) => {
@@ -38,21 +45,16 @@ const PriceInfo = ({ info }) => {
   };
 
   const handleClick = () => {
-    //console.log(props);
-    //console.log(bookTicket(dataBookTicket, user.accessToken));
-    dispatch(bookTicket(dataBookTicket, user.accessToken));
-    // props.history.replace("/home");
+    dispatch(bookTicket(ticketData, user.accessToken));
+    dispatch({ type: RESET_STATE });
+    history.push("/home");
   };
-
-  // useEffect(() => {
-  //   dispatch({ type: CLEAR_SEAT });
-  // }, []);
 
   return (
     <Box className={styles.root}>
       <Box className={`${styles.totalPrice} ${styles.dashedBoder}`}>
         <Typography variant="h4" className={`${styles.price} ${styles.center}`}>
-          {money(seatList)}đ
+          {money(seatList)} VND
         </Typography>
       </Box>
 
@@ -76,12 +78,12 @@ const PriceInfo = ({ info }) => {
             color="textSecondary"
             component="span"
           >
-            {renderSeatName(seatList)}
+            {renderChosenSeats(seatList)}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography className={`${styles.price} ${styles.right}`}>
-            {money(seatList)}
+            {money(seatList)} VND
           </Typography>
         </Grid>
       </Grid>
@@ -107,7 +109,7 @@ const PriceInfo = ({ info }) => {
         color="secondary"
         className={styles.button}
         onClick={() => handleClick()}
-        disabled={disable}
+        disabled={ticketData.danhSachVe.length === 0}
       >
         ĐẶT VÉ
       </Button>

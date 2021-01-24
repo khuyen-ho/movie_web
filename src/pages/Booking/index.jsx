@@ -28,7 +28,9 @@ const Booking = (props) => {
         <Grid container>
           <Grid item xs={12} xl={8}>
             <BookingNavBar info={info.thongTinPhim} />
-            <Box className={styles.seatPlan}>{/* <SeatPlan /> */}</Box>
+            <Box className={styles.seatPlan}>
+              <SeatPlan info={info.danhSachGhe} />
+            </Box>
           </Grid>
           <Grid item xs={12} xl={4}>
             <Box className={styles.priceInfo}>

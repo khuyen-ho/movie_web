@@ -44,15 +44,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   input: {
-    margin: theme.spacing(0.5, 0),
+    margin: theme.spacing(1, 0),
 
-    "& .MuiInputBase-root": {
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
     },
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
-      fontSize: theme.typography.body2.fontSize,
     },
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.shape.borderRadius,

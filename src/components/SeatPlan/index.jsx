@@ -1,10 +1,11 @@
 import { Box } from "@material-ui/core";
+import PropTypes from "prop-types";
 import React from "react";
 import useStyles from "./style";
 import SeatList from "../SeatList";
 import SeatNote from "../SeatNote";
 
-const SeatPlan = (props) => {
+const SeatPlan = ({ info }) => {
   const styles = useStyles();
 
   return (
@@ -13,13 +14,21 @@ const SeatPlan = (props) => {
         <img src="./images/avatar.jpg" alt="screen" width="100%" />
       </Box>
       <Box className={styles.seatList}>
-        <SeatList />
+        <SeatList list={info} />
       </Box>
       <Box className={styles.seatNote}>
         <SeatNote />
       </Box>
     </Box>
   );
+};
+
+SeatPlan.propTypes = {
+  info: PropTypes.array,
+};
+
+SeatPlan.defaultProps = {
+  info: [],
 };
 
 export default SeatPlan;

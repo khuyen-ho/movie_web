@@ -1,5 +1,5 @@
 import { bookingService } from "../../services";
-import { CHOOSE_SEAT, GET_BOOKING_LIST } from "./actionType";
+import { GET_BOOKING_LIST, RESET_STATE } from "./actionType";
 
 export const getSeatList = (showTimeId) => {
   return (dispatch) => {
@@ -12,22 +12,12 @@ export const getSeatList = (showTimeId) => {
   };
 };
 
-export const chooseSeat = (seat) => {
-  return (dispatch) => {
-    dispatch({ type: CHOOSE_SEAT, payload: seat });
-  };
-};
-
 export const bookTicket = (data, token) => {
   return (dispatch) => {
-    //console.log( data);
     bookingService
       .bookTicket(data, token)
       .then((res) => {
-        alert("Đặt vé thành công");
-        // console.log(res.maLichChieu);
-        getSeatList(res.maLichChieu);
-        //reload về home
+        alert("Đặt vé thành công, chúc bạn xem phim vui vẻ.");
       })
       .catch((err) => {
         console.log(err);
