@@ -19,9 +19,9 @@ export const getCinemas = (data, systemId) => {
       .filter((system) => system.maHeThongRap === systemId)
       .map((system) =>
         system.lstCumRap.map((cinema) => ({
-          id: cinema.maCumRap,
-          name: cinema.tenCumRap,
-          address: cinema.diaChi,
+          maCumRap: cinema.maCumRap,
+          tenCumRap: cinema.tenCumRap,
+          diaChi: cinema.diaChi,
         }))
       );
 

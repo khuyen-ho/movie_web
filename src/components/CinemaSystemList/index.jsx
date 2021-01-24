@@ -22,8 +22,8 @@ const CinemaSystemList = ({
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
 
   useEffect(() => {
-    dispatch({ type: GET_ID_CINEMA, payload: defaultCinema.id });
-  }, [defaultCinema.id, dispatch]);
+    dispatch({ type: GET_ID_CINEMA, payload: defaultCinema.maCumRap });
+  }, [defaultCinema.maCumRap, dispatch]);
 
   const handleClick = (id, logo) => {
     dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id, logo });

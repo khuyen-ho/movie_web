@@ -4,10 +4,9 @@ import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 import { useSelector } from "react-redux";
 
-const CinemaInfo = (props) => {
+const CinemaInfo = ({ cinema, hasInfo, ...props }) => {
   const styles = useStyles(props);
   const logo = useSelector((state) => state.cinemaSystems.selectedLogo);
-  const { info, hasInfo } = props;
 
   return (
     <Box className={styles.root}>
@@ -19,14 +18,14 @@ const CinemaInfo = (props) => {
             component="p"
             className={`${styles.name} ${styles.ellipsis}`}
           >
-            {info.name}
+            {cinema.tenCumRap}
           </Typography>
           <Typography
             variant="subtitle2"
             component="p"
             className={`${styles.address} ${styles.ellipsis}`}
           >
-            {info.address}
+            {cinema.diaChi}
           </Typography>
         </Box>
       )}
@@ -35,9 +34,15 @@ const CinemaInfo = (props) => {
 };
 
 CinemaInfo.propTypes = {
-  info: PropTypes.object,
+  cinema: PropTypes.object,
   hasEllipsis: PropTypes.bool,
   hasInfo: PropTypes.bool,
+};
+
+CinemaInfo.defaultProps = {
+  cinema: {},
+  hasEllipsis: false,
+  hasInfo: false,
 };
 
 export default CinemaInfo;

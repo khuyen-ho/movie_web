@@ -7,15 +7,19 @@ import BookingNavBar from "../../components/BookingNavBar";
 import PriceInfo from "../../components/PriceInfo";
 import SeatPlan from "../../components/SeatPlan";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
+import { getSeatList } from "../../redux/actions/bookingAction";
 import useStyles from "./style";
 
 const Booking = (props) => {
   const styles = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getCurrentWebPage(props.match.url))
-  },[]);
+    dispatch(getCurrentWebPage(props.match.url));
+    dispatch(getSeatList(props.match.params.id));
+  }, [dispatch, props.match.params.id, props.match.url]);
+
   const userLogin = useSelector((state) => state.userLogin);
   if (userLogin) {
     return (
@@ -23,13 +27,11 @@ const Booking = (props) => {
         <Grid container>
           <Grid item xs={12} xl={8}>
             <BookingNavBar />
-            <Box className={styles.seatPlan}>
-              <SeatPlan />
-            </Box>
+            <Box className={styles.seatPlan}>{/* <SeatPlan /> */}</Box>
           </Grid>
           <Grid item xs={12} xl={4}>
             <Box className={styles.priceInfo}>
-              <PriceInfo {...props} />
+              {/* <PriceInfo {...props} /> */}
             </Box>
           </Grid>
         </Grid>

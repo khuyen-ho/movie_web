@@ -18,19 +18,13 @@ export const getCinemaOnDate = (data, systemId, date) => {
     let cinemas = flatArray(
       data.heThongRapChieu
         .filter((system) => system.maHeThongRap === systemId)
-        .map((system) =>
-          system.cumRapChieu.map((cinema) => ({
-            showTimes: cinema.lichChieuPhim,
-            id: cinema.maCumRap,
-            name: cinema.tenCumRap,
-          }))
-        )
+        .map((system) => system.cumRapChieu)
     );
 
     let cinemaOnDate = [];
 
     for (let i = 0; i < cinemas.length; i++) {
-      let showTimes = cinemas[i].showTimes;
+      let showTimes = cinemas[i].lichChieuPhim;
 
       for (let j = 0; j < showTimes.length; j++) {
         if (getFullDate(showTimes[j].ngayChieuGioChieu) === "07/01/2019") {
@@ -47,7 +41,7 @@ export const getCinemaOnDate = (data, systemId, date) => {
 
 export const getShowTimeOnDate = (cinema, date) => {
   if (cinema) {
-    return cinema.showTimes.filter(
+    return cinema.lichChieuPhim.filter(
       (showTime) => getFullDate(showTime.ngayChieuGioChieu) === date
     );
   }

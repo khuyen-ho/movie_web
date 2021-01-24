@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 class BookingService {
-  fetchBooking(idShowtime) {
+  fetchSeatList(idShowtime) {
     // console.log(idShowtime);
     return Axios({
       method: "GET",
@@ -15,8 +15,8 @@ class BookingService {
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,
       data,
       headers: {
-        'Authorization': `Bearer ${token}` 
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
   }
 }

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Avatar, Box, Typography } from "@material-ui/core";
 import useStyles from "./style";
 
-const MovieInfo = ({hasInfo , movie}) => {
+const MovieInfo = ({ hasInfo, movie }) => {
   const styles = useStyles();
-  // console.log(movie);
+
   return (
     <>
       <Avatar src={movie.hinhAnh} variant="square" className={styles.logo} />
@@ -15,7 +15,7 @@ const MovieInfo = ({hasInfo , movie}) => {
             {movie.tenPhim}
           </Typography>
           <Typography variant="subtitle2" component="p" className={styles.info}>
-            {/* {duration} phút */}
+            {/* {movie.thoiLuong} phút */}
           </Typography>
         </Box>
       )}
@@ -23,13 +23,14 @@ const MovieInfo = ({hasInfo , movie}) => {
   );
 };
 
-// MovieInfo.propTypes = {
-//   id: PropTypes.number,
-//   logo: PropTypes.string,
-//   name: PropTypes.string,
-//   duration: PropTypes.number,
-//   score: PropTypes.number,
-//   hasInfo: PropTypes.bool,
-// };
+MovieInfo.propTypes = {
+  movie: PropTypes.object,
+  hasInfo: PropTypes.bool,
+};
+
+MovieInfo.defaultProps = {
+  movie: {},
+  hasInfo: false,
+};
 
 export default MovieInfo;
