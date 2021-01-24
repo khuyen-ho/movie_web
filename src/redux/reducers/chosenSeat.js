@@ -1,4 +1,4 @@
-import { CHOOSE_SEAT, CLEAR_SEAT, GET_BOOKING_LIST } from "../actions/actionType";
+import { CHOOSE_SEAT, RESET_STATE } from "../actions/actionType";
 
 let initialState = [];
 
@@ -15,8 +15,8 @@ const chosenSeat = (state = initialState, action) => {
       }
       return [...state];
     }
-    case CLEAR_SEAT:{
-      return []
+    case RESET_STATE: {
+      return [];
     }
     default:
       return state;
