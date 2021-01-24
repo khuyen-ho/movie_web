@@ -8,8 +8,7 @@ import CinemaInfo from "../CinemaInfo";
 import useStyles from "./style";
 
 const CinemaInfoList = (props) => {
-  const cinemaList = useSelector((state) => state.cinema.list);
-  const selectedCinema = useSelector((state) => state.cinema.selected);
+  const selectedCinema = useSelector((state) => state.cinemas.selected);
   const dispatch = useDispatch();
   const styles = useStyles(props);
 
@@ -17,7 +16,7 @@ const CinemaInfoList = (props) => {
     dispatch({ type: GET_ID_CINEMA, payload: id });
   };
 
-  return cinemaList.map((cinema) => (
+  return props.list.map((cinema) => (
     <ListItem
       className={styles.listItem}
       classes={{ selected: styles.selected }}
@@ -29,7 +28,7 @@ const CinemaInfoList = (props) => {
       <Show
         info={
           <CinemaInfo
-            {...cinema}
+            cinema={cinema}
             hasEllipsis={props.hasEllipsis}
             hasDetailLink={props.hasDetailLink}
             hasInfo

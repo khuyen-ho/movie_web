@@ -11,7 +11,7 @@ import useStyles from "./style";
 import { chooseMovie, deleteMovie } from "../../redux/actions/adminAction";
 
 const MovieTable = (props) => {
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies_);
   const userLogin = useSelector((state) => state.userLogin);
   const styles = useStyles();
 
@@ -41,12 +41,18 @@ const MovieTable = (props) => {
     score: parseFloat(movie.danhGia).toFixed(1),
     poster: <img src={movie.hinhAnh} alt="img" className={styles.image} />,
     edit: (
-      <IconButton onClick={()=>handleEdit(movie)} className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleEdit(movie)}
+        className={styles.iconButton}
+      >
         <CreateIcon color="primary" />
       </IconButton>
     ),
     delete: (
-      <IconButton onClick={()=>handleDelete(movie)}  className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleDelete(movie)}
+        className={styles.iconButton}
+      >
         <DeleteIcon color="error" />
       </IconButton>
     ),

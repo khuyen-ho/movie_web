@@ -9,7 +9,8 @@ import {
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
-export const getMovieListPagination = (pageNumber = 1, itemsPerPage = 12) => {
+
+export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
       //call api
@@ -88,13 +89,13 @@ export const getMovieDetail = (movieTitle) => {
     movieService
       .fetchMovieDetail(movieTitle)
       .then((res) => {
-        // console.log(res);
+        //console.log('movieaction',res);
         dispatch({
           type: GET_MOVIE_DETAIL,
           payload: res.data,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("error", err));
   };
 };
 

@@ -1,25 +1,68 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
+import { bookTicket } from "../../redux/actions/bookingAction";
+import { RESET_STATE } from "../../redux/actions/actionType";
 
-const PriceInfo = ({ showTimeInfo, userInfo }) => {
+const PriceInfo = ({ info }) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const seatList = useSelector((state) => state.chosenSeat);
+  const user = useSelector((state) => state.userLogin);
+
+  let ticketData = {
+    maLichChieu: info.maLichChieu,
+    danhSachVe: seatList.map((seat) => ({
+      maGhe: seat.maGhe,
+      giaVe: seat.giaVe,
+    })),
+    taiKhoanNguoiDung: user.taiKhoan,
+  };
+
+  const renderChosenSeats = (list) => {
+    let seats = [];
+    if (list.length) {
+      seats.push(<span>{list[0].tenGhe}</span>);
+
+      for (let i = 1; i < list.length; i++) {
+        seats.push(<span>-{list[i].tenGhe}</span>);
+      }
+    }
+
+    return seats;
+  };
+
+  let money = (seatList) => {
+    let total = 0;
+    for (let i = 0; i < seatList.length; i++) {
+      total += seatList[i].giaVe;
+    }
+    return total;
+  };
+
+  const handleClick = () => {
+    dispatch(bookTicket(ticketData, user.accessToken));
+    dispatch({ type: RESET_STATE });
+    history.push("/home");
+  };
 
   return (
     <Box className={styles.root}>
       <Box className={`${styles.totalPrice} ${styles.dashedBoder}`}>
         <Typography variant="h4" className={`${styles.price} ${styles.center}`}>
-          0 VND
+          {money(seatList)} VND
         </Typography>
       </Box>
 
       <Box className={`${styles.showTimeInfo} ${styles.dashedBoder}`}>
-        <Typography variant="subtitle1">
-          Tên phim: {showTimeInfo.movieName}
-        </Typography>
-        <Typography variant="body2">{`Rạp: ${showTimeInfo.cinema} - ${showTimeInfo.cinemaNumber}`}</Typography>
-        <Typography variant="body2">{`Suất chiếu: ${showTimeInfo.showTime} - ${showTimeInfo.showTimeDate}`}</Typography>
+        <Typography variant="subtitle1">Tên phim: {info.tenPhim}</Typography>
+        <Typography variant="body2">{`Cụm rạp: ${info.diaChi}`}</Typography>
+        <Typography variant="body2">{`Rạp: ${info.tenRap}`}</Typography>
+        <Typography variant="body2">{`Suất chiếu: ${info.gioChieu} - ${info.ngayChieu}`}</Typography>
       </Box>
       <Grid container className={`${styles.seats} ${styles.dashedBoder}`}>
         <Grid item xs={7}>
@@ -35,12 +78,12 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
             color="textSecondary"
             component="span"
           >
-            01, 02, 03, 04
+            {renderChosenSeats(seatList)}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography className={`${styles.price} ${styles.right}`}>
-            0 VND
+            {money(seatList)} VND
           </Typography>
         </Grid>
       </Grid>
@@ -55,7 +98,13 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
         />
       </Box>
 
-      <Button variant="contained" color="secondary" className={styles.button}>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={styles.button}
+        onClick={() => handleClick()}
+        disabled={ticketData.danhSachVe.length === 0}
+      >
         ĐẶT VÉ
       </Button>
     </Box>
@@ -63,23 +112,11 @@ const PriceInfo = ({ showTimeInfo, userInfo }) => {
 };
 
 PriceInfo.propTypes = {
-  showTimeInfo: PropTypes.object,
-  userInfo: PropTypes.object,
+  info: PropTypes.object,
 };
 
 PriceInfo.defaultProps = {
-  showTimeInfo: {
-    id: 15290,
-    movieName: "Trainwreck",
-    cinema: "BHD Star Cineplex - 3/2",
-    cinemaNumber: "Rạp 2",
-    showTimeDate: "01/01/2019",
-    showTime: "12:01",
-  },
-  userInfo: {
-    email: "long@gmail.com",
-    phoneNumber: "0123456789",
-  },
+  info: {},
 };
 
 export default PriceInfo;

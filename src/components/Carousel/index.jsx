@@ -10,7 +10,7 @@ export default function Carousel() {
       indicator={false}
       navButtonsAlwaysInvisible={true}
       animation="slide"
-      interval="5000"
+      interval="10000"
       indicators={false}
       autoPlay={true}
       fullHeightHover={false}

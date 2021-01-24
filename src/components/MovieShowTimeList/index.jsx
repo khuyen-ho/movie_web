@@ -1,24 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import { ListItem } from "@material-ui/core";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import StartTimeList from "../StartTimeList";
 import useStyles from "./style";
+import { getFullDate } from "../../helpers/time-manager";
+import { getShowTimeOnDate } from "../../helpers/movie-detail-manager";
 
-const MovieShowTimeList = ({ info, ...props }) => {
+const MovieShowTimeList = ({ cinemas, date, ...props }) => {
   const styles = useStyles();
-  const showTimeList = useSelector((state) => state.showTime);
 
-  return showTimeList.map((showTime) => (
-    <ListItem className={styles.listItem} key={showTime.cinemaInfo.id}>
+  return cinemas.map((cinema, index) => (
+    <ListItem className={styles.listItem} key={index}>
       <Show
         opened
-        info={<CinemaInfo {...showTime.cinemaInfo} hasInfo />}
-        showList={<StartTimeList list={showTime.list} />}
+        info={<CinemaInfo cinema={cinema} hasInfo />}
+        showList={<StartTimeList list={getShowTimeOnDate(cinema, date)} />}
       />
     </ListItem>
   ));
+};
+
+MovieShowTimeList.propTypes = {
+  cinemas: PropTypes.array,
+  date: PropTypes.string,
+};
+
+MovieShowTimeList.defaultProps = {
+  cinemas: [],
+  date: getFullDate(new Date()),
 };
 
 export default MovieShowTimeList;

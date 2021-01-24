@@ -21,10 +21,6 @@ const Home = (props) => {
     dispatch(getCurrentWebPage(props.match.url));
   }, [dispatch, props.match.url]);
 
-  // useEffect(() => {
-  //   dispatch(getAccountInfo());
-  // }, [dispatch]);
-
   if (userLogin) {
     return (
       <Container maxWidth="lg" className={styles.root}>

@@ -3,19 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Grid, Box } from "@material-ui/core";
 import useStyle from "./style";
 import DropDown from "../DropDown";
-import { getShowTimeDetail } from "../../redux/actions/movieAction";
+import { getMovieShowTimes } from "../../redux/actions/showTimeAction";
 import {
   GET_SEARCH_MOVIE,
   GET_SEARCH_CINEMA,
   GET_SEARCH_DATE,
   GET_SEARCH_SHOW_TIME,
-  RESET_STORE,
+  RESET_STATE,
 } from "../../redux/actions/actionType";
 import {
   getMovieId,
   getCinemas,
-  getShowTimeDate,
+  getShowTimeDates,
   getShowTimes,
+  getSelectedShowTimeId,
 } from "../../helpers/search-manager";
 
 const SearchMovie = (props) => {
@@ -28,22 +29,35 @@ const SearchMovie = (props) => {
   const result = useSelector(
     (state) => state.searchMovie.advancedSearch.result
   );
-  const movie = useSelector((state) => state.searchMovie.advancedSearch.movie);
-  const cinema = useSelector(
+  const selectedMovie = useSelector(
+    (state) => state.searchMovie.advancedSearch.movie
+  );
+  const selectedCinema = useSelector(
     (state) => state.searchMovie.advancedSearch.cinema
   );
-  const date = useSelector((state) => state.searchMovie.advancedSearch.date);
-  const showTime = useSelector(
+  const selectedDate = useSelector(
+    (state) => state.searchMovie.advancedSearch.date
+  );
+  const selectedTime = useSelector(
     (state) => state.searchMovie.advancedSearch.showTime
   );
 
   useEffect(() => {
-    dispatch(getShowTimeDetail(getMovieId(movies, movie)));
-  }, [dispatch, movie, movies]);
+    dispatch(getMovieShowTimes(getMovieId(movies, selectedMovie)));
+  }, [dispatch, selectedMovie, movies]);
 
-  const reset = () => {
+  const handleGo = () => {
+    window.open(
+      `/booking/${getSelectedShowTimeId(
+        result,
+        selectedCinema,
+        selectedDate,
+        selectedTime
+      )}`,
+      "_blank"
+    );
     dispatch({
-      type: RESET_STORE,
+      type: RESET_STATE,
     });
   };
 
@@ -56,7 +70,7 @@ const SearchMovie = (props) => {
               <DropDown
                 label="Phim"
                 list={movieNames}
-                state={movie}
+                state={selectedMovie}
                 dispatchType={GET_SEARCH_MOVIE}
               />
             </Box>
@@ -66,7 +80,7 @@ const SearchMovie = (props) => {
             <Box className={styles.dropDown}>
               <DropDown
                 label="Rạp"
-                state={cinema}
+                state={selectedCinema}
                 list={getCinemas(result)}
                 dispatchType={GET_SEARCH_CINEMA}
                 placeHolder="Vui lòng chọn phim"
@@ -78,8 +92,8 @@ const SearchMovie = (props) => {
             <Box className={styles.dropDown}>
               <DropDown
                 label="Ngày xem"
-                state={date}
-                list={getShowTimeDate(result, cinema)}
+                state={selectedDate}
+                list={getShowTimeDates(result, selectedCinema)}
                 dispatchType={GET_SEARCH_DATE}
                 placeHolder="Vui lòng chọn phim và rạp"
               />
@@ -90,11 +104,11 @@ const SearchMovie = (props) => {
             <Box className={styles.dropDown}>
               <DropDown
                 label="Suất chiếu"
-                state={showTime}
-                list={getShowTimes(result, cinema, date)}
+                state={selectedTime}
+                list={getShowTimes(result, selectedCinema, selectedDate)}
                 dispatchType={GET_SEARCH_SHOW_TIME}
                 placeHolder={
-                  cinema
+                  selectedCinema
                     ? "Vui lòng chọn ngày xem"
                     : "Vui lòng chọn phim, rạp và ngày xem"
                 }
@@ -104,11 +118,11 @@ const SearchMovie = (props) => {
 
           <Grid item xs={12} lg={2}>
             <Button
-              disabled={!showTime}
+              disabled={!selectedTime}
               variant="contained"
               color="secondary"
               classes={{ root: styles.button }}
-              onClick={() => window.open("/booking", "_blank")}
+              onClick={() => handleGo()}
             >
               MUA VÉ NGAY
             </Button>

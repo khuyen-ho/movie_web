@@ -3,18 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Typography, Grid } from "@material-ui/core";
 import MovieItem from "../MovieItem";
 import useStyles from "./style";
-import { getMovieListPagination } from "../../redux/actions/movieAction";
+import { getMovieList } from "../../redux/actions/movieAction";
 import Pagination from "@material-ui/lab/Pagination";
 
 const MovieList = () => {
-  const movies = useSelector((state) => state.movie.items);
-  const totalPages = useSelector((state) => state.movie.pageCount);
+  const movies = useSelector((state) => state.moviePage.items);
+  const totalPages = useSelector((state) => state.movies.pageCount);
   const dispatch = useDispatch();
   const style = useStyles();
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(getMovieListPagination(page, 8));
+    dispatch(getMovieList(page, 8));
   }, [dispatch, page]);
 
   const renderMovie = (movies) => {

@@ -7,7 +7,7 @@ import CinemaInfo from "../CinemaInfo";
 import Tag from "../Tag";
 import useStyles from "./style";
 
-const BookingNavBar = ({ movieInfo, cinemaInfo }) => {
+const BookingNavBar = ({ info }) => {
   const styles = useStyles();
   const theme = useTheme();
 
@@ -15,10 +15,10 @@ const BookingNavBar = ({ movieInfo, cinemaInfo }) => {
     <AppBar className={styles.root}>
       <Toolbar className={`${styles.toolBar} ${styles.largeBar}`}>
         <Box className={styles.info}>
-          <MovieInfo {...movieInfo} hasInfo />
+          <MovieInfo movie={info} hasInfo />
         </Box>
         <Box className={styles.info}>
-          <CinemaInfo {...cinemaInfo} hasInfo />
+          <CinemaInfo cinema={info} hasInfo />
         </Box>
         <Typography
           color="secondary"
@@ -41,25 +41,11 @@ const BookingNavBar = ({ movieInfo, cinemaInfo }) => {
 };
 
 BookingNavBar.propTypes = {
-  movieInfo: PropTypes.object,
-  cinemaInfo: PropTypes.object,
-  showTimeInfo: PropTypes.object,
+  info: PropTypes.object,
 };
 
 BookingNavBar.defaultProps = {
-  movieInfo: {
-    id: 1283,
-    logo: "http://movie0706.cybersoft.edu.vn/hinhanh/trainwreck.jpg",
-    name: "Trainwreck",
-    duration: 100,
-    score: 5.2,
-  },
-  cinemaInfo: {
-    id: "bhd-star-cineplex-3-2 ",
-    logo: "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png",
-    name: "BHD Star Cineplex - 3/2",
-    address: "L5-Vincom 3/2, 3C Đường 3/2, Q.10",
-  },
+  info: {},
 };
 
 export default BookingNavBar;

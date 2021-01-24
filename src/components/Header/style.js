@@ -1,7 +1,5 @@
-import { Menu, MenuItem } from "@material-ui/core";
+import { Menu } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {

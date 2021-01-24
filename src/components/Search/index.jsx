@@ -53,17 +53,14 @@ const Search = ({
     </>
   );
 };
-
 Search.propTypes = {
   autoList: PropTypes.array,
   placeholder: PropTypes.string,
   dispatchType: PropTypes.string,
   searchAction: PropTypes.func,
 };
-
 Search.defaultProps = {
   autoList: [],
   placeholder: "Nhập tìm kiếm...",
 };
-
 export default Search;

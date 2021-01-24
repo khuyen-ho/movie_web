@@ -22,11 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
   reserved: {
     color: theme.palette.red.light,
-    cursor: "no-drop",
-
-    "& + $number": {
-      cursor: "no-drop",
-    },
   },
 
   number: {

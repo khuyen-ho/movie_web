@@ -1,31 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { Box, Typography, TextField, Button } from "@material-ui/core";
-import DropDown from "../DropDown";
+import React, { useState } from "react";
+import { Box, Typography, TextField, Button, Grid } from "@material-ui/core";
+import DatePicker from "../DatePicker";
+import ImageUploader from "react-images-upload";
 import useStyles from "./style";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser, chooseUser, editUser } from "../../redux/actions/adminAction";
 import { Form, Formik } from "formik";
-import AddForm from "../AddForm";
+import { addMovie, addUser, chooseMovie } from "../../redux/actions/adminAction";
+import { useDispatch, useSelector } from "react-redux";
 import AddMovieForm from "../AddMovieForm";
-const AccountForm = (props) => {
-  const styles = useStyles();
+const MovieForm = (props) => {
+  const [posters, setPosters] = useState([]);
   const userLogin = useSelector((state) => state.userLogin);
 
-  const chosenUser = useSelector((state) => state.changeUser);
+  const styles = useStyles();
   const dispatch = useDispatch();
-
-  const handleEdit = (data) => {
-    dispatch(editUser(data, userLogin.accessToken));
+  const onDrop = (image) => {
+    setPosters([...posters, image]);
+    console.log(image);
   };
-  //   useEffect(() => {
-  // console.log("render", renderEditForm());
+  const handleAdd = (data) => {
+    console.log(data);
+    dispatch(addUser(data, userLogin.accessToken, props));
+  };
 
-  //   }, [chosenUser])
-
-  const renderEditForm = () => (
+  return (
     <Formik
-      onSubmit={handleEdit}
-      initialValues={chosenUser}
+      onSubmit={handleAdd}
+      initialValues={{
+        taiKhoan: "",
+        matKhau: "",
+        email: "",
+        soDt: "",
+        maNhom: "GP00",
+        maLoaiNguoiDung: "KhachHang",
+        hoTen: "",
+      }}
       render={(formikProps) => (
         <Form noValidate autoComplete="off">
           <Box className={styles.content}>
@@ -41,8 +49,8 @@ const AccountForm = (props) => {
                 type="text"
                 size="small"
                 name="taiKhoan"
-                defaultValue={chosenUser.taiKhoan}
-                disabled
+                // defaultValue={chosenUser.taiKhoan}
+                onChange={formikProps.handleChange}
               />
 
               <TextField
@@ -52,13 +60,13 @@ const AccountForm = (props) => {
                 type="text"
                 size="small"
                 name="hoTen"
-                defaultValue={chosenUser.hoTen}
+                //defaultValue={chosenUser.hoTen}
                 onChange={formikProps.handleChange}
               />
 
               {/* <Box className={styles.input} display="inline-block">
-              <DropDown label="Loại người dùng" list={["Người dùng"]} />
-            </Box> */}
+                 <DropDown label="Loại người dùng" list={["Người dùng"]} />
+               </Box> */}
               <TextField
                 className={styles.input}
                 label="Người dùng"
@@ -66,9 +74,8 @@ const AccountForm = (props) => {
                 type="text"
                 size="small"
                 name="maLoaiNguoiDung"
-                defaultValue={chosenUser.maLoaiNguoiDung}
-                //onChange={formikProps.handleChange}
-                disabled
+                value="KhachHang"
+                onChange={formikProps.handleChange}
               />
 
               <TextField
@@ -78,7 +85,7 @@ const AccountForm = (props) => {
                 type="password"
                 size="small"
                 name="matKhau"
-                defaultValue={chosenUser.matKhau}
+                // defaultValue={chosenUser.matKhau}
                 onChange={formikProps.handleChange}
               />
 
@@ -89,7 +96,7 @@ const AccountForm = (props) => {
                 type="email"
                 size="small"
                 name="email"
-                defaultValue={chosenUser.email}
+                //defaultValue={chosenUser.email}
                 onChange={formikProps.handleChange}
               />
 
@@ -99,8 +106,8 @@ const AccountForm = (props) => {
                 variant="outlined"
                 type="text"
                 size="small"
-                name="soDT"
-                defaultValue={chosenUser.soDt}
+                name="soDt"
+                // defaultValue={chosenUser.soDt}
                 onChange={formikProps.handleChange}
               />
             </Box>
@@ -113,24 +120,12 @@ const AccountForm = (props) => {
             // onClick={handleClick}
             type="submit"
           >
-            Lưu lại
+            Thêm
           </Button>
         </Form>
       )}
     />
   );
-
-  if (!chosenUser)
-    return (
-      <>
-        <AddForm />
-        {/* <AddForm/> */}
-      </>
-    );
-  else {
-    //console.log(chosenUser);
-    return <>{renderEditForm()}</>;
-  }
 };
 
-export default AccountForm;
+export default MovieForm;

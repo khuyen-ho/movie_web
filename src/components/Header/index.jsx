@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { Box, Button, Link, MenuItem } from "@material-ui/core";
+import { Box, Link, MenuItem } from "@material-ui/core";
 import MovieRoundedIcon from "@material-ui/icons/MovieRounded";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CollapseMenu from "../CollapseMenu";
 import Tag from "../Tag";
 import Search from "../Search";
@@ -34,8 +33,8 @@ const Header = (props) => {
   }, [dispatch]);
 
   const links = [
-    { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
-    { title: "Cụm Rạp", path: "#scheduleCinema", target: "_self" },
+    { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },
+    { title: "Cụm Rạp", path: "/home#scheduleCinema", target: "_self" },
   ];
   if (!userLogin) {
     links.push(
@@ -95,7 +94,7 @@ const Header = (props) => {
     movieList.includes(searchMovie)
       ? window.open(`/movieDetail/${searchMovie}`)
       : searchMovie
-      ? alert(`Không tìm thấy phim có tên ${searchMovie}`)
+      ? alert(`Không tìm thấy phim có tên "${searchMovie}"`)
       : alert(`Vui lòng nhập tên phim`);
   };
 
@@ -135,7 +134,7 @@ const Header = (props) => {
             >
               <Tag
                 iconElement={<AccountCircleIcon fontSize="large" />}
-                color={theme.palette.grey.main}
+                color={theme.palette.secondary.main}
                 hoverColor={theme.palette.secondary.main}
                 title={userLogin.hoTen}
               />
@@ -155,12 +154,12 @@ const Header = (props) => {
           </>
         ) : (
           <Box className={styles.signInUp}>
-            <NavLink to={links[3].path}>
+            <NavLink to={links[2].path}>
               <Tag
-                iconElement={<PersonAddIcon fontSize="large" />}
+                iconElement={<AccountCircleIcon fontSize="large" />}
                 color={theme.palette.grey.main}
                 hoverColor={theme.palette.secondary.main}
-                title={links[3].title}
+                title={links[2].title}
               />
             </NavLink>
           </Box>

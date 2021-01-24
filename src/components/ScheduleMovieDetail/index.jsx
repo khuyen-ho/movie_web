@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Box, Container, Grid, List } from "@material-ui/core";
 import CinemaSystemList from "../CinemaSystemList";
 import MovieShowTimeList from "../MovieShowTimeList";
 import DaysOfWeek from "../DaysOfWeek";
 import useStyles from "./style";
+import {
+  getCinemaSystems,
+  getCinemaOnDate,
+  getShowTimeDates,
+} from "../../helpers/movie-detail-manager";
+import { GET_DATE_LIST } from "../../redux/actions/actionType";
 
 const ScheduleMovieDetail = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.movieDetail);
+
+  const systems = getCinemaSystems(data);
+  const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
+  const selectedDate = useSelector((state) => state.date.selected);
+  const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);
+
+  useEffect(() => {
+    dispatch({ type: GET_DATE_LIST, payload: getShowTimeDates(data) });
+  }, [data, dispatch]);
+
   return (
     <Container maxWidth="lg" className={styles.container}>
       <Grid container className={styles.largeScreen}>
@@ -17,7 +36,7 @@ const ScheduleMovieDetail = (props) => {
               ${styles.noTopRightRadius}
               ${styles.noBottomRightRadius}`}
           >
-            <CinemaSystemList hasName />
+            <CinemaSystemList systemList={systems} hasName />
           </List>
         </Grid>
         <Grid item xs={9}>
@@ -34,7 +53,7 @@ const ScheduleMovieDetail = (props) => {
               ${styles.noBottomRightRadius}
               ${styles.verticalScroll}`}
           >
-            <MovieShowTimeList />
+            <MovieShowTimeList cinemas={cinemas} date={selectedDate} />
           </List>
         </Grid>
       </Grid>
@@ -50,7 +69,13 @@ const ScheduleMovieDetail = (props) => {
               ${styles.noTopRightRadius} 
               ${styles.noBottomRightRadius}`}
           >
-            <CinemaSystemList hasName showList={<MovieShowTimeList />} />
+            <CinemaSystemList
+              hasName
+              systemList={systems}
+              showList={
+                <MovieShowTimeList cinemas={cinemas} date={selectedDate} />
+              }
+            />
           </List>
         </Grid>
       </Grid>

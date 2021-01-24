@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Date from "../Date";
-import { getDateList, getDay, getDate } from "../../helpers/time-manager";
 import useStyles from "./style";
+import { GET_SELECTED_DATE } from "../../redux/actions/actionType";
 
-const DaysOfWeek = ({ startDate }) => {
+const DaysOfWeek = (props) => {
   const styles = useStyles();
-  const dateList = getDateList(startDate, 14);
-
-  const [value, setValue] = useState(0);
+  const dispatch = useDispatch();
+  const list = useSelector((state) => state.date.list);
+  const selected = useSelector((state) => state.date.selected);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    dispatch({ type: GET_SELECTED_DATE, payload: list[newValue] });
   };
 
   return (
     <Tabs
-      value={value}
+      value={list.indexOf(selected)}
       className={styles.tabs}
       variant="scrollable"
       scrollButtons="on"
@@ -25,10 +26,10 @@ const DaysOfWeek = ({ startDate }) => {
       textColor="secondary"
       onChange={handleChange}
     >
-      {dateList.map((date, index) => (
+      {list.map((date, index) => (
         <Tab
           classes={{ root: styles.tabRoot, selected: styles.selected }}
-          label={<Date day={getDay(date)} date={getDate(date)} />}
+          label={<Date date={date} />}
           key={index}
         />
       ))}
@@ -37,11 +38,11 @@ const DaysOfWeek = ({ startDate }) => {
 };
 
 DaysOfWeek.propTypes = {
-  startDate: PropTypes.string,
+  list: PropTypes.array,
 };
 
 DaysOfWeek.defaultProps = {
-  startDate: "2019-01-09T00:00:00",
+  list: [],
 };
 
 export default DaysOfWeek;

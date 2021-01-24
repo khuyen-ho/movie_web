@@ -4,6 +4,7 @@ import DatePicker from "../DatePicker";
 import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 import { Form, Formik } from "formik";
+import AddForm from "../AddForm";
 import {
   addMovie,
   chooseMovie,

@@ -1,18 +1,10 @@
-import { Redirect } from "react-router-dom";
 import { bookingService } from "../../services";
-import {
-  CHOOSE_SEAT,
-  GET_BOOKING_LIST,
-  GET_CINEMA_INFO,
-  GET_CINEMA_TIME,
-  SET_DATE,
-} from "./actionType";
+import { GET_BOOKING_LIST, RESET_STATE } from "./actionType";
 
-export const getBookingList = (id) => {
+export const getSeatList = (showTimeId) => {
   return (dispatch) => {
-      //console.log(id);
     bookingService
-      .fetchBooking(id)
+      .fetchSeatList(showTimeId)
       .then((res) => {
         dispatch({ type: GET_BOOKING_LIST, payload: res.data });
       })
@@ -20,22 +12,12 @@ export const getBookingList = (id) => {
   };
 };
 
-export const chooseSeat = (seat) => {
-  return (dispatch) => {
-    dispatch({ type: CHOOSE_SEAT, payload: seat });
-  };
-};
-
 export const bookTicket = (data, token) => {
   return (dispatch) => {
-    //console.log( data);
     bookingService
       .bookTicket(data, token)
       .then((res) => {
-        alert("Đặt vé thành công");
-       // console.log(res.maLichChieu);
-        getBookingList(res.maLichChieu)
-        //reload về home
+        alert("Đặt vé thành công, chúc bạn xem phim vui vẻ.");
       })
       .catch((err) => {
         console.log(err);
