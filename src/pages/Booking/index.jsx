@@ -13,6 +13,7 @@ import useStyles from "./style";
 const Booking = (props) => {
   const styles = useStyles();
   const dispatch = useDispatch();
+  const info = useSelector((state) => state.booking);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,12 +27,12 @@ const Booking = (props) => {
       <Container className={styles.root}>
         <Grid container>
           <Grid item xs={12} xl={8}>
-            <BookingNavBar />
+            <BookingNavBar info={info.thongTinPhim} />
             <Box className={styles.seatPlan}>{/* <SeatPlan /> */}</Box>
           </Grid>
           <Grid item xs={12} xl={4}>
             <Box className={styles.priceInfo}>
-              {/* <PriceInfo {...props} /> */}
+              <PriceInfo info={info.thongTinPhim} />
             </Box>
           </Grid>
         </Grid>

@@ -1,27 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { CLEAR_SEAT } from "../../redux/actions/actionType";
 import { bookTicket } from "../../redux/actions/bookingAction";
 
-const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
+const PriceInfo = ({ info }) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
   const seatList = useSelector((state) => state.chosenSeat);
   const user = useSelector((state) => state.userLogin);
-  const chosenMovie = useSelector((state) => state.booking.thongTinPhim);
+
   let dataBookTicket = {
-    maLichChieu: chosenMovie.maLichChieu,
+    maLichChieu: info.maLichChieu,
     danhSachVe: seatList.map((item) => ({
       maGhe: item.maGhe,
       giaVe: item.giaVe,
     })),
     taiKhoanNguoiDung: user.taiKhoan,
   };
+
   let disable = true;
   dataBookTicket.danhSachVe.length === 0 ? (disable = true) : (disable = false);
+
   const renderSeatName = (list) => {
     if (list) return list.map((item) => <span>{item.tenGhe}-</span>);
   };
@@ -33,18 +36,17 @@ const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
     }
     return total;
   };
-  const dispatch = useDispatch();
 
   const handleClick = () => {
     //console.log(props);
     //console.log(bookTicket(dataBookTicket, user.accessToken));
     dispatch(bookTicket(dataBookTicket, user.accessToken));
-    props.history.replace("/home");
+    // props.history.replace("/home");
   };
 
-  useEffect(() => {
-    dispatch({ type: CLEAR_SEAT });
-  }, []);
+  // useEffect(() => {
+  //   dispatch({ type: CLEAR_SEAT });
+  // }, []);
 
   return (
     <Box className={styles.root}>
@@ -55,11 +57,10 @@ const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
       </Box>
 
       <Box className={`${styles.showTimeInfo} ${styles.dashedBoder}`}>
-        <Typography variant="subtitle1">
-          Tên phim: {chosenMovie.tenPhim}
-        </Typography>
-        <Typography variant="body2">{`Rạp: ${chosenMovie.diaChi} - ${showTimeInfo.cinemaNumber}`}</Typography>
-        <Typography variant="body2">{`Suất chiếu: ${chosenMovie.gioChieu} - ${chosenMovie.ngayChieu}`}</Typography>
+        <Typography variant="subtitle1">Tên phim: {info.tenPhim}</Typography>
+        <Typography variant="body2">{`Cụm rạp: ${info.diaChi}`}</Typography>
+        <Typography variant="body2">{`Rạp: ${info.tenRap}`}</Typography>
+        <Typography variant="body2">{`Suất chiếu: ${info.gioChieu} - ${info.ngayChieu}`}</Typography>
       </Box>
       <Grid container className={`${styles.seats} ${styles.dashedBoder}`}>
         <Grid item xs={7}>
@@ -75,8 +76,6 @@ const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
             color="textSecondary"
             component="span"
           >
-            {/* 01, 02, 03, 04 */}
-            {/* {console.log(seatList)} */}
             {renderSeatName(seatList)}
           </Typography>
         </Grid>
@@ -107,7 +106,7 @@ const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
         variant="contained"
         color="secondary"
         className={styles.button}
-        onClick={()=>handleClick()}
+        onClick={() => handleClick()}
         disabled={disable}
       >
         ĐẶT VÉ
@@ -117,23 +116,11 @@ const PriceInfo = ({ showTimeInfo, userInfo, ...props }) => {
 };
 
 PriceInfo.propTypes = {
-  showTimeInfo: PropTypes.object,
-  userInfo: PropTypes.object,
+  info: PropTypes.object,
 };
 
 PriceInfo.defaultProps = {
-  showTimeInfo: {
-    id: 15290,
-    movieName: "Trainwreck",
-    cinema: "BHD Star Cineplex - 3/2",
-    cinemaNumber: "Rạp 2",
-    showTimeDate: "01/01/2019",
-    showTime: "12:01",
-  },
-  userInfo: {
-    email: "long@gmail.com",
-    phoneNumber: "0123456789",
-  },
+  info: {},
 };
 
 export default PriceInfo;
