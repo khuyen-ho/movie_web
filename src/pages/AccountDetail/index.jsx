@@ -8,22 +8,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { useEffect } from "react";
 import { Container } from "@material-ui/core";
+import { getAccountInfo } from "../../redux/actions/userAction";
 import BackToTop from "../../components/BackToTop";
 
 const Home = (props) => {
   const styles = useStyles();
-  const userLogin = useSelector((state) => state.userLogin);
-
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userLogin);
+
   useEffect(() => {
     dispatch(getCurrentWebPage(props.match.url));
-  }, [dispatch, props.match.url]);
+    dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
+  }, []);
 
-  if (userLogin) {
+  if (user) {
     return (
       <Container maxWidth="lg" className={styles.root}>
         <PersonalInfo />
-        <BookingInfo />
+        {/* <BookingInfo /> */}
         <BackToTop showBelow={300} />
       </Container>
     );

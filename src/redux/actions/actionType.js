@@ -33,7 +33,6 @@ export const GET_DATE_LIST = "GET_DATE_LIST";
 
 export const RESET_STATE = "RESET_STATE";
 export const GET_ACCOUNT_INFO = "GET_ACCOUNT_INFO";
-export const UPDATE_ACCOUNT_INFO = "UPDATE_ACCOUNT_INFO";
 export const FETCH_ACCOUNTS = "FETCH_ACCOUNTS";
 export const CHANGE_USER = "CHANGE_USER";
 export const CHANGE_MOVIE = "CHANGE_MOVIE";

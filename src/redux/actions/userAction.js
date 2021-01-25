@@ -31,12 +31,15 @@ export const getAccountInfo = (user, data) => {
     userService
       .fetchAccountInfo(user.accessToken, data)
       .then((res) => {
-        //console.log(res.data);
+        // alert("Go here");
         dispatch({
           type: GET_ACCOUNT_INFO,
           payload: res.data,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("!!!");
+        console.log(err);
+      });
   };
 };

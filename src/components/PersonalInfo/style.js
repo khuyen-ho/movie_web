@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
     color: theme.palette.white,
-    margin: theme.spacing(1.5, 0),
+    margin: theme.spacing(1, 0),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
     "&:focus": {

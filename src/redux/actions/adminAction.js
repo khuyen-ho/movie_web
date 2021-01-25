@@ -1,11 +1,9 @@
-import Axios from "axios";
-import { accountService } from "../../services";
+import { adminService } from "../../services";
 import { CHANGE_MOVIE, CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
-import { getAccountInfo } from "./userAction";
 
 export const getAccounts = () => {
   return (dispatch) => {
-    accountService
+    adminService
       .fetchAccounts()
       .then((res) => {
         // console.log(res.data);
@@ -20,7 +18,7 @@ export const getAccounts = () => {
 
 export const addUser = (data, token) => {
   return (dispatch) => {
-    accountService
+    adminService
       .addUser(data, token)
       .then((res) => {
         alert("Thêm người dùng thành công");
@@ -32,14 +30,15 @@ export const addUser = (data, token) => {
         // });
       })
       .catch((err) => {
-        alert(err.response.data)
-        console.log(err.response)});
+        alert(err.response.data);
+        console.log(err.response);
+      });
   };
 };
 
 export const deleteUser = (idUser, token) => {
   return (dispatch) => {
-    accountService
+    adminService
       .deleteUser(idUser, token)
       .then((res) => {
         alert("Xoá người dùng thành công");
@@ -59,18 +58,12 @@ export const deleteUser = (idUser, token) => {
 
 export const editUser = (data, token) => {
   return (dispatch) => {
-    accountService
+    adminService
       .editUser(data, token)
       .then((res) => {
         alert("Chỉnh sửa người dùng thành công");
-        window.location.reload(false);
-        //console.log(res.data);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err.response.data));
   };
 };
 
@@ -89,7 +82,7 @@ export const chooseUser = (user) => {
 export const deleteMovie = (idMovie, token) => {
   return (dispatch) => {
     console.log(idMovie);
-    accountService
+    adminService
       .deleteMovie(idMovie, token)
       .then((res) => {
         alert("Xoá phim thành công");
@@ -119,7 +112,7 @@ export const chooseMovie = (movie) => {
 
 export const addMovie = (data, token) => {
   return (dispatch) => {
-    accountService
+    adminService
       .addMovie(data, token)
       .then((res) => {
         alert("Thêm phim thành công");
@@ -140,7 +133,7 @@ export const addMovie = (data, token) => {
 
 export const editMovie = (data, token) => {
   return (dispatch) => {
-    accountService
+    adminService
       .editMovie(data, token)
       .then((res) => {
         alert("Chỉnh sửa phim thành công");

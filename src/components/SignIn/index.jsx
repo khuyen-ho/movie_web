@@ -12,7 +12,7 @@ import useStyles from "./style";
 import { NavLink, Redirect } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { userService } from "../../services";
-import { login } from "../../redux/actions/userAction";
+import { login, getAccountInfo } from "../../redux/actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { FETCH_CREDENTIALS } from "../../redux/actions/actionType";
 
@@ -22,6 +22,7 @@ const SignIn = ({ props }) => {
   let dispatch = useDispatch();
   const handleSubmit = (user) => {
     dispatch(login(user));
+    dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
   };
   if (!userLogin) {
     return (
@@ -87,9 +88,8 @@ const SignIn = ({ props }) => {
         )}
       />
     );
-  }
-  else{
-    return <Redirect to='/Home'/>
+  } else {
+    return <Redirect to="/Home" />;
   }
 };
 

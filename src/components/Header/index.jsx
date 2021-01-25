@@ -15,6 +15,7 @@ import {
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
 import { getAllMovie } from "../../redux/actions/movieAction";
+import { getAccountInfo } from "../../redux/actions/userAction";
 import { getMovieId } from "../../helpers/search-manager";
 
 const Header = (props) => {
@@ -30,7 +31,7 @@ const Header = (props) => {
 
   useEffect(() => {
     dispatch(getAllMovie());
-  }, [dispatch]);
+  }, [dispatch, userLogin]);
 
   const links = [
     { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },
