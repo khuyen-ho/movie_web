@@ -1,10 +1,5 @@
 import { adminService } from "../../services";
-import {
-  CHANGE_MOVIE,
-  CHANGE_USER,
-  FETCH_ACCOUNTS,
-  GET_ACCOUNT_TYPES,
-} from "./actionType";
+import { CHANGE_MOVIE, FETCH_ACCOUNTS, GET_ACCOUNT_TYPES } from "./actionType";
 
 export const getAccounts = () => {
   return (dispatch) => {
@@ -41,13 +36,23 @@ export const addUser = (data, token) => {
       .addUser(data, token)
       .then((res) => {
         alert("Thêm người dùng thành công");
-        console.log(res.data);
         window.location.reload(false);
       })
       .catch((err) => {
         alert(err.response.data);
-        console.log(err.response);
       });
+  };
+};
+
+export const editUser = (data, token) => {
+  return (dispatch) => {
+    adminService
+      .editUser(data, token)
+      .then((res) => {
+        alert("Câp nhật người dùng thành công");
+        window.location.reload(false);
+      })
+      .catch((err) => alert(err.response.data));
   };
 };
 
@@ -68,29 +73,6 @@ export const deleteUser = (idUser, token) => {
         console.log(err.response);
         alert(err.response.data);
       });
-  };
-};
-
-export const editUser = (data, token) => {
-  return (dispatch) => {
-    adminService
-      .editUser(data, token)
-      .then((res) => {
-        alert("Chỉnh sửa người dùng thành công");
-        window.location.reload(false);
-      })
-      .catch((err) => alert(err.response.data));
-  };
-};
-
-//for edit
-export const chooseUser = (user) => {
-  return (dispatch) => {
-    //console.log(user);
-    dispatch({
-      type: CHANGE_USER,
-      payload: user,
-    });
   };
 };
 

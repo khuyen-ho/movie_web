@@ -12,10 +12,18 @@ import {
   deleteUser,
   getAccounts,
 } from "../../redux/actions/adminAction";
+import {
+  GET_EDIT_STATUS,
+  GET_EDITED_ACCOUNT,
+} from "../../redux/actions/actionType";
+
 const AccountTable = (props) => {
-  const accounts = useSelector((state) => state.accounts.list);
-  const userLogin = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch();
   const styles = useStyles();
+  const isEdited = useSelector((state) => state.accounts.isEdited);
+
+  const accounts = useSelector((state) => state.accounts.list);
+  const user = useSelector((state) => state.userLogin);
 
   let headers = [
     "Tên tài khoản",
@@ -27,18 +35,19 @@ const AccountTable = (props) => {
     "Xoá",
   ];
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAccounts());
-  }, []);
+  }, [dispatch]);
 
-  const handleEdit = (user) => {
-    dispatch(chooseUser(user));
+  const handleEdit = (account) => {
+    dispatch({ type: GET_EDIT_STATUS, payload: true });
+    dispatch({ type: GET_EDITED_ACCOUNT, payload: account });
+    window.scrollTo(0, 0);
   };
 
   const handleDelete = (user) => {
     console.log(user);
-    dispatch(deleteUser(user.taiKhoan, userLogin.accessToken));
+    dispatch(deleteUser(user.taiKhoan, user.accessToken));
   };
 
   let data = accounts.map((account) => ({

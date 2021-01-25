@@ -20,20 +20,22 @@ const AccountForm = (props) => {
   const styles = useStyles();
   const dispatch = useDispatch();
 
-  const [edit, setEdit] = useState(false);
   const user = useSelector((state) => state.userLogin);
   const accountTypes = useSelector((state) => state.accountTypes);
+
+  const isEdited = useSelector((state) => state.accounts.isEdited);
+  const editedAccount = useSelector((state) => state.accounts.edited);
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      taiKhoan: "",
-      matKhau: "",
-      email: "",
-      soDt: "",
+      taiKhoan: editedAccount.taiKhoan,
+      matKhau: editedAccount.matKhau,
+      email: editedAccount.email,
+      soDt: editedAccount.soDt,
       maNhom: "GP00",
-      maLoaiNguoiDung: "",
-      hoTen: "",
+      maLoaiNguoiDung: editedAccount.maLoaiNguoiDung,
+      hoTen: editedAccount.hoTen,
     },
     validationSchema: Yup.object({
       taiKhoan: Yup.string().required("Vui lòng nhập tên tài khoản"),
@@ -48,10 +50,13 @@ const AccountForm = (props) => {
         .matches(/^[0-9]*$/, "Số điện thoại không hợp lệ"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      dispatch(addUser(values, user.accessToken));
+      isEdited
+        ? dispatch(editUser(values, user.accessToken))
+        : dispatch(addUser(values, user.accessToken));
     },
   });
+
+  console.log(formik.values);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -69,9 +74,12 @@ const AccountForm = (props) => {
             variant="outlined"
             type="text"
             size="small"
-            disabled={edit}
+            disabled={isEdited}
             value={formik.values.taiKhoan}
             onChange={formik.handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
             {...(formik.errors.taiKhoan && {
               error: true,
               helperText: formik.errors.taiKhoan,
@@ -88,13 +96,20 @@ const AccountForm = (props) => {
             size="small"
             value={formik.values.hoTen}
             onChange={formik.handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
             {...(formik.errors.hoTen && {
               error: true,
               helperText: formik.errors.hoTen,
             })}
           />
 
-          <FormControl variant="outlined" size="small" className={styles.input}>
+          <FormControl
+            variant="outlined"
+            size="small"
+            className={styles.dropDown}
+          >
             <InputLabel>Loại người dùng</InputLabel>
             <Select
               id="maLoaiNguoiDung"
@@ -137,6 +152,9 @@ const AccountForm = (props) => {
             size="small"
             value={formik.values.matKhau}
             onChange={formik.handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
             {...(formik.errors.matKhau && {
               error: true,
               helperText: formik.errors.matKhau,
@@ -153,6 +171,9 @@ const AccountForm = (props) => {
             size="small"
             value={formik.values.email}
             onChange={formik.handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
             {...(formik.errors.email && {
               error: true,
               helperText: formik.errors.email,
@@ -169,6 +190,9 @@ const AccountForm = (props) => {
             size="small"
             value={formik.values.soDt}
             onChange={formik.handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
             {...(formik.errors.soDt && {
               error: true,
               helperText: formik.errors.soDt,
@@ -183,7 +207,7 @@ const AccountForm = (props) => {
         className={styles.button}
         type="submit"
       >
-        {edit ? "Cập nhật" : "Thêm mới"}
+        {isEdited ? "Cập nhật" : "Thêm mới"}
       </Button>
     </form>
   );
