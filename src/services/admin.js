@@ -1,5 +1,4 @@
 import Axios from "axios";
-
 class AccountService {
   fetchAccounts(keyWord) {
     const url = keyWord
@@ -68,6 +67,7 @@ class AccountService {
       },
     });
   }
+
   deleteMovie(idMovie, token) {
     return Axios({
       method: "DELETE",
@@ -76,6 +76,14 @@ class AccountService {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    });
+  }
+
+  upLoadPoster(data) {
+    return Axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/UploadHinhAnhPhim`,
+      data,
     });
   }
 }

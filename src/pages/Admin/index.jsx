@@ -52,10 +52,6 @@ const Admin = ({ match }) => {
   ];
 
   useEffect(() => {
-    dispatch(getAllMovie());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
   }, [dispatch, user]);
 

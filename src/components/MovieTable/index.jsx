@@ -8,7 +8,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getFullDate } from "../../helpers/time-manager";
 import useStyles from "./style";
-import { getMovieDetail, getAllMovie } from "../../redux/actions/movieAction";
+import { getMovies } from "../../redux/actions/movieAction";
 import { deleteMovie } from "../../redux/actions/adminAction";
 import {
   GET_EDIT_MOVIE_STATUS,
@@ -24,8 +24,6 @@ const MovieTable = (props) => {
   const user = useSelector((state) => state.userLogin);
   const keyWord = useSelector((state) => state.movies.keyWord);
 
-  console.log(movies);
-
   let headers = [
     "Mã phim",
     "Tên phim",
@@ -37,7 +35,7 @@ const MovieTable = (props) => {
   ];
 
   useEffect(() => {
-    dispatch(getAllMovie());
+    dispatch(getMovies());
   }, [dispatch]);
 
   const handleEdit = (account) => {
@@ -51,7 +49,7 @@ const MovieTable = (props) => {
   };
 
   const handleSearch = () => {
-    dispatch(getMovieDetail(keyWord));
+    dispatch(getMovies(keyWord));
   };
 
   let data = movies.map((movie) => ({

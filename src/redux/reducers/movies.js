@@ -3,7 +3,8 @@ import {
   GET_EDIT_MOVIE_STATUS,
   GET_EDITED_MOVIE,
   GET_KEYWORD_MOVIE,
-  GET_MOVIE_DETAIL,
+  FETCH_MOVIES,
+  GET_POSTER,
 } from "../actions/actionType";
 
 let initialState = {
@@ -22,15 +23,12 @@ let initialState = {
     danhGia: 0,
   },
   keyWord: "",
+  poster: null,
 };
 
 const movies = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_MOVIE: {
-      state.list = action.payload;
-      return { ...state };
-    }
-    case GET_MOVIE_DETAIL: {
+    case FETCH_MOVIES: {
       state.list = action.payload;
       return { ...state };
     }
@@ -44,6 +42,10 @@ const movies = (state = initialState, action) => {
     }
     case GET_KEYWORD_MOVIE: {
       state.keyWord = action.payload;
+      return { ...state };
+    }
+    case GET_POSTER: {
+      state.poster = action.payload;
       return { ...state };
     }
     default:

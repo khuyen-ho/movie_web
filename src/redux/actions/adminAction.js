@@ -74,7 +74,6 @@ export const deleteUser = (idUser, token) => {
 //-----movie management
 export const deleteMovie = (idMovie, token) => {
   return (dispatch) => {
-    console.log(idMovie);
     adminService
       .deleteMovie(idMovie, token)
       .then((res) => {
@@ -88,13 +87,13 @@ export const deleteMovie = (idMovie, token) => {
   };
 };
 
-export const addMovie = (data, token) => {
+export const addMovie = (data, poster, token) => {
   return (dispatch) => {
     adminService
       .addMovie(data, token)
       .then((res) => {
         alert("Thêm phim thành công");
-        window.location.reload(false);
+        upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
         alert(err.response.data);
@@ -102,16 +101,41 @@ export const addMovie = (data, token) => {
   };
 };
 
-export const editMovie = (data, token) => {
+export const editMovie = (data, poster, token) => {
   return (dispatch) => {
     adminService
       .editMovie(data, token)
       .then((res) => {
-        alert("Câp nhật phim thành công");
-        window.location.reload(false);
+        alert("Cập nhật phim thành công");
+        upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
         alert(err.response.data);
       });
   };
+};
+
+export const createFormData = (file, tenPhim, maNhom) => {
+  let formData = new FormData();
+
+  if (file != null) {
+    formData.append("poster", file, file.name);
+    formData.append("tenphim", tenPhim);
+    formData.append("manhom", maNhom);
+  }
+
+  return formData;
+};
+
+export const upLoadPoster = (data) => {
+  adminService
+    .upLoadPoster(data)
+    .then((res) => {
+      alert("Upload poster thành công");
+      window.location.reload(false);
+    })
+    .catch((err) => {
+      alert(err.response.data);
+      console.log(err.response.data);
+    });
 };

@@ -3,7 +3,7 @@ import {
   GET_CINEMA_LIST,
   GET_MOVIE_LIST,
   GET_ADDRESS_CINEMA,
-  GET_MOVIE_DETAIL,
+  FETCH_MOVIES,
   GET_MOVIE_DETAIL_SCHEDULE,
   GET_ALL_MOVIE,
 } from "./actionType";
@@ -68,9 +68,6 @@ export const getCinemaDetailList = (idCinema) => {
         method: "GET",
       })
         .then(function thanhCong(res) {
-          // console.log(res.data);
-
-          //console.log(dispatch);
           dispatch({
             type: GET_ADDRESS_CINEMA,
             payload: res.data,
@@ -83,15 +80,13 @@ export const getCinemaDetailList = (idCinema) => {
   };
 };
 
-export const getMovieDetail = (movieId) => {
-  //console.log(idCinema);
+export const getMovies = (keyWord) => {
   return (dispatch) => {
     movieService
-      .getMovieDetail(movieId)
+      .fetchMovies(keyWord)
       .then((res) => {
-        //console.log('movieaction',res);
         dispatch({
-          type: GET_MOVIE_DETAIL,
+          type: FETCH_MOVIES,
           payload: res.data,
         });
       })
@@ -100,30 +95,12 @@ export const getMovieDetail = (movieId) => {
 };
 
 export const getMovieDetailSchedule = (movieId) => {
-  //console.log(idCinema);
   return (dispatch) => {
     movieService
       .getMovieDetailSchedule(movieId)
       .then((res) => {
-        //console.log(res);
         dispatch({
           type: GET_MOVIE_DETAIL_SCHEDULE,
-          payload: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
-  };
-};
-
-export const getAllMovie = () => {
-  //console.log(idCinema);
-  return (dispatch) => {
-    movieService
-      .fetchAllMovie()
-      .then((res) => {
-        // console.log(res);
-        dispatch({
-          type: GET_ALL_MOVIE,
           payload: res.data,
         });
       })
