@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
   bottomGroup: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
     width: "100%",
     marginTop: theme.spacing(1),
