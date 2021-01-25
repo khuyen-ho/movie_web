@@ -35,7 +35,7 @@ const CinemaSystemList = ({
       classes={{ selected: styles.selected }}
       button
       selected={selectedSystem === system.id}
-      onClick={() => handleClick(system.id)}
+      onClick={() => handleClick(system.id, system.logo)}
       key={system.id}
     >
       <Show

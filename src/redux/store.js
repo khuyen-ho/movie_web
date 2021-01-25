@@ -6,10 +6,8 @@ import userAccount from "./reducers/userAccount";
 import moviePage from "./reducers/moviePage";
 import banners from "./reducers/banner";
 import cinemaSystems from "./reducers/cinemaSystem";
-import cinema from "./reducers/cinema";
-import cinemas from "./reducers/cinemas";
-import showTime from "./reducers/showTime";
-import showTimes from "./reducers/showTimes";
+import cinemas from "./reducers/cinema";
+import showTimes from "./reducers/showTime";
 import userLogin from "./reducers/userLogin";
 import currentPage from "./reducers/page";
 import movieDetail from "./reducers/movieDetail";
@@ -21,8 +19,6 @@ import changeUser from "./reducers/changeUser";
 import changeMovie from "./reducers/changeMovie";
 import movies from "./reducers/movies";
 import accounts from "./reducers/accounts";
-import cinemaSystems_ from "./reducers/cinemaSystems";
-import cinemas_ from "./reducers/cinemas";
 const RootReducer = combineReducers({
   date,
   userAccount,
@@ -30,7 +26,6 @@ const RootReducer = combineReducers({
   banners,
   moviePage,
   cinemaSystems,
-  cinema,
   cinemas,
   userLogin,
   currentPage,
@@ -42,10 +37,7 @@ const RootReducer = combineReducers({
   changeUser,
   changeMovie,
   movies,
-  showTime,
   showTimes,
-  cinemaSystems_,
-  cinemas_,
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

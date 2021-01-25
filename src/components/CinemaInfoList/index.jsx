@@ -21,9 +21,9 @@ const CinemaInfoList = (props) => {
       className={styles.listItem}
       classes={{ selected: styles.selected }}
       button
-      selected={selectedCinema === cinema.id}
-      onClick={() => handleClick(cinema.id)}
-      key={cinema.id}
+      selected={selectedCinema === cinema.maCumRap}
+      onClick={() => handleClick(cinema.maCumRap)}
+      key={cinema.maCumRap}
     >
       <Show
         info={
