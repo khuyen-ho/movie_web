@@ -19,6 +19,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  largeScreen: {
+    [theme.breakpoints.up("xs")]: {
+      display: "none",
+    },
+    [theme.breakpoints.up("lg")]: {
+      display: "block",
+    },
+  },
+
+  smallScreen: {
+    [theme.breakpoints.up("xs")]: {
+      display: "block",
+    },
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+  },
+
   title: {
     margin: theme.spacing(1, 0),
     marginBottom: theme.spacing(0),

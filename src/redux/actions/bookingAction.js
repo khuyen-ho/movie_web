@@ -1,5 +1,5 @@
 import { bookingService } from "../../services";
-import { GET_BOOKING_LIST, RESET_STATE } from "./actionType";
+import { GET_BOOKING_LIST } from "./actionType";
 
 export const getSeatList = (showTimeId) => {
   return (dispatch) => {

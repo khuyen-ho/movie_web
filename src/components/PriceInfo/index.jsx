@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
 import useStyles from "./style";
+import { getAccountInfo } from "../../redux/actions/userAction";
 import { bookTicket } from "../../redux/actions/bookingAction";
 import { RESET_STATE } from "../../redux/actions/actionType";
 
@@ -13,6 +14,12 @@ const PriceInfo = ({ info }) => {
   const history = useHistory();
   const seatList = useSelector((state) => state.chosenSeat);
   const user = useSelector((state) => state.userLogin);
+  const email = useSelector((state) => state.userAccount.email);
+  const phone = useSelector((state) => state.userAccount.soDT);
+
+  useEffect(() => {
+    dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
+  }, [dispatch, user]);
 
   let ticketData = {
     maLichChieu: info.maLichChieu,
@@ -89,12 +96,24 @@ const PriceInfo = ({ info }) => {
       </Grid>
 
       <Box className={styles.userInfo}>
-        <TextField className={styles.input} label="Email" variant="outlined" />
+        <TextField
+          className={styles.input}
+          label="Email"
+          variant="outlined"
+          value={email}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
         <TextField
           className={styles.input}
           label="Số điện thoại"
           variant="outlined"
           type="text"
+          value={phone}
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </Box>
 

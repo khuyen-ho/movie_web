@@ -18,7 +18,7 @@ const Home = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getCurrentWebPage(props.match.url));
-  }, [dispatch, props.match.url]);
+  }, []);
 
   return (
     <Box className={styles.root}>
@@ -30,7 +30,7 @@ const Home = (props) => {
       <div id="scheduleCinema">
         <ScheduleCinema />
       </div>
-        <BackToTop showBelow={300} />
+      <BackToTop showBelow={300} />
     </Box>
   );
 };

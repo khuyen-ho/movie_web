@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "@material-ui/core";
 import PersonalInfo from "../../components/PersonalInfo";
 import BookingInfo from "../../components/BookingInfo";
 import BackToTop from "../../components/BackToTop";
@@ -8,20 +7,21 @@ import wrapper from "../../HOCs/Wrapper";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";
-// import { getAccountInfo } from "../../redux/actions/userAction";
 import { useEffect } from "react";
+import { Container } from "@material-ui/core";
+import { getAccountInfo } from "../../redux/actions/userAction";
 
 const Home = (props) => {
   const styles = useStyles();
-  const userLogin = useSelector((state) => state.userLogin);
-
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userLogin);
 
   useEffect(() => {
     dispatch(getCurrentWebPage(props.match.url));
-  }, [dispatch, props.match.url]);
+    dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
+  }, []);
 
-  if (userLogin) {
+  if (user) {
     return (
       <Container maxWidth="lg" className={styles.root}>
         <PersonalInfo />

@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import date from "./reducers/date";
-import account from "./reducers/account";
+import userAccount from "./reducers/userAccount";
 import moviePage from "./reducers/moviePage";
 import banners from "./reducers/banner";
 import cinemaSystems from "./reducers/cinemaSystem";
@@ -10,7 +10,7 @@ import cinema from "./reducers/cinema";
 import cinemas from "./reducers/cinemas";
 import showTime from "./reducers/showTime";
 import showTimes from "./reducers/showTimes";
-import user from "./reducers/user";
+import userLogin from "./reducers/userLogin";
 import currentPage from "./reducers/page";
 import movieDetail from "./reducers/movieDetail";
 import chosenMovie from "./reducers/chosenMovie";
@@ -25,14 +25,14 @@ import cinemaSystems_ from "./reducers/cinemaSystems";
 import cinemas_ from "./reducers/cinemas";
 const RootReducer = combineReducers({
   date,
-  account,
+  userAccount,
   accounts,
   banners,
   moviePage,
   cinemaSystems,
   cinema,
   cinemas,
-  userLogin: user,
+  userLogin,
   currentPage,
   movieDetail,
   chosenMovie,

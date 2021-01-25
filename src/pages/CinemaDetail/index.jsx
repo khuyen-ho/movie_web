@@ -5,6 +5,7 @@ import ScheduleCinemaDetail from "../../components/ScheduleCinemaDetail";
 import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 import wrapper from "../../HOCs/Wrapper";
+import BackToTop from "../../components/BackToTop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCurrentWebPage } from "../../redux/actions/pageAction";

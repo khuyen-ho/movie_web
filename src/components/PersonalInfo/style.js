@@ -13,6 +13,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
+  content: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+
   info: {
     display: "flex",
     flexWrap: "wrap",

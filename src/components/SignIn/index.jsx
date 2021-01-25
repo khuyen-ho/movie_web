@@ -10,32 +10,17 @@ import {
 import Switch from "@material-ui/core/Switch";
 import useStyles from "./style";
 import { NavLink, Redirect } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
-import { userService } from "../../services";
-import { getAccountInfo, login } from "../../redux/actions/userAction";
+import { Formik, Form } from "formik";
+import { login } from "../../redux/actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
-import { FETCH_CREDENTIALS } from "../../redux/actions/actionType";
-import { chooseUser } from "../../redux/actions/adminAction";
 
 const SignIn = ({ props }) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
-  const account = useSelector((state) => state.account);
+
   let dispatch = useDispatch();
   const handleSubmit = (user) => {
     dispatch(login(user));
-    dispatch(getAccountInfo(userLogin, user));
-    // dispatch(
-    //   chooseUser({
-    //     taiKhoan: account.taiKhoan,
-    //     matKhau: account.matKhau,
-    //     email: account.email,
-    //     soDt: account.soDT,
-    //     maNhom: account.maNhom,
-    //     maLoaiNguoiDung: account.loaiNguoiDung,
-    //     hoTen: account.hoTen,
-    //   })
-    // );
   };
   if (!userLogin) {
     return (
@@ -101,9 +86,8 @@ const SignIn = ({ props }) => {
         )}
       />
     );
-  }
-  else{
-    return <Redirect to='/Home'/>
+  } else {
+    return <Redirect to="/Home" />;
   }
 };
 
