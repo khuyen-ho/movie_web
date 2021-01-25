@@ -5,7 +5,6 @@ import {
   GET_ADDRESS_CINEMA,
   FETCH_MOVIES,
   GET_MOVIE_DETAIL_SCHEDULE,
-  GET_ALL_MOVIE,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";

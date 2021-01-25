@@ -71,8 +71,6 @@ const MovieForm = (props) => {
     },
   });
 
-  console.log(formik.values);
-
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <Box className={styles.content}>
