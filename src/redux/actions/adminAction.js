@@ -104,17 +104,11 @@ export const addMovie = (data, token) => {
       .addMovie(data, token)
       .then((res) => {
         alert("Thêm phim thành công");
-        console.log(res.data);
-        //props.history.replace('/admin')
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
-        //alert(err.response.data);
-        console.log(err.response);
+        alert(err);
+        console.log(err);
       });
   };
 };
@@ -126,11 +120,6 @@ export const editMovie = (data, token) => {
       .then((res) => {
         alert("Chỉnh sửa phim thành công");
         window.location.reload(false);
-        //console.log(res.data);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
         console.log(err);

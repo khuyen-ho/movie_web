@@ -38,10 +38,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  datePicker: {
-    margin: theme.spacing(1, 0),
-  },
-
   desc: {
     [theme.breakpoints.up("xs")]: {
       marginTop: 0,
@@ -63,6 +59,44 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-between",
     height: "100%",
+  },
+
+  datePicker: {
+    margin: theme.spacing(0.5, 0),
+    width: "100%",
+
+    "& button": {
+      outlineStyle: "none",
+    },
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
+
+    "& .MuiInputLabel-root": {
+      color: theme.palette.primary.main,
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: theme.shape.borderRadius,
+
+      "& fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&:hover fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+
+    "& .MuiOutlinedInput-adornedEnd": {
+      padding: 0,
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+    },
   },
 
   uploader: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "../../components/Search";
 import { Box } from "@material-ui/core";
@@ -8,12 +8,21 @@ import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getFullDate } from "../../helpers/time-manager";
 import useStyles from "./style";
-import { chooseMovie, deleteMovie } from "../../redux/actions/adminAction";
+import { getMovieDetail, getAllMovie } from "../../redux/actions/movieAction";
+import { deleteMovie } from "../../redux/actions/adminAction";
+import {
+  GET_EDIT_MOVIE_STATUS,
+  GET_EDITED_MOVIE,
+  GET_KEYWORD_MOVIE,
+} from "../../redux/actions/actionType";
 
 const MovieTable = (props) => {
-  const movies = useSelector((state) => state.movies_);
-  const userLogin = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch();
   const styles = useStyles();
+
+  const movies = useSelector((state) => state.movies.list);
+  const user = useSelector((state) => state.userLogin);
+  const keyWord = useSelector((state) => state.movies.keyWord);
 
   let headers = [
     "Mã phim",
@@ -24,14 +33,23 @@ const MovieTable = (props) => {
     "Chỉnh sửa",
     "Xoá",
   ];
-  const dispatch = useDispatch();
-  const handleEdit = (movie) => {
-    dispatch(chooseMovie(movie));
+
+  useEffect(() => {
+    dispatch(getAllMovie());
+  }, [dispatch]);
+
+  const handleEdit = (account) => {
+    dispatch({ type: GET_EDIT_MOVIE_STATUS, payload: true });
+    dispatch({ type: GET_EDITED_MOVIE, payload: account });
+    window.scrollTo(0, 0);
   };
 
-  const handleDelete = (movie) => {
-    console.log(movie);
-    dispatch(deleteMovie(movie.maPhim, userLogin.accessToken, props));
+  const handleDelete = (id) => {
+    dispatch(deleteMovie(id, user.accessToken));
+  };
+
+  const handleSearch = () => {
+    dispatch(getMovieDetail(keyWord));
   };
 
   let data = movies.map((movie) => ({
@@ -41,12 +59,18 @@ const MovieTable = (props) => {
     score: parseFloat(movie.danhGia).toFixed(1),
     poster: <img src={movie.hinhAnh} alt="img" className={styles.image} />,
     edit: (
-      <IconButton onClick={()=>handleEdit(movie)} className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleEdit(movie)}
+        className={styles.iconButton}
+      >
         <CreateIcon color="primary" />
       </IconButton>
     ),
     delete: (
-      <IconButton onClick={()=>handleDelete(movie)}  className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleDelete(movie)}
+        className={styles.iconButton}
+      >
         <DeleteIcon color="error" />
       </IconButton>
     ),
@@ -55,7 +79,12 @@ const MovieTable = (props) => {
   return (
     <>
       <Box className={styles.search}>
-        <Search />
+        <Search
+          placeholder="Nhập tên phim..."
+          state={keyWord}
+          dispatchType={GET_KEYWORD_MOVIE}
+          searchAction={handleSearch}
+        />
       </Box>
       <Box className={styles.table}>
         <Table

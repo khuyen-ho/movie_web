@@ -59,7 +59,6 @@ class AccountService {
   }
 
   addMovie(data, token) {
-    console.log("data", data, "token", token);
     return Axios({
       method: "POST",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim`,

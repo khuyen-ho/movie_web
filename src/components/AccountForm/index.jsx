@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, editUser } from "../../redux/actions/adminAction";
+import { addMovie, editMovie } from "../../redux/actions/adminAction";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -51,12 +51,10 @@ const AccountForm = (props) => {
     }),
     onSubmit: (values) => {
       isEdited
-        ? dispatch(editUser(values, user.accessToken))
-        : dispatch(addUser(values, user.accessToken));
+        ? dispatch(addMovie(values, user.accessToken))
+        : dispatch(editMovie(values, user.accessToken));
     },
   });
-
-  console.log(formik.values);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>

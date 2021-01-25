@@ -7,11 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./style";
-import {
-  chooseUser,
-  deleteUser,
-  getAccounts,
-} from "../../redux/actions/adminAction";
+import { deleteUser, getAccounts } from "../../redux/actions/adminAction";
 import {
   GET_EDIT_STATUS,
   GET_EDITED_ACCOUNT,

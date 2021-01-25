@@ -5,9 +5,7 @@ import {
   GET_ADDRESS_CINEMA,
   GET_MOVIE_DETAIL,
   GET_MOVIE_DETAIL_SCHEDULE,
-  GET_MOVIE_SHOW_TIME,
   GET_ALL_MOVIE,
-  GET_ALL_CINEMA_SHOW_TIME,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";

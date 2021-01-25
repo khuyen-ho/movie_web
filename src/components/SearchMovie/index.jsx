@@ -22,10 +22,8 @@ import {
 const SearchMovie = (props) => {
   const styles = useStyle();
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movies);
-  const movieNames = useSelector((state) => state.movies).map(
-    (movie) => movie.tenPhim
-  );
+  const movies = useSelector((state) => state.movies.list);
+  const movieNames = movies.map((movie) => movie.tenPhim);
   const result = useSelector(
     (state) => state.searchMovie.advancedSearch.result
   );
