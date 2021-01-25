@@ -77,7 +77,7 @@ const Rating = (props) => {
 
 Rating.propTypes = {
   score: PropTypes.number,
-  type: PropTypes.oneOf(["mini", "large"]),
+  date: PropTypes.oneOf(["mini", "large"]),
 };
 
 Rating.defaultProps = {

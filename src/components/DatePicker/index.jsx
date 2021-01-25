@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -7,9 +8,14 @@ import {
 } from "@material-ui/pickers";
 import useStyles from "./style";
 
-const DatePicker = (props) => {
-  const [date, setDate] = useState(new Date());
+const DatePicker = ({ date, dispatchType, label, ...props }) => {
+  const dispatch = useDispatch();
   const styles = useStyles();
+
+  const handleChange = (newDate) => {
+    dispatch({ type: dispatchType, payload: newDate });
+  };
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDatePicker
@@ -24,9 +30,9 @@ const DatePicker = (props) => {
         minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
         format="dd/MM/yyyy"
         id="date"
-        label={props.label}
+        label={label}
         value={date}
-        onChange={(date) => setDate(date)}
+        onChange={(date) => handleChange(date)}
         className={styles.datePicker}
       />
     </MuiPickersUtilsProvider>
@@ -34,6 +40,8 @@ const DatePicker = (props) => {
 };
 
 DatePicker.propTypes = {
+  date: PropTypes.object,
+  dispatchType: PropTypes.string,
   label: PropTypes.string,
 };
 
