@@ -62,6 +62,7 @@ export const editUser = (data, token) => {
       .editUser(data, token)
       .then((res) => {
         alert("Chỉnh sửa người dùng thành công");
+        window.location.reload(false);
       })
       .catch((err) => alert(err.response.data));
   };
@@ -86,7 +87,6 @@ export const deleteMovie = (idMovie, token) => {
       .deleteMovie(idMovie, token)
       .then((res) => {
         alert("Xoá phim thành công");
-        console.log(res.data);
         window.location.reload(false);
         // dispatch({
         //   type: FETCH_ACCOUNTS,

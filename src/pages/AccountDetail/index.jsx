@@ -18,8 +18,11 @@ const Home = (props) => {
 
   useEffect(() => {
     dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
+
+  useEffect(() => {
     dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
-  }, []);
+  }, [dispatch, user]);
 
   if (user) {
     return (
