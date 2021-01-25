@@ -4,6 +4,7 @@ import {
   GET_EDITED_MOVIE,
   GET_KEYWORD_MOVIE,
   GET_MOVIE_DETAIL,
+  GET_POSTER,
 } from "../actions/actionType";
 
 let initialState = {
@@ -22,6 +23,7 @@ let initialState = {
     danhGia: 0,
   },
   keyWord: "",
+  poster: null,
 };
 
 const movies = (state = initialState, action) => {
@@ -44,6 +46,10 @@ const movies = (state = initialState, action) => {
     }
     case GET_KEYWORD_MOVIE: {
       state.keyWord = action.payload;
+      return { ...state };
+    }
+    case GET_POSTER: {
+      state.poster = action.payload;
       return { ...state };
     }
     default:

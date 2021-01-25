@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
@@ -17,6 +17,7 @@ import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 import { addMovie, editMovie } from "../../redux/actions/adminAction";
 import { getFullDate } from "../../helpers/time-manager";
+import { GET_POSTER } from "../../redux/actions/actionType";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -25,12 +26,12 @@ const MovieForm = (props) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.userLogin);
-
   const isEdited = useSelector((state) => state.movies.isEdited);
   const editedMovie = useSelector((state) => state.movies.edited);
+  const poster = useSelector((state) => state.movies.poster);
 
   const onDrop = (image) => {
-    console.log(image);
+    dispatch({ type: GET_POSTER, payload: image[0] });
   };
 
   const formik = useFormik({
@@ -40,8 +41,7 @@ const MovieForm = (props) => {
       tenPhim: editedMovie.tenPhim,
       biDanh: editedMovie.biDanh,
       trailer: editedMovie.trailer,
-      hinhAnh:
-        "https://images.moviepostershop.com/replicas-movie-poster-1000778791.jpg",
+      hinhAnh: editedMovie.hinhAnh,
       moTa: editedMovie.moTa,
       maNhom: editedMovie.maNhom,
       ngayKhoiChieu: editedMovie.ngayKhoiChieu,
@@ -54,7 +54,6 @@ const MovieForm = (props) => {
       tenPhim: Yup.string().required("Vui lòng nhập tên phim"),
       biDanh: Yup.string().required("Vui lòng nhập bí danh"),
       trailer: Yup.string().required("Vui lòng nhập link trailer"),
-      // hinhAnh: Yup.string().required("Vui lòng upload poster"),
       moTa: Yup.string().required("Vui lòng nhập mô tả"),
       maNhom: Yup.string().required("Vui lòng nhập mã nhóm"),
       ngayKhoiChieu: Yup.date()
@@ -64,15 +63,14 @@ const MovieForm = (props) => {
       danhGia: Yup.string().required("Vui lòng đánh giá phim"),
     }),
     onSubmit: (values) => {
+      console.log(poster);
       values.ngayKhoiChieu = getFullDate(values.ngayKhoiChieu);
       alert(JSON.stringify(values, null, 2));
       isEdited
-        ? dispatch(editMovie(values, user.accessToken))
-        : dispatch(addMovie(values, user.accessToken));
+        ? dispatch(editMovie(values, poster, user.accessToken))
+        : dispatch(addMovie(values, poster, user.accessToken));
     },
   });
-
-  console.log(formik.values);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -263,15 +261,15 @@ const MovieForm = (props) => {
               className={styles.uploader}
               {...props}
               buttonText="Tải poster phim"
-              label="Dung lượng file tối đa: 5MB"
+              label="Dung lượng file tối đa: 1MB"
               fileSizeError="Dung lượng file quá lớn"
               fileTypeError="Định dạng file không được hỗ trợ"
               withIcon={true}
               withPreview
               singleImage
-              onChange={onDrop}
+              onChange={(image) => onDrop(image)}
               imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-              maxFileSize={5242880}
+              maxFileSize={1024000}
             />
           </Grid>
         </Grid>

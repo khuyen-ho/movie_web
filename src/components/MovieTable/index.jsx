@@ -24,8 +24,6 @@ const MovieTable = (props) => {
   const user = useSelector((state) => state.userLogin);
   const keyWord = useSelector((state) => state.movies.keyWord);
 
-  console.log(movies);
-
   let headers = [
     "Mã phim",
     "Tên phim",

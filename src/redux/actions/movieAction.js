@@ -68,9 +68,6 @@ export const getCinemaDetailList = (idCinema) => {
         method: "GET",
       })
         .then(function thanhCong(res) {
-          // console.log(res.data);
-
-          //console.log(dispatch);
           dispatch({
             type: GET_ADDRESS_CINEMA,
             payload: res.data,
@@ -84,12 +81,10 @@ export const getCinemaDetailList = (idCinema) => {
 };
 
 export const getMovieDetail = (movieId) => {
-  //console.log(idCinema);
   return (dispatch) => {
     movieService
       .getMovieDetail(movieId)
       .then((res) => {
-        //console.log('movieaction',res);
         dispatch({
           type: GET_MOVIE_DETAIL,
           payload: res.data,

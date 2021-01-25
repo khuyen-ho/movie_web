@@ -15,6 +15,7 @@ class MovieService {
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`,
     });
   }
+
   fetchAllMovie() {
     return Axios({
       method: "GET",
