@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
@@ -63,13 +63,23 @@ const MovieForm = (props) => {
       danhGia: Yup.string().required("Vui lòng đánh giá phim"),
     }),
     onSubmit: (values) => {
-      console.log(poster);
-      values.ngayKhoiChieu = getFullDate(values.ngayKhoiChieu);
-      isEdited
-        ? dispatch(editMovie(values, poster, user.accessToken))
-        : dispatch(addMovie(values, poster, user.accessToken));
+      let postValues = {
+        ...values,
+        ...{ ngayKhoiChieu: getFullDate(values.ngayKhoiChieu) },
+      };
+      alert(JSON.stringify(postValues, null, 2));
+
+      if (poster === null) {
+        alert("Vui lòng upload poster phim");
+      } else {
+        isEdited
+          ? dispatch(editMovie(postValues, poster, user.accessToken))
+          : dispatch(addMovie(postValues, poster, user.accessToken));
+      }
     },
   });
+
+  console.log(formik.values);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
