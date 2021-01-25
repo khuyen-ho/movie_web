@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, chooseUser, editUser } from "../../redux/actions/adminAction";
+import { addUser, editUser } from "../../redux/actions/adminAction";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 

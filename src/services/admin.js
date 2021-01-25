@@ -1,11 +1,13 @@
 import Axios from "axios";
 
 class AccountService {
-  fetchAccounts() {
+  fetchAccounts(keyWord) {
+    const url = keyWord
+      ? `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP00&tuKhoa=${keyWord}`
+      : `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00`;
     return Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00
-      `,
+      url: url,
     });
   }
   fetchAccountTypes() {

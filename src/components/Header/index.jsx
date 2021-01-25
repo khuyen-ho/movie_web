@@ -15,7 +15,6 @@ import {
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
 import { getAllMovie } from "../../redux/actions/movieAction";
-import { getAccountInfo } from "../../redux/actions/userAction";
 import { getMovieId } from "../../helpers/search-manager";
 
 const Header = (props) => {

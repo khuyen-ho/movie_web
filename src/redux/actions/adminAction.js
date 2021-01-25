@@ -1,10 +1,10 @@
 import { adminService } from "../../services";
 import { CHANGE_MOVIE, FETCH_ACCOUNTS, GET_ACCOUNT_TYPES } from "./actionType";
 
-export const getAccounts = () => {
+export const getAccounts = (keyWord) => {
   return (dispatch) => {
     adminService
-      .fetchAccounts()
+      .fetchAccounts(keyWord)
       .then((res) => {
         // console.log(res.data);
         dispatch({

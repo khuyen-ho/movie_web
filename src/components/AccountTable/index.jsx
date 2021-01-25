@@ -15,15 +15,16 @@ import {
 import {
   GET_EDIT_STATUS,
   GET_EDITED_ACCOUNT,
+  GET_KEYWORD_ACCOUNT,
 } from "../../redux/actions/actionType";
 
 const AccountTable = (props) => {
   const dispatch = useDispatch();
   const styles = useStyles();
-  const isEdited = useSelector((state) => state.accounts.isEdited);
 
   const accounts = useSelector((state) => state.accounts.list);
   const user = useSelector((state) => state.userLogin);
+  const keyWord = useSelector((state) => state.accounts.keyWord);
 
   let headers = [
     "Tên tài khoản",
@@ -47,6 +48,10 @@ const AccountTable = (props) => {
 
   const handleDelete = (id) => {
     dispatch(deleteUser(id, user.accessToken));
+  };
+
+  const handleSearch = () => {
+    dispatch(getAccounts(keyWord));
   };
 
   let data = accounts.map((account) => ({
@@ -76,7 +81,12 @@ const AccountTable = (props) => {
   return (
     <>
       <Box className={styles.search}>
-        <Search />
+        <Search
+          placeholder="Nhập tên người dùng..."
+          state={keyWord}
+          dispatchType={GET_KEYWORD_ACCOUNT}
+          searchAction={handleSearch}
+        />
       </Box>
       <Box className={styles.table}>
         <Table

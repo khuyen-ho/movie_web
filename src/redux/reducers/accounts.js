@@ -2,6 +2,7 @@ import {
   FETCH_ACCOUNTS,
   GET_EDIT_STATUS,
   GET_EDITED_ACCOUNT,
+  GET_KEYWORD_ACCOUNT,
 } from "../actions/actionType";
 
 let initialState = {
@@ -16,6 +17,7 @@ let initialState = {
     maLoaiNguoiDung: "",
     hoTen: "",
   },
+  keyWord: "",
 };
 
 const accounts = (state = initialState, action) => {
@@ -30,6 +32,10 @@ const accounts = (state = initialState, action) => {
     }
     case GET_EDITED_ACCOUNT: {
       state.edited = action.payload;
+      return { ...state };
+    }
+    case GET_KEYWORD_ACCOUNT: {
+      state.keyWord = action.payload;
       return { ...state };
     }
     default:
