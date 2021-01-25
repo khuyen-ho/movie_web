@@ -1,5 +1,10 @@
 import { adminService } from "../../services";
-import { CHANGE_MOVIE, CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
+import {
+  CHANGE_MOVIE,
+  CHANGE_USER,
+  FETCH_ACCOUNTS,
+  GET_ACCOUNT_TYPES,
+} from "./actionType";
 
 export const getAccounts = () => {
   return (dispatch) => {
@@ -9,6 +14,20 @@ export const getAccounts = () => {
         // console.log(res.data);
         dispatch({
           type: FETCH_ACCOUNTS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getAccountTypes = () => {
+  return (dispatch) => {
+    adminService
+      .fetchAccountTypes()
+      .then((res) => {
+        dispatch({
+          type: GET_ACCOUNT_TYPES,
           payload: res.data,
         });
       })

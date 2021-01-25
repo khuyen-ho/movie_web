@@ -19,6 +19,7 @@ import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMovie } from "../../redux/actions/movieAction";
 import { getAccountInfo } from "../../redux/actions/userAction";
+import { getAccountTypes } from "../../redux/actions/adminAction";
 import { useEffect } from "react";
 
 const Admin = ({ match }) => {
@@ -56,6 +57,10 @@ const Admin = ({ match }) => {
 
   useEffect(() => {
     dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
+  }, [dispatch, user]);
+
+  useEffect(() => {
+    dispatch(getAccountTypes());
   }, [dispatch, user]);
 
   return (

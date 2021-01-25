@@ -35,6 +35,8 @@ export const GET_FROM_DATE = "GET_FROM_DATE";
 export const GET_TO_DATE = "GET_DATE_LIST";
 
 export const RESET_STATE = "RESET_STATE";
+
+export const GET_ACCOUNT_TYPES = "GET_ACCOUNT_TYPES";
 export const GET_ACCOUNT_INFO = "GET_ACCOUNT_INFO";
 export const FETCH_ACCOUNTS = "FETCH_ACCOUNTS";
 export const CHANGE_USER = "CHANGE_USER";

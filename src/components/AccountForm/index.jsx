@@ -22,6 +22,7 @@ const AccountForm = (props) => {
 
   const [edit, setEdit] = useState(false);
   const user = useSelector((state) => state.userLogin);
+  const accountTypes = useSelector((state) => state.accountTypes);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -110,20 +111,16 @@ const AccountForm = (props) => {
                 helperText: formik.errors.maLoaiNguoiDung,
               })}
             >
-              <MenuItem
-                dense
-                value="QuanTri"
-                classes={{ root: styles.dropDownItem }}
-              >
-                Quản trị
-              </MenuItem>
-              <MenuItem
-                dense
-                value="KhachHang"
-                classes={{ root: styles.dropDownItem }}
-              >
-                Khách hàng
-              </MenuItem>
+              {accountTypes.map((type) => (
+                <MenuItem
+                  dense
+                  index={type.maLoaiNguoiDung}
+                  value={type.maLoaiNguoiDung}
+                  classes={{ root: styles.dropDownItem }}
+                >
+                  {type.tenLoai}
+                </MenuItem>
+              ))}
             </Select>
             {formik.errors.maLoaiNguoiDung ? (
               <FormHelperText>{formik.errors.maLoaiNguoiDung}</FormHelperText>

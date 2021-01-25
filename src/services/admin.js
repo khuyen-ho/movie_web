@@ -8,6 +8,13 @@ class AccountService {
       `,
     });
   }
+  fetchAccountTypes() {
+    return Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung
+      `,
+    });
+  }
   addUser(data, token) {
     return Axios({
       method: "POST",
@@ -48,9 +55,9 @@ class AccountService {
       },
     });
   }
-  
+
   addMovie(data, token) {
-    console.log('data', data, 'token', token);
+    console.log("data", data, "token", token);
     return Axios({
       method: "POST",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim`,

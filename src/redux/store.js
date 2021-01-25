@@ -18,10 +18,12 @@ import changeUser from "./reducers/changeUser";
 import changeMovie from "./reducers/changeMovie";
 import movies from "./reducers/movies";
 import accounts from "./reducers/accounts";
+import accountTypes from "./reducers/accountType";
 const RootReducer = combineReducers({
   date,
   userAccount,
   accounts,
+  accountTypes,
   banners,
   moviePage,
   cinemaSystems,

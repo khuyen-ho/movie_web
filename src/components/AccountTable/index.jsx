@@ -7,9 +7,13 @@ import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./style";
-import { chooseUser, deleteUser, getAccounts } from "../../redux/actions/adminAction";
+import {
+  chooseUser,
+  deleteUser,
+  getAccounts,
+} from "../../redux/actions/adminAction";
 const AccountTable = (props) => {
-  const accounts = useSelector((state) => state.accounts);
+  const accounts = useSelector((state) => state.accounts.list);
   const userLogin = useSelector((state) => state.userLogin);
   const styles = useStyles();
 
@@ -34,7 +38,7 @@ const AccountTable = (props) => {
 
   const handleDelete = (user) => {
     console.log(user);
-    dispatch(deleteUser(user.taiKhoan,userLogin.accessToken));
+    dispatch(deleteUser(user.taiKhoan, userLogin.accessToken));
   };
 
   let data = accounts.map((account) => ({
@@ -44,12 +48,18 @@ const AccountTable = (props) => {
     emal: account.email,
     phoneNumber: account.soDt,
     edit: (
-      <IconButton onClick={()=>handleEdit(account)} className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleEdit(account)}
+        className={styles.iconButton}
+      >
         <CreateIcon color="primary" />
       </IconButton>
     ),
     delete: (
-      <IconButton onClick={()=>handleDelete(account)} className={styles.iconButton}>
+      <IconButton
+        onClick={() => handleDelete(account)}
+        className={styles.iconButton}
+      >
         <DeleteIcon color="error" />
       </IconButton>
     ),
