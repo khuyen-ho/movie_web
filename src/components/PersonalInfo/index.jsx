@@ -24,7 +24,9 @@ const PersonalInfo = (props) => {
       hoTen: account.hoTen,
     },
     validationSchema: Yup.object({
+      taiKhoan: Yup.string().required("Vui lòng nhập tên tài khoản"),
       hoTen: Yup.string().required("Vui lòng nhập họ và tên"),
+      matKhau: Yup.string().required("Vui lòng không bỏ trống mật khẩu"),
       email: Yup.string()
         .email("Email không hợp lệ")
         .required("Vui lòng nhập email"),
@@ -38,114 +40,116 @@ const PersonalInfo = (props) => {
   });
 
   return (
-    <>
-      <form onSubmit={formik.handleSubmit}>
-        <Box className={styles.content}>
-          <Typography className={styles.title} component="h1" variant="h5">
-            Thông tin cá nhân
-          </Typography>
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
+      <Box className={styles.content}>
+        <Typography className={styles.title} component="h1" variant="h5">
+          Thông tin cá nhân
+        </Typography>
 
-          <Box className={styles.info}>
-            <TextField
-              className={styles.input}
-              id="taiKhoan"
-              name="taiKhoan"
-              label="Tên tài khoản"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-              type="text"
-              size="small"
-              disabled
-              value={formik.values.taiKhoan}
-              onChange={formik.handleChange}
-            />
-
-            <TextField
-              className={styles.input}
-              id="hoTen"
-              name="hoTen"
-              label="Họ và tên"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-              type="text"
-              size="small"
-              value={formik.values.hoTen}
-              onChange={formik.handleChange}
-              {...(formik.errors.hoTen && {
-                error: true,
-                helperText: formik.errors.hoTen,
-              })}
-            />
-
-            <TextField
-              className={styles.input}
-              id="email"
-              name="email"
-              label="Email"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-              type="email"
-              size="small"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              {...(formik.errors.email && {
-                error: true,
-                helperText: formik.errors.email,
-              })}
-            />
-
-            <TextField
-              className={styles.input}
-              id="soDt"
-              name="soDt"
-              label="Số điện thoại"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-              type="text"
-              size="small"
-              value={formik.values.soDt}
-              onChange={formik.handleChange}
-              {...(formik.errors.soDt && {
-                error: true,
-                helperText: formik.errors.soDt,
-              })}
-            />
-          </Box>
-
+        <Box className={styles.info}>
           <TextField
             className={styles.input}
-            id="matKhau"
-            name="matKhau"
-            label="Mật khẩu"
+            id="taiKhoan"
+            name="taiKhoan"
+            label="Tên tài khoản"
             InputLabelProps={{
               shrink: true,
             }}
             variant="outlined"
-            type="password"
+            type="text"
             size="small"
-            value={formik.values.matKhau}
+            disabled
+            value={formik.values.taiKhoan}
             onChange={formik.handleChange}
+          />
+
+          <TextField
+            className={styles.input}
+            id="hoTen"
+            name="hoTen"
+            label="Họ và tên"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="outlined"
+            type="text"
+            size="small"
+            value={formik.values.hoTen}
+            onChange={formik.handleChange}
+            {...(formik.errors.hoTen && {
+              error: true,
+              helperText: formik.errors.hoTen,
+            })}
+          />
+
+          <TextField
+            className={styles.input}
+            id="email"
+            name="email"
+            label="Email"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="outlined"
+            type="email"
+            size="small"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            {...(formik.errors.email && {
+              error: true,
+              helperText: formik.errors.email,
+            })}
+          />
+
+          <TextField
+            className={styles.input}
+            id="soDt"
+            name="soDt"
+            label="Số điện thoại"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="outlined"
+            type="text"
+            size="small"
+            value={formik.values.soDt}
+            onChange={formik.handleChange}
+            {...(formik.errors.soDt && {
+              error: true,
+              helperText: formik.errors.soDt,
+            })}
           />
         </Box>
 
-        <Button
-          variant="contained"
-          color="secondary"
-          className={styles.button}
-          type="submit"
-        >
-          LƯU LẠI
-        </Button>
-      </form>
-    </>
+        <TextField
+          className={styles.input}
+          id="matKhau"
+          name="matKhau"
+          label="Mật khẩu"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+          type="password"
+          size="small"
+          value={formik.values.matKhau}
+          onChange={formik.handleChange}
+          {...(formik.errors.matKhau && {
+            error: true,
+            helperText: formik.errors.matKhau,
+          })}
+        />
+      </Box>
+
+      <Button
+        variant="contained"
+        color="secondary"
+        className={styles.button}
+        type="submit"
+      >
+        LƯU LẠI
+      </Button>
+    </form>
   );
 };
 

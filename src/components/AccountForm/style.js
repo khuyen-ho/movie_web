@@ -51,6 +51,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  dropDownItem: {
+    fontSize: theme.typography.body2.fontSize,
+  },
+
+  select: {
+    fontSize: theme.typography.body2.fontSize,
+    textAlign: "left",
+    width: "100%",
+    borderBottom: "none",
+    "&:focus": {
+      background: "none",
+    },
+  },
+
+  icon: {
+    color: theme.palette.secondary.main,
+  },
+
   button: {
     color: theme.palette.white,
     margin: theme.spacing(1, 0),
