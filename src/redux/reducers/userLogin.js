@@ -14,8 +14,8 @@ const user = (state = initialState, action) => {
       state = action.payload;
       return { ...state };
     }
-    case REMOVE_CREDENTIALS:{
-        return ''
+    case REMOVE_CREDENTIALS: {
+      return "";
     }
     default:
       return state;

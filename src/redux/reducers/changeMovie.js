@@ -1,6 +1,6 @@
 import { CHANGE_MOVIE } from "../actions/actionType";
 
-let initialState ='';
+let initialState = "";
 
 const changeMovie = (state = initialState, action) => {
   switch (action.type) {

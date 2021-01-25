@@ -1,6 +1,6 @@
-import { CHANGE_USER, FETCH_ACCOUNTS } from "../actions/actionType";
+import { CHANGE_USER } from "../actions/actionType";
 
-let initialState ='';
+let initialState = "";
 
 const changeUser = (state = initialState, action) => {
   switch (action.type) {
