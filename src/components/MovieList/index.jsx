@@ -8,7 +8,7 @@ import Pagination from "@material-ui/lab/Pagination";
 
 const MovieList = () => {
   const movies = useSelector((state) => state.moviePage.items);
-  const totalPages = useSelector((state) => state.movies.pageCount);
+  const totalPages = useSelector((state) => state.moviePage.pageCount);
   const dispatch = useDispatch();
   const style = useStyles();
   const [page, setPage] = useState(1);

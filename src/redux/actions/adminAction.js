@@ -1,14 +1,28 @@
 import { adminService } from "../../services";
-import { CHANGE_MOVIE, CHANGE_USER, FETCH_ACCOUNTS } from "./actionType";
+import { CHANGE_MOVIE, FETCH_ACCOUNTS, GET_ACCOUNT_TYPES } from "./actionType";
 
-export const getAccounts = () => {
+export const getAccounts = (keyWord) => {
   return (dispatch) => {
     adminService
-      .fetchAccounts()
+      .fetchAccounts(keyWord)
       .then((res) => {
         // console.log(res.data);
         dispatch({
           type: FETCH_ACCOUNTS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getAccountTypes = () => {
+  return (dispatch) => {
+    adminService
+      .fetchAccountTypes()
+      .then((res) => {
+        dispatch({
+          type: GET_ACCOUNT_TYPES,
           payload: res.data,
         });
       })
@@ -22,17 +36,23 @@ export const addUser = (data, token) => {
       .addUser(data, token)
       .then((res) => {
         alert("Thêm người dùng thành công");
-        console.log(res.data);
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
         alert(err.response.data);
-        console.log(err.response);
       });
+  };
+};
+
+export const editUser = (data, token) => {
+  return (dispatch) => {
+    adminService
+      .editUser(data, token)
+      .then((res) => {
+        alert("Câp nhật người dùng thành công");
+        window.location.reload(false);
+      })
+      .catch((err) => alert(err.response.data));
   };
 };
 
@@ -44,54 +64,21 @@ export const deleteUser = (idUser, token) => {
         alert("Xoá người dùng thành công");
         console.log(res.data);
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
-        console.log(err.response);
         alert(err.response.data);
       });
-  };
-};
-
-export const editUser = (data, token) => {
-  return (dispatch) => {
-    adminService
-      .editUser(data, token)
-      .then((res) => {
-        alert("Chỉnh sửa người dùng thành công");
-      })
-      .catch((err) => alert(err.response.data));
-  };
-};
-
-//for edit
-export const chooseUser = (user) => {
-  return (dispatch) => {
-    //console.log(user);
-    dispatch({
-      type: CHANGE_USER,
-      payload: user,
-    });
   };
 };
 
 //-----movie management
 export const deleteMovie = (idMovie, token) => {
   return (dispatch) => {
-    console.log(idMovie);
     adminService
       .deleteMovie(idMovie, token)
       .then((res) => {
         alert("Xoá phim thành công");
-        console.log(res.data);
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
         console.log(err.response);
@@ -100,53 +87,55 @@ export const deleteMovie = (idMovie, token) => {
   };
 };
 
-export const chooseMovie = (movie) => {
-  return (dispatch) => {
-    console.log(movie);
-    dispatch({
-      type: CHANGE_MOVIE,
-      payload: movie,
-    });
-  };
-};
-
-export const addMovie = (data, token) => {
+export const addMovie = (data, poster, token) => {
   return (dispatch) => {
     adminService
       .addMovie(data, token)
       .then((res) => {
         alert("Thêm phim thành công");
-        console.log(res.data);
-        //props.history.replace('/admin')
-        window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
+        upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
-        //alert(err.response.data);
-        console.log(err.response);
+        alert(err.response.data);
       });
   };
 };
 
-export const editMovie = (data, token) => {
+export const editMovie = (data, poster, token) => {
   return (dispatch) => {
     adminService
       .editMovie(data, token)
       .then((res) => {
-        alert("Chỉnh sửa phim thành công");
-        window.location.reload(false);
-        //console.log(res.data);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
+        alert("Cập nhật phim thành công");
+        upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
-        console.log(err);
         alert(err.response.data);
       });
   };
+};
+
+export const createFormData = (file, tenPhim, maNhom) => {
+  let formData = new FormData();
+
+  if (file != null) {
+    formData.append("poster", file, file.name);
+    formData.append("tenphim", tenPhim);
+    formData.append("manhom", maNhom);
+  }
+
+  return formData;
+};
+
+export const upLoadPoster = (data) => {
+  adminService
+    .upLoadPoster(data)
+    .then((res) => {
+      alert("Upload poster thành công");
+      window.location.reload(false);
+    })
+    .catch((err) => {
+      alert(err.response.data);
+      console.log(err.response.data);
+    });
 };

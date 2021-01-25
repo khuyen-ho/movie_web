@@ -17,8 +17,11 @@ const MovieDetail = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
+
+  useEffect(() => {
     dispatch(getMovieShowTimes(props.match.params.id));
-  }, [dispatch, props.match.params.id, props.match.url]);
+  }, [dispatch, props.match.params.id]);
 
   return (
     <Box className={styles.root}>

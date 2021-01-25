@@ -1,15 +1,13 @@
 import { GET_CURRENT_WEB_PAGE } from "../actions/actionType";
 
 let initialState = {
-  url:'/home'
+  url: "/home",
 };
 
 const currentPage = (state = initialState, action) => {
-  //  console.log(action);
   switch (action.type) {
-   
     case GET_CURRENT_WEB_PAGE: {
-      state.url = action.payload
+      state.url = action.payload;
       return { ...state };
     }
     default:

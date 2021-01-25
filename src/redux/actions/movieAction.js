@@ -3,9 +3,7 @@ import {
   GET_CINEMA_LIST,
   GET_MOVIE_LIST_PAGINATION,
   GET_ADDRESS_CINEMA,
-  GET_MOVIE_DETAIL,
-  GET_MOVIE_SHOW_TIME,
-  GET_ALL_MOVIE,
+  FETCH_MOVIES,
 } from "./actionType";
 import Axios from "axios";
 import { movieService } from "../../services";
@@ -68,9 +66,6 @@ export const getCinemaDetailList = (idCinema) => {
         method: "GET",
       })
         .then(function thanhCong(res) {
-          // console.log(res.data);
-
-          //console.log(dispatch);
           dispatch({
             type: GET_ADDRESS_CINEMA,
             payload: res.data,
@@ -83,49 +78,16 @@ export const getCinemaDetailList = (idCinema) => {
   };
 };
 
-export const getMovieDetail = (movieTitle) => {
-  //console.log(idCinema);
+export const getMovies = (keyWord) => {
   return (dispatch) => {
     movieService
-      .fetchMovieDetail(movieTitle)
+      .fetchMovies(keyWord)
       .then((res) => {
-        //console.log('movieaction',res);
         dispatch({
-          type: GET_MOVIE_DETAIL,
+          type: FETCH_MOVIES,
           payload: res.data,
         });
       })
-      .catch((err) => console.log("error", err));
-  };
-};
-
-export const getAllMovie = () => {
-  //console.log(idCinema);
-  return (dispatch) => {
-    movieService
-      .fetchAllMovie()
-      .then((res) => {
-        // console.log(res);
-        dispatch({
-          type: GET_ALL_MOVIE,
-          payload: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
-  };
-};
-
-export const getShowTimeDetail = (movieId) => {
-  return (dispatch) => {
-    movieService
-      .fetchMovieShowTimes(movieId)
-      .then((res) => {
-        // console.log(res);
-        dispatch({
-          type: GET_MOVIE_SHOW_TIME,
-          payload: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err.response.data));
   };
 };

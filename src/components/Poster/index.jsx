@@ -56,7 +56,7 @@ const Poster = (props) => {
               onClick={() => setopen(false)}
             >
               <img
-                src="./images/close.png"
+                src="/images/close.png"
                 alt="close"
                 className={styles.closeIcon}
               />

@@ -5,7 +5,7 @@ let initialState = {
   pageCount: 0,
 };
 
-const movies = (state = initialState, action) => {
+const moviePage = (state = initialState, action) => {
   switch (action.type) {
     case GET_MOVIE_LIST_PAGINATION: {
       state.items = action.payload.items;
@@ -17,4 +17,4 @@ const movies = (state = initialState, action) => {
   }
 };
 
-export default movies;
+export default moviePage;

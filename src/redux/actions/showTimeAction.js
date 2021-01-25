@@ -1,5 +1,11 @@
-import { GET_ALL_CINEMA_SHOW_TIME, GET_MOVIE_SHOW_TIME } from "./actionType";
+import {
+  GET_ALL_CINEMA_SHOW_TIME,
+  GET_MOVIE_SHOW_TIME,
+  GET_ID_CINEMA_SYSTEM,
+} from "./actionType";
 import { showTimeService } from "../../services";
+import { getCinemaSystems } from "../../helpers/schedule-cinema-manager";
+import { getSystems } from "../../helpers/movie-detail-manager";
 
 export const getAllCinemaShowTimes = () => {
   return (dispatch) => {
@@ -9,6 +15,12 @@ export const getAllCinemaShowTimes = () => {
         dispatch({
           type: GET_ALL_CINEMA_SHOW_TIME,
           payload: res.data,
+        });
+
+        const systems = getCinemaSystems(res.data);
+        dispatch({
+          type: GET_ID_CINEMA_SYSTEM,
+          payload: { id: systems[0].id, logo: systems[0].logo },
         });
       })
       .catch((err) => console.log(err));
@@ -23,6 +35,12 @@ export const getMovieShowTimes = (movieId) => {
         dispatch({
           type: GET_MOVIE_SHOW_TIME,
           payload: res.data,
+        });
+
+        const systems = getSystems(res.data);
+        dispatch({
+          type: GET_ID_CINEMA_SYSTEM,
+          payload: { id: systems[0].id, logo: systems[0].logo },
         });
       })
       .catch((err) => console.log(err));

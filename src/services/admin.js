@@ -1,10 +1,18 @@
 import Axios from "axios";
-
 class AccountService {
-  fetchAccounts() {
+  fetchAccounts(keyWord) {
+    const url = keyWord
+      ? `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP00&tuKhoa=${keyWord}`
+      : `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00`;
     return Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00
+      url: url,
+    });
+  }
+  fetchAccountTypes() {
+    return Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung
       `,
     });
   }
@@ -50,7 +58,6 @@ class AccountService {
   }
 
   addMovie(data, token) {
-    console.log("data", data, "token", token);
     return Axios({
       method: "POST",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim`,
@@ -60,6 +67,7 @@ class AccountService {
       },
     });
   }
+
   deleteMovie(idMovie, token) {
     return Axios({
       method: "DELETE",
@@ -68,6 +76,14 @@ class AccountService {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    });
+  }
+
+  upLoadPoster(data) {
+    return Axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/UploadHinhAnhPhim`,
+      data,
     });
   }
 }

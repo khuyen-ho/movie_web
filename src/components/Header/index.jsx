@@ -14,7 +14,7 @@ import {
   REMOVE_CREDENTIALS,
   GET_QUICK_SEARCH_MOVIE,
 } from "../../redux/actions/actionType";
-import { getAllMovie } from "../../redux/actions/movieAction";
+import { getMovies } from "../../redux/actions/movieAction";
 import { getMovieId } from "../../helpers/search-manager";
 
 const Header = (props) => {
@@ -23,14 +23,14 @@ const Header = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
   const { url } = useSelector((state) => state.currentPage);
-  const movies = useSelector((state) => state.movies);
+  const movies = useSelector((state) => state.movies.list);
   const movieList = movies.map((movie) => movie.tenPhim);
   const searchMovie = useSelector((state) => state.searchMovie.quickSearch);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllMovie());
-  }, [dispatch, userLogin]);
+    dispatch(getMovies());
+  }, [dispatch]);
 
   const links = [
     { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },

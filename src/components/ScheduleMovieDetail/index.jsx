@@ -6,7 +6,7 @@ import MovieShowTimeList from "../MovieShowTimeList";
 import DaysOfWeek from "../DaysOfWeek";
 import useStyles from "./style";
 import {
-  getCinemaSystems,
+  getSystems,
   getCinemaOnDate,
   getShowTimeDates,
 } from "../../helpers/movie-detail-manager";
@@ -17,7 +17,7 @@ const ScheduleMovieDetail = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.movieDetail);
 
-  const systems = getCinemaSystems(data);
+  const systems = getSystems(data);
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const selectedDate = useSelector((state) => state.date.selected);
   const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);

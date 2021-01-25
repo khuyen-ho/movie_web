@@ -11,7 +11,6 @@ import showTimes from "./reducers/showTime";
 import userLogin from "./reducers/userLogin";
 import currentPage from "./reducers/page";
 import movieDetail from "./reducers/movieDetail";
-import chosenMovie from "./reducers/chosenMovie";
 import booking from "./reducers/booking";
 import chosenSeat from "./reducers/chosenSeat";
 import searchMovie from "./reducers/searchMovie";
@@ -19,10 +18,12 @@ import changeUser from "./reducers/changeUser";
 import changeMovie from "./reducers/changeMovie";
 import movies from "./reducers/movies";
 import accounts from "./reducers/accounts";
+import accountTypes from "./reducers/accountType";
 const RootReducer = combineReducers({
   date,
   userAccount,
   accounts,
+  accountTypes,
   banners,
   moviePage,
   cinemaSystems,
@@ -30,7 +31,6 @@ const RootReducer = combineReducers({
   userLogin,
   currentPage,
   movieDetail,
-  chosenMovie,
   booking,
   chosenSeat,
   searchMovie,

@@ -66,11 +66,6 @@ const SignIn = ({ props }) => {
               </Button>
 
               <Box className={styles.bottomGroup}>
-                <FormControlLabel
-                  classes={{ root: styles.switch, label: styles.label }}
-                  control={<Switch name="keepLoggedIn" />}
-                  label="Duy trì đăng nhập"
-                />
                 <NavLink to="/signup">
                   <Link
                     href="#"

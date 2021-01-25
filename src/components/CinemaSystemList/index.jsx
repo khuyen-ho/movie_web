@@ -26,7 +26,10 @@ const CinemaSystemList = ({
   }, [defaultCinema.maCumRap, dispatch]);
 
   const handleClick = (id, logo) => {
-    dispatch({ type: GET_ID_CINEMA_SYSTEM, payload: id, logo });
+    dispatch({
+      type: GET_ID_CINEMA_SYSTEM,
+      payload: { id: id, logo: logo },
+    });
   };
 
   return systemList.map((system) => (

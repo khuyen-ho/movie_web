@@ -1,9 +1,9 @@
+// export default SignUp;
 import React from "react";
 import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
 import { NavLink } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import Axios from "axios";
+import { Formik, Form, ErrorMessage } from "formik";
 import { signUpSchema } from "../../services/user";
 import { userService } from "../../services";
 import { useDispatch } from "react-redux";
@@ -12,22 +12,17 @@ const SignUp = (props) => {
   const styles = useStyles();
   const dispatch = useDispatch();
   const handleSubmit = (user) => {
-    // console.log(props);
-    // Axios({
-    //   method: "POST",
-    //   url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
-    //   data: user,
-    // })
     dispatch(
-      userService.signUp(user)
+      userService
+        .signUp(user)
         .then((res) => {
           //console.log(res);
           alert("Đăng kí thành công");
           props.history.replace("signin");
         })
         .catch((err) => {
-          console.log(err);
-          alert("Đăng kí thất bại");
+          console.log(err.response.data);
+          alert(err.response.data);
         })
     );
   };
@@ -102,27 +97,6 @@ const SignUp = (props) => {
               name="matKhau"
               onChange={handleChange}
             />
-            {/* <TextField
-              className={styles.input}
-              label="Xác nhận mật khẩu"
-              variant="outlined"
-              type="password"
-              name="xacNhanMatKhau"
-              onChange={e=>console.log(e.target.value)}
-            />
-            <Box
-              style={{
-                color: "white",
-                textAlign: "left",
-                fontSize: 10,
-                marginBottom: 10,
-              }}
-            >
-              {errors.xacNhanMatKhau && touched.xacNhanMatKhau ? (
-                <div>{errors.xacNhanMatKhau}</div>
-              ) : null}
-            
-            </Box> */}
             <Box
               style={{
                 color: "white",
