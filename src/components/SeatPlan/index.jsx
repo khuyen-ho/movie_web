@@ -11,7 +11,7 @@ const SeatPlan = ({ info }) => {
   return (
     <Box textAlign="center" className={styles.root}>
       <Box className={styles.screen}>
-        <img src="./images/avatar.jpg" alt="screen" width="100%" />
+        <img src="/images/screen.png" alt="screen" width="100%" />
       </Box>
       <Box className={styles.seatList}>
         <SeatList list={info} />

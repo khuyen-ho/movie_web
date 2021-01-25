@@ -1,8 +1,7 @@
-import { Box, Container, Grid } from "@material-ui/core";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { Box, Container, Grid } from "@material-ui/core";
 import BookingNavBar from "../../components/BookingNavBar";
 import PriceInfo from "../../components/PriceInfo";
 import SeatPlan from "../../components/SeatPlan";
@@ -19,8 +18,11 @@ const Booking = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
+
+  useEffect(() => {
     dispatch(getSeatList(props.match.params.id));
-  }, [dispatch, props.match.params.id, props.match.url]);
+  }, [dispatch, props.match.params.id]);
 
   const userLogin = useSelector((state) => state.userLogin);
   if (userLogin) {
