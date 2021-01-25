@@ -25,7 +25,7 @@ const Home = (props) => {
     return (
       <Container maxWidth="lg" className={styles.root}>
         <PersonalInfo />
-        {/* <BookingInfo /> */}
+        <BookingInfo />
         <BackToTop showBelow={300} />
       </Container>
     );
