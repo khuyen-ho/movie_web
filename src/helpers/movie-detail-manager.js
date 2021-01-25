@@ -1,7 +1,7 @@
 import { getFullDate } from "./time-manager";
 import { flatArray } from "./array-manager";
 
-export const getCinemaSystems = (data) => {
+export const getSystems = (data) => {
   if (data.heThongRapChieu) {
     return data.heThongRapChieu.map((system) => ({
       id: system.maHeThongRap,

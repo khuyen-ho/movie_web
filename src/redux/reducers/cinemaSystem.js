@@ -9,8 +9,8 @@ let initialState = {
 const cinemaSystems = (state = initialState, action) => {
   switch (action.type) {
     case GET_ID_CINEMA_SYSTEM: {
-      state.selected = action.payload;
-      state.selectedLogo = action.logo;
+      state.selected = action.payload.id;
+      state.selectedLogo = action.payload.logo;
       return { ...state };
     }
     default:

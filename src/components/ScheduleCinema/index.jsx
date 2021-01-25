@@ -21,7 +21,6 @@ const ScheduleCinema = (props) => {
   const selectedSystem = useSelector((state) => state.cinemaSystems.selected);
   const selectedCinema = useSelector((state) => state.cinemas.selected);
   const selectedDate = useSelector((state) => state.date.selected);
-
   const cinemas = getCinemas(data, selectedSystem);
   const movies = getMovieOnDate(
     data,
