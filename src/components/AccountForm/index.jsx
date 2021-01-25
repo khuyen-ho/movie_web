@@ -10,22 +10,18 @@ import {
   Select,
   MenuItem,
 } from "@material-ui/core";
-import DropDown from "../DropDown";
 import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, chooseUser, editUser } from "../../redux/actions/adminAction";
-import { checkAccountExist } from "../../helpers/admin-manager";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const AccountForm = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
+
   const [edit, setEdit] = useState(false);
   const user = useSelector((state) => state.userLogin);
-  const accounts = useSelector((state) => state.accounts);
-
-  console.log(checkAccountExist("long", accounts));
-  // console.log(accounts);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -34,18 +30,12 @@ const AccountForm = (props) => {
       matKhau: "",
       email: "",
       soDt: "",
-      maNhom: "",
+      maNhom: "GP00",
       maLoaiNguoiDung: "",
       hoTen: "",
     },
     validationSchema: Yup.object({
-      taiKhoan: Yup.string()
-        .required("Vui lòng nhập tên tài khoản")
-        .test(
-          "check-exist",
-          "Tên tài khoản tồn tại",
-          (value) => !checkAccountExist(value, accounts)
-        ),
+      taiKhoan: Yup.string().required("Vui lòng nhập tên tài khoản"),
       hoTen: Yup.string().required("Vui lòng nhập họ và tên"),
       matKhau: Yup.string().required("Vui lòng không bỏ trống mật khẩu"),
       maLoaiNguoiDung: Yup.string().required("Vui lòng chọn loại người dùng"),
@@ -58,6 +48,7 @@ const AccountForm = (props) => {
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      dispatch(addUser(values, user.accessToken));
     },
   });
 
