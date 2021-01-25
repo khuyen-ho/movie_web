@@ -88,16 +88,6 @@ export const deleteMovie = (idMovie, token) => {
   };
 };
 
-export const chooseMovie = (movie) => {
-  return (dispatch) => {
-    console.log(movie);
-    dispatch({
-      type: CHANGE_MOVIE,
-      payload: movie,
-    });
-  };
-};
-
 export const addMovie = (data, token) => {
   return (dispatch) => {
     adminService
@@ -107,8 +97,7 @@ export const addMovie = (data, token) => {
         window.location.reload(false);
       })
       .catch((err) => {
-        alert(err);
-        console.log(err);
+        alert(err.response.data);
       });
   };
 };
@@ -118,11 +107,10 @@ export const editMovie = (data, token) => {
     adminService
       .editMovie(data, token)
       .then((res) => {
-        alert("Chỉnh sửa phim thành công");
+        alert("Câp nhật phim thành công");
         window.location.reload(false);
       })
       .catch((err) => {
-        console.log(err);
         alert(err.response.data);
       });
   };

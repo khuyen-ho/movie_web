@@ -16,6 +16,7 @@ import {
 import ImageUploader from "react-images-upload";
 import useStyles from "./style";
 import { addMovie, editMovie } from "../../redux/actions/adminAction";
+import { getFullDate } from "../../helpers/time-manager";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -31,15 +32,6 @@ const MovieForm = (props) => {
   const onDrop = (image) => {
     console.log(image);
   };
-  // const handleAdd = (data) => {
-  //   console.log(data);
-  //   dispatch(addMovie(data, userLogin.accessToken, props));
-  // };
-
-  // const handleEdit = (data) => {
-  //   console.log(data);
-  //   dispatch(editMovie(data, userLogin.accessToken));
-  // };
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -48,7 +40,8 @@ const MovieForm = (props) => {
       tenPhim: editedMovie.tenPhim,
       biDanh: editedMovie.biDanh,
       trailer: editedMovie.trailer,
-      hinhAnh: "sadflkj",
+      hinhAnh:
+        "https://images.moviepostershop.com/replicas-movie-poster-1000778791.jpg",
       moTa: editedMovie.moTa,
       maNhom: editedMovie.maNhom,
       ngayKhoiChieu: editedMovie.ngayKhoiChieu,
@@ -64,17 +57,22 @@ const MovieForm = (props) => {
       // hinhAnh: Yup.string().required("Vui lòng upload poster"),
       moTa: Yup.string().required("Vui lòng nhập mô tả"),
       maNhom: Yup.string().required("Vui lòng nhập mã nhóm"),
-      // ngayKhoiChieu: Yup.string().required("Vui lòng chọn ngày khởi chiếu"),
+      ngayKhoiChieu: Yup.date()
+        .nullable()
+        .typeError("")
+        .required("Vui lòng chọn ngày khởi chiếu"),
       danhGia: Yup.string().required("Vui lòng đánh giá phim"),
     }),
     onSubmit: (values) => {
+      values.ngayKhoiChieu = getFullDate(values.ngayKhoiChieu);
       alert(JSON.stringify(values, null, 2));
-      dispatch(addMovie(values, user.accessToken));
-      // isEdited
-      //   ? dispatch(editMovie(values, user.accessToken))
-      //   : dispatch(addMovie(values, user.accessToken));
+      isEdited
+        ? dispatch(editMovie(values, user.accessToken))
+        : dispatch(addMovie(values, user.accessToken));
     },
   });
+
+  console.log(formik.values);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -186,6 +184,7 @@ const MovieForm = (props) => {
               <Box className={styles.datePicker}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <KeyboardDatePicker
+                    defaultValue={new Date()}
                     disableToolbar
                     autoOk
                     animateYearScrolling

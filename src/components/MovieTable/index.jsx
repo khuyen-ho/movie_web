@@ -24,6 +24,8 @@ const MovieTable = (props) => {
   const user = useSelector((state) => state.userLogin);
   const keyWord = useSelector((state) => state.movies.keyWord);
 
+  console.log(movies);
+
   let headers = [
     "Mã phim",
     "Tên phim",
@@ -68,7 +70,7 @@ const MovieTable = (props) => {
     ),
     delete: (
       <IconButton
-        onClick={() => handleDelete(movie)}
+        onClick={() => handleDelete(movie.maPhim)}
         className={styles.iconButton}
       >
         <DeleteIcon color="error" />

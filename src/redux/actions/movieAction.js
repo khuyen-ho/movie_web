@@ -95,7 +95,7 @@ export const getMovieDetail = (movieId) => {
           payload: res.data,
         });
       })
-      .catch((err) => console.log("error", err));
+      .catch((err) => alert(err.response.data));
   };
 };
 

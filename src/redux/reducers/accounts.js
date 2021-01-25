@@ -13,7 +13,7 @@ let initialState = {
     matKhau: "",
     email: "",
     soDt: "",
-    maNhom: "",
+    maNhom: "GP00",
     maLoaiNguoiDung: "",
     hoTen: "",
   },
