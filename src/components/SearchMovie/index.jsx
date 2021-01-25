@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Grid, Box } from "@material-ui/core";
 import useStyle from "./style";
@@ -22,6 +23,8 @@ import {
 const SearchMovie = (props) => {
   const styles = useStyle();
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const movies = useSelector((state) => state.movies.list);
   const movieNames = movies.map((movie) => movie.tenPhim);
   const result = useSelector(
@@ -45,14 +48,13 @@ const SearchMovie = (props) => {
   }, [dispatch, selectedMovie, movies]);
 
   const handleGo = () => {
-    window.open(
+    history.push(
       `/booking/${getSelectedShowTimeId(
         result,
         selectedCinema,
         selectedDate,
         selectedTime
-      )}`,
-      "_blank"
+      )}`
     );
     dispatch({
       type: RESET_STATE,
