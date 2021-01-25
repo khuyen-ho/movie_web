@@ -64,13 +64,8 @@ export const deleteUser = (idUser, token) => {
         alert("Xoá người dùng thành công");
         console.log(res.data);
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
-        console.log(err.response);
         alert(err.response.data);
       });
   };
@@ -85,10 +80,6 @@ export const deleteMovie = (idMovie, token) => {
       .then((res) => {
         alert("Xoá phim thành công");
         window.location.reload(false);
-        // dispatch({
-        //   type: FETCH_ACCOUNTS,
-        //   payload: res.data,
-        // });
       })
       .catch((err) => {
         console.log(err.response);

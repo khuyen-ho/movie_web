@@ -45,9 +45,8 @@ const AccountTable = (props) => {
     window.scrollTo(0, 0);
   };
 
-  const handleDelete = (user) => {
-    console.log(user);
-    dispatch(deleteUser(user.taiKhoan, user.accessToken));
+  const handleDelete = (id) => {
+    dispatch(deleteUser(id, user.accessToken));
   };
 
   let data = accounts.map((account) => ({
@@ -66,7 +65,7 @@ const AccountTable = (props) => {
     ),
     delete: (
       <IconButton
-        onClick={() => handleDelete(account)}
+        onClick={() => handleDelete(account.taiKhoan)}
         className={styles.iconButton}
       >
         <DeleteIcon color="error" />
