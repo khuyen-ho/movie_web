@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ListItem } from "@material-ui/core";
+import { ListItem, Typography } from "@material-ui/core";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import StartTimeList from "../StartTimeList";
@@ -11,15 +11,21 @@ import { getShowTimeOnDate } from "../../helpers/movie-detail-manager";
 const MovieShowTimeList = ({ cinemas, date, ...props }) => {
   const styles = useStyles();
 
-  return cinemas.map((cinema, index) => (
-    <ListItem className={styles.listItem} key={index}>
-      <Show
-        opened
-        info={<CinemaInfo cinema={cinema} hasInfo />}
-        showList={<StartTimeList list={getShowTimeOnDate(cinema, date)} />}
-      />
-    </ListItem>
-  ));
+  if (cinemas.length > 0) {
+    return cinemas.map((cinema, index) => (
+      <ListItem className={styles.listItem} key={index}>
+        <Show
+          opened
+          info={<CinemaInfo cinema={cinema} hasInfo />}
+          showList={<StartTimeList list={getShowTimeOnDate(cinema, date)} />}
+        />
+      </ListItem>
+    ));
+  } else {
+    return (
+      <Typography className={styles.noShowTime}>Không có suất chiếu</Typography>
+    );
+  }
 };
 
 MovieShowTimeList.propTypes = {

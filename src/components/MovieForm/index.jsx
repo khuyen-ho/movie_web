@@ -67,7 +67,6 @@ const MovieForm = (props) => {
         ...values,
         ...{ ngayKhoiChieu: getFullDate(values.ngayKhoiChieu) },
       };
-      alert(JSON.stringify(postValues, null, 2));
 
       if (poster === null) {
         alert("Vui lòng upload poster phim");
