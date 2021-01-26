@@ -1,12 +1,11 @@
 import { adminService } from "../../services";
-import { CHANGE_MOVIE, FETCH_ACCOUNTS, GET_ACCOUNT_TYPES } from "./actionType";
+import { FETCH_ACCOUNTS, GET_ACCOUNT_TYPES } from "./actionType";
 
 export const getAccounts = (keyWord) => {
   return (dispatch) => {
     adminService
       .fetchAccounts(keyWord)
       .then((res) => {
-        // console.log(res.data);
         dispatch({
           type: FETCH_ACCOUNTS,
           payload: res.data,
@@ -71,7 +70,6 @@ export const deleteUser = (idUser, token) => {
   };
 };
 
-//-----movie management
 export const deleteMovie = (idMovie, token) => {
   return (dispatch) => {
     adminService
@@ -138,4 +136,18 @@ export const upLoadPoster = (data) => {
       alert(err.response.data);
       console.log(err.response.data);
     });
+};
+
+export const addShowTime = (data, token) => {
+  return (dispatch) => {
+    adminService
+      .addShowTime(data, token)
+      .then((res) => {
+        alert("Thêm lịch chiếu thành công");
+      })
+      .catch((err) => {
+        alert(err.response.data);
+        console.log(err.response.data);
+      });
+  };
 };

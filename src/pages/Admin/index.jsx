@@ -20,7 +20,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAccountInfo } from "../../redux/actions/userAction";
 import { getAccountTypes } from "../../redux/actions/adminAction";
 import { useEffect } from "react";
-import { REMOVE_CREDENTIALS } from "../../redux/actions/actionType";
+import {
+  REMOVE_CREDENTIALS,
+  RESET_STATE,
+} from "../../redux/actions/actionType";
 
 const Admin = ({ match }) => {
   const { url } = match;
@@ -59,12 +62,19 @@ const Admin = ({ match }) => {
     dispatch(getAccountTypes());
   }, [dispatch, user]);
 
+  const resetState = () => {
+    dispatch({
+      type: RESET_STATE,
+    });
+  };
+
   const handleLogout = () => {
     dispatch({
       type: REMOVE_CREDENTIALS,
       payload: "",
     });
     localStorage.removeItem("userLogin");
+    resetState();
   };
 
   return (
@@ -92,6 +102,7 @@ const Admin = ({ match }) => {
             className={styles.listItem}
             classes={{ selected: styles.selected }}
             selected={location.pathname === links[1].path}
+            onClick={() => resetState()}
           >
             <Tag
               iconElement={<GroupIcon fontSize="large" />}
@@ -107,6 +118,7 @@ const Admin = ({ match }) => {
             className={styles.listItem}
             classes={{ selected: styles.selected }}
             selected={location.pathname === links[2].path}
+            onClick={() => resetState()}
           >
             <Tag
               iconElement={<LocalMoviesIcon fontSize="large" />}
@@ -122,6 +134,7 @@ const Admin = ({ match }) => {
             className={styles.listItem}
             classes={{ selected: styles.selected }}
             selected={location.pathname === links[3].path}
+            onClick={() => resetState()}
           >
             <Tag
               iconElement={<ScheduleIcon fontSize="large" />}
@@ -138,6 +151,7 @@ const Admin = ({ match }) => {
             className={styles.listItem}
             classes={{ selected: styles.selected }}
             selected={location.pathname === links[4].path}
+            onClick={() => resetState()}
           >
             <Tag
               iconElement={<AccountCircleIcon fontSize="large" />}

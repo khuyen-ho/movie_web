@@ -206,7 +206,7 @@ const MovieForm = (props) => {
                     onChange={(value) =>
                       formik.setFieldValue("ngayKhoiChieu", value)
                     }
-                    className={styles.datePicker}
+                    style={{ width: "100%" }}
                   />
                   {formik.errors.ngayKhoiChieu ? (
                     <FormHelperText>

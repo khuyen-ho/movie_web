@@ -2,11 +2,17 @@ import {
   GET_CINEMA_INFO,
   GET_ID_CINEMA,
   RESET_STATE,
+  GET_SELECTED_ADD_CINEMA,
+  GET_ADD_CINEMA_INFO,
+  GET_SELECTED_CINEMA_NUMBER,
 } from "../actions/actionType";
 
 let initialState = {
   list: [],
+  listAdd: [],
   selected: "",
+  selectedAdd: "",
+  selectedNumber: "",
 };
 
 const cinema = (state = initialState, action) => {
@@ -19,10 +25,17 @@ const cinema = (state = initialState, action) => {
       state.list = action.payload;
       return { ...state };
     }
+    case GET_ADD_CINEMA_INFO: {
+      state.listAdd = action.payload;
+      return { ...state };
+    }
     case RESET_STATE: {
       state = {
         list: [],
+        listAdd: [],
         selected: "",
+        selectedAdd: "",
+        selectedNumber: "",
       };
       return { ...state };
     }

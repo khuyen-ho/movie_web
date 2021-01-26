@@ -86,5 +86,16 @@ class AccountService {
       data,
     });
   }
+
+  addShowTime(data, token) {
+    return Axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu`,
+      data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }
 export default AccountService;

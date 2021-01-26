@@ -25,6 +25,7 @@ let initialState = {
   keyWord: "",
   poster: null,
   selected: "",
+  selectedAdd: "",
 };
 
 const movies = (state = initialState, action) => {

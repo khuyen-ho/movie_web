@@ -8,8 +8,6 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { getFullDate, getTime } from "../../helpers/time-manager";
 import {
   getCinemaSystemInfo,
@@ -22,11 +20,8 @@ import {
   GET_ID_CINEMA,
   GET_SELECTED_MOVIE,
 } from "../../redux/actions/actionType";
-import { getCinemaSystemId, getMovieId } from "../../helpers/search-manager";
-import {
-  getShowTimeInfo,
-  getCinemas,
-} from "../../helpers/schedule-cinema-manager";
+import { getCinemaSystemId } from "../../helpers/search-manager";
+import { getShowTimeInfo } from "../../helpers/schedule-cinema-manager";
 import Table from "../DataTable";
 import useStyles from "./style";
 
@@ -106,6 +101,7 @@ const ShowTimeTable = (props) => {
               state={selectedSystem}
               dispatchType={GET_SELECTED_CINEMA_SYSTEM}
               list={cinemaSystemNames}
+              placeHolder="Vui lòng chọn hệ thống rạp"
             />
           </Grid>
           <Grid item xs={12} md={4} className={styles.dropDown}>
@@ -114,6 +110,7 @@ const ShowTimeTable = (props) => {
               state={selectedCinema}
               dispatchType={GET_ID_CINEMA}
               list={cinemaNames}
+              placeHolder="Vui lòng chọn hệ thống rạp"
             />
           </Grid>
           <Grid item xs={12} md={4} className={styles.dropDown}>
@@ -122,6 +119,7 @@ const ShowTimeTable = (props) => {
               state={selectedMovie}
               dispatchType={GET_SELECTED_MOVIE}
               list={movieNames}
+              placeHolder="Vui lòng chọn phim"
             />
           </Grid>
         </Grid>

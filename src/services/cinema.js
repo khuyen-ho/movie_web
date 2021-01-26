@@ -10,16 +10,16 @@ class CinemaService {
       url: url,
     });
   }
-  fetchCinemaInfo(idCinemaSystem) {
+  fetchCinemaInfo(systemId) {
     return Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${idCinemaSystem}`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${systemId}`,
     });
   }
-  fetchCinemaTime(idCinemaSystem) {
+  fetchCinemaTime(systemId) {
     return Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idCinemaSystem}&maNhom=GP00`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${systemId}&maNhom=GP00`,
     });
   }
 }

@@ -10,12 +10,17 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiInputLabel-root": {
       color: theme.palette.primary.main,
+      transform: "translate(14px, -6px) scale(0.75)",
     },
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.shape.borderRadius,
 
       "& fieldset": {
         borderColor: theme.palette.primary.main,
+
+        "& legend": {
+          maxWidth: "none",
+        },
       },
       "&:hover fieldset": {
         borderColor: theme.palette.primary.main,

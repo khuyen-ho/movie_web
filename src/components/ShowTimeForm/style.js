@@ -21,6 +21,55 @@ const useStyles = makeStyles((theme) => ({
 
   dropDown: {
     margin: theme.spacing(1, 0),
+    width: "100%",
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
+
+    "& .MuiInputLabel-root": {
+      color: theme.palette.primary.main,
+      transform: "translate(14px, -6px) scale(0.75)",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: theme.shape.borderRadius,
+
+      "& fieldset": {
+        borderColor: theme.palette.primary.main,
+
+        "& legend": {
+          maxWidth: "none",
+        },
+      },
+      "&:hover fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+  },
+
+  menuItem: {
+    fontSize: theme.typography.body2.fontSize,
+  },
+
+  dropDownItem: {
+    fontSize: theme.typography.body2.fontSize,
+  },
+
+  select: {
+    fontSize: theme.typography.body2.fontSize,
+    textAlign: "left",
+    width: "100%",
+    borderBottom: "none",
+    "&:focus": {
+      background: "none",
+    },
+  },
+
+  icon: {
+    color: theme.palette.secondary.main,
   },
 
   input: {
@@ -46,6 +95,39 @@ const useStyles = makeStyles((theme) => ({
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.primary.main,
       },
+    },
+  },
+
+  datePicker: {
+    margin: theme.spacing(1, 0),
+
+    "& button": {
+      outlineStyle: "none",
+    },
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
+
+    "& .MuiInputLabel-root": {
+      color: theme.palette.primary.main,
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: theme.shape.borderRadius,
+
+      "& fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&:hover fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+
+    "& .MuiOutlinedInput-adornedEnd": {
+      padding: 0,
     },
   },
 

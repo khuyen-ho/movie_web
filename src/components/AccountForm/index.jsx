@@ -22,6 +22,7 @@ const AccountForm = (props) => {
 
   const user = useSelector((state) => state.userLogin);
   const accountTypes = useSelector((state) => state.accountTypes);
+  console.log(accountTypes);
 
   const isEdited = useSelector((state) => state.accounts.isEdited);
   const editedAccount = useSelector((state) => state.accounts.edited);
@@ -118,11 +119,6 @@ const AccountForm = (props) => {
                 icon: styles.icon,
               }}
               label="Loại người dùng"
-              onChange={formik.handleChange}
-              {...(formik.errors.maLoaiNguoiDung && {
-                error: true,
-                helperText: formik.errors.maLoaiNguoiDung,
-              })}
             >
               {accountTypes.map((type) => (
                 <MenuItem
