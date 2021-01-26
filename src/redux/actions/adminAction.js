@@ -134,7 +134,6 @@ export const upLoadPoster = (data) => {
     })
     .catch((err) => {
       alert(err.response.data);
-      console.log(err.response.data);
     });
 };
 
@@ -144,10 +143,10 @@ export const addShowTime = (data, token) => {
       .addShowTime(data, token)
       .then((res) => {
         alert("Thêm lịch chiếu thành công");
+        window.location.reload(false);
       })
       .catch((err) => {
         alert(err.response.data);
-        console.log(err.response.data);
       });
   };
 };

@@ -26,7 +26,7 @@ import {
   getMovieId,
   getCinemaNumberId,
 } from "../../helpers/search-manager";
-import { getFullDate } from "../../helpers/time-manager";
+import { getFullDateTime } from "../../helpers/time-manager";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -41,7 +41,7 @@ const ShowTimeForm = (props) => {
       cinema: "",
       number: "",
       movie: "",
-      price: 75000,
+      price: "",
       showTime: null,
     },
     validationSchema: Yup.object({
@@ -58,10 +58,11 @@ const ShowTimeForm = (props) => {
     onSubmit: (values) => {
       const postData = {
         maPhim: getMovieId(movies, values.movie),
-        ngayChieuGioChieu: getFullDate(values.showTime),
+        ngayChieuGioChieu: getFullDateTime(values.showTime),
         maRap: getCinemaNumberId(cinemas, values.cinema, values.number),
         giaVe: values.price,
       };
+
       alert(JSON.stringify(postData, null, 2));
 
       dispatch(addShowTime(postData, token));

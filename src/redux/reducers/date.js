@@ -4,12 +4,11 @@ import {
   GET_FROM_DATE,
   GET_TO_DATE,
 } from "../actions/actionType";
+import { getFullDate } from "../../helpers/time-manager";
 
 let initialState = {
   list: [],
-  selected: "09/01/2019",
-  from: new Date(),
-  to: new Date(),
+  selected: getFullDate(new Date()),
 };
 
 const movies = (state = initialState, action) => {

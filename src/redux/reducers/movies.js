@@ -5,6 +5,7 @@ import {
   FETCH_MOVIES,
   GET_POSTER,
   GET_SELECTED_MOVIE,
+  RESET_STATE,
 } from "../actions/actionType";
 
 let initialState = {
@@ -53,6 +54,9 @@ const movies = (state = initialState, action) => {
     case GET_SELECTED_MOVIE: {
       state.selected = action.payload;
       return { ...state };
+    }
+    case RESET_STATE: {
+      return initialState;
     }
     default:
       return state;
