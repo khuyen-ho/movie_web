@@ -1,8 +1,26 @@
-import { useSelector } from "react-redux";
 import { cinemaSystemService } from "../../services";
-import { GET_CINEMA_INFO, GET_CINEMA_TIME, SET_DATE } from "./actionType";
+import {
+  GET_CINEMA_INFO,
+  GET_CINEMA_TIME,
+  SET_DATE,
+  GET_CINEMA_SYSTEM_INFO,
+} from "./actionType";
 
-export const getCinemaInfo = (id, logo) => {
+export const getCinemaSystemInfo = (id) => {
+  return (dispatch) => {
+    cinemaSystemService
+      .fetchCinemaSystemInfo(id)
+      .then((res) => {
+        dispatch({
+          type: GET_CINEMA_SYSTEM_INFO,
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const getCinemaInfo = (id) => {
   return (dispatch) => {
     cinemaSystemService
       .fetchCinemaInfo(id)

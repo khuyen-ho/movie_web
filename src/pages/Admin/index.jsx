@@ -168,10 +168,10 @@ const Admin = ({ match }) => {
             component={AccountManagement}
           />
           <Route path={`${url}/movie-management`} component={MovieManagement} />
-          {/* <Route
+          <Route
             path={`${url}/showtime-management`}
             component={ShowTimeManagement}
-          /> */}
+          />
           <Route path={`${url}/personal-info`} component={PersonalInfo} />
         </Switch>
         <BackToTop showBelow={300} />

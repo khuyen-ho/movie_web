@@ -1,5 +1,4 @@
 import Axios from "axios";
-
 class ShowTimeService {
   fetchAllCinemaShowTimes() {
     return Axios({

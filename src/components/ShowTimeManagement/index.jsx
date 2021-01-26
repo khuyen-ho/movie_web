@@ -5,7 +5,7 @@ import ShowTimeTable from "../../components/ShowTimeTable";
 const ShowTimeManagement = () => {
   return (
     <>
-      <ShowTimeForm />
+      {/* <ShowTimeForm /> */}
       <ShowTimeTable />
     </>
   );

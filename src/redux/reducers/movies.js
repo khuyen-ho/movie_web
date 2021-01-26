@@ -1,10 +1,10 @@
 import {
-  GET_ALL_MOVIE,
   GET_EDIT_MOVIE_STATUS,
   GET_EDITED_MOVIE,
   GET_KEYWORD_MOVIE,
   FETCH_MOVIES,
   GET_POSTER,
+  GET_SELECTED_MOVIE,
 } from "../actions/actionType";
 
 let initialState = {
@@ -24,6 +24,7 @@ let initialState = {
   },
   keyWord: "",
   poster: null,
+  selected: "",
 };
 
 const movies = (state = initialState, action) => {
@@ -46,6 +47,10 @@ const movies = (state = initialState, action) => {
     }
     case GET_POSTER: {
       state.poster = action.payload;
+      return { ...state };
+    }
+    case GET_SELECTED_MOVIE: {
+      state.selected = action.payload;
       return { ...state };
     }
     default:

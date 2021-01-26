@@ -1,5 +1,4 @@
 import Axios from "axios";
-
 class MovieService {
   fetchMovies(keyWord) {
     const url = keyWord

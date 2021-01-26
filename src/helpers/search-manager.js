@@ -19,6 +19,15 @@ export const getCinemaSystems = (data) => {
   return [];
 };
 
+export const getCinemaSystemId = (data, systemName) => {
+  if (data) {
+    return data
+      .filter((cinemaSystem) => cinemaSystem.tenHeThongRap === systemName)
+      .map((cinemaSystem) => cinemaSystem.maHeThongRap);
+  }
+  return "";
+};
+
 export const getCinemas = (data) => {
   let mapData = [];
   if (data.heThongRapChieu) {
