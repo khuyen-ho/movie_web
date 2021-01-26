@@ -9,7 +9,6 @@ export const getCinemaSystems = (data) => {
       logo: system.logo,
     }));
   }
-
   return [];
 };
 

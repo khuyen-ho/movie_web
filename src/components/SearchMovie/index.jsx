@@ -56,9 +56,6 @@ const SearchMovie = (props) => {
         selectedTime
       )}`
     );
-    dispatch({
-      type: RESET_STATE,
-    });
   };
 
   return (
