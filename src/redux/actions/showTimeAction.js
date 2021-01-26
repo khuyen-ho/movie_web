@@ -38,10 +38,12 @@ export const getMovieShowTimes = (movieId) => {
         });
 
         const systems = getSystems(res.data);
-        dispatch({
-          type: GET_ID_CINEMA_SYSTEM,
-          payload: { id: systems[0].id, logo: systems[0].logo },
-        });
+        if (systems.length > 0) {
+          dispatch({
+            type: GET_ID_CINEMA_SYSTEM,
+            payload: { id: systems[0].id, logo: systems[0].logo },
+          });
+        }
       })
       .catch((err) => console.log(err));
   };

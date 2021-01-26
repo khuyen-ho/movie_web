@@ -27,7 +27,7 @@ export const getCinemaOnDate = (data, systemId, date) => {
       let showTimes = cinemas[i].lichChieuPhim;
 
       for (let j = 0; j < showTimes.length; j++) {
-        if (getFullDate(showTimes[j].ngayChieuGioChieu) === "07/01/2019") {
+        if (getFullDate(showTimes[j].ngayChieuGioChieu) === date) {
           cinemaOnDate.push(cinemas[i]);
           break;
         }

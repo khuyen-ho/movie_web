@@ -22,6 +22,8 @@ const ScheduleMovieDetail = (props) => {
   const selectedDate = useSelector((state) => state.date.selected);
   const cinemas = getCinemaOnDate(data, selectedSystem, selectedDate);
 
+  console.log(data);
+
   useEffect(() => {
     dispatch({ type: GET_DATE_LIST, payload: getShowTimeDates(data) });
   }, [data, dispatch]);
