@@ -54,7 +54,6 @@ const ShowTimeTable = (props) => {
     "Ngày chiếu",
     "Giờ chiếu",
     "Giá vé",
-    "Xoá",
   ];
 
   useEffect(() => {
@@ -84,11 +83,6 @@ const ShowTimeTable = (props) => {
     showTimeDate: getFullDate(showTime.ngayChieuGioChieu),
     startTime: getTime(showTime.ngayChieuGioChieu),
     price: showTime.giaVe,
-    delete: (
-      <IconButton className={styles.iconButton}>
-        <DeleteIcon color="error" />
-      </IconButton>
-    ),
   }));
 
   return (
