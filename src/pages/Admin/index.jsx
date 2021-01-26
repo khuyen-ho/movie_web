@@ -17,10 +17,10 @@ import CollapseMenu from "../../components/CollapseMenu";
 import BackToTop from "../../components/BackToTop";
 import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMovie } from "../../redux/actions/movieAction";
 import { getAccountInfo } from "../../redux/actions/userAction";
 import { getAccountTypes } from "../../redux/actions/adminAction";
 import { useEffect } from "react";
+import { REMOVE_CREDENTIALS } from "../../redux/actions/actionType";
 
 const Admin = ({ match }) => {
   const { url } = match;
@@ -58,6 +58,14 @@ const Admin = ({ match }) => {
   useEffect(() => {
     dispatch(getAccountTypes());
   }, [dispatch, user]);
+
+  const handleLogout = () => {
+    dispatch({
+      type: REMOVE_CREDENTIALS,
+      payload: "",
+    });
+    localStorage.removeItem("userLogin");
+  };
 
   return (
     <Container className={styles.root}>
@@ -143,6 +151,7 @@ const Admin = ({ match }) => {
             to={links[5].path}
             target={links[5].target}
             className={styles.listItem}
+            onClick={handleLogout}
           >
             <Tag
               iconElement={<ExitToAppIcon fontSize="large" />}
