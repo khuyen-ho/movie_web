@@ -119,6 +119,7 @@ const AccountForm = (props) => {
                 icon: styles.icon,
               }}
               label="Loại người dùng"
+              onChange={formik.handleChange}
             >
               {accountTypes.map((type) => (
                 <MenuItem

@@ -35,7 +35,6 @@ export const getFullDateTime = (jsonDate) => {
   let year = formatedDate.getFullYear();
   let hour = formatedDate.getHours();
   let min = formatedDate.getMinutes();
-  let second = formatedDate.getSeconds();
 
   if (date < 10) {
     date = String("0" + date).slice(-2);
@@ -45,9 +44,7 @@ export const getFullDateTime = (jsonDate) => {
     month = String("0" + month).slice(-2);
   }
 
-  return (
-    date + "/" + month + "/" + year + " " + hour + ":" + min + ":" + second
-  );
+  return date + "/" + month + "/" + year + " " + hour + ":" + min;
 };
 
 export const getTime = (jsonDate, duration = 0) => {

@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary.main,
     margin: theme.spacing(1, 0),
+    textAlign: "left",
     fontSize: theme.typography.h6.fontSize,
   },
 
@@ -14,14 +15,39 @@ const useStyles = makeStyles((theme) => ({
 
   info: {
     display: "flex",
-    flexDirection: "column",
+    flexWrap: "wrap",
     justifyContent: "space-between",
-    height: "100%",
+  },
+
+  input: {
+    margin: theme.spacing(1, 0),
+
+    "& .MuiInputBase-root, & .MuiInputLabel-root": {
+      fontSize: theme.typography.body2.fontSize,
+    },
+
+    "& .MuiInputLabel-root": {
+      color: theme.palette.primary.main,
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: theme.shape.borderRadius,
+
+      "& fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&:hover fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+
+    width: "100%",
   },
 
   dropDown: {
     margin: theme.spacing(1, 0),
-    width: "100%",
 
     "& .MuiInputBase-root, & .MuiInputLabel-root": {
       fontSize: theme.typography.body2.fontSize,
@@ -48,6 +74,8 @@ const useStyles = makeStyles((theme) => ({
         borderColor: theme.palette.primary.main,
       },
     },
+
+    width: "100%",
   },
 
   menuItem: {
@@ -72,34 +100,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
   },
 
-  input: {
-    margin: theme.spacing(1, 0),
-    width: "100%",
-
-    "& .MuiInputBase-root, & .MuiInputLabel-root": {
-      fontSize: theme.typography.body2.fontSize,
-    },
-
-    "& .MuiInputLabel-root": {
-      color: theme.palette.primary.main,
-    },
-    "& .MuiOutlinedInput-root": {
-      borderRadius: theme.shape.borderRadius,
-
-      "& fieldset": {
-        borderColor: theme.palette.primary.main,
-      },
-      "&:hover fieldset": {
-        borderColor: theme.palette.primary.main,
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: theme.palette.primary.main,
-      },
-    },
-  },
-
   datePicker: {
     margin: theme.spacing(1, 0),
+    width: "100%",
 
     "& button": {
       outlineStyle: "none",
@@ -128,6 +131,10 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiOutlinedInput-adornedEnd": {
       padding: 0,
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
     },
   },
 

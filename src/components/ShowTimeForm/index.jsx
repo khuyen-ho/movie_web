@@ -26,7 +26,7 @@ import {
   getMovieId,
   getCinemaNumberId,
 } from "../../helpers/search-manager";
-import { getFullDateTime, getFullDate } from "../../helpers/time-manager";
+import { getFullDate } from "../../helpers/time-manager";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -41,7 +41,7 @@ const ShowTimeForm = (props) => {
       cinema: "",
       number: "",
       movie: "",
-      price: 0,
+      price: 75000,
       showTime: null,
     },
     validationSchema: Yup.object({
@@ -73,8 +73,6 @@ const ShowTimeForm = (props) => {
   const cinemaNumbers = getCinemaNumbers(cinemas, formik.values.cinema);
   const movies = useSelector((state) => state.movies.list);
   const token = useSelector((state) => state.userLogin.accessToken);
-
-  console.log(token);
 
   useEffect(() => {
     dispatch(
@@ -149,7 +147,7 @@ const ShowTimeForm = (props) => {
                 >
                   {!cinemas.length && (
                     <MenuItem value="" classes={{ root: styles.menuItem }}>
-                      <em>"Vui lòng chọn hệ thống rạp"</em>
+                      <em>Vui lòng chọn hệ thống rạp</em>
                     </MenuItem>
                   )}
                   {cinemas.map((system) => (
