@@ -1,9 +1,4 @@
-import {
-  GET_SELECTED_DATE,
-  GET_DATE_LIST,
-  GET_FROM_DATE,
-  GET_TO_DATE,
-} from "../actions/actionType";
+import { GET_SELECTED_DATE, GET_DATE_LIST } from "../actions/actionType";
 import { getFullDate } from "../../helpers/time-manager";
 
 let initialState = {
@@ -20,14 +15,6 @@ const movies = (state = initialState, action) => {
     }
     case GET_SELECTED_DATE: {
       state.selected = action.payload;
-      return { ...state };
-    }
-    case GET_FROM_DATE: {
-      state.from = action.payload;
-      return { ...state };
-    }
-    case GET_TO_DATE: {
-      state.to = action.payload;
       return { ...state };
     }
     default:

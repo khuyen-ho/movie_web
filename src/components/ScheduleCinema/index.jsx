@@ -11,6 +11,8 @@ import {
   getMovieOnDate,
 } from "../../helpers/schedule-cinema-manager";
 import { getAllCinemaShowTimes } from "../../redux/actions/showTimeAction";
+import { getFullDate } from "../../helpers/time-manager";
+import { GET_SELECTED_DATE } from "../../redux/actions/actionType";
 
 const ScheduleCinema = (props) => {
   const styles = useStyles();
@@ -34,6 +36,10 @@ const ScheduleCinema = (props) => {
   useEffect(() => {
     dispatch(getAllCinemaShowTimes());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch({ type: GET_SELECTED_DATE, payload: getFullDate(new Date()) });
+  }, []);
 
   return (
     <Container maxWidth="lg" className={styles.container}>

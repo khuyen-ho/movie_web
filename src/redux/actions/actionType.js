@@ -31,8 +31,6 @@ export const GET_ALL_CINEMA_SHOW_TIME = "GET_ALL_CINEMA_SHOW_TIME";
 
 export const GET_SELECTED_DATE = "GET_SELECTED_DATE";
 export const GET_DATE_LIST = "GET_DATE_LIST";
-export const GET_FROM_DATE = "GET_FROM_DATE";
-export const GET_TO_DATE = "GET_DATE_LIST";
 
 export const RESET_STATE = "RESET_STATE";
 
