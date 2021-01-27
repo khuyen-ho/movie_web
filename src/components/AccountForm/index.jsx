@@ -22,7 +22,6 @@ const AccountForm = (props) => {
 
   const user = useSelector((state) => state.userLogin);
   const accountTypes = useSelector((state) => state.accountTypes);
-  console.log(accountTypes);
 
   const isEdited = useSelector((state) => state.accounts.isEdited);
   const editedAccount = useSelector((state) => state.accounts.edited);
@@ -124,7 +123,7 @@ const AccountForm = (props) => {
               {accountTypes.map((type) => (
                 <MenuItem
                   dense
-                  index={type.maLoaiNguoiDung}
+                  key={type.maLoaiNguoiDung}
                   value={type.maLoaiNguoiDung}
                   classes={{ root: styles.dropDownItem }}
                 >

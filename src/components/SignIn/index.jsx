@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  FormControlLabel,
-  Link,
-} from "@material-ui/core";
-import Switch from "@material-ui/core/Switch";
+import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
 import { NavLink, Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";

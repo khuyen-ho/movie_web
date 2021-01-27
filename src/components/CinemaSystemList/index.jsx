@@ -52,12 +52,12 @@ const CinemaSystemList = ({
 
 CinemaSystemList.propTypes = {
   systemList: PropTypes.array,
-  defaultCinema: PropTypes.string,
+  defaultCinema: PropTypes.object,
   showList: PropTypes.element,
 };
 
 CinemaSystemList.defaultProps = {
-  defaultCinema: "",
+  defaultCinema: {},
   systemList: [],
 };
 

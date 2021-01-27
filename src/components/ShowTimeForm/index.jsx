@@ -114,7 +114,7 @@ const ShowTimeForm = (props) => {
                   {cinemaSystems.map((system) => (
                     <MenuItem
                       dense
-                      index={system.maHeThongRap}
+                      key={system.maHeThongRap}
                       value={system.tenHeThongRap}
                       classes={{ root: styles.dropDownItem }}
                     >
@@ -152,7 +152,7 @@ const ShowTimeForm = (props) => {
                   {cinemas.map((system) => (
                     <MenuItem
                       dense
-                      index={system.maCumRap}
+                      key={system.maCumRap}
                       value={system.tenCumRap}
                       classes={{ root: styles.dropDownItem }}
                     >
@@ -236,7 +236,7 @@ const ShowTimeForm = (props) => {
                   {movies.map((movie) => (
                     <MenuItem
                       dense
-                      index={movie.maPhim}
+                      key={movie.maPhim}
                       value={movie.tenPhim}
                       classes={{ root: styles.dropDownItem }}
                     >
@@ -296,10 +296,10 @@ const ShowTimeForm = (props) => {
                     }
                     style={{ width: "100%" }}
                   />
-                  {formik.errors.showTime ? (
-                    <FormHelperText>{formik.errors.showTime}</FormHelperText>
-                  ) : null}
                 </MuiPickersUtilsProvider>
+                {formik.errors.showTime ? (
+                  <FormHelperText>{formik.errors.showTime}</FormHelperText>
+                ) : null}
               </Box>
             </Box>
           </Grid>

@@ -2,9 +2,7 @@ import {
   GET_CINEMA_INFO,
   GET_ID_CINEMA,
   RESET_STATE,
-  GET_SELECTED_ADD_CINEMA,
   GET_ADD_CINEMA_INFO,
-  GET_SELECTED_CINEMA_NUMBER,
 } from "../actions/actionType";
 
 let initialState = {

@@ -10,7 +10,6 @@ import {
   GET_SEARCH_CINEMA,
   GET_SEARCH_DATE,
   GET_SEARCH_SHOW_TIME,
-  RESET_STATE,
 } from "../../redux/actions/actionType";
 import {
   getMovieId,

@@ -207,12 +207,10 @@ const MovieForm = (props) => {
                     }
                     style={{ width: "100%" }}
                   />
-                  {formik.errors.ngayKhoiChieu ? (
-                    <FormHelperText>
-                      {formik.errors.ngayKhoiChieu}
-                    </FormHelperText>
-                  ) : null}
                 </MuiPickersUtilsProvider>
+                {formik.errors.ngayKhoiChieu ? (
+                  <FormHelperText>{formik.errors.ngayKhoiChieu}</FormHelperText>
+                ) : null}
               </Box>
 
               <TextField

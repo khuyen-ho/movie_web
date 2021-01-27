@@ -39,7 +39,7 @@ const ScheduleCinema = (props) => {
 
   useEffect(() => {
     dispatch({ type: GET_SELECTED_DATE, payload: getFullDate(new Date()) });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container maxWidth="lg" className={styles.container}>

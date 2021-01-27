@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropsType from "prop-types";
 import { Box } from "@material-ui/core";
 import StartTime from "../StartTime";
 import useStyles from "./style";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const StarTimeList = ({ list, ...props }) => {
   const styles = useStyles();
-  const currentDate = useSelector((state) => state.showTimes.selected);
-  const url = useSelector((state) => state.currentPage.url);
 
   return (
     <Box className={styles.root}>

@@ -6,7 +6,6 @@ import useStyles from "./style";
 import Poster from "../Poster";
 import Rating from "../Rating";
 import { getFullDate } from "../../helpers/time-manager";
-import { Link } from "react-router-dom";
 import { RESET_STATE } from "../../redux/actions/actionType";
 
 const MovieItem = ({

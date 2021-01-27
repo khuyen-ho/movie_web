@@ -51,16 +51,14 @@ const Header = (props) => {
     for (let i = 0; i < 2; i++) {
       url !== "/home"
         ? navLinks.push(
-            <NavLink key={i} to="/home">
-              <Link
-                href={links[i].path}
-                className={styles.link}
-                key={i}
-                variant="subtitle2"
-              >
-                {links[i].title}
-              </Link>
-            </NavLink>
+            <Link
+              href={links[i].path}
+              className={styles.link}
+              key={i}
+              variant="subtitle2"
+            >
+              {links[i].title}
+            </Link>
           )
         : navLinks.push(
             <Link

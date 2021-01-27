@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@material-ui/core";
 import SignInUpNavBar from "../../components/SignInUpNavBar";
-// import SignIn from "../../components/SignIn";
 import useStyles from "./style";
 import SignIn from "../../components/SignIn";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,11 +11,12 @@ import { useEffect } from "react";
 const SignInPage = (props) => {
   const styles = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getCurrentWebPage(props.match.url))
-  },[]);
+    dispatch(getCurrentWebPage(props.match.url));
+  }, [dispatch, props.match.url]);
+
   if (!userLogin) {
     return (
       <Box className={styles.root}>
@@ -27,11 +27,6 @@ const SignInPage = (props) => {
         <Box className={styles.center}>
           <SignIn props={props} />
         </Box>
-
-        {/* <Box className={styles.center}>
-          <SignUp />
-        </Box>
-  */}
       </Box>
     );
   } else {
