@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
-import { NavLink, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { login } from "../../redux/actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,15 +58,13 @@ const SignIn = ({ props }) => {
               </Button>
 
               <Box className={styles.bottomGroup}>
-                <NavLink to="/signup">
-                  <Link
-                    href="#"
-                    className={`${styles.label} ${styles.link}`}
-                    variant="subtitle1"
-                  >
-                    Đăng ký tài khoản
-                  </Link>
-                </NavLink>
+                <Link
+                  href="/signup"
+                  className={`${styles.label} ${styles.link}`}
+                  variant="subtitle1"
+                >
+                  Đăng ký tài khoản
+                </Link>
               </Box>
             </Box>
           </Form>

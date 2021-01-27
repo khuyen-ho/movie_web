@@ -1,11 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Box, Typography } from "@material-ui/core";
-// import DatePicker from "../DatePicker";
 import Table from "../DataTable";
 import { getFullDate, getTime } from "../../helpers/time-manager";
 import { flatArray } from "../../helpers/array-manager";
-// import { GET_FROM_DATE } from "../../redux/actions/actionType";
 import useStyles from "./style";
 
 const BookingInfo = (props) => {
@@ -41,7 +39,6 @@ const BookingInfo = (props) => {
 
     data = flatArray(data);
   }
-  console.log(data);
 
   return (
     <>
@@ -49,19 +46,6 @@ const BookingInfo = (props) => {
         <Typography className={styles.title} component="h1" variant="h5">
           Thông tin đặt vé
         </Typography>
-
-        {/* <Box className={styles.dateGroup}>
-        <Box className={styles.datePicker}>
-          <DatePicker
-            label="Từ ngày"
-            date={fromDate}
-            dispatchType={GET_FROM_DATE}
-          />
-        </Box>
-        <Box className={styles.datePicker}>
-          <DatePicker label="Đến ngày" />
-        </Box>
-      </Box> */}
 
         <Box className={styles.table}>
           <Table

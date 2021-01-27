@@ -33,6 +33,7 @@ const BookingNavBar = ({ info }) => {
             color={theme.palette.secondary.main}
             hoverColor={theme.palette.secondary.main}
             title="ctlong"
+            noPointer
           />
         </Box>
       </Toolbar>

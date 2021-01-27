@@ -11,8 +11,6 @@ import { movieService } from "../../services";
 export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {
     {
-      //call api
-      // connector({
       Axios({
         url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP00&soTrang=${pageNumber}&soPhanTuTrenTrang=${itemsPerPage}`,
         method: "GET",
@@ -34,8 +32,6 @@ export const getMovieList = (pageNumber = 1, itemsPerPage = 12) => {
 export const getCinemaList = () => {
   return (dispatch) => {
     {
-      //call api
-      // connector({
       Axios({
         url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
         method: "GET",
@@ -54,13 +50,9 @@ export const getCinemaList = () => {
   };
 };
 
-//get info of smaller cinemas
 export const getCinemaDetailList = (idCinema) => {
-  //console.log(idCinema);
   return (dispatch) => {
     {
-      //call api
-      // connector({
       Axios({
         url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${idCinema}`,
         method: "GET",

@@ -1,15 +1,12 @@
 import Axios from "axios";
-
 class BookingService {
   fetchSeatList(idShowtime) {
-    // console.log(idShowtime);
     return Axios({
       method: "GET",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${idShowtime}`,
     });
   }
   bookTicket(data, token) {
-    // console.log(idShowtime);
     return Axios({
       method: "POST",
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`,

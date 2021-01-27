@@ -2,7 +2,6 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Link } from "@material-ui/core";
 import useStyles from "./style";
-import { NavLink } from "react-router-dom";
 import { Formik, Form, ErrorMessage } from "formik";
 import { signUpSchema } from "../../services/user";
 import { userService } from "../../services";
@@ -142,15 +141,13 @@ const SignUp = (props) => {
             </Button>
             <Typography component="span" className={styles.label}>
               {`Đã có tài khoản? `}
-              <NavLink to="signin">
-                <Link
-                  href="#"
-                  className={`${styles.label} ${styles.link}`}
-                  variant="subtitle1"
-                >
-                  Đăng nhập
-                </Link>
-              </NavLink>
+              <Link
+                href="/signin"
+                className={`${styles.label} ${styles.link}`}
+                variant="subtitle1"
+              >
+                Đăng nhập
+              </Link>
             </Typography>
           </Box>
         </Form>

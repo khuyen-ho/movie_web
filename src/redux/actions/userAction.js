@@ -6,7 +6,6 @@ export const login = (user) => {
     userService
       .signIn(user)
       .then((res) => {
-        // console.log(res.data);
         dispatch({
           type: FETCH_CREDENTIALS,
           payload: res.data,
@@ -15,7 +14,6 @@ export const login = (user) => {
       })
       .catch((err) => {
         alert("Đăng nhập thất bại");
-        console.log(err);
       });
   };
 };

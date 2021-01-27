@@ -1,7 +1,6 @@
 import { Box, Container, Grid, Link, Typography } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 const socials = [
   {
@@ -53,7 +52,6 @@ const cinemaSystem = [
 const Footer = (props) => {
   const styles = useStyles();
   const { url } = useSelector((state) => state.currentPage);
-  // console.log(url);
 
   return (
     <Box className={styles.root}>
@@ -117,22 +115,22 @@ const Footer = (props) => {
                   </Link>
                 </>
               ) : (
-                <NavLink to="/home">
+                <>
                   <Link
-                    href="#movieList"
+                    href="/home#movieList"
                     className={styles.link}
                     variant="body2"
                   >
                     Lịch chiếu
                   </Link>
                   <Link
-                    href="#scheduleCinema"
+                    href="/home#scheduleCinema"
                     className={styles.link}
                     variant="body2"
                   >
                     Cụm rạp
                   </Link>
-                </NavLink>
+                </>
               )}
             </Box>
           </Grid>

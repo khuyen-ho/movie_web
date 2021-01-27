@@ -33,8 +33,8 @@ const Header = (props) => {
   }, [dispatch]);
 
   const links = [
-    { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },
-    { title: "Cụm Rạp", path: "/home#scheduleCinema", target: "_self" },
+    { title: "Lịch Chiếu", path: "#movieList", target: "_self" },
+    { title: "Cụm Rạp", path: "#scheduleCinema", target: "_self" },
   ];
 
   if (!userLogin) {
@@ -49,7 +49,7 @@ const Header = (props) => {
   const createNavlinks = () => {
     const navLinks = [];
     for (let i = 0; i < 2; i++) {
-      url !== "/home"
+      url === "/home"
         ? navLinks.push(
             <Link
               href={links[i].path}
@@ -62,7 +62,7 @@ const Header = (props) => {
           )
         : navLinks.push(
             <Link
-              href={links[i].path}
+              href={`/home${links[i].path}`}
               className={styles.link}
               key={i}
               variant="subtitle2"
