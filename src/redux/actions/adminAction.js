@@ -129,7 +129,6 @@ export const upLoadPoster = (data) => {
   adminService
     .upLoadPoster(data)
     .then((res) => {
-      alert("Upload poster thành công");
       window.location.reload(false);
     })
     .catch((err) => {

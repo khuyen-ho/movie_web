@@ -63,8 +63,6 @@ const ShowTimeForm = (props) => {
         giaVe: values.price,
       };
 
-      alert(JSON.stringify(postData, null, 2));
-
       dispatch(addShowTime(postData, token));
     },
   });

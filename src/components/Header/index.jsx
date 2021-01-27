@@ -36,11 +36,14 @@ const Header = (props) => {
     { title: "Lịch Chiếu", path: "/home#movieList", target: "_self" },
     { title: "Cụm Rạp", path: "/home#scheduleCinema", target: "_self" },
   ];
+
   if (!userLogin) {
     links.push(
       { title: "Đăng Nhập", path: "/signin", target: "_self" },
       { title: "Đăng Ký", path: "/signup", target: "_self" }
     );
+  } else {
+    links.push({ title: "Đăng xuất", path: "/signin", target: "_self" });
   }
 
   const createNavlinks = () => {
@@ -115,7 +118,7 @@ const Header = (props) => {
         {userLogin ? (
           <>
             {userLogin.maLoaiNguoiDung === "QuanTri" ? (
-              <NavLink to="/admin">
+              <NavLink to="/admin" className={styles.icon}>
                 <Tag
                   iconElement={<SupervisorAccountIcon fontSize="large" />}
                   color={theme.palette.yellow.dark}

@@ -100,6 +100,12 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+
+  icon: {
+    [theme.breakpoints.down("lg")]: {
+      margin: theme.spacing(0.5, 0),
+    },
+  },
 }));
 
 export const CssMenu = withStyles((theme) => ({
